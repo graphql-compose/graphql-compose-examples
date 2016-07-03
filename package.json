@@ -55,11 +55,7 @@
     "rimraf": "^2.5.2"
   },
   "scripts": {
-    "build": "npm run build-cjs && npm run build-es",
-    "build-cjs": "rimraf lib && BABEL_ENV=cjs babel src -d lib",
-    "build-es": "rimraf es && BABEL_ENV=es babel src -d es",
     "lint": "eslint src test *.js",
-    "prepublish": "npm run build",
     "start": "./node_modules/.bin/babel-node index.js",
     "test": "echo 123"
   }

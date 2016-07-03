@@ -3,8 +3,8 @@ import graphqlHTTP from 'express-graphql';
 import GraphQLSchema from './graphqlSchema';
 import mongoose from 'mongoose';
 
-const expressPort = 3000;
-const mongoUri = 'mongodb://localhost:27017/graphql-compose-mongoose';
+const expressPort = process.env.PORT || 3000;
+const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/graphql-compose-mongoose';
 
 mongoose.connect(mongoUri);
 const db = mongoose.connection;
