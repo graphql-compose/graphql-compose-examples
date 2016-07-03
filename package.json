@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/nodkz/graphql-compose-mongoose-example",
   "dependencies": {
+    "babel-cli": "^6.7.7",
     "babel-runtime": "^6.6.1",
     "express": "4.13.4",
     "express-graphql": "0.5.2",
@@ -29,7 +30,6 @@
     "mongoose": "4.4.19"
   },
   "devDependencies": {
-    "babel-cli": "^6.7.7",
     "babel-core": "^6.7.7",
     "babel-eslint": "^6.0.3",
     "babel-jest": "^12.1.0",
@@ -55,7 +55,6 @@
     "rimraf": "^2.5.2"
   },
   "scripts": {
-    "lint": "eslint src test *.js",
     "start": "./node_modules/.bin/babel-node index.js",
     "test": "echo 123"
   }
