@@ -1,6 +1,6 @@
 ## This is example app of `graphql-compose-mongoose`
 
-It is available on Heroku: https://graphql-compose-mongoose.herokuapp.com/
+Live example on Heroku: https://graphql-compose-mongoose.herokuapp.com/
 
 ```
 npm install
@@ -31,3 +31,7 @@ const UserSchema = new mongoose.Schema({
   },
 });
 ```
+
+<img width="982" alt="screen shot 2016-07-03 at 15 23 03" src="https://cloud.githubusercontent.com/assets/1946920/16544733/9ef9b146-4132-11e6-8a90-8702d2474cfd.png">
+
+<img width="1114" alt="screen shot 2016-07-03 at 15 25 41" src="https://cloud.githubusercontent.com/assets/1946920/16544735/a7e0e66c-4132-11e6-8e6a-e9ece5a7cc46.png">
