@@ -30,7 +30,7 @@ const UserSchema = new mongoose.Schema({
     enum: ['male', 'female', 'ladyboy'],
   },
 });
-const UserModel = mongoose.model('UserModel', UserSchema);
+const UserModel = mongoose.model('User', UserSchema);
 
 
 
