@@ -1,6 +1,6 @@
 ## This is example app of `graphql-compose-mongoose`
 
-Live example on Heroku: https://graphql-compose-mongoose.herokuapp.com/
+Live example on Heroku: [https://graphql-compose-mongoose.herokuapp.com/](https://graphql-compose-mongoose.herokuapp.com/?query=%7B%0A%20%20userMany(limit%3A%205)%20%7B%0A%20%20%20%20_id%0A%20%20%20%20name%0A%20%20%20%20age%0A%20%20%7D%0A%7D)
 
 ```
 npm install
