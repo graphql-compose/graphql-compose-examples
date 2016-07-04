@@ -39,6 +39,7 @@
     "rimraf": "^2.5.2"
   },
   "scripts": {
+    "build": "./node_modules/.bin/babel-node misc/buildSchema.js", 
     "start": "./node_modules/.bin/babel-node index.js",
     "test": "echo 123"
   }
