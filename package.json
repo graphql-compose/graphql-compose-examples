@@ -34,9 +34,9 @@
     "express": "4.13.4",
     "express-graphql": "0.5.2",
     "graphql": "^0.5.0",
-    "graphql-compose": "^0.0.5",
-    "graphql-compose-mongoose": "^0.0.6",
-    "graphql-compose-relay": "^0.0.3",
+    "graphql-compose": "^0.0.6",
+    "graphql-compose-mongoose": "^1.0.0",
+    "graphql-compose-relay": "^1.0.0",
     "mongoose": "4.4.19",
     "rimraf": "^2.5.2"
   },

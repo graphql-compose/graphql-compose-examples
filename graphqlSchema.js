@@ -27,6 +27,7 @@ const graphqlSchema = new GraphQLSchema({
       userOne: resolvers.get('findOne').getFieldConfig(),
       userMany: resolvers.get('findMany').getFieldConfig(),
       userCount: resolvers.get('count').getFieldConfig(),
+      userConnection: resolvers.get('connection').getFieldConfig(),
     },
   }),
   mutation: new GraphQLObjectType({
