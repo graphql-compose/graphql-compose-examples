@@ -52,7 +52,7 @@ server.get('/', (req, res) => {
         <div class="container">
           <h1>Graphql-compose examples</h1>
           <a href="/mongoose?query=%7B%0A%20%20userMany(limit%3A%205)%20%7B%0A%20%20%20%20_id%0A%20%20%20%20name%0A%20%20%20%20age%0A%20%20%7D%0A%7D">Vanilla mongoose schema</a><br/>
-          <a href="/mongoose-relay?">Mongoose schema with Relay</a><br/>
+          <a href="/mongoose-relay?query=%7B%0A%20%20userConnection(first%3A3)%20%7B%0A%20%20%20%20count%0A%20%20%20%20edges%20%7B%0A%20%20%20%20%20%20cursor%0A%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20_id%0A%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D">Mongoose schema with Relay</a><br/>
         </div>
       </body>
     </html>
