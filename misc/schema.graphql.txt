@@ -148,8 +148,8 @@ scalar ConnectionCursor
 input CreateOneUserInput {
   name: String
   age: Float
-  languages: [UserLanguagesLanguages]
-  contacts: UserContactsContacts
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
   gender: EnumUserGender
 }
 
@@ -173,8 +173,8 @@ enum EnumUserLanguagesSkill {
 input FilterFindManyUserInput {
   name: String
   age: Float
-  languages: [UserLanguagesLanguages]
-  contacts: UserContactsContacts
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID
   _operators: OperatorsFilterFindManyUserInput
@@ -183,8 +183,8 @@ input FilterFindManyUserInput {
 input FilterFindOneUserInput {
   name: String
   age: Float
-  languages: [UserLanguagesLanguages]
-  contacts: UserContactsContacts
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID
   _operators: OperatorsFilterFindOneUserInput
@@ -193,8 +193,8 @@ input FilterFindOneUserInput {
 input FilterRemoveManyUserInput {
   name: String
   age: Float
-  languages: [UserLanguagesLanguages]
-  contacts: UserContactsContacts
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID
   _operators: OperatorsFilterRemoveManyUserInput
@@ -203,8 +203,8 @@ input FilterRemoveManyUserInput {
 input FilterRemoveOneUserInput {
   name: String
   age: Float
-  languages: [UserLanguagesLanguages]
-  contacts: UserContactsContacts
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID
   _operators: OperatorsFilterRemoveOneUserInput
@@ -213,8 +213,8 @@ input FilterRemoveOneUserInput {
 input FilterUpdateManyUserInput {
   name: String
   age: Float
-  languages: [UserLanguagesLanguages]
-  contacts: UserContactsContacts
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID
   _operators: OperatorsFilterUpdateManyUserInput
@@ -223,8 +223,8 @@ input FilterUpdateManyUserInput {
 input FilterUpdateOneUserInput {
   name: String
   age: Float
-  languages: [UserLanguagesLanguages]
-  contacts: UserContactsContacts
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID
   _operators: OperatorsFilterUpdateOneUserInput
@@ -233,8 +233,8 @@ input FilterUpdateOneUserInput {
 input FilterUserInput {
   name: String
   age: Float
-  languages: [UserLanguagesLanguages]
-  contacts: UserContactsContacts
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID
   _operators: OperatorsFilterUserInput
@@ -367,8 +367,8 @@ enum SortUpdateOneUserInput {
 input UpdateByIdUserInput {
   name: String
   age: Float
-  languages: [UserLanguagesLanguages]
-  contacts: UserContactsContacts
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID!
 }
@@ -381,8 +381,8 @@ type UpdateByIdUserPayload {
 input UpdateManyUserInput {
   name: String
   age: Float
-  languages: [UserLanguagesLanguages]
-  contacts: UserContactsContacts
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
   gender: EnumUserGender
 }
 
@@ -393,8 +393,8 @@ type UpdateManyUserPayload {
 input UpdateOneUserInput {
   name: String
   age: Float
-  languages: [UserLanguagesLanguages]
-  contacts: UserContactsContacts
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
   gender: EnumUserGender
 }
 
@@ -423,7 +423,7 @@ type UserContacts {
   phones: [String]
 }
 
-input UserContactsContacts {
+input UserContactsInput {
   email: String
   phones: [String]
 }
@@ -438,7 +438,7 @@ type UserLanguages {
   skill: EnumUserLanguagesSkill
 }
 
-input UserLanguagesLanguages {
+input UserUserLanguagesInput {
   language: String
   skill: EnumUserLanguagesSkill
 }

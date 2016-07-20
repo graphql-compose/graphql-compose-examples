@@ -51,8 +51,21 @@ server.get('/', (req, res) => {
       <body>
         <div class="container">
           <h1>Graphql-compose examples</h1>
-          <a href="/mongoose?query=%7B%0A%20%20userMany(limit%3A%205)%20%7B%0A%20%20%20%20_id%0A%20%20%20%20name%0A%20%20%20%20age%0A%20%20%7D%0A%7D">Vanilla mongoose schema</a><br/>
-          <a href="/mongoose-relay?query=%7B%0A%20%20userConnection(first%3A3)%20%7B%0A%20%20%20%20count%0A%20%20%20%20edges%20%7B%0A%20%20%20%20%20%20cursor%0A%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20_id%0A%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D">Mongoose schema with Relay</a><br/>
+          <h4>1. <a href="/mongoose?query=%7B%0A%20%20userMany(limit%3A%205)%20%7B%0A%20%20%20%20_id%0A%20%20%20%20name%0A%20%20%20%20age%0A%20%20%7D%0A%7D">Vanilla mongoose schema</a></h4>
+          <h4>2. <a href="/mongoose-relay?query=%7B%0A%20%20userConnection(first%3A3)%20%7B%0A%20%20%20%20count%0A%20%20%20%20edges%20%7B%0A%20%20%20%20%20%20cursor%0A%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20_id%0A%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D">Mongoose schema with Relay</a></h4>
+
+          <br /><br /><br /><br />
+          <h3>Source code:</h3>
+          <a href="https://github.com/nodkz/graphql-compose-mongoose-example" target="_blank">https://github.com/nodkz/graphql-compose-mongoose-example</a>
+
+          <h3>Used packages:</h3>
+          <a href="https://github.com/nodkz/graphql-compose" target="_blank">https://github.com/nodkz/graphql-compose</a>
+          <br/>
+          <a href="https://github.com/nodkz/graphql-compose-mongoose" target="_blank">https://github.com/nodkz/graphql-compose-mongoose</a>
+          <br/>
+          <a href="https://github.com/nodkz/graphql-compose-relay" target="_blank">https://github.com/nodkz/graphql-compose-relay</a>
+          <br/>
+          <a href="https://github.com/nodkz/graphql-compose-connection" target="_blank">https://github.com/nodkz/graphql-compose-connection</a>
         </div>
       </body>
     </html>

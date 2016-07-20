@@ -281,7 +281,7 @@
                     "name": "SortConnectionUserEnum",
                     "ofType": null
                   },
-                  "defaultValue": "\"_ID_DESC\""
+                  "defaultValue": "_ID_DESC"
                 }
               ],
               "type": {
@@ -626,7 +626,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserLanguagesLanguages",
+                  "name": "UserUserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -637,7 +637,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsContacts",
+                "name": "UserContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -679,7 +679,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "UserLanguagesLanguages",
+          "name": "UserUserLanguagesInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -710,7 +710,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "UserContactsContacts",
+          "name": "UserContactsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -1021,7 +1021,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserLanguagesLanguages",
+                  "name": "UserUserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -1032,7 +1032,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsContacts",
+                "name": "UserContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1350,7 +1350,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserLanguagesLanguages",
+                  "name": "UserUserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -1361,7 +1361,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsContacts",
+                "name": "UserContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2124,7 +2124,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserLanguagesLanguages",
+                  "name": "UserUserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -2135,7 +2135,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsContacts",
+                "name": "UserContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2224,7 +2224,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserLanguagesLanguages",
+                  "name": "UserUserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -2235,7 +2235,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsContacts",
+                "name": "UserContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2338,7 +2338,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserLanguagesLanguages",
+                  "name": "UserUserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -2349,7 +2349,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsContacts",
+                "name": "UserContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2403,7 +2403,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserLanguagesLanguages",
+                  "name": "UserUserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -2414,7 +2414,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsContacts",
+                "name": "UserContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2767,7 +2767,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserLanguagesLanguages",
+                  "name": "UserUserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -2778,7 +2778,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsContacts",
+                "name": "UserContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2832,7 +2832,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserLanguagesLanguages",
+                  "name": "UserUserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -2843,7 +2843,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsContacts",
+                "name": "UserContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -3219,7 +3219,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserLanguagesLanguages",
+                  "name": "UserUserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -3230,7 +3230,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsContacts",
+                "name": "UserContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -3583,7 +3583,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserLanguagesLanguages",
+                  "name": "UserUserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -3594,7 +3594,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsContacts",
+                "name": "UserContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -3886,7 +3886,8 @@
                     "name": null,
                     "ofType": {
                       "kind": "OBJECT",
-                      "name": "__Type"
+                      "name": "__Type",
+                      "ofType": null
                     }
                   }
                 }
@@ -3949,7 +3950,8 @@
                     "name": null,
                     "ofType": {
                       "kind": "OBJECT",
-                      "name": "__Directive"
+                      "name": "__Directive",
+                      "ofType": null
                     }
                   }
                 }
@@ -4255,7 +4257,8 @@
                     "name": null,
                     "ofType": {
                       "kind": "OBJECT",
-                      "name": "__InputValue"
+                      "name": "__InputValue",
+                      "ofType": null
                     }
                   }
                 }
@@ -4450,7 +4453,7 @@
         {
           "kind": "OBJECT",
           "name": "__Directive",
-          "description": "A Directive provides a way to describe alternate runtime execution and type validation behavior in a GraphQL document.\n\nIn some cases, you need to provide options to alter GraphQL’s execution behavior in ways field arguments will not suffice, such as conditionally including or skipping a field. Directives provide this by describing additional information to the executor.",
+          "description": "A Directive provides a way to describe alternate runtime execution and type validation behavior in a GraphQL document.\n\nIn some cases, you need to provide options to alter GraphQL's execution behavior in ways field arguments will not suffice, such as conditionally including or skipping a field. Directives provide this by describing additional information to the executor.",
           "fields": [
             {
               "name": "name",
@@ -4495,7 +4498,8 @@
                     "name": null,
                     "ofType": {
                       "kind": "ENUM",
-                      "name": "__DirectiveLocation"
+                      "name": "__DirectiveLocation",
+                      "ofType": null
                     }
                   }
                 }
@@ -4518,7 +4522,8 @@
                     "name": null,
                     "ofType": {
                       "kind": "OBJECT",
-                      "name": "__InputValue"
+                      "name": "__InputValue",
+                      "ofType": null
                     }
                   }
                 }
@@ -4629,6 +4634,72 @@
               "description": "Location adjacent to an inline fragment.",
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "SCHEMA",
+              "description": "Location adjacent to a schema definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SCALAR",
+              "description": "Location adjacent to a scalar definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "OBJECT",
+              "description": "Location adjacent to an object type definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FIELD_DEFINITION",
+              "description": "Location adjacent to a field definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ARGUMENT_DEFINITION",
+              "description": "Location adjacent to an argument definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INTERFACE",
+              "description": "Location adjacent to an interface definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNION",
+              "description": "Location adjacent to a union definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ENUM",
+              "description": "Location adjacent to an enum definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ENUM_VALUE",
+              "description": "Location adjacent to an enum value definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INPUT_OBJECT",
+              "description": "Location adjacent to an input object type definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INPUT_FIELD_DEFINITION",
+              "description": "Location adjacent to an input object field definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "possibleTypes": null
@@ -4682,6 +4753,26 @@
                 }
               },
               "defaultValue": null
+            }
+          ]
+        },
+        {
+          "name": "deprecated",
+          "description": "Marks an element of a GraphQL schema as no longer supported.",
+          "locations": [
+            "FIELD_DEFINITION",
+            "ENUM_VALUE"
+          ],
+          "args": [
+            {
+              "name": "reason",
+              "description": "Explains why this element was deprecated, usually also including a suggestion for how to access supported similar data. Formatted in [Markdown](https://daringfireball.net/projects/markdown/).",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": "\"No longer supported\""
             }
           ]
         }

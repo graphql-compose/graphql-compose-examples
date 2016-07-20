@@ -188,8 +188,8 @@ scalar ConnectionCursor
 input CreateOneUserInput {
   name: String
   age: Float
-  languages: Generic
-  contacts: UserContactsContacts
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
   gender: EnumUserGender
 }
 
@@ -204,11 +204,17 @@ enum EnumUserGender {
   ladyboy
 }
 
+enum EnumUserLanguagesSkill {
+  basic
+  fluent
+  native
+}
+
 input FilterFindManyUserInput {
   name: String
   age: Float
-  languages: Generic
-  contacts: UserContactsContacts
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID
   _operators: OperatorsFilterFindManyUserInput
@@ -217,8 +223,8 @@ input FilterFindManyUserInput {
 input FilterFindOneUserInput {
   name: String
   age: Float
-  languages: Generic
-  contacts: UserContactsContacts
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID
   _operators: OperatorsFilterFindOneUserInput
@@ -227,8 +233,8 @@ input FilterFindOneUserInput {
 input FilterRemoveManyUserInput {
   name: String
   age: Float
-  languages: Generic
-  contacts: UserContactsContacts
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID
   _operators: OperatorsFilterRemoveManyUserInput
@@ -237,8 +243,8 @@ input FilterRemoveManyUserInput {
 input FilterRemoveOneUserInput {
   name: String
   age: Float
-  languages: Generic
-  contacts: UserContactsContacts
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID
   _operators: OperatorsFilterRemoveOneUserInput
@@ -247,8 +253,8 @@ input FilterRemoveOneUserInput {
 input FilterUpdateManyUserInput {
   name: String
   age: Float
-  languages: Generic
-  contacts: UserContactsContacts
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID
   _operators: OperatorsFilterUpdateManyUserInput
@@ -257,8 +263,8 @@ input FilterUpdateManyUserInput {
 input FilterUpdateOneUserInput {
   name: String
   age: Float
-  languages: Generic
-  contacts: UserContactsContacts
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID
   _operators: OperatorsFilterUpdateOneUserInput
@@ -267,14 +273,12 @@ input FilterUpdateOneUserInput {
 input FilterUserInput {
   name: String
   age: Float
-  languages: Generic
-  contacts: UserContactsContacts
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID
   _operators: OperatorsFilterUserInput
 }
-
-scalar Generic
 
 scalar MongoID
 
@@ -403,8 +407,8 @@ enum SortUpdateOneUserInput {
 input UpdateByIdUserInput {
   name: String
   age: Float
-  languages: Generic
-  contacts: UserContactsContacts
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID!
 }
@@ -417,8 +421,8 @@ type UpdateByIdUserPayload {
 input UpdateManyUserInput {
   name: String
   age: Float
-  languages: Generic
-  contacts: UserContactsContacts
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
   gender: EnumUserGender
 }
 
@@ -429,8 +433,8 @@ type UpdateManyUserPayload {
 input UpdateOneUserInput {
   name: String
   age: Float
-  languages: Generic
-  contacts: UserContactsContacts
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
   gender: EnumUserGender
 }
 
@@ -442,7 +446,7 @@ type UpdateOneUserPayload {
 type User {
   name: String
   age: Float
-  languages: Generic
+  languages: [UserLanguages]
   contacts: UserContacts
   gender: EnumUserGender
   _id: MongoID
@@ -459,7 +463,7 @@ type UserContacts {
   phones: [String]
 }
 
-input UserContactsContacts {
+input UserContactsInput {
   email: String
   phones: [String]
 }
@@ -467,5 +471,15 @@ input UserContactsContacts {
 type UserEdge {
   node: User
   cursor: ConnectionCursor!
+}
+
+type UserLanguages {
+  language: String
+  skill: EnumUserLanguagesSkill
+}
+
+input UserUserLanguagesInput {
+  language: String
+  skill: EnumUserLanguagesSkill
 }
 ```

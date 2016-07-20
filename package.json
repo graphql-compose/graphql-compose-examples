@@ -33,11 +33,11 @@
     "babel-register": "^6.7.2",
     "express": "4.13.4",
     "express-graphql": "0.5.2",
-    "graphql": "^0.5.0",
-    "graphql-compose": "^0.0.8",
-    "graphql-compose-connection": "^1.0.1",
-    "graphql-compose-mongoose": "^1.0.3",
-    "graphql-compose-relay": "^1.0.1",
+    "graphql": "^0.6.1",
+    "graphql-compose": "0.0.9",
+    "graphql-compose-connection": "1.0.1",
+    "graphql-compose-mongoose": "1.0.4",
+    "graphql-compose-relay": "1.0.2",
     "mongoose": "4.4.19",
     "rimraf": "^2.5.2"
   },
@@ -45,7 +45,7 @@
     "build": "./node_modules/.bin/babel-node misc/buildSchema.js",
     "start": "./node_modules/.bin/babel-node index.js",
     "test": "echo 123",
-    "link-compose-libs": "npm link graphql graphql-compose graphql-compose-connection graphql-compose-mongoose graphql-compose-relay",
-    "unlink-compose-libs": "npm unlink graphql graphql-compose graphql-compose-connection graphql-compose-mongoose graphql-compose-relay && npm i"
+    "link-compose-libs": "npm link graphql graphql-compose graphql-compose-connection graphql-compose-mongoose graphql-compose-relay mongoose",
+    "unlink-compose-libs": "npm unlink graphql graphql-compose graphql-compose-connection graphql-compose-mongoose graphql-compose-relay mongoose && npm i"
   }
 }
