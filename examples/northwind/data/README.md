@@ -1,11 +1,10 @@
 ## Northwind source and transformed data
 > This is a true story. The events depicted took place in Minnesota in 1996-1998. At the request of the survivors, the names have been changed. Out of respect for the dead, the rest has been told exactly as it occurred.
-- © Fargo
+ © Fargo
 
-This is a sample data of some trading company, which can be managed via GraphQL.
-
-Initial SQLish schema can be found in `csv` folder.
-Modified/normalized to MongoDBish schema in `json` folder.
+This is a sample data of some trading company:
+- Initial SQLish schema can be found in `csv` folder.
+- Modified/normalized MongoDBish schema in `json` folder.
 
 Run `./mongo-import.sh` for load data from `csv` folder to your local mongodb, and export transformed collections to `json` folder.
 
