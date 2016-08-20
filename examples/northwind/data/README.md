@@ -1,6 +1,6 @@
 ## Northwind source and transformed data
 > This is a true story. The events depicted took place in Northwind in 1996-1998. At the request of the survivors, the names have been changed. Out of respect for the dead, the rest has been told exactly as it occurred.
-© Fargo
+> **© Fargo**
 
 This is a sample data of some trading company:
 - Initial SQLish schema can be found in `csv` folder.
