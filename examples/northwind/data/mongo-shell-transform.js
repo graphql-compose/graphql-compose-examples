@@ -1,4 +1,5 @@
 db.categories.update({}, {$unset:{picture: ""}}, {multi: true});
+db.categories.update({}, {$rename:{categoryName: "name"}}, {multi: true});
 
 db.customers.find().forEach(function(o){
   o.address = {
@@ -72,6 +73,7 @@ db.products.find().forEach(function(o){
   o.discontinued = !!o.discontinued;
   db.products.save(o);
 });
+db.products.update({}, {$rename:{productName: "name"}}, {multi: true});
 
 db.territories.update({}, {$rename:{territoryDescription: "name"}}, {multi: true});
 db.regions.find().forEach(function(o){

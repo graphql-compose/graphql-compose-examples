@@ -1,77 +1,37 @@
 import express from 'express';
 import graphqlHTTP from 'express-graphql';
-import GraphQLSchema from './graphqlSchema';
-import GraphQLSchemaRelay from './graphqlSchemaRelay';
-import mongoose from 'mongoose';
-
-const expressPort = process.env.PORT || 3000;
-const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/graphql-compose-mongoose';
-
-mongoose.connect(mongoUri);
-const db = mongoose.connection;
-db.on('error', (e) => {
-  if (e.message.code === 'ETIMEDOUT') {
-    console.log(e);
-    mongoose.connect(mongoUri, opts);
-  }
-  console.log(e);
-});
-db.once('open', () => {
-  console.log(`MongoDB successfully connected to ${mongoUri}`);
-});
-
+import { mainPage, addToMainPage } from './mainPage';
+import './mongooseConnection';
 
 const server = express();
 
-server.use('/mongoose', graphqlHTTP(req => ({
-  schema: GraphQLSchema,
-  graphiql: true,
-  formatError: (error) => ({
-    message: error.message,
-    stack: error.stack.split('\n'),
-  }),
-})));
+import user from './examples/user';
+addExample(user);
 
-server.use('/mongoose-relay', graphqlHTTP(req => ({
-  schema: GraphQLSchemaRelay,
-  graphiql: true,
-  formatError: (error) => ({
-    message: error.message,
-    stack: error.stack.split('\n'),
-  }),
-})));
+import userForRelay from './examples/userForRelay';
+addExample(userForRelay);
+
+import northwind from './examples/northwind';
+addExample(northwind);
 
 server.get('/', (req, res) => {
-  res.send(`
-    <html>
-      <head>
-        <title>Graphql-compose examples</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-      </head>
-      <body>
-        <div class="container">
-          <h1>Graphql-compose examples</h1>
-          <h4>1. <a href="/mongoose?query=%7B%0A%20%20userMany(limit%3A%205)%20%7B%0A%20%20%20%20_id%0A%20%20%20%20name%0A%20%20%20%20age%0A%20%20%7D%0A%7D">Vanilla mongoose schema</a></h4>
-          <h4>2. <a href="/mongoose-relay?query=%7B%0A%20%20userConnection(first%3A3)%20%7B%0A%20%20%20%20count%0A%20%20%20%20edges%20%7B%0A%20%20%20%20%20%20cursor%0A%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20_id%0A%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D">Mongoose schema with Relay</a></h4>
-
-          <br /><br /><br /><br />
-          <h3>Source code:</h3>
-          <a href="https://github.com/nodkz/graphql-compose-mongoose-example" target="_blank">https://github.com/nodkz/graphql-compose-mongoose-example</a>
-
-          <h3>Used packages:</h3>
-          <a href="https://github.com/nodkz/graphql-compose" target="_blank">https://github.com/nodkz/graphql-compose</a>
-          <br/>
-          <a href="https://github.com/nodkz/graphql-compose-mongoose" target="_blank">https://github.com/nodkz/graphql-compose-mongoose</a>
-          <br/>
-          <a href="https://github.com/nodkz/graphql-compose-relay" target="_blank">https://github.com/nodkz/graphql-compose-relay</a>
-          <br/>
-          <a href="https://github.com/nodkz/graphql-compose-connection" target="_blank">https://github.com/nodkz/graphql-compose-connection</a>
-        </div>
-      </body>
-    </html>
-  `)
+  res.send(mainPage());
 });
 
+const expressPort = process.env.PORT || 3000;
 server.listen(expressPort, () => {
   console.log(`The server is running at http://localhost:${expressPort}/`);
 });
+
+
+function addExample(example) {
+  server.use(example.uri, graphqlHTTP(req => ({
+    schema: example.schema,
+    graphiql: true,
+    formatError: (error) => ({
+      message: error.message,
+      stack: error.stack.split('\n'),
+    }),
+  })));
+  addToMainPage(example);
+}

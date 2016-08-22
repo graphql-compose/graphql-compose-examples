@@ -1,13 +1,19 @@
 import mongoose from 'mongoose';
+import mongooseToTypeComposer from 'graphql-compose-mongoose';
+
+
 const LanguagesSchema = new mongoose.Schema({
   language: String,
   skill: {
     type: String,
     enum: [ 'basic', 'fluent', 'native' ],
-  },
+  }
+},
+{
+  _id: false, // disable `_id` field for `Language` schema
 });
 
-const UserSchema = new mongoose.Schema({
+export const UserRelaySchema = new mongoose.Schema({
   name: String, // standard types
   age: {
     type: Number,
@@ -25,7 +31,11 @@ const UserSchema = new mongoose.Schema({
     type: String,
     enum: ['male', 'female', 'ladyboy'],
   },
+}, {
+  collection: 'user_users',
 });
-const UserModel = mongoose.model('User', UserSchema);
 
-export default UserModel;
+export const UserModel = mongoose.model('UserRelay', UserRelaySchema);
+
+const customizationOptions = {}; // left it empty for simplicity
+export const UserTC = mongooseToTypeComposer(UserModel, customizationOptions);

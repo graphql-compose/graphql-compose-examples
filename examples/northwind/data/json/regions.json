@@ -5,6 +5,14 @@
 		"name" : "Eastern",
 		"territories" : [
 			{
+				"territoryID" : 1833,
+				"name" : "Georgetow"
+			},
+			{
+				"territoryID" : 1581,
+				"name" : "Westboro"
+			},
+			{
 				"territoryID" : 2116,
 				"name" : "Boston"
 			},
@@ -13,8 +21,8 @@
 				"name" : "Cambridge"
 			},
 			{
-				"territoryID" : 2184,
-				"name" : "Braintree"
+				"territoryID" : 1730,
+				"name" : "Bedford"
 			},
 			{
 				"territoryID" : 2903,
@@ -53,6 +61,10 @@
 				"name" : "Neward"
 			},
 			{
+				"territoryID" : 2184,
+				"name" : "Braintree"
+			},
+			{
 				"territoryID" : 20852,
 				"name" : "Rockville"
 			},
@@ -65,18 +77,6 @@
 				"name" : "Cary"
 			},
 			{
-				"territoryID" : 1581,
-				"name" : "Westboro"
-			},
-			{
-				"territoryID" : 1730,
-				"name" : "Bedford"
-			},
-			{
-				"territoryID" : 1833,
-				"name" : "Georgetow"
-			},
-			{
 				"territoryID" : 40222,
 				"name" : "Louisville"
 			}
@@ -87,10 +87,6 @@
 		"name" : "Western",
 		"territories" : [
 			{
-				"territoryID" : 60179,
-				"name" : "HoffmanEstates"
-			},
-			{
 				"territoryID" : 60601,
 				"name" : "Chicago"
 			},
@@ -99,12 +95,16 @@
 				"name" : "Denver"
 			},
 			{
-				"territoryID" : 80909,
-				"name" : "ColoradoSprings"
+				"territoryID" : 60179,
+				"name" : "HoffmanEstates"
 			},
 			{
 				"territoryID" : 85014,
 				"name" : "Phoenix"
+			},
+			{
+				"territoryID" : 80909,
+				"name" : "ColoradoSprings"
 			},
 			{
 				"territoryID" : 85251,
@@ -123,18 +123,6 @@
 				"name" : "SanFrancisco"
 			},
 			{
-				"territoryID" : 95008,
-				"name" : "Campbell"
-			},
-			{
-				"territoryID" : 95054,
-				"name" : "SantaClara"
-			},
-			{
-				"territoryID" : 95060,
-				"name" : "SantaCruz"
-			},
-			{
 				"territoryID" : 98004,
 				"name" : "Bellevue"
 			},
@@ -145,56 +133,18 @@
 			{
 				"territoryID" : 98104,
 				"name" : "Seattle"
-			}
-		]
-	},
-	{
-		"regionID" : 3,
-		"name" : "Northern",
-		"territories" : [
-			{
-				"territoryID" : 3049,
-				"name" : "Hollis"
 			},
 			{
-				"territoryID" : 3801,
-				"name" : "Portsmouth"
+				"territoryID" : 95008,
+				"name" : "Campbell"
 			},
 			{
-				"territoryID" : 19428,
-				"name" : "Philadelphia"
+				"territoryID" : 95054,
+				"name" : "SantaClara"
 			},
 			{
-				"territoryID" : 48075,
-				"name" : "Southfield"
-			},
-			{
-				"territoryID" : 48084,
-				"name" : "Troy"
-			},
-			{
-				"territoryID" : 48304,
-				"name" : "BloomfieldHills"
-			},
-			{
-				"territoryID" : 53404,
-				"name" : "Racine"
-			},
-			{
-				"territoryID" : 55113,
-				"name" : "Roseville"
-			},
-			{
-				"territoryID" : 55439,
-				"name" : "Minneapolis"
-			},
-			{
-				"territoryID" : 44122,
-				"name" : "Beachwood"
-			},
-			{
-				"territoryID" : 45839,
-				"name" : "Findlay"
+				"territoryID" : 95060,
+				"name" : "SantaCruz"
 			}
 		]
 	},
@@ -219,10 +169,6 @@
 				"name" : "Savannah"
 			},
 			{
-				"territoryID" : 33607,
-				"name" : "Tampa"
-			},
-			{
 				"territoryID" : 72716,
 				"name" : "Bentonville"
 			},
@@ -233,6 +179,60 @@
 			{
 				"territoryID" : 78759,
 				"name" : "Austin"
+			},
+			{
+				"territoryID" : 33607,
+				"name" : "Tampa"
+			}
+		]
+	},
+	{
+		"regionID" : 3,
+		"name" : "Northern",
+		"territories" : [
+			{
+				"territoryID" : 19428,
+				"name" : "Philadelphia"
+			},
+			{
+				"territoryID" : 3801,
+				"name" : "Portsmouth"
+			},
+			{
+				"territoryID" : 3049,
+				"name" : "Hollis"
+			},
+			{
+				"territoryID" : 44122,
+				"name" : "Beachwood"
+			},
+			{
+				"territoryID" : 45839,
+				"name" : "Findlay"
+			},
+			{
+				"territoryID" : 48075,
+				"name" : "Southfield"
+			},
+			{
+				"territoryID" : 48084,
+				"name" : "Troy"
+			},
+			{
+				"territoryID" : 48304,
+				"name" : "BloomfieldHills"
+			},
+			{
+				"territoryID" : 53404,
+				"name" : "Racine"
+			},
+			{
+				"territoryID" : 55113,
+				"name" : "Roseville"
+			},
+			{
+				"territoryID" : 55439,
+				"name" : "Minneapolis"
 			}
 		]
 	}

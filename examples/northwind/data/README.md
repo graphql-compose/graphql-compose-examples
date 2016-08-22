@@ -13,7 +13,7 @@ File `mongo-shell-transform.js` is a `mongo shell` script, that makes data trans
 ### How schema was transformed
 - **categories** (8 docs)
   - categoryID: int
-  - categoryName: string
+  - categoryName->name: string
   - description: string
   - picture->REMOVED: bin
 - **customers** (91 docs)
