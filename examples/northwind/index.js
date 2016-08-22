@@ -9,6 +9,54 @@ export default {
   github: 'https://github.com/nodkz/graphql-compose-examples/tree/master/examples/northwind',
   queries: [
     {
+      title: 'Self referenced Employee Type',
+      query: `
+{
+  viewer {
+    employeeList {
+      firstName
+      subordinates {
+        firstName
+      }
+      chief {
+        firstName
+      }
+    }
+  }
+}
+      `
+    },
+    {
+      title: 'OrderConnection -> OrderDetails -> Product',
+      query: `
+{
+  viewer {
+    orderConnection(first: 3) {
+      count
+      edges {
+        node {
+          orderID
+          customer {
+            companyName
+            contactName
+          }
+          details {
+            unitPrice
+            quantity
+            product {
+              name
+              unitsInStock
+              discontinued
+            }
+          }
+        }
+      }
+    }
+  }
+}
+      `
+    },
+    {
       title: 'Some crazy query',
       query: `
 {
