@@ -156,6 +156,8 @@ input CreateOneUserInput {
 type CreateOneUserPayload {
   recordId: MongoID
   record: User
+  nodeId: ID
+  clientMutationId: String
 }
 
 enum EnumUserGender {
@@ -242,6 +244,10 @@ input FilterUserInput {
 
 scalar MongoID
 
+interface Node {
+  id: ID!
+}
+
 input OperatorsFilterFindManyUserInput {
   age: AgeOperatorsFilterFindManyUserInput
   _id: _idOperatorsFilterFindManyUserInput
@@ -284,28 +290,77 @@ type PageInfo {
   endCursor: String
 }
 
+input RelayCreateOneUserInput {
+  record: CreateOneUserInput!
+  clientMutationId: String
+}
+
+input RelayRemoveByIdUserInput {
+  _id: MongoID!
+  clientMutationId: String
+}
+
+input RelayRemoveManyUserInput {
+  filter: FilterRemoveManyUserInput!
+  clientMutationId: String
+}
+
+input RelayRemoveOneUserInput {
+  filter: FilterRemoveOneUserInput
+  sort: SortRemoveOneUserInput
+  clientMutationId: String
+}
+
+input RelayUpdateByIdUserInput {
+  record: UpdateByIdUserInput!
+  clientMutationId: String
+}
+
+input RelayUpdateManyUserInput {
+  record: UpdateManyUserInput!
+  filter: FilterUpdateManyUserInput
+  sort: SortUpdateManyUserInput
+  skip: Int
+  limit: Int = 1000
+  clientMutationId: String
+}
+
+input RelayUpdateOneUserInput {
+  record: UpdateOneUserInput!
+  filter: FilterUpdateOneUserInput
+  sort: SortUpdateOneUserInput
+  skip: Int
+  clientMutationId: String
+}
+
 type RemoveByIdUserPayload {
   recordId: MongoID
   record: User
+  nodeId: ID
+  clientMutationId: String
 }
 
 type RemoveManyUserPayload {
   numAffected: Int
+  nodeId: ID
+  clientMutationId: String
 }
 
 type RemoveOneUserPayload {
   recordId: MongoID
   record: User
+  nodeId: ID
+  clientMutationId: String
 }
 
 type RootMutation {
-  userCreate(record: CreateOneUserInput!): CreateOneUserPayload
-  userUpdateById(record: UpdateByIdUserInput!): UpdateByIdUserPayload
-  userUpdateOne(record: UpdateOneUserInput!, filter: FilterUpdateOneUserInput, sort: SortUpdateOneUserInput, skip: Int): UpdateOneUserPayload
-  userUpdateMany(record: UpdateManyUserInput!, filter: FilterUpdateManyUserInput, sort: SortUpdateManyUserInput, skip: Int, limit: Int = 1000): UpdateManyUserPayload
-  userRemoveById(_id: MongoID!): RemoveByIdUserPayload
-  userRemoveOne(filter: FilterRemoveOneUserInput, sort: SortRemoveOneUserInput): RemoveOneUserPayload
-  userRemoveMany(filter: FilterRemoveManyUserInput!): RemoveManyUserPayload
+  userCreate(input: RelayCreateOneUserInput!): CreateOneUserPayload
+  userUpdateById(input: RelayUpdateByIdUserInput!): UpdateByIdUserPayload
+  userUpdateOne(input: RelayUpdateOneUserInput!): UpdateOneUserPayload
+  userUpdateMany(input: RelayUpdateManyUserInput!): UpdateManyUserPayload
+  userRemoveById(input: RelayRemoveByIdUserInput!): RemoveByIdUserPayload
+  userRemoveOne(input: RelayRemoveOneUserInput!): RemoveOneUserPayload
+  userRemoveMany(input: RelayRemoveManyUserInput!): RemoveManyUserPayload
 }
 
 type RootQuery {
@@ -315,6 +370,7 @@ type RootQuery {
   userMany(filter: FilterFindManyUserInput, skip: Int, limit: Int = 1000, sort: SortFindManyUserInput): [User]
   userCount(filter: FilterUserInput): Int
   userConnection(first: Int, after: ConnectionCursor, last: Int, before: ConnectionCursor, filter: FilterFindManyUserInput, sort: SortConnectionUserEnum = _ID_DESC): UserConnection
+  node(id: ID!): Node
 }
 
 enum SortConnectionUserEnum {
@@ -376,6 +432,8 @@ input UpdateByIdUserInput {
 type UpdateByIdUserPayload {
   recordId: MongoID
   record: User
+  nodeId: ID
+  clientMutationId: String
 }
 
 input UpdateManyUserInput {
@@ -388,6 +446,8 @@ input UpdateManyUserInput {
 
 type UpdateManyUserPayload {
   numAffected: Int
+  nodeId: ID
+  clientMutationId: String
 }
 
 input UpdateOneUserInput {
@@ -401,15 +461,18 @@ input UpdateOneUserInput {
 type UpdateOneUserPayload {
   recordId: MongoID
   record: User
+  nodeId: ID
+  clientMutationId: String
 }
 
-type User {
+type User implements Node {
   name: String
   age: Float
   languages: [UserLanguages]
   contacts: UserContacts
   gender: EnumUserGender
   _id: MongoID
+  id: ID!
 }
 
 type UserConnection {

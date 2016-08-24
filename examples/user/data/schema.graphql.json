@@ -35,7 +35,7 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "User",
+                "name": "UserRelay",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -78,7 +78,7 @@
                   "description": null,
                   "type": {
                     "kind": "ENUM",
-                    "name": "SortFindByIdsUserInput",
+                    "name": "SortFindByIdsUserRelayInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -89,7 +89,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "User",
+                  "name": "UserRelay",
                   "ofType": null
                 }
               },
@@ -105,7 +105,7 @@
                   "description": "Filter by fields",
                   "type": {
                     "kind": "INPUT_OBJECT",
-                    "name": "FilterFindOneUserInput",
+                    "name": "FilterFindOneUserRelayInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -125,7 +125,7 @@
                   "description": null,
                   "type": {
                     "kind": "ENUM",
-                    "name": "SortFindOneUserInput",
+                    "name": "SortFindOneUserRelayInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -133,7 +133,7 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "User",
+                "name": "UserRelay",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -148,7 +148,7 @@
                   "description": "Filter by fields",
                   "type": {
                     "kind": "INPUT_OBJECT",
-                    "name": "FilterFindManyUserInput",
+                    "name": "FilterFindManyUserRelayInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -178,7 +178,7 @@
                   "description": null,
                   "type": {
                     "kind": "ENUM",
-                    "name": "SortFindManyUserInput",
+                    "name": "SortFindManyUserRelayInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -189,7 +189,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "User",
+                  "name": "UserRelay",
                   "ofType": null
                 }
               },
@@ -205,7 +205,7 @@
                   "description": "Filter by fields",
                   "type": {
                     "kind": "INPUT_OBJECT",
-                    "name": "FilterUserInput",
+                    "name": "FilterUserRelayInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -268,7 +268,7 @@
                   "description": "Filter by fields",
                   "type": {
                     "kind": "INPUT_OBJECT",
-                    "name": "FilterFindManyUserInput",
+                    "name": "FilterFindManyUserRelayInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -278,7 +278,7 @@
                   "description": "Sort argument for data ordering",
                   "type": {
                     "kind": "ENUM",
-                    "name": "SortConnectionUserEnum",
+                    "name": "SortConnectionUserRelayEnum",
                     "ofType": null
                   },
                   "defaultValue": "_ID_DESC"
@@ -286,8 +286,12 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "UserConnection",
-                "ofType": null
+                "name": "UserRelayConnection",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "UserRelay",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -310,7 +314,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "User",
+          "name": "UserRelay",
           "description": null,
           "fields": [
             {
@@ -346,7 +350,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "UserLanguages",
+                  "name": "UserRelayLanguages",
                   "ofType": null
                 }
               },
@@ -359,7 +363,7 @@
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "UserContacts",
+                "name": "UserRelayContacts",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -371,7 +375,7 @@
               "args": [],
               "type": {
                 "kind": "ENUM",
-                "name": "EnumUserGender",
+                "name": "EnumUserRelayGender",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -417,7 +421,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "UserLanguages",
+          "name": "UserRelayLanguages",
           "description": null,
           "fields": [
             {
@@ -438,7 +442,7 @@
               "args": [],
               "type": {
                 "kind": "ENUM",
-                "name": "EnumUserLanguagesSkill",
+                "name": "EnumUserRelayLanguagesSkill",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -452,7 +456,7 @@
         },
         {
           "kind": "ENUM",
-          "name": "EnumUserLanguagesSkill",
+          "name": "EnumUserRelayLanguagesSkill",
           "description": null,
           "fields": null,
           "inputFields": null,
@@ -481,7 +485,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "UserContacts",
+          "name": "UserRelayContacts",
           "description": null,
           "fields": [
             {
@@ -520,7 +524,7 @@
         },
         {
           "kind": "ENUM",
-          "name": "EnumUserGender",
+          "name": "EnumUserRelayGender",
           "description": null,
           "fields": null,
           "inputFields": null,
@@ -559,7 +563,7 @@
         },
         {
           "kind": "ENUM",
-          "name": "SortFindByIdsUserInput",
+          "name": "SortFindByIdsUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": null,
@@ -594,7 +598,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "FilterFindOneUserInput",
+          "name": "FilterFindOneUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -626,7 +630,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserUserLanguagesInput",
+                  "name": "UserRelayUserRelayLanguagesInput",
                   "ofType": null
                 }
               },
@@ -637,7 +641,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsInput",
+                "name": "UserRelayContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -647,7 +651,7 @@
               "description": null,
               "type": {
                 "kind": "ENUM",
-                "name": "EnumUserGender",
+                "name": "EnumUserRelayGender",
                 "ofType": null
               },
               "defaultValue": null
@@ -667,7 +671,7 @@
               "description": "List of fields that can be filtered via operators",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OperatorsFilterFindOneUserInput",
+                "name": "OperatorsFilterFindOneUserRelayInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -679,7 +683,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "UserUserLanguagesInput",
+          "name": "UserRelayUserRelayLanguagesInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -698,7 +702,7 @@
               "description": null,
               "type": {
                 "kind": "ENUM",
-                "name": "EnumUserLanguagesSkill",
+                "name": "EnumUserRelayLanguagesSkill",
                 "ofType": null
               },
               "defaultValue": null
@@ -710,7 +714,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "UserContactsInput",
+          "name": "UserRelayContactsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -745,7 +749,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "OperatorsFilterFindOneUserInput",
+          "name": "OperatorsFilterFindOneUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -754,7 +758,7 @@
               "description": "Filter value by operator(s)",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "AgeOperatorsFilterFindOneUserInput",
+                "name": "AgeOperatorsFilterFindOneUserRelayInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -764,7 +768,7 @@
               "description": "Filter value by operator(s)",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "_idOperatorsFilterFindOneUserInput",
+                "name": "_idOperatorsFilterFindOneUserRelayInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -776,7 +780,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "AgeOperatorsFilterFindOneUserInput",
+          "name": "AgeOperatorsFilterFindOneUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -865,336 +869,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "_idOperatorsFilterFindOneUserInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "gt",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "MongoID",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "gte",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "MongoID",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "lt",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "MongoID",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "lte",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "MongoID",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "ne",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "MongoID",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "in",
-              "description": null,
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "MongoID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "nin",
-              "description": null,
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "MongoID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "ENUM",
-          "name": "SortFindOneUserInput",
-          "description": null,
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": [
-            {
-              "name": "_ID_ASC",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "_ID_DESC",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "AGE_ASC",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "AGE_DESC",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "FilterFindManyUserInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "name",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "age",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "languages",
-              "description": null,
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "UserUserLanguagesInput",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "contacts",
-              "description": null,
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "UserContactsInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "gender",
-              "description": null,
-              "type": {
-                "kind": "ENUM",
-                "name": "EnumUserGender",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "_id",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "MongoID",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "OperatorsFilterFindManyUserInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "OperatorsFilterFindManyUserInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "age",
-              "description": "Filter value by operator(s)",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "AgeOperatorsFilterFindManyUserInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "_id",
-              "description": "Filter value by operator(s)",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "_idOperatorsFilterFindManyUserInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "AgeOperatorsFilterFindManyUserInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "gt",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "gte",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "lt",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "lte",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "ne",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "Float",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "in",
-              "description": null,
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Float",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "nin",
-              "description": null,
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Float",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "_idOperatorsFilterFindManyUserInput",
+          "name": "_idOperatorsFilterFindOneUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -1283,7 +958,7 @@
         },
         {
           "kind": "ENUM",
-          "name": "SortFindManyUserInput",
+          "name": "SortFindOneUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": null,
@@ -1318,7 +993,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "FilterUserInput",
+          "name": "FilterFindManyUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -1350,7 +1025,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserUserLanguagesInput",
+                  "name": "UserRelayUserRelayLanguagesInput",
                   "ofType": null
                 }
               },
@@ -1361,7 +1036,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsInput",
+                "name": "UserRelayContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1371,7 +1046,7 @@
               "description": null,
               "type": {
                 "kind": "ENUM",
-                "name": "EnumUserGender",
+                "name": "EnumUserRelayGender",
                 "ofType": null
               },
               "defaultValue": null
@@ -1391,7 +1066,7 @@
               "description": "List of fields that can be filtered via operators",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OperatorsFilterUserInput",
+                "name": "OperatorsFilterFindManyUserRelayInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1403,7 +1078,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "OperatorsFilterUserInput",
+          "name": "OperatorsFilterFindManyUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -1412,7 +1087,7 @@
               "description": "Filter value by operator(s)",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "AgeOperatorsFilterUserInput",
+                "name": "AgeOperatorsFilterFindManyUserRelayInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1422,7 +1097,7 @@
               "description": "Filter value by operator(s)",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "_idOperatorsFilterUserInput",
+                "name": "_idOperatorsFilterFindManyUserRelayInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1434,7 +1109,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "AgeOperatorsFilterUserInput",
+          "name": "AgeOperatorsFilterFindManyUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -1523,7 +1198,336 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "_idOperatorsFilterUserInput",
+          "name": "_idOperatorsFilterFindManyUserRelayInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "SortFindManyUserRelayInput",
+          "description": null,
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "_ID_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "_ID_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "AGE_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "AGE_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "FilterUserRelayInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "name",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "age",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "languages",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "UserRelayUserRelayLanguagesInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "contacts",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "UserRelayContactsInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gender",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserRelayGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_operators",
+              "description": "List of fields that can be filtered via operators",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "OperatorsFilterUserRelayInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "OperatorsFilterUserRelayInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "age",
+              "description": "Filter value by operator(s)",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "AgeOperatorsFilterUserRelayInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_id",
+              "description": "Filter value by operator(s)",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "_idOperatorsFilterUserRelayInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "AgeOperatorsFilterUserRelayInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "_idOperatorsFilterUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -1622,7 +1626,7 @@
         },
         {
           "kind": "ENUM",
-          "name": "SortConnectionUserEnum",
+          "name": "SortConnectionUserRelayEnum",
           "description": null,
           "fields": null,
           "inputFields": null,
@@ -1645,7 +1649,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "UserConnection",
+          "name": "UserRelayConnection",
           "description": "A connection to a list of items.",
           "fields": [
             {
@@ -1685,8 +1689,12 @@
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "UserEdge",
-                  "ofType": null
+                  "name": "UserRelayEdge",
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "UserRelay",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
@@ -1777,7 +1785,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "UserEdge",
+          "name": "UserRelayEdge",
           "description": "An edge in a connection.",
           "fields": [
             {
@@ -1786,7 +1794,7 @@
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "User",
+                "name": "UserRelay",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -1831,7 +1839,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "CreateOneUserInput",
+                      "name": "CreateOneUserRelayInput",
                       "ofType": null
                     }
                   },
@@ -1840,7 +1848,7 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "CreateOneUserPayload",
+                "name": "CreateOneUserRelayPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -1858,7 +1866,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "UpdateByIdUserInput",
+                      "name": "UpdateByIdUserRelayInput",
                       "ofType": null
                     }
                   },
@@ -1867,7 +1875,7 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "UpdateByIdUserPayload",
+                "name": "UpdateByIdUserRelayPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -1885,7 +1893,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "UpdateOneUserInput",
+                      "name": "UpdateOneUserRelayInput",
                       "ofType": null
                     }
                   },
@@ -1896,7 +1904,7 @@
                   "description": "Filter by fields",
                   "type": {
                     "kind": "INPUT_OBJECT",
-                    "name": "FilterUpdateOneUserInput",
+                    "name": "FilterUpdateOneUserRelayInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -1906,7 +1914,7 @@
                   "description": null,
                   "type": {
                     "kind": "ENUM",
-                    "name": "SortUpdateOneUserInput",
+                    "name": "SortUpdateOneUserRelayInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -1924,7 +1932,7 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "UpdateOneUserPayload",
+                "name": "UpdateOneUserRelayPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -1942,7 +1950,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "UpdateManyUserInput",
+                      "name": "UpdateManyUserRelayInput",
                       "ofType": null
                     }
                   },
@@ -1953,7 +1961,7 @@
                   "description": "Filter by fields",
                   "type": {
                     "kind": "INPUT_OBJECT",
-                    "name": "FilterUpdateManyUserInput",
+                    "name": "FilterUpdateManyUserRelayInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -1963,7 +1971,7 @@
                   "description": null,
                   "type": {
                     "kind": "ENUM",
-                    "name": "SortUpdateManyUserInput",
+                    "name": "SortUpdateManyUserRelayInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -1991,7 +1999,7 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "UpdateManyUserPayload",
+                "name": "UpdateManyUserRelayPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -2018,7 +2026,7 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "RemoveByIdUserPayload",
+                "name": "RemoveByIdUserRelayPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -2033,7 +2041,7 @@
                   "description": "Filter by fields",
                   "type": {
                     "kind": "INPUT_OBJECT",
-                    "name": "FilterRemoveOneUserInput",
+                    "name": "FilterRemoveOneUserRelayInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -2043,7 +2051,7 @@
                   "description": null,
                   "type": {
                     "kind": "ENUM",
-                    "name": "SortRemoveOneUserInput",
+                    "name": "SortRemoveOneUserRelayInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -2051,7 +2059,7 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "RemoveOneUserPayload",
+                "name": "RemoveOneUserRelayPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -2069,7 +2077,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "FilterRemoveManyUserInput",
+                      "name": "FilterRemoveManyUserRelayInput",
                       "ofType": null
                     }
                   },
@@ -2078,7 +2086,7 @@
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "RemoveManyUserPayload",
+                "name": "RemoveManyUserRelayPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -2092,7 +2100,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "CreateOneUserInput",
+          "name": "CreateOneUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -2124,7 +2132,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserUserLanguagesInput",
+                  "name": "UserRelayUserRelayLanguagesInput",
                   "ofType": null
                 }
               },
@@ -2135,7 +2143,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsInput",
+                "name": "UserRelayContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2145,7 +2153,7 @@
               "description": null,
               "type": {
                 "kind": "ENUM",
-                "name": "EnumUserGender",
+                "name": "EnumUserRelayGender",
                 "ofType": null
               },
               "defaultValue": null
@@ -2157,7 +2165,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "CreateOneUserPayload",
+          "name": "CreateOneUserRelayPayload",
           "description": null,
           "fields": [
             {
@@ -2178,7 +2186,7 @@
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "User",
+                "name": "UserRelay",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -2192,7 +2200,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "UpdateByIdUserInput",
+          "name": "UpdateByIdUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -2224,7 +2232,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserUserLanguagesInput",
+                  "name": "UserRelayUserRelayLanguagesInput",
                   "ofType": null
                 }
               },
@@ -2235,7 +2243,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsInput",
+                "name": "UserRelayContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2245,7 +2253,7 @@
               "description": null,
               "type": {
                 "kind": "ENUM",
-                "name": "EnumUserGender",
+                "name": "EnumUserRelayGender",
                 "ofType": null
               },
               "defaultValue": null
@@ -2271,7 +2279,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "UpdateByIdUserPayload",
+          "name": "UpdateByIdUserRelayPayload",
           "description": null,
           "fields": [
             {
@@ -2292,7 +2300,7 @@
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "User",
+                "name": "UserRelay",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -2306,7 +2314,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "UpdateOneUserInput",
+          "name": "UpdateOneUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -2338,7 +2346,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserUserLanguagesInput",
+                  "name": "UserRelayUserRelayLanguagesInput",
                   "ofType": null
                 }
               },
@@ -2349,7 +2357,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsInput",
+                "name": "UserRelayContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2359,7 +2367,7 @@
               "description": null,
               "type": {
                 "kind": "ENUM",
-                "name": "EnumUserGender",
+                "name": "EnumUserRelayGender",
                 "ofType": null
               },
               "defaultValue": null
@@ -2371,7 +2379,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "FilterUpdateOneUserInput",
+          "name": "FilterUpdateOneUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -2403,7 +2411,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserUserLanguagesInput",
+                  "name": "UserRelayUserRelayLanguagesInput",
                   "ofType": null
                 }
               },
@@ -2414,7 +2422,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsInput",
+                "name": "UserRelayContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2424,7 +2432,7 @@
               "description": null,
               "type": {
                 "kind": "ENUM",
-                "name": "EnumUserGender",
+                "name": "EnumUserRelayGender",
                 "ofType": null
               },
               "defaultValue": null
@@ -2444,7 +2452,7 @@
               "description": "List of fields that can be filtered via operators",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OperatorsFilterUpdateOneUserInput",
+                "name": "OperatorsFilterUpdateOneUserRelayInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2456,7 +2464,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "OperatorsFilterUpdateOneUserInput",
+          "name": "OperatorsFilterUpdateOneUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -2465,7 +2473,7 @@
               "description": "Filter value by operator(s)",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "AgeOperatorsFilterUpdateOneUserInput",
+                "name": "AgeOperatorsFilterUpdateOneUserRelayInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2475,7 +2483,7 @@
               "description": "Filter value by operator(s)",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "_idOperatorsFilterUpdateOneUserInput",
+                "name": "_idOperatorsFilterUpdateOneUserRelayInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2487,7 +2495,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "AgeOperatorsFilterUpdateOneUserInput",
+          "name": "AgeOperatorsFilterUpdateOneUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -2576,7 +2584,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "_idOperatorsFilterUpdateOneUserInput",
+          "name": "_idOperatorsFilterUpdateOneUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -2665,7 +2673,7 @@
         },
         {
           "kind": "ENUM",
-          "name": "SortUpdateOneUserInput",
+          "name": "SortUpdateOneUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": null,
@@ -2700,7 +2708,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "UpdateOneUserPayload",
+          "name": "UpdateOneUserRelayPayload",
           "description": null,
           "fields": [
             {
@@ -2721,7 +2729,7 @@
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "User",
+                "name": "UserRelay",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -2735,7 +2743,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "UpdateManyUserInput",
+          "name": "UpdateManyUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -2767,7 +2775,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserUserLanguagesInput",
+                  "name": "UserRelayUserRelayLanguagesInput",
                   "ofType": null
                 }
               },
@@ -2778,7 +2786,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsInput",
+                "name": "UserRelayContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2788,7 +2796,7 @@
               "description": null,
               "type": {
                 "kind": "ENUM",
-                "name": "EnumUserGender",
+                "name": "EnumUserRelayGender",
                 "ofType": null
               },
               "defaultValue": null
@@ -2800,7 +2808,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "FilterUpdateManyUserInput",
+          "name": "FilterUpdateManyUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -2832,7 +2840,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserUserLanguagesInput",
+                  "name": "UserRelayUserRelayLanguagesInput",
                   "ofType": null
                 }
               },
@@ -2843,7 +2851,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsInput",
+                "name": "UserRelayContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2853,7 +2861,7 @@
               "description": null,
               "type": {
                 "kind": "ENUM",
-                "name": "EnumUserGender",
+                "name": "EnumUserRelayGender",
                 "ofType": null
               },
               "defaultValue": null
@@ -2873,7 +2881,7 @@
               "description": "List of fields that can be filtered via operators",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OperatorsFilterUpdateManyUserInput",
+                "name": "OperatorsFilterUpdateManyUserRelayInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2885,7 +2893,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "OperatorsFilterUpdateManyUserInput",
+          "name": "OperatorsFilterUpdateManyUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -2894,7 +2902,7 @@
               "description": "Filter value by operator(s)",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "AgeOperatorsFilterUpdateManyUserInput",
+                "name": "AgeOperatorsFilterUpdateManyUserRelayInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2904,7 +2912,7 @@
               "description": "Filter value by operator(s)",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "_idOperatorsFilterUpdateManyUserInput",
+                "name": "_idOperatorsFilterUpdateManyUserRelayInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2916,7 +2924,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "AgeOperatorsFilterUpdateManyUserInput",
+          "name": "AgeOperatorsFilterUpdateManyUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -3005,7 +3013,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "_idOperatorsFilterUpdateManyUserInput",
+          "name": "_idOperatorsFilterUpdateManyUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -3094,7 +3102,7 @@
         },
         {
           "kind": "ENUM",
-          "name": "SortUpdateManyUserInput",
+          "name": "SortUpdateManyUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": null,
@@ -3129,7 +3137,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "UpdateManyUserPayload",
+          "name": "UpdateManyUserRelayPayload",
           "description": null,
           "fields": [
             {
@@ -3152,7 +3160,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "RemoveByIdUserPayload",
+          "name": "RemoveByIdUserRelayPayload",
           "description": null,
           "fields": [
             {
@@ -3173,7 +3181,7 @@
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "User",
+                "name": "UserRelay",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -3187,7 +3195,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "FilterRemoveOneUserInput",
+          "name": "FilterRemoveOneUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -3219,7 +3227,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserUserLanguagesInput",
+                  "name": "UserRelayUserRelayLanguagesInput",
                   "ofType": null
                 }
               },
@@ -3230,7 +3238,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsInput",
+                "name": "UserRelayContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -3240,7 +3248,7 @@
               "description": null,
               "type": {
                 "kind": "ENUM",
-                "name": "EnumUserGender",
+                "name": "EnumUserRelayGender",
                 "ofType": null
               },
               "defaultValue": null
@@ -3260,7 +3268,7 @@
               "description": "List of fields that can be filtered via operators",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OperatorsFilterRemoveOneUserInput",
+                "name": "OperatorsFilterRemoveOneUserRelayInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -3272,7 +3280,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "OperatorsFilterRemoveOneUserInput",
+          "name": "OperatorsFilterRemoveOneUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -3281,7 +3289,7 @@
               "description": "Filter value by operator(s)",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "AgeOperatorsFilterRemoveOneUserInput",
+                "name": "AgeOperatorsFilterRemoveOneUserRelayInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -3291,7 +3299,7 @@
               "description": "Filter value by operator(s)",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "_idOperatorsFilterRemoveOneUserInput",
+                "name": "_idOperatorsFilterRemoveOneUserRelayInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -3303,7 +3311,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "AgeOperatorsFilterRemoveOneUserInput",
+          "name": "AgeOperatorsFilterRemoveOneUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -3392,7 +3400,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "_idOperatorsFilterRemoveOneUserInput",
+          "name": "_idOperatorsFilterRemoveOneUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -3481,7 +3489,7 @@
         },
         {
           "kind": "ENUM",
-          "name": "SortRemoveOneUserInput",
+          "name": "SortRemoveOneUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": null,
@@ -3516,7 +3524,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "RemoveOneUserPayload",
+          "name": "RemoveOneUserRelayPayload",
           "description": null,
           "fields": [
             {
@@ -3537,7 +3545,7 @@
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "User",
+                "name": "UserRelay",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -3551,7 +3559,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "FilterRemoveManyUserInput",
+          "name": "FilterRemoveManyUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -3583,7 +3591,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserUserLanguagesInput",
+                  "name": "UserRelayUserRelayLanguagesInput",
                   "ofType": null
                 }
               },
@@ -3594,7 +3602,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsInput",
+                "name": "UserRelayContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -3604,7 +3612,7 @@
               "description": null,
               "type": {
                 "kind": "ENUM",
-                "name": "EnumUserGender",
+                "name": "EnumUserRelayGender",
                 "ofType": null
               },
               "defaultValue": null
@@ -3624,7 +3632,7 @@
               "description": "List of fields that can be filtered via operators",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OperatorsFilterRemoveManyUserInput",
+                "name": "OperatorsFilterRemoveManyUserRelayInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -3636,7 +3644,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "OperatorsFilterRemoveManyUserInput",
+          "name": "OperatorsFilterRemoveManyUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -3645,7 +3653,7 @@
               "description": "Filter value by operator(s)",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "AgeOperatorsFilterRemoveManyUserInput",
+                "name": "AgeOperatorsFilterRemoveManyUserRelayInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -3655,7 +3663,7 @@
               "description": "Filter value by operator(s)",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "_idOperatorsFilterRemoveManyUserInput",
+                "name": "_idOperatorsFilterRemoveManyUserRelayInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -3667,7 +3675,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "AgeOperatorsFilterRemoveManyUserInput",
+          "name": "AgeOperatorsFilterRemoveManyUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -3756,7 +3764,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "_idOperatorsFilterRemoveManyUserInput",
+          "name": "_idOperatorsFilterRemoveManyUserRelayInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -3845,7 +3853,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "RemoveManyUserPayload",
+          "name": "RemoveManyUserRelayPayload",
           "description": null,
           "fields": [
             {

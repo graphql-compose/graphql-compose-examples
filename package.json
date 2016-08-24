@@ -51,6 +51,7 @@
   "scripts": {
     "build": "babel-node misc/buildSchema.js",
     "seed": "./node_modules/.bin/babel-node seed.js",
+    "buildSchema": "./node_modules/.bin/babel-node buildSchema.js",
     "start": "npm run seed && babel-node index.js",
     "dev": "nodemon index.js -e js --exec babel-node",
     "test": "echo 123",

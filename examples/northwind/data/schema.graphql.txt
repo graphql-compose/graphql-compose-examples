@@ -1,0 +1,980 @@
+schema {
+  query: RootQuery
+}
+
+input _idOperatorsFilterFindManyCategoryInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterFindManyCustomerInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterFindManyEmployeeInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterFindManyOrderInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterFindManyProductInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterFindManyRegionInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterFindManyShipperInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterFindManySupplierInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterFindOneCategoryInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterFindOneCustomerInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterFindOneEmployeeInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterFindOneOrderInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterFindOneProductInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterFindOneRegionInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterFindOneShipperInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterFindOneSupplierInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+type Category implements Node {
+  categoryID: Float
+  name: String
+  description: String
+  _id: MongoID
+  id: ID!
+  productConnection(first: Int, after: ConnectionCursor, last: Int, before: ConnectionCursor, sort: SortConnectionProductEnum = _ID_DESC): ProductConnection
+}
+
+input CategoryIDOperatorsFilterFindManyCategoryInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+input CategoryIDOperatorsFilterFindOneCategoryInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+scalar ConnectionCursor
+
+type Customer implements Node {
+  customerID: String
+  companyName: String
+  contactName: String
+  contactTitle: String
+  address: CustomerAddress
+  _id: MongoID
+  id: ID!
+  orderConnection(first: Int, after: ConnectionCursor, last: Int, before: ConnectionCursor, sort: SortConnectionOrderEnum = _ID_DESC): OrderConnection
+}
+
+type CustomerAddress {
+  street: String
+  city: String
+  region: String
+  postalCode: String
+  country: String
+  phone: String
+}
+
+input CustomerAddressInput {
+  street: String
+  city: String
+  region: String
+  postalCode: String
+  country: String
+  phone: String
+}
+
+type CustomerConnection {
+  count: Int
+  pageInfo: PageInfo!
+  edges: [CustomerEdge]
+}
+
+type CustomerEdge {
+  node: Customer
+  cursor: ConnectionCursor!
+}
+
+input CustomerIDOperatorsFilterFindManyCustomerInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+}
+
+input CustomerIDOperatorsFilterFindOneCustomerInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+}
+
+scalar Date
+
+input DetailsOperatorsFilterFindManyOrderInput {
+  gt: OrderOrderDetailsInput
+  gte: OrderOrderDetailsInput
+  lt: OrderOrderDetailsInput
+  lte: OrderOrderDetailsInput
+  ne: OrderOrderDetailsInput
+  in: [OrderOrderDetailsInput]
+  nin: [OrderOrderDetailsInput]
+}
+
+input DetailsOperatorsFilterFindOneOrderInput {
+  gt: OrderOrderDetailsInput
+  gte: OrderOrderDetailsInput
+  lt: OrderOrderDetailsInput
+  lte: OrderOrderDetailsInput
+  ne: OrderOrderDetailsInput
+  in: [OrderOrderDetailsInput]
+  nin: [OrderOrderDetailsInput]
+}
+
+type Employee implements Node {
+  employeeID: Float
+  lastName: String
+  firstName: String
+  title: String
+  titleOfCourtesy: String
+  birthDate: Date
+  hireDate: Date
+  address: CustomerAddress
+  notes: String
+  reportsTo: Float
+  territoryIDs: [Float]
+  _id: MongoID
+  id: ID!
+  chief: Employee
+  subordinates(skip: Int, limit: Int = 1000, sort: SortFindManyEmployeeInput): [Employee]
+  orderConnection(first: Int, after: ConnectionCursor, last: Int, before: ConnectionCursor, sort: SortConnectionOrderEnum = _ID_DESC): OrderConnection
+}
+
+input EmployeeIDOperatorsFilterFindManyEmployeeInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+input EmployeeIDOperatorsFilterFindOneEmployeeInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+input FilterFindManyCategoryInput {
+  categoryID: Float
+  name: String
+  description: String
+  _id: MongoID
+  _operators: OperatorsFilterFindManyCategoryInput
+}
+
+input FilterFindManyCustomerInput {
+  customerID: String
+  companyName: String
+  contactName: String
+  contactTitle: String
+  address: CustomerAddressInput
+  _id: MongoID
+  _operators: OperatorsFilterFindManyCustomerInput
+}
+
+input FilterFindManyEmployeeInput {
+  employeeID: Float
+  lastName: String
+  firstName: String
+  title: String
+  titleOfCourtesy: String
+  birthDate: Date
+  hireDate: Date
+  address: CustomerAddressInput
+  notes: String
+  reportsTo: Float
+  territoryIDs: [Float]
+  _id: MongoID
+  _operators: OperatorsFilterFindManyEmployeeInput
+}
+
+input FilterFindManyOrderInput {
+  orderID: Float
+  customerID: String
+  employeeID: Float
+  orderDate: Date
+  requiredDate: Date
+  shippedDate: Date
+  shipVia: Float
+  freight: Float
+  shipName: String
+  shipAddress: CustomerAddressInput
+  details: [OrderOrderDetailsInput]
+  _id: MongoID
+  _operators: OperatorsFilterFindManyOrderInput
+}
+
+input FilterFindManyProductInput {
+  productID: Float
+  name: String
+  supplierID: Float
+  categoryID: Float
+  quantityPerUnit: String
+  unitPrice: Float
+  unitsInStock: Float
+  unitsOnOrder: Float
+  reorderLevel: Float
+  discontinued: Boolean
+  _id: MongoID
+  _operators: OperatorsFilterFindManyProductInput
+}
+
+input FilterFindManyRegionInput {
+  regionID: Float
+  name: String
+  territories: [RegionRegionTerritoriesInput]
+  _id: MongoID
+  _operators: OperatorsFilterFindManyRegionInput
+}
+
+input FilterFindManyShipperInput {
+  shipperID: Float
+  companyName: String
+  phone: String
+  _id: MongoID
+  _operators: OperatorsFilterFindManyShipperInput
+}
+
+input FilterFindManySupplierInput {
+  supplierID: Float
+  companyName: String
+  contactName: String
+  contactTitle: String
+  address: CustomerAddressInput
+  _id: MongoID
+  _operators: OperatorsFilterFindManySupplierInput
+}
+
+input FilterFindOneCategoryInput {
+  categoryID: Float
+  name: String
+  description: String
+  _id: MongoID
+  _operators: OperatorsFilterFindOneCategoryInput
+}
+
+input FilterFindOneCustomerInput {
+  customerID: String
+  companyName: String
+  contactName: String
+  contactTitle: String
+  address: CustomerAddressInput
+  _id: MongoID
+  _operators: OperatorsFilterFindOneCustomerInput
+}
+
+input FilterFindOneEmployeeInput {
+  employeeID: Float
+  lastName: String
+  firstName: String
+  title: String
+  titleOfCourtesy: String
+  birthDate: Date
+  hireDate: Date
+  address: CustomerAddressInput
+  notes: String
+  reportsTo: Float
+  territoryIDs: [Float]
+  _id: MongoID
+  _operators: OperatorsFilterFindOneEmployeeInput
+}
+
+input FilterFindOneOrderInput {
+  orderID: Float
+  customerID: String
+  employeeID: Float
+  orderDate: Date
+  requiredDate: Date
+  shippedDate: Date
+  shipVia: Float
+  freight: Float
+  shipName: String
+  shipAddress: CustomerAddressInput
+  details: [OrderOrderDetailsInput]
+  _id: MongoID
+  _operators: OperatorsFilterFindOneOrderInput
+}
+
+input FilterFindOneProductInput {
+  productID: Float
+  name: String
+  supplierID: Float
+  categoryID: Float
+  quantityPerUnit: String
+  unitPrice: Float
+  unitsInStock: Float
+  unitsOnOrder: Float
+  reorderLevel: Float
+  discontinued: Boolean
+  _id: MongoID
+  _operators: OperatorsFilterFindOneProductInput
+}
+
+input FilterFindOneRegionInput {
+  regionID: Float
+  name: String
+  territories: [RegionRegionTerritoriesInput]
+  _id: MongoID
+  _operators: OperatorsFilterFindOneRegionInput
+}
+
+input FilterFindOneShipperInput {
+  shipperID: Float
+  companyName: String
+  phone: String
+  _id: MongoID
+  _operators: OperatorsFilterFindOneShipperInput
+}
+
+input FilterFindOneSupplierInput {
+  supplierID: Float
+  companyName: String
+  contactName: String
+  contactTitle: String
+  address: CustomerAddressInput
+  _id: MongoID
+  _operators: OperatorsFilterFindOneSupplierInput
+}
+
+scalar MongoID
+
+interface Node {
+  id: ID!
+}
+
+input OperatorsFilterFindManyCategoryInput {
+  categoryID: CategoryIDOperatorsFilterFindManyCategoryInput
+  _id: _idOperatorsFilterFindManyCategoryInput
+}
+
+input OperatorsFilterFindManyCustomerInput {
+  customerID: CustomerIDOperatorsFilterFindManyCustomerInput
+  _id: _idOperatorsFilterFindManyCustomerInput
+}
+
+input OperatorsFilterFindManyEmployeeInput {
+  employeeID: EmployeeIDOperatorsFilterFindManyEmployeeInput
+  territoryIDs: TerritoryIDsOperatorsFilterFindManyEmployeeInput
+  _id: _idOperatorsFilterFindManyEmployeeInput
+}
+
+input OperatorsFilterFindManyOrderInput {
+  orderID: OrderIDOperatorsFilterFindManyOrderInput
+  details: DetailsOperatorsFilterFindManyOrderInput
+  _id: _idOperatorsFilterFindManyOrderInput
+}
+
+input OperatorsFilterFindManyProductInput {
+  productID: ProductIDOperatorsFilterFindManyProductInput
+  _id: _idOperatorsFilterFindManyProductInput
+}
+
+input OperatorsFilterFindManyRegionInput {
+  regionID: RegionIDOperatorsFilterFindManyRegionInput
+  _id: _idOperatorsFilterFindManyRegionInput
+}
+
+input OperatorsFilterFindManyShipperInput {
+  shipperID: ShipperIDOperatorsFilterFindManyShipperInput
+  _id: _idOperatorsFilterFindManyShipperInput
+}
+
+input OperatorsFilterFindManySupplierInput {
+  supplierID: SupplierIDOperatorsFilterFindManySupplierInput
+  _id: _idOperatorsFilterFindManySupplierInput
+}
+
+input OperatorsFilterFindOneCategoryInput {
+  categoryID: CategoryIDOperatorsFilterFindOneCategoryInput
+  _id: _idOperatorsFilterFindOneCategoryInput
+}
+
+input OperatorsFilterFindOneCustomerInput {
+  customerID: CustomerIDOperatorsFilterFindOneCustomerInput
+  _id: _idOperatorsFilterFindOneCustomerInput
+}
+
+input OperatorsFilterFindOneEmployeeInput {
+  employeeID: EmployeeIDOperatorsFilterFindOneEmployeeInput
+  territoryIDs: TerritoryIDsOperatorsFilterFindOneEmployeeInput
+  _id: _idOperatorsFilterFindOneEmployeeInput
+}
+
+input OperatorsFilterFindOneOrderInput {
+  orderID: OrderIDOperatorsFilterFindOneOrderInput
+  details: DetailsOperatorsFilterFindOneOrderInput
+  _id: _idOperatorsFilterFindOneOrderInput
+}
+
+input OperatorsFilterFindOneProductInput {
+  productID: ProductIDOperatorsFilterFindOneProductInput
+  _id: _idOperatorsFilterFindOneProductInput
+}
+
+input OperatorsFilterFindOneRegionInput {
+  regionID: RegionIDOperatorsFilterFindOneRegionInput
+  _id: _idOperatorsFilterFindOneRegionInput
+}
+
+input OperatorsFilterFindOneShipperInput {
+  shipperID: ShipperIDOperatorsFilterFindOneShipperInput
+  _id: _idOperatorsFilterFindOneShipperInput
+}
+
+input OperatorsFilterFindOneSupplierInput {
+  supplierID: SupplierIDOperatorsFilterFindOneSupplierInput
+  _id: _idOperatorsFilterFindOneSupplierInput
+}
+
+type Order implements Node {
+  orderID: Float
+  customerID: String
+  employeeID: Float
+  orderDate: Date
+  requiredDate: Date
+  shippedDate: Date
+  shipVia: Float
+  freight: Float
+  shipName: String
+  shipAddress: CustomerAddress
+  details: [OrderDetails]
+  _id: MongoID
+  id: ID!
+  customer: Customer
+  employee: Employee
+  shipper: Shipper
+}
+
+type OrderConnection {
+  count: Int
+  pageInfo: PageInfo!
+  edges: [OrderEdge]
+}
+
+type OrderDetails {
+  productID: Float
+  unitPrice: Float
+  quantity: Float
+  discount: Float
+  product: Product
+}
+
+type OrderEdge {
+  node: Order
+  cursor: ConnectionCursor!
+}
+
+input OrderIDOperatorsFilterFindManyOrderInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+input OrderIDOperatorsFilterFindOneOrderInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+input OrderOrderDetailsInput {
+  productID: Float
+  unitPrice: Float
+  quantity: Float
+  discount: Float
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type Product implements Node {
+  productID: Float
+  name: String
+  supplierID: Float
+  categoryID: Float
+  quantityPerUnit: String
+  unitPrice: Float
+  unitsInStock: Float
+  unitsOnOrder: Float
+  reorderLevel: Float
+  discontinued: Boolean
+  _id: MongoID
+  id: ID!
+  orderConnection(first: Int, after: ConnectionCursor, last: Int, before: ConnectionCursor, sort: SortConnectionOrderEnum = _ID_DESC): OrderConnection
+  supplier: Supplier
+  category: Category
+}
+
+type ProductConnection {
+  count: Int
+  pageInfo: PageInfo!
+  edges: [ProductEdge]
+}
+
+type ProductEdge {
+  node: Product
+  cursor: ConnectionCursor!
+}
+
+input ProductIDOperatorsFilterFindManyProductInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+input ProductIDOperatorsFilterFindOneProductInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+type Region implements Node {
+  regionID: Float
+  name: String
+  territories: [RegionTerritories]
+  _id: MongoID
+  id: ID!
+  employees(skip: Int, limit: Int = 1000, sort: SortFindManyEmployeeInput): [Employee]
+}
+
+input RegionIDOperatorsFilterFindManyRegionInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+input RegionIDOperatorsFilterFindOneRegionInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+input RegionRegionTerritoriesInput {
+  territoryID: Float
+  name: String
+}
+
+type RegionTerritories {
+  territoryID: Float
+  name: String
+}
+
+type RootQuery {
+  node(id: ID!): Node
+  viewer: Viewer
+}
+
+type Shipper implements Node {
+  shipperID: Float
+  companyName: String
+  phone: String
+  _id: MongoID
+  id: ID!
+  orderConnection(first: Int, after: ConnectionCursor, last: Int, before: ConnectionCursor, sort: SortConnectionOrderEnum = _ID_DESC): OrderConnection
+}
+
+input ShipperIDOperatorsFilterFindManyShipperInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+input ShipperIDOperatorsFilterFindOneShipperInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+enum SortConnectionCustomerEnum {
+  _ID_DESC
+  _ID_ASC
+}
+
+enum SortConnectionOrderEnum {
+  _ID_DESC
+  _ID_ASC
+}
+
+enum SortConnectionProductEnum {
+  _ID_DESC
+  _ID_ASC
+}
+
+enum SortConnectionSupplierEnum {
+  _ID_DESC
+  _ID_ASC
+}
+
+enum SortFindManyCategoryInput {
+  _ID_ASC
+  _ID_DESC
+  CATEGORYID_ASC
+  CATEGORYID_DESC
+}
+
+enum SortFindManyEmployeeInput {
+  _ID_ASC
+  _ID_DESC
+  EMPLOYEEID_ASC
+  EMPLOYEEID_DESC
+  TERRITORYIDS_ASC
+  TERRITORYIDS_DESC
+}
+
+enum SortFindManyProductInput {
+  _ID_ASC
+  _ID_DESC
+  PRODUCTID_ASC
+  PRODUCTID_DESC
+}
+
+enum SortFindManyRegionInput {
+  _ID_ASC
+  _ID_DESC
+  REGIONID_ASC
+  REGIONID_DESC
+}
+
+enum SortFindManyShipperInput {
+  _ID_ASC
+  _ID_DESC
+  SHIPPERID_ASC
+  SHIPPERID_DESC
+}
+
+enum SortFindOneCategoryInput {
+  _ID_ASC
+  _ID_DESC
+  CATEGORYID_ASC
+  CATEGORYID_DESC
+}
+
+enum SortFindOneCustomerInput {
+  _ID_ASC
+  _ID_DESC
+  CUSTOMERID_ASC
+  CUSTOMERID_DESC
+}
+
+enum SortFindOneEmployeeInput {
+  _ID_ASC
+  _ID_DESC
+  EMPLOYEEID_ASC
+  EMPLOYEEID_DESC
+  TERRITORYIDS_ASC
+  TERRITORYIDS_DESC
+}
+
+enum SortFindOneOrderInput {
+  _ID_ASC
+  _ID_DESC
+  ORDERID_ASC
+  ORDERID_DESC
+  DETAILS_ASC
+  DETAILS_DESC
+}
+
+enum SortFindOneProductInput {
+  _ID_ASC
+  _ID_DESC
+  PRODUCTID_ASC
+  PRODUCTID_DESC
+}
+
+enum SortFindOneRegionInput {
+  _ID_ASC
+  _ID_DESC
+  REGIONID_ASC
+  REGIONID_DESC
+}
+
+enum SortFindOneShipperInput {
+  _ID_ASC
+  _ID_DESC
+  SHIPPERID_ASC
+  SHIPPERID_DESC
+}
+
+enum SortFindOneSupplierInput {
+  _ID_ASC
+  _ID_DESC
+  SUPPLIERID_ASC
+  SUPPLIERID_DESC
+}
+
+type Supplier implements Node {
+  supplierID: Float
+  companyName: String
+  contactName: String
+  contactTitle: String
+  address: CustomerAddress
+  _id: MongoID
+  id: ID!
+  productConnection(first: Int, after: ConnectionCursor, last: Int, before: ConnectionCursor, sort: SortConnectionProductEnum = _ID_DESC): ProductConnection
+}
+
+type SupplierConnection {
+  count: Int
+  pageInfo: PageInfo!
+  edges: [SupplierEdge]
+}
+
+type SupplierEdge {
+  node: Supplier
+  cursor: ConnectionCursor!
+}
+
+input SupplierIDOperatorsFilterFindManySupplierInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+input SupplierIDOperatorsFilterFindOneSupplierInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+input TerritoryIDsOperatorsFilterFindManyEmployeeInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+input TerritoryIDsOperatorsFilterFindOneEmployeeInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+type Viewer {
+  category(filter: FilterFindOneCategoryInput, skip: Int, sort: SortFindOneCategoryInput): Category
+  categoryList(filter: FilterFindManyCategoryInput, skip: Int, limit: Int = 1000, sort: SortFindManyCategoryInput): [Category]
+  customer(filter: FilterFindOneCustomerInput, skip: Int, sort: SortFindOneCustomerInput): Customer
+  customerConnection(first: Int, after: ConnectionCursor, last: Int, before: ConnectionCursor, filter: FilterFindManyCustomerInput, sort: SortConnectionCustomerEnum = _ID_DESC): CustomerConnection
+  employee(filter: FilterFindOneEmployeeInput, skip: Int, sort: SortFindOneEmployeeInput): Employee
+  employeeList(filter: FilterFindManyEmployeeInput, skip: Int, limit: Int = 1000, sort: SortFindManyEmployeeInput): [Employee]
+  order(filter: FilterFindOneOrderInput, skip: Int, sort: SortFindOneOrderInput): Order
+  orderConnection(first: Int, after: ConnectionCursor, last: Int, before: ConnectionCursor, filter: FilterFindManyOrderInput, sort: SortConnectionOrderEnum = _ID_DESC): OrderConnection
+  product(filter: FilterFindOneProductInput, skip: Int, sort: SortFindOneProductInput): Product
+  productList(filter: FilterFindManyProductInput, skip: Int, limit: Int = 1000, sort: SortFindManyProductInput): [Product]
+  productConnection(first: Int, after: ConnectionCursor, last: Int, before: ConnectionCursor, filter: FilterFindManyProductInput, sort: SortConnectionProductEnum = _ID_DESC): ProductConnection
+  region(filter: FilterFindOneRegionInput, skip: Int, sort: SortFindOneRegionInput): Region
+  regionList(filter: FilterFindManyRegionInput, skip: Int, limit: Int = 1000, sort: SortFindManyRegionInput): [Region]
+  shipper(filter: FilterFindOneShipperInput, skip: Int, sort: SortFindOneShipperInput): Shipper
+  shipperList(filter: FilterFindManyShipperInput, skip: Int, limit: Int = 1000, sort: SortFindManyShipperInput): [Shipper]
+  supplier(filter: FilterFindOneSupplierInput, skip: Int, sort: SortFindOneSupplierInput): Supplier
+  supplierConnection(first: Int, after: ConnectionCursor, last: Int, before: ConnectionCursor, filter: FilterFindManySupplierInput, sort: SortConnectionSupplierEnum = _ID_DESC): SupplierConnection
+}

@@ -1,0 +1,444 @@
+schema {
+  query: RootQuery
+  mutation: RootMutation
+}
+
+input _idOperatorsFilterFindManyUserRelayInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterFindOneUserRelayInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterRemoveManyUserRelayInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterRemoveOneUserRelayInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterUpdateManyUserRelayInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterUpdateOneUserRelayInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterUserRelayInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input AgeOperatorsFilterFindManyUserRelayInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+input AgeOperatorsFilterFindOneUserRelayInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+input AgeOperatorsFilterRemoveManyUserRelayInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+input AgeOperatorsFilterRemoveOneUserRelayInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+input AgeOperatorsFilterUpdateManyUserRelayInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+input AgeOperatorsFilterUpdateOneUserRelayInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+input AgeOperatorsFilterUserRelayInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
+scalar ConnectionCursor
+
+input CreateOneUserRelayInput {
+  name: String
+  age: Float
+  languages: [UserRelayUserRelayLanguagesInput]
+  contacts: UserRelayContactsInput
+  gender: EnumUserRelayGender
+}
+
+type CreateOneUserRelayPayload {
+  recordId: MongoID
+  record: UserRelay
+}
+
+enum EnumUserRelayGender {
+  male
+  female
+  ladyboy
+}
+
+enum EnumUserRelayLanguagesSkill {
+  basic
+  fluent
+  native
+}
+
+input FilterFindManyUserRelayInput {
+  name: String
+  age: Float
+  languages: [UserRelayUserRelayLanguagesInput]
+  contacts: UserRelayContactsInput
+  gender: EnumUserRelayGender
+  _id: MongoID
+  _operators: OperatorsFilterFindManyUserRelayInput
+}
+
+input FilterFindOneUserRelayInput {
+  name: String
+  age: Float
+  languages: [UserRelayUserRelayLanguagesInput]
+  contacts: UserRelayContactsInput
+  gender: EnumUserRelayGender
+  _id: MongoID
+  _operators: OperatorsFilterFindOneUserRelayInput
+}
+
+input FilterRemoveManyUserRelayInput {
+  name: String
+  age: Float
+  languages: [UserRelayUserRelayLanguagesInput]
+  contacts: UserRelayContactsInput
+  gender: EnumUserRelayGender
+  _id: MongoID
+  _operators: OperatorsFilterRemoveManyUserRelayInput
+}
+
+input FilterRemoveOneUserRelayInput {
+  name: String
+  age: Float
+  languages: [UserRelayUserRelayLanguagesInput]
+  contacts: UserRelayContactsInput
+  gender: EnumUserRelayGender
+  _id: MongoID
+  _operators: OperatorsFilterRemoveOneUserRelayInput
+}
+
+input FilterUpdateManyUserRelayInput {
+  name: String
+  age: Float
+  languages: [UserRelayUserRelayLanguagesInput]
+  contacts: UserRelayContactsInput
+  gender: EnumUserRelayGender
+  _id: MongoID
+  _operators: OperatorsFilterUpdateManyUserRelayInput
+}
+
+input FilterUpdateOneUserRelayInput {
+  name: String
+  age: Float
+  languages: [UserRelayUserRelayLanguagesInput]
+  contacts: UserRelayContactsInput
+  gender: EnumUserRelayGender
+  _id: MongoID
+  _operators: OperatorsFilterUpdateOneUserRelayInput
+}
+
+input FilterUserRelayInput {
+  name: String
+  age: Float
+  languages: [UserRelayUserRelayLanguagesInput]
+  contacts: UserRelayContactsInput
+  gender: EnumUserRelayGender
+  _id: MongoID
+  _operators: OperatorsFilterUserRelayInput
+}
+
+scalar MongoID
+
+input OperatorsFilterFindManyUserRelayInput {
+  age: AgeOperatorsFilterFindManyUserRelayInput
+  _id: _idOperatorsFilterFindManyUserRelayInput
+}
+
+input OperatorsFilterFindOneUserRelayInput {
+  age: AgeOperatorsFilterFindOneUserRelayInput
+  _id: _idOperatorsFilterFindOneUserRelayInput
+}
+
+input OperatorsFilterRemoveManyUserRelayInput {
+  age: AgeOperatorsFilterRemoveManyUserRelayInput
+  _id: _idOperatorsFilterRemoveManyUserRelayInput
+}
+
+input OperatorsFilterRemoveOneUserRelayInput {
+  age: AgeOperatorsFilterRemoveOneUserRelayInput
+  _id: _idOperatorsFilterRemoveOneUserRelayInput
+}
+
+input OperatorsFilterUpdateManyUserRelayInput {
+  age: AgeOperatorsFilterUpdateManyUserRelayInput
+  _id: _idOperatorsFilterUpdateManyUserRelayInput
+}
+
+input OperatorsFilterUpdateOneUserRelayInput {
+  age: AgeOperatorsFilterUpdateOneUserRelayInput
+  _id: _idOperatorsFilterUpdateOneUserRelayInput
+}
+
+input OperatorsFilterUserRelayInput {
+  age: AgeOperatorsFilterUserRelayInput
+  _id: _idOperatorsFilterUserRelayInput
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type RemoveByIdUserRelayPayload {
+  recordId: MongoID
+  record: UserRelay
+}
+
+type RemoveManyUserRelayPayload {
+  numAffected: Int
+}
+
+type RemoveOneUserRelayPayload {
+  recordId: MongoID
+  record: UserRelay
+}
+
+type RootMutation {
+  userCreate(record: CreateOneUserRelayInput!): CreateOneUserRelayPayload
+  userUpdateById(record: UpdateByIdUserRelayInput!): UpdateByIdUserRelayPayload
+  userUpdateOne(record: UpdateOneUserRelayInput!, filter: FilterUpdateOneUserRelayInput, sort: SortUpdateOneUserRelayInput, skip: Int): UpdateOneUserRelayPayload
+  userUpdateMany(record: UpdateManyUserRelayInput!, filter: FilterUpdateManyUserRelayInput, sort: SortUpdateManyUserRelayInput, skip: Int, limit: Int = 1000): UpdateManyUserRelayPayload
+  userRemoveById(_id: MongoID!): RemoveByIdUserRelayPayload
+  userRemoveOne(filter: FilterRemoveOneUserRelayInput, sort: SortRemoveOneUserRelayInput): RemoveOneUserRelayPayload
+  userRemoveMany(filter: FilterRemoveManyUserRelayInput!): RemoveManyUserRelayPayload
+}
+
+type RootQuery {
+  userById(_id: MongoID!): UserRelay
+  userByIds(_ids: [MongoID]!, limit: Int = 1000, sort: SortFindByIdsUserRelayInput): [UserRelay]
+  userOne(filter: FilterFindOneUserRelayInput, skip: Int, sort: SortFindOneUserRelayInput): UserRelay
+  userMany(filter: FilterFindManyUserRelayInput, skip: Int, limit: Int = 1000, sort: SortFindManyUserRelayInput): [UserRelay]
+  userCount(filter: FilterUserRelayInput): Int
+  userConnection(first: Int, after: ConnectionCursor, last: Int, before: ConnectionCursor, filter: FilterFindManyUserRelayInput, sort: SortConnectionUserRelayEnum = _ID_DESC): UserRelayConnection
+}
+
+enum SortConnectionUserRelayEnum {
+  _ID_DESC
+  _ID_ASC
+}
+
+enum SortFindByIdsUserRelayInput {
+  _ID_ASC
+  _ID_DESC
+  AGE_ASC
+  AGE_DESC
+}
+
+enum SortFindManyUserRelayInput {
+  _ID_ASC
+  _ID_DESC
+  AGE_ASC
+  AGE_DESC
+}
+
+enum SortFindOneUserRelayInput {
+  _ID_ASC
+  _ID_DESC
+  AGE_ASC
+  AGE_DESC
+}
+
+enum SortRemoveOneUserRelayInput {
+  _ID_ASC
+  _ID_DESC
+  AGE_ASC
+  AGE_DESC
+}
+
+enum SortUpdateManyUserRelayInput {
+  _ID_ASC
+  _ID_DESC
+  AGE_ASC
+  AGE_DESC
+}
+
+enum SortUpdateOneUserRelayInput {
+  _ID_ASC
+  _ID_DESC
+  AGE_ASC
+  AGE_DESC
+}
+
+input UpdateByIdUserRelayInput {
+  name: String
+  age: Float
+  languages: [UserRelayUserRelayLanguagesInput]
+  contacts: UserRelayContactsInput
+  gender: EnumUserRelayGender
+  _id: MongoID!
+}
+
+type UpdateByIdUserRelayPayload {
+  recordId: MongoID
+  record: UserRelay
+}
+
+input UpdateManyUserRelayInput {
+  name: String
+  age: Float
+  languages: [UserRelayUserRelayLanguagesInput]
+  contacts: UserRelayContactsInput
+  gender: EnumUserRelayGender
+}
+
+type UpdateManyUserRelayPayload {
+  numAffected: Int
+}
+
+input UpdateOneUserRelayInput {
+  name: String
+  age: Float
+  languages: [UserRelayUserRelayLanguagesInput]
+  contacts: UserRelayContactsInput
+  gender: EnumUserRelayGender
+}
+
+type UpdateOneUserRelayPayload {
+  recordId: MongoID
+  record: UserRelay
+}
+
+type UserRelay {
+  name: String
+  age: Float
+  languages: [UserRelayLanguages]
+  contacts: UserRelayContacts
+  gender: EnumUserRelayGender
+  _id: MongoID
+}
+
+type UserRelayConnection {
+  count: Int
+  pageInfo: PageInfo!
+  edges: [UserRelayEdge]
+}
+
+type UserRelayContacts {
+  email: String
+  phones: [String]
+}
+
+input UserRelayContactsInput {
+  email: String
+  phones: [String]
+}
+
+type UserRelayEdge {
+  node: UserRelay
+  cursor: ConnectionCursor!
+}
+
+type UserRelayLanguages {
+  language: String
+  skill: EnumUserRelayLanguagesSkill
+}
+
+input UserRelayUserRelayLanguagesInput {
+  language: String
+  skill: EnumUserRelayLanguagesSkill
+}
