@@ -1,9 +1,11 @@
 import express from 'express';
+import cors from 'cors';
 import graphqlHTTP from 'express-graphql';
 import { mainPage, addToMainPage } from './mainPage';
 import './mongooseConnection';
 
 const server = express();
+server.use(cors());
 
 import user from './examples/user';
 addExample(user);
