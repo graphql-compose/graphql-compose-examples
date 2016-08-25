@@ -29,7 +29,7 @@ CustomerTC.addRelation(
   () => ({
     resolver: OrderTC.getResolver('connection'),
     args: {
-      filter: (source) => ({ customerID: `${source.customerID}` }),
+      filter: (source) => ({ customerID: source.customerID }),
     },
     projection: { customerID: true },
   })

@@ -53,7 +53,7 @@ OrderTC.addRelation(
   () => ({
     resolver: CustomerTC.getResolver('findOne'),
     args: {
-      filter: (source) => ({ customerID: `${source.customerID}` }),
+      filter: (source) => ({ customerID: source.customerID }),
       skip: null,
       sort: null,
     },
@@ -66,7 +66,7 @@ OrderTC.addRelation(
   () => ({
     resolver: EmployeeTC.getResolver('findOne'),
     args: {
-      filter: (source) => ({ employeeID: `${source.employeeID}` }),
+      filter: (source) => ({ employeeID: source.employeeID }),
       skip: null,
       sort: null,
     },
@@ -79,7 +79,7 @@ OrderTC.addRelation(
   () => ({
     resolver: ShipperTC.getResolver('findOne'),
     args: {
-      filter: (source) => ({ shipperID: `${source.shipVia}` }),
+      filter: (source) => ({ shipperID: source.shipVia }),
       skip: null,
       sort: null,
     },
@@ -93,7 +93,7 @@ OrderDetailsTC.addRelation(
   () => ({
     resolver: ProductTC.getResolver('findOne'),
     args: {
-      filter: (source) => ({ productID: `${source.productID}` }),
+      filter: (source) => ({ productID: source.productID }),
       skip: null,
       sort: null,
     },

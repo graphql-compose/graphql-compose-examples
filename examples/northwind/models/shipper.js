@@ -25,7 +25,7 @@ ShipperTC.addRelation(
   () => ({
     resolver: OrderTC.getResolver('connection'),
     args: {
-      filter: (source) => ({ shipVia: `${source.shipperID}` }),
+      filter: (source) => ({ shipVia: source.shipperID }),
     },
     projection: { shipperID: true },
   })
