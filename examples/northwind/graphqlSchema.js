@@ -19,30 +19,33 @@ GQC.rootQuery().addField('viewer', {
   resolve: () => ({}),
 });
 
-ViewerTC.addField('category', CategoryTC.getResolver('findOne').getFieldConfig());
-ViewerTC.addField('categoryList', CategoryTC.getResolver('findMany').getFieldConfig());
+const fields = {
+  category: CategoryTC.getResolver('findOne').getFieldConfig(),
+  categoryList: CategoryTC.getResolver('findMany').getFieldConfig(),
 
-ViewerTC.addField('customer', CustomerTC.getResolver('findOne').getFieldConfig());
-ViewerTC.addField('customerConnection', CustomerTC.getResolver('connection').getFieldConfig());
+  customer: CustomerTC.getResolver('findOne').getFieldConfig(),
+  customerConnection: CustomerTC.getResolver('connection').getFieldConfig(),
 
-ViewerTC.addField('employee', EmployeeTC.getResolver('findOne').getFieldConfig());
-ViewerTC.addField('employeeList', EmployeeTC.getResolver('findMany').getFieldConfig());
+  employee: EmployeeTC.getResolver('findOne').getFieldConfig(),
+  employeeList: EmployeeTC.getResolver('findMany').getFieldConfig(),
 
-ViewerTC.addField('order', OrderTC.getResolver('findOne').getFieldConfig());
-ViewerTC.addField('orderConnection', OrderTC.getResolver('connection').getFieldConfig());
+  order: OrderTC.getResolver('findOne').getFieldConfig(),
+  orderConnection: OrderTC.getResolver('connection').getFieldConfig(),
 
-ViewerTC.addField('product', ProductTC.getResolver('findOne').getFieldConfig());
-ViewerTC.addField('productList', ProductTC.getResolver('findMany').getFieldConfig());
-ViewerTC.addField('productConnection', ProductTC.getResolver('connection').getFieldConfig());
+  product: ProductTC.getResolver('findOne').getFieldConfig(),
+  productList: ProductTC.getResolver('findMany').getFieldConfig(),
+  productConnection: ProductTC.getResolver('connection').getFieldConfig(),
 
-ViewerTC.addField('region', RegionTC.getResolver('findOne').getFieldConfig());
-ViewerTC.addField('regionList', RegionTC.getResolver('findMany').getFieldConfig());
+  region: RegionTC.getResolver('findOne').getFieldConfig(),
+  regionList: RegionTC.getResolver('findMany').getFieldConfig(),
 
-ViewerTC.addField('shipper', ShipperTC.getResolver('findOne').getFieldConfig());
-ViewerTC.addField('shipperList', ShipperTC.getResolver('findMany').getFieldConfig());
+  shipper: ShipperTC.getResolver('findOne').getFieldConfig(),
+  shipperList: ShipperTC.getResolver('findMany').getFieldConfig(),
 
-ViewerTC.addField('supplier', SupplierTC.getResolver('findOne').getFieldConfig());
-ViewerTC.addField('supplierConnection', SupplierTC.getResolver('connection').getFieldConfig());
+  supplier: SupplierTC.getResolver('findOne').getFieldConfig(),
+  supplierConnection: SupplierTC.getResolver('connection').getFieldConfig(),
+};
 
+ViewerTC.addFields(fields);
 
 export default GQC.buildSchema();
