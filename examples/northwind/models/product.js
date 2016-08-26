@@ -1,7 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 import composeWithMongoose from 'graphql-compose-mongoose';
 import composeWithRelay from 'graphql-compose-relay';
-import { AddressSchema } from './addressSchema';
 
 import { OrderTC } from './order';
 import { SupplierTC } from './supplier';
@@ -10,14 +9,17 @@ import { CategoryTC } from './category';
 export const ProductSchema = new Schema({
   productID: {
     type: Number,
-    description: 'Customer unique ID',
+    description: 'Unique product id',
     index: true,
   },
   name: String,
   supplierID: Number,
   categoryID: Number,
   quantityPerUnit: String,
-  unitPrice: Number,
+  unitPrice: {
+    type: Number,
+    index: true,
+  },
   unitsInStock: Number,
   unitsOnOrder: Number,
   reorderLevel: Number,
