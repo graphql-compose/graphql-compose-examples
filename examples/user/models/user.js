@@ -2,16 +2,18 @@ import mongoose from 'mongoose';
 import mongooseToTypeComposer from 'graphql-compose-mongoose';
 
 
-const LanguagesSchema = new mongoose.Schema({
-  language: String,
-  skill: {
-    type: String,
-    enum: [ 'basic', 'fluent', 'native' ],
+const LanguagesSchema = new mongoose.Schema(
+  {
+    language: String,
+    skill: {
+      type: String,
+      enum: ['basic', 'fluent', 'native'],
+    },
+  },
+  {
+    _id: false, // disable `_id` field for `Language` schema
   }
-},
-{
-  _id: false, // disable `_id` field for `Language` schema
-});
+);
 
 export const UserRelaySchema = new mongoose.Schema({
   name: String, // standard types
@@ -20,7 +22,7 @@ export const UserRelaySchema = new mongoose.Schema({
     index: true,
   },
   languages: {
-    type: [LanguagesSchema], // you may include other schemas (here included as array of embedded documents)
+    type: [LanguagesSchema], // you may include other schemas (also as array of embedded documents)
     default: [],
   },
   contacts: { // another mongoose way for providing embedded documents
@@ -30,6 +32,10 @@ export const UserRelaySchema = new mongoose.Schema({
   gender: { // enum field with values
     type: String,
     enum: ['male', 'female', 'ladyboy'],
+  },
+  someMixed: {
+    type: mongoose.Schema.Types.Mixed,
+    description: 'Some dynamic data',
   },
 }, {
   collection: 'user_users',

@@ -11,7 +11,16 @@
       "email": "user1@example.com",
       "phones": ["111-222-333", "444-555-666"]
     },
-    "gender": "male"
+    "gender": "male",
+    "someMixed": {
+      "a": 123,
+      "b": [1, 2, true, false, "ok"],
+      "c": { "c": 1 },
+      "d": null,
+      "e": "str",
+      "f": true,
+      "g": false
+    }
   },
   {
     "_id": "57bb44dd21d2befb7ca3f002",

@@ -67,7 +67,19 @@ export default {
       `
     },
     {
-      title: 'Create user mutation',
+      title: 'Find User with field of MIXED type',
+      query: `
+{
+  userById(_id: "57bb44dd21d2befb7ca3f001") {
+    _id
+    name
+    someMixed
+  }
+}
+      `
+    },
+    {
+      title: 'Create user mutation (with arg of MIXED type)',
       query: `
 mutation {
   userCreate(record: {
@@ -80,6 +92,11 @@ mutation {
         "111-222-333-444",
         "444-555-666-777"
       ]
+    },
+    someMixed: {
+      a: 1,
+      b: 2,
+      c: [ 1, 2, 3, true, false, { sub: 1 }]
     }
   }) {
     recordId
@@ -91,10 +108,11 @@ mutation {
         email
         phones
       }
+      someMixed
     }
   }
 }
       `
-    }
+    },
   ]
 };
