@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { graphql } from 'graphql';
 import { introspectionQuery, printSchema } from 'graphql/utilities';
+import { getExampleNames, resolveExamplePath } from './config';
 
 async function buildSchema(schemaPath) {
   const Schema = require(`${schemaPath}/graphqlSchema`).default;
@@ -28,14 +29,11 @@ async function buildSchema(schemaPath) {
 }
 
 async function run() {
-  console.log('Building schema for `user`...');
-  await buildSchema(path.resolve('./examples/user'));
-
-  console.log('Building schema for `userForRelay`...');
-  await buildSchema(path.resolve('./examples/userForRelay'));
-
-  console.log('Building schema for `northwind`...');
-  await buildSchema(path.resolve('./examples/northwind'));
+  const exampleNames = getExampleNames();
+  for (let name of exampleNames) {
+    console.log(`Building schema for '${name}'...`);
+    await buildSchema(resolveExamplePath(name));
+  }
 
   console.log('Building schemas competed!');
 };

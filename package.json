@@ -50,7 +50,7 @@
     "nodemon": "1.10.2"
   },
   "scripts": {
-    "build": "babel-node misc/buildSchema.js",
+    "build": "npm run buildSchema",
     "seed": "./node_modules/.bin/babel-node seed.js",
     "buildSchema": "./node_modules/.bin/babel-node buildSchema.js",
     "start": "npm run seed && babel-node index.js",

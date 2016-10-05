@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
-
-export const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/graphql-compose-mongoose';
+import { mongoUri } from './config';
 
 mongoose.Promise = Promise;
 mongoose.connect(mongoUri, {
