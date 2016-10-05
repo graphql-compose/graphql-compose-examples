@@ -143,6 +143,8 @@ input AgeOperatorsFilterUserInput {
   nin: [Float]
 }
 
+# The `ConnectionCursor` is String type, that represents a point of record in data
+# set.  Due this point, you may request previous or next records.
 scalar ConnectionCursor
 
 input CreateOneUserInput {
@@ -154,9 +156,17 @@ input CreateOneUserInput {
 }
 
 type CreateOneUserPayload {
+  # Created document ID
   recordId: MongoID
+
+  # Created document
   record: User
+
+  # The globally unique ID among all types
   nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
   clientMutationId: String
 }
 
@@ -179,6 +189,8 @@ input FilterFindManyUserInput {
   contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID
+
+  # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindManyUserInput
 }
 
@@ -189,6 +201,8 @@ input FilterFindOneUserInput {
   contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID
+
+  # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindOneUserInput
 }
 
@@ -199,6 +213,8 @@ input FilterRemoveManyUserInput {
   contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID
+
+  # List of fields that can be filtered via operators
   _operators: OperatorsFilterRemoveManyUserInput
 }
 
@@ -209,6 +225,8 @@ input FilterRemoveOneUserInput {
   contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID
+
+  # List of fields that can be filtered via operators
   _operators: OperatorsFilterRemoveOneUserInput
 }
 
@@ -219,6 +237,8 @@ input FilterUpdateManyUserInput {
   contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID
+
+  # List of fields that can be filtered via operators
   _operators: OperatorsFilterUpdateManyUserInput
 }
 
@@ -229,6 +249,8 @@ input FilterUpdateOneUserInput {
   contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID
+
+  # List of fields that can be filtered via operators
   _operators: OperatorsFilterUpdateOneUserInput
 }
 
@@ -239,117 +261,203 @@ input FilterUserInput {
   contacts: UserContactsInput
   gender: EnumUserGender
   _id: MongoID
+
+  # List of fields that can be filtered via operators
   _operators: OperatorsFilterUserInput
 }
 
+# The `ID` scalar type represents a unique MongoDB identifier in collection.
+# MongoDB by default use 12-byte ObjectId value
+# (https://docs.mongodb.com/manual/reference/bson-types/#objectid). But MongoDB
+# also may accepts string or integer as correct values for _id field.
 scalar MongoID
 
+# An object, that can be fetched by the globally unique ID among all types.
 interface Node {
+  # The globally unique ID among all types.
   id: ID!
 }
 
 input OperatorsFilterFindManyUserInput {
+  # Filter value by operator(s)
   age: AgeOperatorsFilterFindManyUserInput
+
+  # Filter value by operator(s)
   _id: _idOperatorsFilterFindManyUserInput
 }
 
 input OperatorsFilterFindOneUserInput {
+  # Filter value by operator(s)
   age: AgeOperatorsFilterFindOneUserInput
+
+  # Filter value by operator(s)
   _id: _idOperatorsFilterFindOneUserInput
 }
 
 input OperatorsFilterRemoveManyUserInput {
+  # Filter value by operator(s)
   age: AgeOperatorsFilterRemoveManyUserInput
+
+  # Filter value by operator(s)
   _id: _idOperatorsFilterRemoveManyUserInput
 }
 
 input OperatorsFilterRemoveOneUserInput {
+  # Filter value by operator(s)
   age: AgeOperatorsFilterRemoveOneUserInput
+
+  # Filter value by operator(s)
   _id: _idOperatorsFilterRemoveOneUserInput
 }
 
 input OperatorsFilterUpdateManyUserInput {
+  # Filter value by operator(s)
   age: AgeOperatorsFilterUpdateManyUserInput
+
+  # Filter value by operator(s)
   _id: _idOperatorsFilterUpdateManyUserInput
 }
 
 input OperatorsFilterUpdateOneUserInput {
+  # Filter value by operator(s)
   age: AgeOperatorsFilterUpdateOneUserInput
+
+  # Filter value by operator(s)
   _id: _idOperatorsFilterUpdateOneUserInput
 }
 
 input OperatorsFilterUserInput {
+  # Filter value by operator(s)
   age: AgeOperatorsFilterUserInput
+
+  # Filter value by operator(s)
   _id: _idOperatorsFilterUserInput
 }
 
+# Information about pagination in a connection.
 type PageInfo {
+  # When paginating forwards, are there more items?
   hasNextPage: Boolean!
+
+  # When paginating backwards, are there more items?
   hasPreviousPage: Boolean!
+
+  # When paginating backwards, the cursor to continue.
   startCursor: String
+
+  # When paginating forwards, the cursor to continue.
   endCursor: String
 }
 
 input RelayCreateOneUserInput {
   record: CreateOneUserInput!
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
   clientMutationId: String
 }
 
 input RelayRemoveByIdUserInput {
   _id: MongoID!
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
   clientMutationId: String
 }
 
 input RelayRemoveManyUserInput {
+  # Filter by fields
   filter: FilterRemoveManyUserInput!
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
   clientMutationId: String
 }
 
 input RelayRemoveOneUserInput {
+  # Filter by fields
   filter: FilterRemoveOneUserInput
   sort: SortRemoveOneUserInput
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
   clientMutationId: String
 }
 
 input RelayUpdateByIdUserInput {
   record: UpdateByIdUserInput!
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
   clientMutationId: String
 }
 
 input RelayUpdateManyUserInput {
   record: UpdateManyUserInput!
+
+  # Filter by fields
   filter: FilterUpdateManyUserInput
   sort: SortUpdateManyUserInput
   skip: Int
   limit: Int = 1000
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
   clientMutationId: String
 }
 
 input RelayUpdateOneUserInput {
   record: UpdateOneUserInput!
+
+  # Filter by fields
   filter: FilterUpdateOneUserInput
   sort: SortUpdateOneUserInput
   skip: Int
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
   clientMutationId: String
 }
 
 type RemoveByIdUserPayload {
+  # Removed document ID
   recordId: MongoID
+
+  # Removed document
   record: User
+
+  # The globally unique ID among all types
   nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
   clientMutationId: String
 }
 
 type RemoveManyUserPayload {
+  # Affected documents number
   numAffected: Int
+
+  # The globally unique ID among all types
   nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
   clientMutationId: String
 }
 
 type RemoveOneUserPayload {
+  # Removed document ID
   recordId: MongoID
+
+  # Removed document
   record: User
+
+  # The globally unique ID among all types
   nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
   clientMutationId: String
 }
 
@@ -366,11 +474,48 @@ type RootMutation {
 type RootQuery {
   userById(_id: MongoID!): User
   userByIds(_ids: [MongoID]!, limit: Int = 1000, sort: SortFindByIdsUserInput): [User]
-  userOne(filter: FilterFindOneUserInput, skip: Int, sort: SortFindOneUserInput): User
-  userMany(filter: FilterFindManyUserInput, skip: Int, limit: Int = 1000, sort: SortFindManyUserInput): [User]
-  userCount(filter: FilterUserInput): Int
-  userConnection(first: Int, after: ConnectionCursor, last: Int, before: ConnectionCursor, filter: FilterFindManyUserInput, sort: SortConnectionUserEnum = _ID_DESC): UserConnection
-  node(id: ID!): Node
+  userOne(
+    # Filter by fields
+    filter: FilterFindOneUserInput
+    skip: Int
+    sort: SortFindOneUserInput
+  ): User
+  userMany(
+    # Filter by fields
+    filter: FilterFindManyUserInput
+    skip: Int
+    limit: Int = 1000
+    sort: SortFindManyUserInput
+  ): [User]
+  userCount(
+    # Filter by fields
+    filter: FilterUserInput
+  ): Int
+  userConnection(
+    # Forward pagination argument for returning at most first edges
+    first: Int
+
+    # Forward pagination argument for returning at most first edges
+    after: ConnectionCursor
+
+    # Backward pagination argument for returning at most last edges
+    last: Int
+
+    # Backward pagination argument for returning at most last edges
+    before: ConnectionCursor
+
+    # Filter by fields
+    filter: FilterFindManyUserInput
+
+    # Sort argument for data ordering
+    sort: SortConnectionUserEnum = _ID_DESC
+  ): UserConnection
+
+  # Fetches an object that has globally unique ID among all types
+  node(
+    # The globally unique ID among all types
+    id: ID!
+  ): Node
 }
 
 enum SortConnectionUserEnum {
@@ -430,9 +575,17 @@ input UpdateByIdUserInput {
 }
 
 type UpdateByIdUserPayload {
+  # Updated document ID
   recordId: MongoID
+
+  # Updated document
   record: User
+
+  # The globally unique ID among all types
   nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
   clientMutationId: String
 }
 
@@ -445,8 +598,14 @@ input UpdateManyUserInput {
 }
 
 type UpdateManyUserPayload {
+  # Affected documents number
   numAffected: Int
+
+  # The globally unique ID among all types
   nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
   clientMutationId: String
 }
 
@@ -459,9 +618,17 @@ input UpdateOneUserInput {
 }
 
 type UpdateOneUserPayload {
+  # Updated document ID
   recordId: MongoID
+
+  # Updated document
   record: User
+
+  # The globally unique ID among all types
   nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
   clientMutationId: String
 }
 
@@ -472,12 +639,20 @@ type User implements Node {
   contacts: UserContacts
   gender: EnumUserGender
   _id: MongoID
+
+  # The globally unique ID among all types
   id: ID!
 }
 
+# A connection to a list of items.
 type UserConnection {
+  # Total object count.
   count: Int
+
+  # Information to aid in pagination.
   pageInfo: PageInfo!
+
+  # Information to aid in pagination.
   edges: [UserEdge]
 }
 
@@ -491,8 +666,12 @@ input UserContactsInput {
   phones: [String]
 }
 
+# An edge in a connection.
 type UserEdge {
+  # The item at the end of the edge
   node: User
+
+  # A cursor for use in pagination
   cursor: ConnectionCursor!
 }
 
