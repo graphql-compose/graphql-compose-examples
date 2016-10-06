@@ -15,7 +15,7 @@ export const RegionSchema = new Schema({
   regionID: {
     type: Number,
     description: 'Region unique ID',
-    index: true,
+    unique: true,
   },
   name: String,
   territories: {

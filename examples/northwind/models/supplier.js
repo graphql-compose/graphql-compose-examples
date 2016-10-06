@@ -9,9 +9,12 @@ export const SupplierSchema = new Schema({
   supplierID: {
     type: Number,
     description: 'Supplier unique ID',
-    index: true,
+    unique: true,
   },
-  companyName: String,
+  companyName: {
+    type: String,
+    unique: true,
+  },
   contactName: String,
   contactTitle: String,
   address: AddressSchema,

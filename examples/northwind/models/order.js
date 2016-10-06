@@ -24,7 +24,7 @@ export const OrderSchema = new Schema({
   orderID: {
     type: Number,
     description: 'Order unique ID',
-    index: true,
+    unique: true,
   },
   customerID: String,
   employeeID: Number,

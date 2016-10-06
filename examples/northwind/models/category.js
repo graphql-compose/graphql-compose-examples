@@ -8,9 +8,12 @@ export const CategorySchema = new Schema({
   categoryID: {
     type: Number,
     description: 'Category unique ID',
-    index: true,
+    unique: true,
   },
-  name: String,
+  name: {
+    type: String,
+    unique: true,
+  },
   description: String,
 }, {
   collection: 'northwind_categories',

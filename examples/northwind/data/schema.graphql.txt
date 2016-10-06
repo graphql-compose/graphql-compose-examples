@@ -235,6 +235,46 @@ input CategoryIDOperatorsFilterFindOneCategoryInput {
   nin: [Float]
 }
 
+input CompanyNameOperatorsFilterFindManyCustomerInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+}
+
+input CompanyNameOperatorsFilterFindManySupplierInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+}
+
+input CompanyNameOperatorsFilterFindOneCustomerInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+}
+
+input CompanyNameOperatorsFilterFindOneSupplierInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+}
+
 # The `ConnectionCursor` is String type, that represents a point of record in data
 # set.  Due this point, you may request previous or next records.
 scalar ConnectionCursor
@@ -730,11 +770,71 @@ input FilterFindOneSupplierInput {
   _operators: OperatorsFilterFindOneSupplierInput
 }
 
+input LastNameOperatorsFilterFindManyEmployeeInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+}
+
+input LastNameOperatorsFilterFindOneEmployeeInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+}
+
 # The `ID` scalar type represents a unique MongoDB identifier in collection.
 # MongoDB by default use 12-byte ObjectId value
 # (https://docs.mongodb.com/manual/reference/bson-types/#objectid). But MongoDB
 # also may accepts string or integer as correct values for _id field.
 scalar MongoID
+
+input NameOperatorsFilterFindManyCategoryInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+}
+
+input NameOperatorsFilterFindManyProductInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+}
+
+input NameOperatorsFilterFindOneCategoryInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+}
+
+input NameOperatorsFilterFindOneProductInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+}
 
 # An object, that can be fetched by the globally unique ID among all types.
 interface Node {
@@ -747,6 +847,9 @@ input OperatorsFilterFindManyCategoryInput {
   categoryID: CategoryIDOperatorsFilterFindManyCategoryInput
 
   # Filter value by operator(s)
+  name: NameOperatorsFilterFindManyCategoryInput
+
+  # Filter value by operator(s)
   _id: _idOperatorsFilterFindManyCategoryInput
 }
 
@@ -755,12 +858,18 @@ input OperatorsFilterFindManyCustomerInput {
   customerID: CustomerIDOperatorsFilterFindManyCustomerInput
 
   # Filter value by operator(s)
+  companyName: CompanyNameOperatorsFilterFindManyCustomerInput
+
+  # Filter value by operator(s)
   _id: _idOperatorsFilterFindManyCustomerInput
 }
 
 input OperatorsFilterFindManyEmployeeInput {
   # Filter value by operator(s)
   employeeID: EmployeeIDOperatorsFilterFindManyEmployeeInput
+
+  # Filter value by operator(s)
+  lastName: LastNameOperatorsFilterFindManyEmployeeInput
 
   # Filter value by operator(s)
   territoryIDs: TerritoryIDsOperatorsFilterFindManyEmployeeInput
@@ -783,6 +892,9 @@ input OperatorsFilterFindManyOrderInput {
 input OperatorsFilterFindManyProductInput {
   # Filter value by operator(s)
   productID: ProductIDOperatorsFilterFindManyProductInput
+
+  # Filter value by operator(s)
+  name: NameOperatorsFilterFindManyProductInput
 
   # Filter value by operator(s)
   unitPrice: UnitPriceOperatorsFilterFindManyProductInput
@@ -812,12 +924,18 @@ input OperatorsFilterFindManySupplierInput {
   supplierID: SupplierIDOperatorsFilterFindManySupplierInput
 
   # Filter value by operator(s)
+  companyName: CompanyNameOperatorsFilterFindManySupplierInput
+
+  # Filter value by operator(s)
   _id: _idOperatorsFilterFindManySupplierInput
 }
 
 input OperatorsFilterFindOneCategoryInput {
   # Filter value by operator(s)
   categoryID: CategoryIDOperatorsFilterFindOneCategoryInput
+
+  # Filter value by operator(s)
+  name: NameOperatorsFilterFindOneCategoryInput
 
   # Filter value by operator(s)
   _id: _idOperatorsFilterFindOneCategoryInput
@@ -828,12 +946,18 @@ input OperatorsFilterFindOneCustomerInput {
   customerID: CustomerIDOperatorsFilterFindOneCustomerInput
 
   # Filter value by operator(s)
+  companyName: CompanyNameOperatorsFilterFindOneCustomerInput
+
+  # Filter value by operator(s)
   _id: _idOperatorsFilterFindOneCustomerInput
 }
 
 input OperatorsFilterFindOneEmployeeInput {
   # Filter value by operator(s)
   employeeID: EmployeeIDOperatorsFilterFindOneEmployeeInput
+
+  # Filter value by operator(s)
+  lastName: LastNameOperatorsFilterFindOneEmployeeInput
 
   # Filter value by operator(s)
   territoryIDs: TerritoryIDsOperatorsFilterFindOneEmployeeInput
@@ -856,6 +980,9 @@ input OperatorsFilterFindOneOrderInput {
 input OperatorsFilterFindOneProductInput {
   # Filter value by operator(s)
   productID: ProductIDOperatorsFilterFindOneProductInput
+
+  # Filter value by operator(s)
+  name: NameOperatorsFilterFindOneProductInput
 
   # Filter value by operator(s)
   unitPrice: UnitPriceOperatorsFilterFindOneProductInput
@@ -883,6 +1010,9 @@ input OperatorsFilterFindOneShipperInput {
 input OperatorsFilterFindOneSupplierInput {
   # Filter value by operator(s)
   supplierID: SupplierIDOperatorsFilterFindOneSupplierInput
+
+  # Filter value by operator(s)
+  companyName: CompanyNameOperatorsFilterFindOneSupplierInput
 
   # Filter value by operator(s)
   _id: _idOperatorsFilterFindOneSupplierInput
@@ -1289,6 +1419,8 @@ enum SortFindManyCategoryInput {
   _ID_DESC
   CATEGORYID_ASC
   CATEGORYID_DESC
+  NAME_ASC
+  NAME_DESC
 }
 
 enum SortFindManyEmployeeInput {
@@ -1298,6 +1430,10 @@ enum SortFindManyEmployeeInput {
   EMPLOYEEID_DESC
   TERRITORYIDS_ASC
   TERRITORYIDS_DESC
+  LASTNAME_ASC
+  LASTNAME_DESC
+  LASTNAME__FIRSTNAME_ASC
+  LASTNAME__FIRSTNAME_DESC
 }
 
 enum SortFindManyProductInput {
@@ -1307,6 +1443,10 @@ enum SortFindManyProductInput {
   PRODUCTID_DESC
   UNITPRICE_ASC
   UNITPRICE_DESC
+  NAME_ASC
+  NAME_DESC
+  NAME__SUPPLIERID_ASC
+  NAME__SUPPLIERID_DESC
 }
 
 enum SortFindManyRegionInput {
@@ -1328,6 +1468,8 @@ enum SortFindOneCategoryInput {
   _ID_DESC
   CATEGORYID_ASC
   CATEGORYID_DESC
+  NAME_ASC
+  NAME_DESC
 }
 
 enum SortFindOneCustomerInput {
@@ -1335,6 +1477,8 @@ enum SortFindOneCustomerInput {
   _ID_DESC
   CUSTOMERID_ASC
   CUSTOMERID_DESC
+  COMPANYNAME_ASC
+  COMPANYNAME_DESC
 }
 
 enum SortFindOneEmployeeInput {
@@ -1344,6 +1488,10 @@ enum SortFindOneEmployeeInput {
   EMPLOYEEID_DESC
   TERRITORYIDS_ASC
   TERRITORYIDS_DESC
+  LASTNAME_ASC
+  LASTNAME_DESC
+  LASTNAME__FIRSTNAME_ASC
+  LASTNAME__FIRSTNAME_DESC
 }
 
 enum SortFindOneOrderInput {
@@ -1362,6 +1510,10 @@ enum SortFindOneProductInput {
   PRODUCTID_DESC
   UNITPRICE_ASC
   UNITPRICE_DESC
+  NAME_ASC
+  NAME_DESC
+  NAME__SUPPLIERID_ASC
+  NAME__SUPPLIERID_DESC
 }
 
 enum SortFindOneRegionInput {
@@ -1383,6 +1535,8 @@ enum SortFindOneSupplierInput {
   _ID_DESC
   SUPPLIERID_ASC
   SUPPLIERID_DESC
+  COMPANYNAME_ASC
+  COMPANYNAME_DESC
 }
 
 type Supplier implements Node {

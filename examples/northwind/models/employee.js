@@ -31,6 +31,8 @@ export const EmployeeSchema = new Schema({
   collection: 'northwind_employees',
 });
 
+EmployeeSchema.index({ lastName: 1, firstName: 1 }, { unique: true });
+
 export const Employee = mongoose.model('Employee', EmployeeSchema);
 
 export const EmployeeTC = composeWithRelay(composeWithMongoose(Employee));

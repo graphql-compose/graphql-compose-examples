@@ -9,10 +9,13 @@ export const CustomerSchema = new Schema({
   customerID: {
     type: String,
     description: 'Customer unique ID',
-    index: true,
+    unique: true,
   },
 
-  companyName: String,
+  companyName: {
+    type: String,
+    unique: true,
+  },
   contactName: String,
   contactTitle: String,
   address: AddressSchema,

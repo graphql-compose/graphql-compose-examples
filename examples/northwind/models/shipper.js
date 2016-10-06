@@ -8,7 +8,7 @@ export const ShipperSchema = new Schema({
   shipperID: {
     type: Number,
     description: 'Shipper unique ID',
-    index: true,
+    unique: true,
   },
   companyName: String,
   phone: String,

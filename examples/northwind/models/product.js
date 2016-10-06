@@ -10,7 +10,7 @@ export const ProductSchema = new Schema({
   productID: {
     type: Number,
     description: 'Unique product id',
-    index: true,
+    unique: true,
   },
   name: String,
   supplierID: Number,
@@ -27,6 +27,8 @@ export const ProductSchema = new Schema({
 }, {
   collection: 'northwind_products',
 });
+
+ProductSchema.index({ name: 1, supplierID: 1 }, { unique: true });
 
 export const Product = mongoose.model('Product', ProductSchema);
 
