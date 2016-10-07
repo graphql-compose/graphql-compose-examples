@@ -34,6 +34,21 @@ export const Product = mongoose.model('Product', ProductSchema);
 
 export const ProductTC = composeWithRelay(composeWithMongoose(Product));
 
+
+const extendedResolver = ProductTC
+  .getResolver('findMany')
+  .addFilterArg({
+    name: 'nameRegexp',
+    type: 'String',
+    description: 'Search by regExp',
+    query: (query, value, resolveParams) => { // eslint-disable-line
+      query.name = new RegExp(value, 'i'); // eslint-disable-line
+    },
+  });
+extendedResolver.name = 'findMany';
+ProductTC.addResolver(extendedResolver);
+
+
 ProductTC.addRelation(
   'orderConnection',
   () => ({

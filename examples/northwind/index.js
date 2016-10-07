@@ -5,7 +5,7 @@ export default {
   uri: '/northwind',
   schema: GraphqlSchema,
   title: 'Northwind: complex schema with 8 models 🌶🌶🌶',
-  description: 'This is a sample data of some trading company, which consists from 8 models. All models has cross-relations to each other.',
+  description: 'This is a sample data of some trading company, which consists from 8 models. All models has cross-relations to each other. This schema used in <b><a href="https://nodkz.github.io/relay-northwind/" target="_blank">Relay example app <span class="glyphicon glyphicon-new-window"></span></a></b>',
   github: 'https://github.com/nodkz/graphql-compose-examples/tree/master/examples/northwind',
   queries: [
     {
