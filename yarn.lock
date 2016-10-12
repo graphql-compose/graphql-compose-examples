@@ -1462,9 +1462,9 @@ eslint-module-utils@^1.0.0:
     debug "2.2.0"
     pkg-dir "^1.0.0"
 
-eslint-plugin-import@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.0.0.tgz#5ccd46210162bc1a0d76221eb7518476d04fb089"
+eslint-plugin-import@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.0.1.tgz#dcfe96357d476b3f822570d42c29bec66f5d9c5c"
   dependencies:
     builtin-modules "^1.1.1"
     contains-path "^0.1.0"
@@ -1477,17 +1477,17 @@ eslint-plugin-import@2.0.0:
     minimatch "^3.0.3"
     pkg-up "^1.0.0"
 
-eslint-plugin-jsx-a11y@2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-2.2.2.tgz#ac893b4f9ecb7534bc0373ff6a47388835d3a859"
+eslint-plugin-jsx-a11y@2.2.3:
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-2.2.3.tgz#4e35cb71b8a7db702ac415c806eb8e8d9ea6c65d"
   dependencies:
     damerau-levenshtein "^1.0.0"
     jsx-ast-utils "^1.0.0"
     object-assign "^4.0.1"
 
-eslint-plugin-react@6.3.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-6.3.0.tgz#fac3504a02917fc8b15f7f28514058cffde9cb76"
+eslint-plugin-react@6.4.1:
+  version "6.4.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-6.4.1.tgz#7d1aade747db15892f71eee1fea4addf97bcfa2b"
   dependencies:
     doctrine "^1.2.2"
     jsx-ast-utils "^1.3.1"
@@ -1927,40 +1927,35 @@ graceful-fs@^4.1.2, graceful-fs@^4.1.4, graceful-fs@^4.1.6:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
-graphql-compose-connection@1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/graphql-compose-connection/-/graphql-compose-connection-1.0.8.tgz#0cd987b55d7438bd047bf24496bd288257d4022e"
+graphql-compose-connection@1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/graphql-compose-connection/-/graphql-compose-connection-1.0.10.tgz#98f7679799b9a1b9883965d13f630839cd611360"
   dependencies:
     babel-runtime "6.11.6"
 
-graphql-compose-mongoose@1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/graphql-compose-mongoose/-/graphql-compose-mongoose-1.2.1.tgz#b4aca3ce1e97bbfbb59f5341dd66730f22f5b49c"
-  dependencies:
-    babel-runtime "6.11.6"
-    graphql-type-json "0.1.3"
-    object-path "0.11.2"
-
-graphql-compose-relay@1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/graphql-compose-relay/-/graphql-compose-relay-1.0.8.tgz#31ee414397078bc509ea770823c90d6bfad20af9"
-  dependencies:
-    babel-runtime "6.11.6"
-
-graphql-compose@0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-0.2.0.tgz#d82a47ffe8357d7e91e83aa450e5e45c2a15b128"
+graphql-compose-mongoose@1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/graphql-compose-mongoose/-/graphql-compose-mongoose-1.2.2.tgz#1ca8a87dce355ab4f81284d37dd7aad0eed4bbe4"
   dependencies:
     babel-runtime "6.11.6"
     object-path "0.11.2"
 
-graphql-type-json@0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/graphql-type-json/-/graphql-type-json-0.1.3.tgz#3f0e90c9866ef83b0285f29bde9c3fad9f930274"
+graphql-compose-relay@1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/graphql-compose-relay/-/graphql-compose-relay-1.0.9.tgz#53770bd1c35145b46a3fd61769210328d78b3a95"
+  dependencies:
+    babel-runtime "6.11.6"
 
-graphql@0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.7.1.tgz#3918e6b8a1f93c0e174573e51f705165294c43c6"
+graphql-compose@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-1.0.0.tgz#b2d2f7c656a77f4613c9a02456a125f315984ce8"
+  dependencies:
+    babel-runtime "6.11.6"
+    object-path "0.11.2"
+
+graphql@0.7.2:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.7.2.tgz#cc894a32823399b8a0cb012b9e9ecad35cd00f72"
   dependencies:
     iterall "1.0.2"
 
@@ -2969,9 +2964,9 @@ mongodb@2.2.10:
     mongodb-core "2.0.12"
     readable-stream "2.1.5"
 
-mongoose@4.6.2:
-  version "4.6.2"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.6.2.tgz#0d7184fc4cf64a2f59851905b46a0db687a5e8f7"
+mongoose@4.6.3:
+  version "4.6.3"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.6.3.tgz#92226e34720ae859afb5dee3170b62653d6598bb"
   dependencies:
     async "2.0.1"
     bson "~0.5.4"
@@ -3082,9 +3077,9 @@ node-uuid@~1.4.7:
   version "1.4.7"
   resolved "https://registry.yarnpkg.com/node-uuid/-/node-uuid-1.4.7.tgz#6da5a17668c4b3dd59623bda11cf7fa4c1f60a6f"
 
-nodemon@1.10.2:
-  version "1.10.2"
-  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.10.2.tgz#ec511e14c3ad0858fc121c6006890ed27b7c412e"
+nodemon@1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/nodemon/-/nodemon-1.11.0.tgz#226c562bd2a7b13d3d7518b49ad4828a3623d06c"
   dependencies:
     chokidar "^1.4.3"
     debug "^2.2.0"

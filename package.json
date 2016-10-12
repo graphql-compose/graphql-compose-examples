@@ -33,23 +33,23 @@
     "cors": "2.8.1",
     "express": "4.14.0",
     "express-graphql": "0.5.4",
-    "graphql": "0.7.1",
-    "graphql-compose": "0.2.0",
-    "graphql-compose-connection": "1.0.8",
-    "graphql-compose-mongoose": "1.2.1",
-    "graphql-compose-relay": "1.0.8",
-    "mongoose": "4.6.2",
+    "graphql": "0.7.2",
+    "graphql-compose": "1.0.0",
+    "graphql-compose-connection": "1.0.10",
+    "graphql-compose-mongoose": "1.2.2",
+    "graphql-compose-relay": "1.0.9",
+    "mongoose": "4.6.3",
     "rimraf": "2.5.4"
   },
   "devDependencies": {
     "babel-jest": "^16.0.0",
     "eslint": "3.7.1",
     "eslint-config-airbnb": "12.0.0",
-    "eslint-plugin-import": "2.0.0",
-    "eslint-plugin-jsx-a11y": "2.2.2",
-    "eslint-plugin-react": "6.3.0",
+    "eslint-plugin-import": "2.0.1",
+    "eslint-plugin-jsx-a11y": "2.2.3",
+    "eslint-plugin-react": "6.4.1",
     "jest-cli": "16.0.1",
-    "nodemon": "1.10.2"
+    "nodemon": "1.11.0"
   },
   "jest": {
     "testEnvironment": "node",
