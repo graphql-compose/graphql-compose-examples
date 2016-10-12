@@ -1,0 +1,172 @@
+exports[`user > queries Create user mutation (with arg of MIXED type) 1`] = `
+Object {
+  "age": 24,
+  "contacts": Object {
+    "email": "mail@example.com",
+    "phones": Array [
+      "111-222-333-444",
+      "444-555-666-777",
+    ],
+  },
+  "gender": "ladyboy",
+  "name": "My Name",
+  "someMixed": Object {
+    "a": 1,
+    "b": 2,
+    "c": Array [
+      1,
+      2,
+      3,
+      true,
+      false,
+      Object {
+        "sub": 1,
+      },
+    ],
+  },
+}
+`;
+
+exports[`user > queries Find User with field of MIXED type 1`] = `
+Object {
+  "data": Object {
+    "userById": Object {
+      "_id": "57bb44dd21d2befb7ca3f001",
+      "name": "User 1",
+      "someMixed": Object {
+        "a": 123,
+        "b": Array [
+          1,
+          2,
+          true,
+          false,
+          "ok",
+        ],
+        "c": Object {
+          "c": 1,
+        },
+        "d": null,
+        "e": "str",
+        "f": true,
+        "g": false,
+      },
+    },
+  },
+}
+`;
+
+exports[`user > queries Find by id 1`] = `
+Object {
+  "data": Object {
+    "userById": Object {
+      "_id": "57bb44dd21d2befb7ca3f010",
+      "age": 21,
+      "contacts": Object {
+        "email": "user10@example.com",
+      },
+      "gender": "female",
+      "languages": Array [
+        Object {
+          "language": "en",
+          "skill": "fluent",
+        },
+      ],
+      "name": "User 10",
+    },
+  },
+}
+`;
+
+exports[`user > queries Find many Users 1`] = `
+Object {
+  "data": Object {
+    "userMany": Array [
+      Object {
+        "age": 20,
+        "contacts": Object {
+          "email": "user1@example.com",
+        },
+        "gender": "male",
+        "languages": Array [
+          Object {
+            "language": "en",
+            "skill": "fluent",
+          },
+          Object {
+            "language": "fr",
+            "skill": "native",
+          },
+        ],
+        "name": "User 1",
+      },
+      Object {
+        "age": 18,
+        "contacts": Object {
+          "email": "user4@example.com",
+        },
+        "gender": "male",
+        "languages": Array [
+          Object {
+            "language": "ru",
+            "skill": "fluent",
+          },
+        ],
+        "name": "User 4",
+      },
+      Object {
+        "age": 32,
+        "contacts": Object {
+          "email": "user7@example.com",
+        },
+        "gender": "male",
+        "languages": Array [
+          Object {
+            "language": "fr",
+            "skill": "basic",
+          },
+          Object {
+            "language": "ru",
+            "skill": "fluent",
+          },
+        ],
+        "name": "User 7",
+      },
+      Object {
+        "age": 21,
+        "contacts": Object {
+          "email": "user9@example.com",
+        },
+        "gender": "male",
+        "languages": Array [
+          Object {
+            "language": "es",
+            "skill": "fluent",
+          },
+        ],
+        "name": "User 9",
+      },
+    ],
+  },
+}
+`;
+
+exports[`user > queries Find one User 1`] = `
+Object {
+  "data": Object {
+    "userOne": Object {
+      "age": 18,
+      "contacts": Object {
+        "email": "user4@example.com",
+      },
+      "gender": "male",
+      "languages": Array [
+        Object {
+          "language": "ru",
+          "skill": "fluent",
+        },
+      ],
+      "name": "User 4",
+    },
+  },
+}
+`;

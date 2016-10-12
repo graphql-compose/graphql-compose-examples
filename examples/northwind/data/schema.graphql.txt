@@ -1,7 +1,3 @@
-schema {
-  query: RootQuery
-}
-
 input _idOperatorsFilterFindManyCategoryInput {
   gt: MongoID
   gte: MongoID
@@ -612,6 +608,9 @@ input FilterFindManyProductInput {
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindManyProductInput
+
+  # Search by regExp
+  nameRegexp: String
 }
 
 input FilterFindManyRegionInput {
@@ -1242,6 +1241,17 @@ input ProductIDOperatorsFilterFindOneProductInput {
   nin: [Float]
 }
 
+type Query {
+  # Fetches an object that has globally unique ID among all types
+  node(
+    # The globally unique ID among all types
+    id: ID!
+  ): Node
+
+  # Data under client context
+  viewer: Viewer
+}
+
 type Region implements Node {
   # Region unique ID
   regionID: Float
@@ -1308,17 +1318,6 @@ input RegionRegionTerritoriesInput {
 type RegionTerritories {
   territoryID: Float
   name: String
-}
-
-type RootQuery {
-  # Fetches an object that has globally unique ID among all types
-  node(
-    # The globally unique ID among all types
-    id: ID!
-  ): Node
-
-  # Data under client context
-  viewer: Viewer
 }
 
 type Shipper implements Node {

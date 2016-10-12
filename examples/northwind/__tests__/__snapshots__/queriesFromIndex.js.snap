@@ -1,0 +1,3642 @@
+exports[`nortwind > queries OrderConnection -> OrderDetails -> Product 1`] = `
+Object {
+  "data": Object {
+    "viewer": Object {
+      "orderConnection": Object {
+        "count": 830,
+        "edges": Array [
+          Object {
+            "node": Object {
+              "customer": Object {
+                "companyName": "Ernst Handel",
+                "contactName": "Roland Mendel",
+              },
+              "details": Array [
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Chang",
+                    "unitsInStock": 17,
+                  },
+                  "quantity": 8,
+                  "unitPrice": 19,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Jack\'s New England Clam Chowder",
+                    "unitsInStock": 85,
+                  },
+                  "quantity": 40,
+                  "unitPrice": 9.65,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Valkoinen suklaa",
+                    "unitsInStock": 65,
+                  },
+                  "quantity": 22,
+                  "unitPrice": 16.25,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Wimmers gute Semmelknödel",
+                    "unitsInStock": 22,
+                  },
+                  "quantity": 130,
+                  "unitPrice": 33.25,
+                },
+              ],
+              "orderID": 11072,
+            },
+          },
+          Object {
+            "node": Object {
+              "customer": Object {
+                "companyName": "Hungry Owl All-Night Grocers",
+                "contactName": "Patricia McKenna",
+              },
+              "details": Array [
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Sasquatch Ale",
+                    "unitsInStock": 111,
+                  },
+                  "quantity": 30,
+                  "unitPrice": 14,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Boston Crab Meat",
+                    "unitsInStock": 123,
+                  },
+                  "quantity": 40,
+                  "unitPrice": 18.4,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Jack\'s New England Clam Chowder",
+                    "unitsInStock": 85,
+                  },
+                  "quantity": 30,
+                  "unitPrice": 9.65,
+                },
+              ],
+              "orderID": 11063,
+            },
+          },
+          Object {
+            "node": Object {
+              "customer": Object {
+                "companyName": "Rattlesnake Canyon Grocery",
+                "contactName": "Paula Wilson",
+              },
+              "details": Array [
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Chang",
+                    "unitsInStock": 17,
+                  },
+                  "quantity": 24,
+                  "unitPrice": 19,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Aniseed Syrup",
+                    "unitsInStock": 13,
+                  },
+                  "quantity": 4,
+                  "unitPrice": 10,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Chef Anton\'s Cajun Seasoning",
+                    "unitsInStock": 53,
+                  },
+                  "quantity": 1,
+                  "unitPrice": 22,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Grandma\'s Boysenberry Spread",
+                    "unitsInStock": 120,
+                  },
+                  "quantity": 1,
+                  "unitPrice": 25,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Uncle Bob\'s Organic Dried Pears",
+                    "unitsInStock": 15,
+                  },
+                  "quantity": 1,
+                  "unitPrice": 30,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Northwoods Cranberry Sauce",
+                    "unitsInStock": 6,
+                  },
+                  "quantity": 2,
+                  "unitPrice": 40,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Ikura",
+                    "unitsInStock": 31,
+                  },
+                  "quantity": 1,
+                  "unitPrice": 31,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Queso Manchego La Pastora",
+                    "unitsInStock": 86,
+                  },
+                  "quantity": 2,
+                  "unitPrice": 38,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Konbu",
+                    "unitsInStock": 24,
+                  },
+                  "quantity": 4,
+                  "unitPrice": 6,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Tofu",
+                    "unitsInStock": 35,
+                  },
+                  "quantity": 1,
+                  "unitPrice": 23.25,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Pavlova",
+                    "unitsInStock": 29,
+                  },
+                  "quantity": 2,
+                  "unitPrice": 17.45,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Sir Rodney\'s Marmalade",
+                    "unitsInStock": 40,
+                  },
+                  "quantity": 1,
+                  "unitPrice": 81,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Tunnbröd",
+                    "unitsInStock": 61,
+                  },
+                  "quantity": 2,
+                  "unitPrice": 9,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Mascarpone Fabioli",
+                    "unitsInStock": 9,
+                  },
+                  "quantity": 1,
+                  "unitPrice": 32,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Chartreuse verte",
+                    "unitsInStock": 69,
+                  },
+                  "quantity": 2,
+                  "unitPrice": 18,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Jack\'s New England Clam Chowder",
+                    "unitsInStock": 85,
+                  },
+                  "quantity": 3,
+                  "unitPrice": 9.65,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Spegesild",
+                    "unitsInStock": 95,
+                  },
+                  "quantity": 3,
+                  "unitPrice": 12,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Filo Mix",
+                    "unitsInStock": 38,
+                  },
+                  "quantity": 2,
+                  "unitPrice": 7,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Pâté chinois",
+                    "unitsInStock": 115,
+                  },
+                  "quantity": 2,
+                  "unitPrice": 24,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Camembert Pierrot",
+                    "unitsInStock": 19,
+                  },
+                  "quantity": 2,
+                  "unitPrice": 34,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Wimmers gute Semmelknödel",
+                    "unitsInStock": 22,
+                  },
+                  "quantity": 2,
+                  "unitPrice": 33.25,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Röd Kaviar",
+                    "unitsInStock": 101,
+                  },
+                  "quantity": 2,
+                  "unitPrice": 15,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Rhönbräu Klosterbier",
+                    "unitsInStock": 125,
+                  },
+                  "quantity": 4,
+                  "unitPrice": 7.75,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Original Frankfurter grüne Soße",
+                    "unitsInStock": 32,
+                  },
+                  "quantity": 2,
+                  "unitPrice": 13,
+                },
+                Object {
+                  "product": Object {
+                    "discontinued": false,
+                    "name": "Louisiana Hot Spiced Okra",
+                    "unitsInStock": 4,
+                  },
+                  "quantity": 1,
+                  "unitPrice": 17,
+                },
+              ],
+              "orderID": 11077,
+            },
+          },
+        ],
+      },
+    },
+  },
+}
+`;
+
+exports[`nortwind > queries Self referenced Employee Type 1`] = `
+Object {
+  "data": Object {
+    "viewer": Object {
+      "employeeList": Array [
+        Object {
+          "chief": null,
+          "firstName": "Andrew",
+          "subordinates": Array [
+            Object {
+              "firstName": "Steven",
+            },
+            Object {
+              "firstName": "Nancy",
+            },
+            Object {
+              "firstName": "Janet",
+            },
+            Object {
+              "firstName": "Margaret",
+            },
+            Object {
+              "firstName": "Laura",
+            },
+          ],
+        },
+        Object {
+          "chief": Object {
+            "firstName": "Andrew",
+          },
+          "firstName": "Steven",
+          "subordinates": Array [
+            Object {
+              "firstName": "Michael",
+            },
+            Object {
+              "firstName": "Robert",
+            },
+            Object {
+              "firstName": "Anne",
+            },
+          ],
+        },
+        Object {
+          "chief": Object {
+            "firstName": "Andrew",
+          },
+          "firstName": "Nancy",
+          "subordinates": Array [],
+        },
+        Object {
+          "chief": Object {
+            "firstName": "Andrew",
+          },
+          "firstName": "Janet",
+          "subordinates": Array [],
+        },
+        Object {
+          "chief": Object {
+            "firstName": "Andrew",
+          },
+          "firstName": "Margaret",
+          "subordinates": Array [],
+        },
+        Object {
+          "chief": Object {
+            "firstName": "Steven",
+          },
+          "firstName": "Michael",
+          "subordinates": Array [],
+        },
+        Object {
+          "chief": Object {
+            "firstName": "Steven",
+          },
+          "firstName": "Robert",
+          "subordinates": Array [],
+        },
+        Object {
+          "chief": Object {
+            "firstName": "Andrew",
+          },
+          "firstName": "Laura",
+          "subordinates": Array [],
+        },
+        Object {
+          "chief": Object {
+            "firstName": "Steven",
+          },
+          "firstName": "Anne",
+          "subordinates": Array [],
+        },
+      ],
+    },
+  },
+}
+`;
+
+exports[`nortwind > queries Some crazy query 1`] = `
+Object {
+  "data": Object {
+    "viewer": Object {
+      "categoryList": Array [
+        Object {
+          "description": "Sweet and savory sauces relishes spreads and seasonings",
+          "name": "Condiments",
+          "productConnection": Object {
+            "count": 12,
+            "edges": Array [
+              Object {
+                "node": Object {
+                  "discontinued": false,
+                  "name": "Original Frankfurter grüne Soße",
+                  "unitPrice": 13,
+                },
+              },
+            ],
+          },
+        },
+        Object {
+          "description": "Soft drinks coffees teas beers and ales",
+          "name": "Beverages",
+          "productConnection": Object {
+            "count": 12,
+            "edges": Array [
+              Object {
+                "node": Object {
+                  "discontinued": false,
+                  "name": "Lakkalikööri",
+                  "unitPrice": 18,
+                },
+              },
+            ],
+          },
+        },
+        Object {
+          "description": "Desserts candies and sweet breads",
+          "name": "Confections",
+          "productConnection": Object {
+            "count": 13,
+            "edges": Array [
+              Object {
+                "node": Object {
+                  "discontinued": false,
+                  "name": "Scottish Longbreads",
+                  "unitPrice": 12.5,
+                },
+              },
+            ],
+          },
+        },
+      ],
+      "meatCategory": Object {
+        "name": "Meat/Poultry",
+        "productConnection": Object {
+          "edges": Array [
+            Object {
+              "node": Object {
+                "name": "Pâté chinois",
+                "supplier": Object {
+                  "address": Object {
+                    "city": "Montréal",
+                    "country": "Canada",
+                    "street": "2960 Rue St. Laurent",
+                  },
+                  "companyName": "Ma Maison",
+                },
+              },
+            },
+            Object {
+              "node": Object {
+                "name": "Tourtière",
+                "supplier": Object {
+                  "address": Object {
+                    "city": "Montréal",
+                    "country": "Canada",
+                    "street": "2960 Rue St. Laurent",
+                  },
+                  "companyName": "Ma Maison",
+                },
+              },
+            },
+            Object {
+              "node": Object {
+                "name": "Perth Pasties",
+                "supplier": Object {
+                  "address": Object {
+                    "city": "Sydney",
+                    "country": "Australia",
+                    "street": "170 Prince Edward Parade Hunter\'s Hill",
+                  },
+                  "companyName": "G\'day Mate",
+                },
+              },
+            },
+            Object {
+              "node": Object {
+                "name": "Thüringer Rostbratwurst",
+                "supplier": Object {
+                  "address": Object {
+                    "city": "Frankfurt",
+                    "country": "Germany",
+                    "street": "Bogenallee 51",
+                  },
+                  "companyName": "Plutzer Lebensmittelgroßmärkte AG",
+                },
+              },
+            },
+            Object {
+              "node": Object {
+                "name": "Alice Mutton",
+                "supplier": Object {
+                  "address": Object {
+                    "city": "Melbourne",
+                    "country": "Australia",
+                    "street": "74 Rose St. Moonie Ponds",
+                  },
+                  "companyName": "Pavlova Ltd.",
+                },
+              },
+            },
+            Object {
+              "node": Object {
+                "name": "Mishi Kobe Niku",
+                "supplier": Object {
+                  "address": Object {
+                    "city": "Tokyo",
+                    "country": "Japan",
+                    "street": "9-8 Sekimai Musashino-shi",
+                  },
+                  "companyName": "Tokyo Traders",
+                },
+              },
+            },
+          ],
+        },
+      },
+      "p1": Object {
+        "id": "UHJvZHVjdDo1N2ZkMTNhNDlhNjAxMDY3NGE4NTE3YWQ=",
+        "name": "Chef Anton\'s Cajun Seasoning",
+        "productID": 4,
+      },
+      "p2": Object {
+        "id": "UHJvZHVjdDo1N2ZkMTNhNDlhNjAxMDY3NGE4NTE3YWY=",
+        "name": "Grandma\'s Boysenberry Spread",
+        "orderConnection": Object {
+          "count": 12,
+          "edges": Array [
+            Object {
+              "node": Object {
+                "customer": Object {
+                  "companyName": "Rattlesnake Canyon Grocery",
+                  "contactName": "Paula Wilson",
+                  "contactTitle": "Assistant Sales Representative",
+                  "orderConnection": Object {
+                    "count": 18,
+                    "edges": Array [
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+            Object {
+              "node": Object {
+                "customer": Object {
+                  "companyName": "Bon app\'",
+                  "contactName": "Laurence Lebihan",
+                  "contactTitle": "Owner",
+                  "orderConnection": Object {
+                    "count": 17,
+                    "edges": Array [
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+            Object {
+              "node": Object {
+                "customer": Object {
+                  "companyName": "Que Delícia",
+                  "contactName": "Bernardo Batista",
+                  "contactTitle": "Accounting Manager",
+                  "orderConnection": Object {
+                    "count": 9,
+                    "edges": Array [
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+            Object {
+              "node": Object {
+                "customer": Object {
+                  "companyName": "Bottom-Dollar Markets",
+                  "contactName": "Elizabeth Lincoln",
+                  "contactTitle": "Accounting Manager",
+                  "orderConnection": Object {
+                    "count": 14,
+                    "edges": Array [
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+            Object {
+              "node": Object {
+                "customer": Object {
+                  "companyName": "Alfreds Futterkiste",
+                  "contactName": "Maria Anders",
+                  "contactTitle": "Sales Representative",
+                  "orderConnection": Object {
+                    "count": 6,
+                    "edges": Array [
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+            Object {
+              "node": Object {
+                "customer": Object {
+                  "companyName": "Bon app\'",
+                  "contactName": "Laurence Lebihan",
+                  "contactTitle": "Owner",
+                  "orderConnection": Object {
+                    "count": 17,
+                    "edges": Array [
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+            Object {
+              "node": Object {
+                "customer": Object {
+                  "companyName": "Tradição Hipermercados",
+                  "contactName": "Anabela Domingues",
+                  "contactTitle": "Sales Representative",
+                  "orderConnection": Object {
+                    "count": 6,
+                    "edges": Array [
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+            Object {
+              "node": Object {
+                "customer": Object {
+                  "companyName": "Gourmet Lanchonetes",
+                  "contactName": "André Fonseca",
+                  "contactTitle": "Sales Associate",
+                  "orderConnection": Object {
+                    "count": 9,
+                    "edges": Array [
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+            Object {
+              "node": Object {
+                "customer": Object {
+                  "companyName": "Mère Paillarde",
+                  "contactName": "Jean Fresnière",
+                  "contactTitle": "Marketing Assistant",
+                  "orderConnection": Object {
+                    "count": 13,
+                    "edges": Array [
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+            Object {
+              "node": Object {
+                "customer": Object {
+                  "companyName": "Königlich Essen",
+                  "contactName": "Philip Cramer",
+                  "contactTitle": "Sales Associate",
+                  "orderConnection": Object {
+                    "count": 14,
+                    "edges": Array [
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+            Object {
+              "node": Object {
+                "customer": Object {
+                  "companyName": "Hungry Owl All-Night Grocers",
+                  "contactName": "Patricia McKenna",
+                  "contactTitle": "Sales Associate",
+                  "orderConnection": Object {
+                    "count": 19,
+                    "edges": Array [
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+            Object {
+              "node": Object {
+                "customer": Object {
+                  "companyName": "Lehmanns Marktstand",
+                  "contactName": "Renate Messner",
+                  "contactTitle": "Sales Representative",
+                  "orderConnection": Object {
+                    "count": 15,
+                    "edges": Array [
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 1,
+                          "shipper": Object {
+                            "companyName": "Speedy Express",
+                            "orderConnection": Object {
+                              "count": 249,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 30.09,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 3,
+                          "shipper": Object {
+                            "companyName": "Federal Shipping",
+                            "orderConnection": Object {
+                              "count": 255,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 31.14,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                      Object {
+                        "node": Object {
+                          "shipVia": 2,
+                          "shipper": Object {
+                            "companyName": "United Package",
+                            "orderConnection": Object {
+                              "count": 326,
+                              "edges": Array [
+                                Object {
+                                  "node": Object {
+                                    "freight": 258.64,
+                                  },
+                                },
+                              ],
+                            },
+                          },
+                        },
+                      },
+                    ],
+                  },
+                },
+              },
+            },
+          ],
+        },
+        "productID": 6,
+      },
+      "p3": Object {
+        "id": "UHJvZHVjdDo1N2ZkMTNhNDlhNjAxMDY3NGE4NTE3YWU=",
+        "name": "Chef Anton\'s Gumbo Mix",
+        "productID": 5,
+      },
+      "supplier": Object {
+        "companyName": "Tokyo Traders",
+        "contactName": "Yoshi Nagase",
+        "productConnection": Object {
+          "count": 3,
+          "edges": Array [
+            Object {
+              "node": Object {
+                "category": Object {
+                  "categoryID": 7,
+                  "name": "Produce",
+                  "productConnection": Object {
+                    "count": 5,
+                  },
+                },
+                "name": "Longlife Tofu",
+                "quantityPerUnit": "5 kg pkg.",
+                "unitPrice": 10,
+              },
+            },
+            Object {
+              "node": Object {
+                "category": Object {
+                  "categoryID": 8,
+                  "name": "Seafood",
+                  "productConnection": Object {
+                    "count": 12,
+                  },
+                },
+                "name": "Ikura",
+                "quantityPerUnit": "12 - 200 ml jars",
+                "unitPrice": 31,
+              },
+            },
+            Object {
+              "node": Object {
+                "category": Object {
+                  "categoryID": 6,
+                  "name": "Meat/Poultry",
+                  "productConnection": Object {
+                    "count": 6,
+                  },
+                },
+                "name": "Mishi Kobe Niku",
+                "quantityPerUnit": "18 - 500 g pkgs.",
+                "unitPrice": 97,
+              },
+            },
+          ],
+        },
+        "supplierID": 4,
+      },
+    },
+  },
+}
+`;

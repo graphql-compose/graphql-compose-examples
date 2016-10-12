@@ -28,8 +28,7 @@ export default {
       title: 'Relay Connection',
       query: `
 {
-  userConnection(first:3) {
-    count
+  userConnection(first:3, sort: _ID_ASC) {
     edges {
       cursor
       node {

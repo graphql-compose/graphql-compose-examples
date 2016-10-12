@@ -26,13 +26,13 @@ export default {
     age
   }
 }
-      `
+      `,
     },
     {
       title: 'Find one User',
       query: `
 {
-  userOne(filter: { age: 18 }) {
+  userOne(filter: { age: 18 }, sort: _ID_ASC) {
     name
     languages {
       language
@@ -45,13 +45,13 @@ export default {
     age
   }
 }
-      `
+      `,
     },
     {
       title: 'Find many Users',
       query: `
 {
-  userMany(filter: { gender: male }) {
+  userMany(filter: { gender: male }, limit: 5, sort: _ID_ASC) {
     name
     languages {
       language
@@ -64,7 +64,7 @@ export default {
     age
   }
 }
-      `
+      `,
     },
     {
       title: 'Find User with field of MIXED type',
@@ -76,7 +76,7 @@ export default {
     someMixed
   }
 }
-      `
+      `,
     },
     {
       title: 'Create user mutation (with arg of MIXED type)',
@@ -112,7 +112,7 @@ mutation {
     }
   }
 }
-      `
+      `,
     },
-  ]
+  ],
 };

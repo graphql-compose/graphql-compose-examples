@@ -2,14 +2,14 @@
   "data": {
     "__schema": {
       "queryType": {
-        "name": "RootQuery"
+        "name": "Query"
       },
       "mutationType": null,
       "subscriptionType": null,
       "types": [
         {
           "kind": "OBJECT",
-          "name": "RootQuery",
+          "name": "Query",
           "description": null,
           "fields": [
             {
@@ -7866,6 +7866,16 @@
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterFindManyProductInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nameRegexp",
+              "description": "Search by regExp",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
                 "ofType": null
               },
               "defaultValue": null
