@@ -20,30 +20,30 @@ GQC.rootQuery().addField('viewer', {
 });
 
 const fields = {
-  category: CategoryTC.getResolver('findOne').getFieldConfig(),
-  categoryList: CategoryTC.getResolver('findMany').getFieldConfig(),
+  category: CategoryTC.getResolver('findOne'),
+  categoryList: CategoryTC.getResolver('findMany'),
 
-  customer: CustomerTC.getResolver('findOne').getFieldConfig(),
-  customerConnection: CustomerTC.getResolver('connection').getFieldConfig(),
+  customer: CustomerTC.getResolver('findOne'),
+  customerConnection: CustomerTC.getResolver('connection'),
 
-  employee: EmployeeTC.getResolver('findOne').getFieldConfig(),
-  employeeList: EmployeeTC.getResolver('findMany').getFieldConfig(),
+  employee: EmployeeTC.getResolver('findOne'),
+  employeeList: EmployeeTC.getResolver('findMany'),
 
-  order: OrderTC.getResolver('findOne').getFieldConfig(),
-  orderConnection: OrderTC.getResolver('connection').getFieldConfig(),
+  order: OrderTC.getResolver('findOne'),
+  orderConnection: OrderTC.getResolver('connection'),
 
-  product: ProductTC.getResolver('findOne').getFieldConfig(),
-  productList: ProductTC.getResolver('findMany').getFieldConfig(),
-  productConnection: ProductTC.getResolver('connection').getFieldConfig(),
+  product: ProductTC.getResolver('findOne'),
+  productList: ProductTC.getResolver('findMany'),
+  productConnection: ProductTC.getResolver('connection'),
 
-  region: RegionTC.getResolver('findOne').getFieldConfig(),
-  regionList: RegionTC.getResolver('findMany').getFieldConfig(),
+  region: RegionTC.getResolver('findOne'),
+  regionList: RegionTC.getResolver('findMany'),
 
-  shipper: ShipperTC.getResolver('findOne').getFieldConfig(),
-  shipperList: ShipperTC.getResolver('findMany').getFieldConfig(),
+  shipper: ShipperTC.getResolver('findOne'),
+  shipperList: ShipperTC.getResolver('findMany'),
 
-  supplier: SupplierTC.getResolver('findOne').getFieldConfig(),
-  supplierConnection: SupplierTC.getResolver('connection').getFieldConfig(),
+  supplier: SupplierTC.getResolver('findOne'),
+  supplierConnection: SupplierTC.getResolver('connection'),
 };
 
 ViewerTC.addFields(fields);
