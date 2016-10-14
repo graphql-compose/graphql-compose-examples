@@ -87,7 +87,7 @@ OrderTC.addRelation(
   })
 );
 
-const OrderDetailsTC = OrderTC.getByPath('details');
+const OrderDetailsTC = OrderTC.get('details');
 OrderDetailsTC.addRelation(
   'product',
   () => ({

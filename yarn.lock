@@ -1933,9 +1933,9 @@ graphql-compose-connection@1.1.0:
   dependencies:
     babel-runtime "6.11.6"
 
-graphql-compose-mongoose@1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/graphql-compose-mongoose/-/graphql-compose-mongoose-1.2.2.tgz#1ca8a87dce355ab4f81284d37dd7aad0eed4bbe4"
+graphql-compose-mongoose@1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/graphql-compose-mongoose/-/graphql-compose-mongoose-1.2.3.tgz#4775f0be579efe3d9fca3c0a4a6b602cd14e2ffa"
   dependencies:
     babel-runtime "6.11.6"
     object-path "0.11.2"
@@ -1946,9 +1946,9 @@ graphql-compose-relay@1.0.9:
   dependencies:
     babel-runtime "6.11.6"
 
-graphql-compose@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-1.2.0.tgz#0adbb2cd63bd02c5679cafe18b8140a14cd4846e"
+graphql-compose@1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-1.2.2.tgz#c13f33d6195a1e20fca3cd5070a92dafc0266a4e"
   dependencies:
     babel-runtime "6.11.6"
     object-path "0.11.2"
