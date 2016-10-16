@@ -110,6 +110,39 @@ export default {
       `
     },
     {
+      title: 'Fulltext search with weights, negates term, phrase search',
+      query: `
+{
+  viewer {
+    phraseSearch: employeeList(filter: {
+      fullTextSearch: "\\\"fluent in French and German\\\""
+    }) {
+      firstName
+      lastName
+      title
+      notes
+    }
+    negatesTerm: employeeList(filter: {
+      fullTextSearch: "French -German"
+    }) {
+      firstName
+      lastName
+      title
+      notes
+    }
+    wordSearch: employeeList(filter: {
+      fullTextSearch: "Vice Sale"
+    }) {
+      firstName
+      lastName
+      title
+      notes
+    }
+  }
+}
+      `,
+    },
+    {
       title: 'Some crazy query',
       query: `
 {
