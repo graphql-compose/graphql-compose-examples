@@ -1,4 +1,12 @@
-import { GQC } from 'graphql-compose';
+// SINGLE SCHEMA ON SERVER
+// import { GQC } from 'graphql-compose';
+
+// MULTI SCHEMA MODE IN ONE SERVER
+// create new GQC from ComposeStorage
+import { ComposeStorage } from 'graphql-compose';
+const GQC = new ComposeStorage();
+
+
 import composeWithRelay from 'graphql-compose-relay';
 
 import { CategoryTC } from './models/category';
