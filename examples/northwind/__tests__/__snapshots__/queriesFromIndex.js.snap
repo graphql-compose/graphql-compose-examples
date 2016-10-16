@@ -571,12 +571,10 @@ Object {
         },
       },
       "p1": Object {
-        "id": "UHJvZHVjdDo1N2ZkMTNhNDlhNjAxMDY3NGE4NTE3YWQ=",
         "name": "Chef Anton\'s Cajun Seasoning",
         "productID": 4,
       },
       "p2": Object {
-        "id": "UHJvZHVjdDo1N2ZkMTNhNDlhNjAxMDY3NGE4NTE3YWY=",
         "name": "Grandma\'s Boysenberry Spread",
         "orderConnection": Object {
           "count": 12,
@@ -3580,7 +3578,6 @@ Object {
         "productID": 6,
       },
       "p3": Object {
-        "id": "UHJvZHVjdDo1N2ZkMTNhNDlhNjAxMDY3NGE4NTE3YWU=",
         "name": "Chef Anton\'s Gumbo Mix",
         "productID": 5,
       },
@@ -3635,6 +3632,103 @@ Object {
           ],
         },
         "supplierID": 4,
+      },
+    },
+  },
+}
+`;
+
+exports[`nortwind > queries Sorting on ConnectionType by unique indexed fields 1`] = `
+Object {
+  "data": Object {
+    "viewer": Object {
+      "asc": Object {
+        "edges": Array [
+          Object {
+            "node": Object {
+              "name": "Chai",
+              "productID": 1,
+            },
+          },
+          Object {
+            "node": Object {
+              "name": "Chang",
+              "productID": 2,
+            },
+          },
+          Object {
+            "node": Object {
+              "name": "Aniseed Syrup",
+              "productID": 3,
+            },
+          },
+        ],
+      },
+      "ascComplex": Object {
+        "edges": Array [
+          Object {
+            "node": Object {
+              "name": "Alice Mutton",
+              "supplierID": 7,
+            },
+          },
+          Object {
+            "node": Object {
+              "name": "Aniseed Syrup",
+              "supplierID": 1,
+            },
+          },
+          Object {
+            "node": Object {
+              "name": "Boston Crab Meat",
+              "supplierID": 19,
+            },
+          },
+        ],
+      },
+      "desc": Object {
+        "edges": Array [
+          Object {
+            "node": Object {
+              "name": "Original Frankfurter grüne Soße",
+              "productID": 77,
+            },
+          },
+          Object {
+            "node": Object {
+              "name": "Lakkalikööri",
+              "productID": 76,
+            },
+          },
+          Object {
+            "node": Object {
+              "name": "Rhönbräu Klosterbier",
+              "productID": 75,
+            },
+          },
+        ],
+      },
+      "descComplex": Object {
+        "edges": Array [
+          Object {
+            "node": Object {
+              "name": "Zaanse koeken",
+              "supplierID": 22,
+            },
+          },
+          Object {
+            "node": Object {
+              "name": "Wimmers gute Semmelknödel",
+              "supplierID": 12,
+            },
+          },
+          Object {
+            "node": Object {
+              "name": "Vegie-spread",
+              "supplierID": 7,
+            },
+          },
+        ],
       },
     },
   },

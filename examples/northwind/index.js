@@ -57,6 +57,59 @@ export default {
       `
     },
     {
+      title: 'Sorting on ConnectionType by unique indexed fields',
+      query: `
+{
+  viewer {
+    asc: productConnection(
+      sort: PRODUCTID_ASC,
+      first: 3
+    ) {
+      edges {
+      	node {
+          productID
+          name
+        }
+    	}
+    }
+    desc: productConnection(
+      sort: PRODUCTID_DESC,
+      first: 3
+    ) {
+      edges {
+      	node {
+          productID
+          name
+        }
+    	}
+    }
+    ascComplex: productConnection(
+      sort: NAME__SUPPLIERID_ASC,
+      first: 3
+    ) {
+      edges {
+      	node {
+          name
+          supplierID
+        }
+    	}
+    }
+    descComplex: productConnection(
+      sort: NAME__SUPPLIERID_DESC,
+      first: 3
+    ) {
+      edges {
+      	node {
+          name
+          supplierID
+        }
+    	}
+    }
+  }
+}
+      `
+    },
+    {
       title: 'Some crazy query',
       query: `
 {
@@ -103,12 +156,10 @@ export default {
   	}
     p1: product {
       name
-      id
       productID
     }
     p2: product(skip: 2) {
       name
-      id
       productID
       orderConnection {
         count
@@ -144,7 +195,6 @@ export default {
     }
     p3: product(skip: 1) {
       name
-      id
       productID
     }
     categoryList(limit: 3) {
@@ -164,6 +214,6 @@ export default {
   }
 }
       `
-    }
+    },
   ]
 };
