@@ -1,8 +1,3 @@
-schema {
-  query: RootQuery
-  mutation: RootMutation
-}
-
 input _idOperatorsFilterFindManyUserInput {
   gt: MongoID
   gte: MongoID
@@ -272,6 +267,16 @@ input FilterUserInput {
 # also may accepts string or integer as correct values for _id field.
 scalar MongoID
 
+type Mutation {
+  userCreate(input: RelayCreateOneUserInput!): CreateOneUserPayload
+  userUpdateById(input: RelayUpdateByIdUserInput!): UpdateByIdUserPayload
+  userUpdateOne(input: RelayUpdateOneUserInput!): UpdateOneUserPayload
+  userUpdateMany(input: RelayUpdateManyUserInput!): UpdateManyUserPayload
+  userRemoveById(input: RelayRemoveByIdUserInput!): RemoveByIdUserPayload
+  userRemoveOne(input: RelayRemoveOneUserInput!): RemoveOneUserPayload
+  userRemoveMany(input: RelayRemoveManyUserInput!): RemoveManyUserPayload
+}
+
 # An object, that can be fetched by the globally unique ID among all types.
 interface Node {
   # The globally unique ID among all types.
@@ -347,6 +352,52 @@ type PageInfo {
 
   # When paginating forwards, the cursor to continue.
   endCursor: String
+}
+
+type Query {
+  # Fetches an object that has globally unique ID among all types
+  node(
+    # The globally unique ID among all types
+    id: ID!
+  ): Node
+  userById(_id: MongoID!): User
+  userByIds(_ids: [MongoID]!, limit: Int = 1000, sort: SortFindByIdsUserInput): [User]
+  userOne(
+    # Filter by fields
+    filter: FilterFindOneUserInput
+    skip: Int
+    sort: SortFindOneUserInput
+  ): User
+  userMany(
+    # Filter by fields
+    filter: FilterFindManyUserInput
+    skip: Int
+    limit: Int = 1000
+    sort: SortFindManyUserInput
+  ): [User]
+  userTotal(
+    # Filter by fields
+    filter: FilterUserInput
+  ): Int
+  userConnection(
+    # Forward pagination argument for returning at most first edges
+    first: Int
+
+    # Forward pagination argument for returning at most first edges
+    after: ConnectionCursor
+
+    # Backward pagination argument for returning at most last edges
+    last: Int
+
+    # Backward pagination argument for returning at most last edges
+    before: ConnectionCursor
+
+    # Filter by fields
+    filter: FilterFindManyUserInput
+
+    # Sort argument for data ordering
+    sort: SortConnectionUserEnum = _ID_DESC
+  ): UserConnection
 }
 
 input RelayCreateOneUserInput {
@@ -459,63 +510,6 @@ type RemoveOneUserPayload {
   # The client mutation ID used by clients like Relay to track the mutation. If
   # given, returned in the response payload of the mutation.
   clientMutationId: String
-}
-
-type RootMutation {
-  userCreate(input: RelayCreateOneUserInput!): CreateOneUserPayload
-  userUpdateById(input: RelayUpdateByIdUserInput!): UpdateByIdUserPayload
-  userUpdateOne(input: RelayUpdateOneUserInput!): UpdateOneUserPayload
-  userUpdateMany(input: RelayUpdateManyUserInput!): UpdateManyUserPayload
-  userRemoveById(input: RelayRemoveByIdUserInput!): RemoveByIdUserPayload
-  userRemoveOne(input: RelayRemoveOneUserInput!): RemoveOneUserPayload
-  userRemoveMany(input: RelayRemoveManyUserInput!): RemoveManyUserPayload
-}
-
-type RootQuery {
-  userById(_id: MongoID!): User
-  userByIds(_ids: [MongoID]!, limit: Int = 1000, sort: SortFindByIdsUserInput): [User]
-  userOne(
-    # Filter by fields
-    filter: FilterFindOneUserInput
-    skip: Int
-    sort: SortFindOneUserInput
-  ): User
-  userMany(
-    # Filter by fields
-    filter: FilterFindManyUserInput
-    skip: Int
-    limit: Int = 1000
-    sort: SortFindManyUserInput
-  ): [User]
-  userCount(
-    # Filter by fields
-    filter: FilterUserInput
-  ): Int
-  userConnection(
-    # Forward pagination argument for returning at most first edges
-    first: Int
-
-    # Forward pagination argument for returning at most first edges
-    after: ConnectionCursor
-
-    # Backward pagination argument for returning at most last edges
-    last: Int
-
-    # Backward pagination argument for returning at most last edges
-    before: ConnectionCursor
-
-    # Filter by fields
-    filter: FilterFindManyUserInput
-
-    # Sort argument for data ordering
-    sort: SortConnectionUserEnum = _ID_DESC
-  ): UserConnection
-
-  # Fetches an object that has globally unique ID among all types
-  node(
-    # The globally unique ID among all types
-    id: ID!
-  ): Node
 }
 
 enum SortConnectionUserEnum {

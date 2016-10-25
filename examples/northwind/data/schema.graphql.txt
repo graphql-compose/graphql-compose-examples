@@ -569,6 +569,9 @@ input FilterFindManyEmployeeInput {
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindManyEmployeeInput
+
+  # Fulltext search with mongodb stemming and weights
+  fullTextSearch: String
 }
 
 input FilterFindManyOrderInput {
@@ -1396,21 +1399,35 @@ input ShipperIDOperatorsFilterFindOneShipperInput {
 enum SortConnectionCustomerEnum {
   _ID_DESC
   _ID_ASC
+  CUSTOMERID_DESC
+  CUSTOMERID_ASC
+  COMPANYNAME_DESC
+  COMPANYNAME_ASC
 }
 
 enum SortConnectionOrderEnum {
   _ID_DESC
   _ID_ASC
+  ORDERID_DESC
+  ORDERID_ASC
 }
 
 enum SortConnectionProductEnum {
   _ID_DESC
   _ID_ASC
+  PRODUCTID_DESC
+  PRODUCTID_ASC
+  NAME__SUPPLIERID_DESC
+  NAME__SUPPLIERID_ASC
 }
 
 enum SortConnectionSupplierEnum {
   _ID_DESC
   _ID_ASC
+  SUPPLIERID_DESC
+  SUPPLIERID_ASC
+  COMPANYNAME_DESC
+  COMPANYNAME_ASC
 }
 
 enum SortFindManyCategoryInput {

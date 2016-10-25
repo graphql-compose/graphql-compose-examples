@@ -2,16 +2,16 @@
   "data": {
     "__schema": {
       "queryType": {
-        "name": "RootQuery"
+        "name": "Query"
       },
       "mutationType": {
-        "name": "RootMutation"
+        "name": "Mutation"
       },
       "subscriptionType": null,
       "types": [
         {
           "kind": "OBJECT",
-          "name": "RootQuery",
+          "name": "Query",
           "description": null,
           "fields": [
             {
@@ -197,7 +197,7 @@
               "deprecationReason": null
             },
             {
-              "name": "userCount",
+              "name": "userTotal",
               "description": null,
               "args": [
                 {
@@ -1876,7 +1876,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "RootMutation",
+          "name": "Mutation",
           "description": null,
           "fields": [
             {

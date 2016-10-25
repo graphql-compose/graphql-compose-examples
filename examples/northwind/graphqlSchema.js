@@ -21,10 +21,12 @@ import { SupplierTC } from './models/supplier';
 composeWithRelay(GQC.rootQuery());
 
 const ViewerTC = GQC.get('Viewer');
-GQC.rootQuery().addField('viewer', {
-  type: ViewerTC.getType(),
-  description: 'Data under client context',
-  resolve: () => ({}),
+GQC.rootQuery().addFields({
+  viewer: {
+    type: ViewerTC.getType(),
+    description: 'Data under client context',
+    resolve: () => ({}),
+  },
 });
 
 const fields = {

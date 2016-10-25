@@ -1,8 +1,3 @@
-schema {
-  query: RootQuery
-  mutation: RootMutation
-}
-
 input _idOperatorsFilterFindManyUserRelayInput {
   gt: MongoID
   gte: MongoID
@@ -292,6 +287,38 @@ scalar JSON
 # also may accepts string or integer as correct values for _id field.
 scalar MongoID
 
+type Mutation {
+  userCreate(record: CreateOneUserRelayInput!): CreateOneUserRelayPayload
+  userUpdateById(record: UpdateByIdUserRelayInput!): UpdateByIdUserRelayPayload
+  userUpdateOne(
+    record: UpdateOneUserRelayInput!
+
+    # Filter by fields
+    filter: FilterUpdateOneUserRelayInput
+    sort: SortUpdateOneUserRelayInput
+    skip: Int
+  ): UpdateOneUserRelayPayload
+  userUpdateMany(
+    record: UpdateManyUserRelayInput!
+
+    # Filter by fields
+    filter: FilterUpdateManyUserRelayInput
+    sort: SortUpdateManyUserRelayInput
+    skip: Int
+    limit: Int = 1000
+  ): UpdateManyUserRelayPayload
+  userRemoveById(_id: MongoID!): RemoveByIdUserRelayPayload
+  userRemoveOne(
+    # Filter by fields
+    filter: FilterRemoveOneUserRelayInput
+    sort: SortRemoveOneUserRelayInput
+  ): RemoveOneUserRelayPayload
+  userRemoveMany(
+    # Filter by fields
+    filter: FilterRemoveManyUserRelayInput!
+  ): RemoveManyUserRelayPayload
+}
+
 input OperatorsFilterFindManyUserRelayInput {
   # Filter value by operator(s)
   age: AgeOperatorsFilterFindManyUserRelayInput
@@ -363,60 +390,7 @@ type PageInfo {
   endCursor: String
 }
 
-type RemoveByIdUserRelayPayload {
-  # Removed document ID
-  recordId: MongoID
-
-  # Removed document
-  record: UserRelay
-}
-
-type RemoveManyUserRelayPayload {
-  # Affected documents number
-  numAffected: Int
-}
-
-type RemoveOneUserRelayPayload {
-  # Removed document ID
-  recordId: MongoID
-
-  # Removed document
-  record: UserRelay
-}
-
-type RootMutation {
-  userCreate(record: CreateOneUserRelayInput!): CreateOneUserRelayPayload
-  userUpdateById(record: UpdateByIdUserRelayInput!): UpdateByIdUserRelayPayload
-  userUpdateOne(
-    record: UpdateOneUserRelayInput!
-
-    # Filter by fields
-    filter: FilterUpdateOneUserRelayInput
-    sort: SortUpdateOneUserRelayInput
-    skip: Int
-  ): UpdateOneUserRelayPayload
-  userUpdateMany(
-    record: UpdateManyUserRelayInput!
-
-    # Filter by fields
-    filter: FilterUpdateManyUserRelayInput
-    sort: SortUpdateManyUserRelayInput
-    skip: Int
-    limit: Int = 1000
-  ): UpdateManyUserRelayPayload
-  userRemoveById(_id: MongoID!): RemoveByIdUserRelayPayload
-  userRemoveOne(
-    # Filter by fields
-    filter: FilterRemoveOneUserRelayInput
-    sort: SortRemoveOneUserRelayInput
-  ): RemoveOneUserRelayPayload
-  userRemoveMany(
-    # Filter by fields
-    filter: FilterRemoveManyUserRelayInput!
-  ): RemoveManyUserRelayPayload
-}
-
-type RootQuery {
+type Query {
   userById(_id: MongoID!): UserRelay
   userByIds(_ids: [MongoID]!, limit: Int = 1000, sort: SortFindByIdsUserRelayInput): [UserRelay]
   userOne(
@@ -432,7 +406,7 @@ type RootQuery {
     limit: Int = 1000
     sort: SortFindManyUserRelayInput
   ): [UserRelay]
-  userCount(
+  userTotal(
     # Filter by fields
     filter: FilterUserRelayInput
   ): Int
@@ -455,6 +429,27 @@ type RootQuery {
     # Sort argument for data ordering
     sort: SortConnectionUserRelayEnum = _ID_DESC
   ): UserRelayConnection
+}
+
+type RemoveByIdUserRelayPayload {
+  # Removed document ID
+  recordId: MongoID
+
+  # Removed document
+  record: UserRelay
+}
+
+type RemoveManyUserRelayPayload {
+  # Affected documents number
+  numAffected: Int
+}
+
+type RemoveOneUserRelayPayload {
+  # Removed document ID
+  recordId: MongoID
+
+  # Removed document
+  record: UserRelay
 }
 
 enum SortConnectionUserRelayEnum {
