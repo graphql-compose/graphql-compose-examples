@@ -36,7 +36,6 @@ export const UserSchema = new mongoose.Schema({
   collection: 'userForRelay_users',
 });
 
-export const UserModel = mongoose.model('User', UserSchema);
+export const User = mongoose.model('User', UserSchema);
 
-const customizationOptions = {}; // left it empty for simplicity
-export const UserTC = composeWithRelay(composeWithMongoose(UserModel, customizationOptions));
+export const UserTC = composeWithRelay(composeWithMongoose(User));
