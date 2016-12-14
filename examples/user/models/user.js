@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import mongooseToTypeComposer from 'graphql-compose-mongoose';
+import composeWithMongoose from 'graphql-compose-mongoose';
 
 
 const LanguagesSchema = new mongoose.Schema(
@@ -15,7 +15,7 @@ const LanguagesSchema = new mongoose.Schema(
   }
 );
 
-export const UserRelaySchema = new mongoose.Schema({
+export const UserSchema = new mongoose.Schema({
   name: String, // standard types
   age: {
     type: Number,
@@ -41,7 +41,6 @@ export const UserRelaySchema = new mongoose.Schema({
   collection: 'user_users',
 });
 
-export const UserModel = mongoose.model('UserRelay', UserRelaySchema);
+export const User = mongoose.model('User', UserSchema);
 
-const customizationOptions = {}; // left it empty for simplicity
-export const UserTC = mongooseToTypeComposer(UserModel, customizationOptions);
+export const UserTC = composeWithMongoose(User);
