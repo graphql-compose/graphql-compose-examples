@@ -12,8 +12,8 @@ export default {
       title: 'Relay node',
       query: `
 {
-  node(id: "VXNlcjo1N2JiNDRkZDIxZDJiZWZiN2NhM2YwMTA=") {
-    ...on User {
+  node(id: "VXNlclJlbGF5OjU3YmI0NGRkMjFkMmJlZmI3Y2EzZjAxMA==") {
+    ...on UserRelay {
       _id
       id
       name

@@ -5,7 +5,7 @@ module.exports = {
     "jest": true,
   },
   "parser": "babel-eslint",
-  "extends": "airbnb",
+  "extends": "airbnb-base",
   "rules": {
     "import/no-unresolved": [2, {commonjs: true, amd: true}],
     "no-underscore-dangle": 0,
