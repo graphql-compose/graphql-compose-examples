@@ -58,4 +58,9 @@ const fields = {
 
 ViewerTC.addFields(fields);
 
+GQC.rootMutation().addFields({
+  createProduct: ProductTC.get('$createOne'),
+  removeProductById: ProductTC.get('$removeById'),
+});
+
 export default GQC.buildSchema();

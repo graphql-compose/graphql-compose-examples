@@ -10,3 +10,7 @@ describe('nortwind > queries', () => {
     });
   });
 });
+
+describe('nortwind > mutations', () => {
+  // not sure how to test this, stub for now
+})
