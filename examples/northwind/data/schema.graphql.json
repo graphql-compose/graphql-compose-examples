@@ -142,7 +142,7 @@
           "fields": [
             {
               "name": "category",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "filter",
@@ -185,7 +185,7 @@
             },
             {
               "name": "categoryList",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "filter",
@@ -242,7 +242,7 @@
             },
             {
               "name": "customer",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "filter",
@@ -285,7 +285,7 @@
             },
             {
               "name": "customerConnection",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "first",
@@ -362,7 +362,7 @@
             },
             {
               "name": "employee",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "filter",
@@ -405,7 +405,7 @@
             },
             {
               "name": "employeeList",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "filter",
@@ -462,7 +462,7 @@
             },
             {
               "name": "order",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "filter",
@@ -505,7 +505,7 @@
             },
             {
               "name": "orderConnection",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "first",
@@ -582,7 +582,7 @@
             },
             {
               "name": "product",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "filter",
@@ -625,7 +625,7 @@
             },
             {
               "name": "productList",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "filter",
@@ -682,7 +682,7 @@
             },
             {
               "name": "productConnection",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "first",
@@ -759,7 +759,7 @@
             },
             {
               "name": "region",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "filter",
@@ -802,7 +802,7 @@
             },
             {
               "name": "regionList",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "filter",
@@ -859,7 +859,7 @@
             },
             {
               "name": "shipper",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "filter",
@@ -902,7 +902,7 @@
             },
             {
               "name": "shipperList",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "filter",
@@ -959,7 +959,7 @@
             },
             {
               "name": "supplier",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "filter",
@@ -1002,7 +1002,7 @@
             },
             {
               "name": "supplierConnection",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "first",
