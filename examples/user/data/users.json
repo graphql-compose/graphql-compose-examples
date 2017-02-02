@@ -20,6 +20,9 @@
       "e": "str",
       "f": true,
       "g": false
+    },
+    "address": {
+      "geo": [76.957987, 43.415239]
     }
   },
   {
@@ -34,7 +37,10 @@
       "email": "user2@example.com",
       "phones": ["222-444-666"]
     },
-    "gender": "ladyboy"
+    "gender": "ladyboy",
+    "address": {
+      "geo": [76.932581, 43.241298]
+    }
   },
   {
     "_id": "57bb44dd21d2befb7ca3f003",

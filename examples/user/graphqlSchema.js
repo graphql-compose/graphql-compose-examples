@@ -14,7 +14,6 @@ GQC.rootQuery().addFields({
   userByIds: UserTC.getResolver('findByIds'),
   userOne: UserTC.getResolver('findOne'),
   userMany: UserTC.getResolver('findMany'),
-  userManyGeo: UserListResolver,
   userTotal: UserTC.getResolver('count'),
   userConnection: UserTC.getResolver('connection'),
 });
