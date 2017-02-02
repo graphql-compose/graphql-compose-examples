@@ -1,4 +1,4 @@
-import { UserTC } from './models/user';
+import { UserTC,UserListResolver } from './models/user';
 
 // SINGLE SCHEMA ON SERVER
 // import { GQC } from 'graphql-compose';

@@ -1,4 +1,4 @@
-input _idOperatorsFilterFindManyUserRelayInput {
+input _idOperatorsFilterFindManyUserInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -8,7 +8,7 @@ input _idOperatorsFilterFindManyUserRelayInput {
   nin: [MongoID]
 }
 
-input _idOperatorsFilterFindOneUserRelayInput {
+input _idOperatorsFilterFindOneUserInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -18,7 +18,7 @@ input _idOperatorsFilterFindOneUserRelayInput {
   nin: [MongoID]
 }
 
-input _idOperatorsFilterRemoveManyUserRelayInput {
+input _idOperatorsFilterRemoveManyUserInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -28,7 +28,7 @@ input _idOperatorsFilterRemoveManyUserRelayInput {
   nin: [MongoID]
 }
 
-input _idOperatorsFilterRemoveOneUserRelayInput {
+input _idOperatorsFilterRemoveOneUserInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -38,7 +38,7 @@ input _idOperatorsFilterRemoveOneUserRelayInput {
   nin: [MongoID]
 }
 
-input _idOperatorsFilterUpdateManyUserRelayInput {
+input _idOperatorsFilterUpdateManyUserInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -48,7 +48,7 @@ input _idOperatorsFilterUpdateManyUserRelayInput {
   nin: [MongoID]
 }
 
-input _idOperatorsFilterUpdateOneUserRelayInput {
+input _idOperatorsFilterUpdateOneUserInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -58,7 +58,7 @@ input _idOperatorsFilterUpdateOneUserRelayInput {
   nin: [MongoID]
 }
 
-input _idOperatorsFilterUserRelayInput {
+input _idOperatorsFilterUserInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -68,7 +68,7 @@ input _idOperatorsFilterUserRelayInput {
   nin: [MongoID]
 }
 
-input AgeOperatorsFilterFindManyUserRelayInput {
+input AgeOperatorsFilterFindManyUserInput {
   gt: Float
   gte: Float
   lt: Float
@@ -78,7 +78,7 @@ input AgeOperatorsFilterFindManyUserRelayInput {
   nin: [Float]
 }
 
-input AgeOperatorsFilterFindOneUserRelayInput {
+input AgeOperatorsFilterFindOneUserInput {
   gt: Float
   gte: Float
   lt: Float
@@ -88,7 +88,7 @@ input AgeOperatorsFilterFindOneUserRelayInput {
   nin: [Float]
 }
 
-input AgeOperatorsFilterRemoveManyUserRelayInput {
+input AgeOperatorsFilterRemoveManyUserInput {
   gt: Float
   gte: Float
   lt: Float
@@ -98,7 +98,7 @@ input AgeOperatorsFilterRemoveManyUserRelayInput {
   nin: [Float]
 }
 
-input AgeOperatorsFilterRemoveOneUserRelayInput {
+input AgeOperatorsFilterRemoveOneUserInput {
   gt: Float
   gte: Float
   lt: Float
@@ -108,7 +108,7 @@ input AgeOperatorsFilterRemoveOneUserRelayInput {
   nin: [Float]
 }
 
-input AgeOperatorsFilterUpdateManyUserRelayInput {
+input AgeOperatorsFilterUpdateManyUserInput {
   gt: Float
   gte: Float
   lt: Float
@@ -118,7 +118,7 @@ input AgeOperatorsFilterUpdateManyUserRelayInput {
   nin: [Float]
 }
 
-input AgeOperatorsFilterUpdateOneUserRelayInput {
+input AgeOperatorsFilterUpdateOneUserInput {
   gt: Float
   gte: Float
   lt: Float
@@ -128,7 +128,7 @@ input AgeOperatorsFilterUpdateOneUserRelayInput {
   nin: [Float]
 }
 
-input AgeOperatorsFilterUserRelayInput {
+input AgeOperatorsFilterUserInput {
   gt: Float
   gte: Float
   lt: Float
@@ -142,144 +142,160 @@ input AgeOperatorsFilterUserRelayInput {
 # set.  Due this point, you may request previous or next records.
 scalar ConnectionCursor
 
-input CreateOneUserRelayInput {
+input CreateOneUserInput {
   name: String
   age: Float
-  languages: [UserRelayUserRelayLanguagesInput]
-  contacts: UserRelayContactsInput
-  gender: EnumUserRelayGender
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
+  gender: EnumUserGender
+  address: [UserUserAddressInput]
 
   # Some dynamic data
   someMixed: JSON
 }
 
-type CreateOneUserRelayPayload {
+type CreateOneUserPayload {
   # Created document ID
   recordId: MongoID
 
   # Created document
-  record: UserRelay
+  record: User
 }
 
-enum EnumUserRelayGender {
+enum EnumUserGender {
   male
   female
   ladyboy
 }
 
-enum EnumUserRelayLanguagesSkill {
+enum EnumUserLanguagesSkill {
   basic
   fluent
   native
 }
 
-input FilterFindManyUserRelayInput {
+input FilterFindManyUserInput {
   name: String
   age: Float
-  languages: [UserRelayUserRelayLanguagesInput]
-  contacts: UserRelayContactsInput
-  gender: EnumUserRelayGender
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
+  gender: EnumUserGender
+  address: [UserUserAddressInput]
 
   # Some dynamic data
   someMixed: JSON
   _id: MongoID
 
   # List of fields that can be filtered via operators
-  _operators: OperatorsFilterFindManyUserRelayInput
+  _operators: OperatorsFilterFindManyUserInput
+
+  # Search by 5km radius (`2dsphere` index on `geo` field)
+  geo: LonLat
 }
 
-input FilterFindOneUserRelayInput {
+input FilterFindOneUserInput {
   name: String
   age: Float
-  languages: [UserRelayUserRelayLanguagesInput]
-  contacts: UserRelayContactsInput
-  gender: EnumUserRelayGender
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
+  gender: EnumUserGender
+  address: [UserUserAddressInput]
 
   # Some dynamic data
   someMixed: JSON
   _id: MongoID
 
   # List of fields that can be filtered via operators
-  _operators: OperatorsFilterFindOneUserRelayInput
+  _operators: OperatorsFilterFindOneUserInput
 }
 
-input FilterRemoveManyUserRelayInput {
+input FilterRemoveManyUserInput {
   name: String
   age: Float
-  languages: [UserRelayUserRelayLanguagesInput]
-  contacts: UserRelayContactsInput
-  gender: EnumUserRelayGender
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
+  gender: EnumUserGender
+  address: [UserUserAddressInput]
 
   # Some dynamic data
   someMixed: JSON
   _id: MongoID
 
   # List of fields that can be filtered via operators
-  _operators: OperatorsFilterRemoveManyUserRelayInput
+  _operators: OperatorsFilterRemoveManyUserInput
 }
 
-input FilterRemoveOneUserRelayInput {
+input FilterRemoveOneUserInput {
   name: String
   age: Float
-  languages: [UserRelayUserRelayLanguagesInput]
-  contacts: UserRelayContactsInput
-  gender: EnumUserRelayGender
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
+  gender: EnumUserGender
+  address: [UserUserAddressInput]
 
   # Some dynamic data
   someMixed: JSON
   _id: MongoID
 
   # List of fields that can be filtered via operators
-  _operators: OperatorsFilterRemoveOneUserRelayInput
+  _operators: OperatorsFilterRemoveOneUserInput
 }
 
-input FilterUpdateManyUserRelayInput {
+input FilterUpdateManyUserInput {
   name: String
   age: Float
-  languages: [UserRelayUserRelayLanguagesInput]
-  contacts: UserRelayContactsInput
-  gender: EnumUserRelayGender
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
+  gender: EnumUserGender
+  address: [UserUserAddressInput]
 
   # Some dynamic data
   someMixed: JSON
   _id: MongoID
 
   # List of fields that can be filtered via operators
-  _operators: OperatorsFilterUpdateManyUserRelayInput
+  _operators: OperatorsFilterUpdateManyUserInput
 }
 
-input FilterUpdateOneUserRelayInput {
+input FilterUpdateOneUserInput {
   name: String
   age: Float
-  languages: [UserRelayUserRelayLanguagesInput]
-  contacts: UserRelayContactsInput
-  gender: EnumUserRelayGender
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
+  gender: EnumUserGender
+  address: [UserUserAddressInput]
 
   # Some dynamic data
   someMixed: JSON
   _id: MongoID
 
   # List of fields that can be filtered via operators
-  _operators: OperatorsFilterUpdateOneUserRelayInput
+  _operators: OperatorsFilterUpdateOneUserInput
 }
 
-input FilterUserRelayInput {
+input FilterUserInput {
   name: String
   age: Float
-  languages: [UserRelayUserRelayLanguagesInput]
-  contacts: UserRelayContactsInput
-  gender: EnumUserRelayGender
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
+  gender: EnumUserGender
+  address: [UserUserAddressInput]
 
   # Some dynamic data
   someMixed: JSON
   _id: MongoID
 
   # List of fields that can be filtered via operators
-  _operators: OperatorsFilterUserRelayInput
+  _operators: OperatorsFilterUserInput
 }
 
 # The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
 scalar JSON
+
+input LonLat {
+  lng: Float!
+  lat: Float!
+}
 
 # The `ID` scalar type represents a unique MongoDB identifier in collection.
 # MongoDB by default use 12-byte ObjectId value
@@ -288,91 +304,110 @@ scalar JSON
 scalar MongoID
 
 type Mutation {
-  userCreate(record: CreateOneUserRelayInput!): CreateOneUserRelayPayload
-  userUpdateById(record: UpdateByIdUserRelayInput!): UpdateByIdUserRelayPayload
+  # Create one document with mongoose defaults, setters, hooks and validation
+  userCreate(record: CreateOneUserInput!): CreateOneUserPayload
+
+  # Update one document: 1) Retrieve one document by findById. 2) Apply updates to
+  # mongoose document. 3) Mongoose applies defaults, setters, hooks and
+  # validation. 4) And save it.
+  userUpdateById(record: UpdateByIdUserInput!): UpdateByIdUserPayload
+
+  # Update one document: 1) Retrieve one document via findOne. 2) Apply updates to
+  # mongoose document. 3) Mongoose applies defaults, setters, hooks and
+  # validation. 4) And save it.
   userUpdateOne(
-    record: UpdateOneUserRelayInput!
+    record: UpdateOneUserInput!
 
     # Filter by fields
-    filter: FilterUpdateOneUserRelayInput
-    sort: SortUpdateOneUserRelayInput
+    filter: FilterUpdateOneUserInput
+    sort: SortUpdateOneUserInput
     skip: Int
-  ): UpdateOneUserRelayPayload
+  ): UpdateOneUserPayload
+
+  # Update many documents without returning them: Use Query.update mongoose
+  # method. Do not apply mongoose defaults, setters, hooks and validation. 
   userUpdateMany(
-    record: UpdateManyUserRelayInput!
+    record: UpdateManyUserInput!
 
     # Filter by fields
-    filter: FilterUpdateManyUserRelayInput
-    sort: SortUpdateManyUserRelayInput
+    filter: FilterUpdateManyUserInput
+    sort: SortUpdateManyUserInput
     skip: Int
     limit: Int = 1000
-  ): UpdateManyUserRelayPayload
-  userRemoveById(_id: MongoID!): RemoveByIdUserRelayPayload
+  ): UpdateManyUserPayload
+
+  # Remove one document: 1) Retrieve one document and remove with hooks via findByIdAndRemove. 2) Return removed document.
+  userRemoveById(_id: MongoID!): RemoveByIdUserPayload
+
+  # Remove one document: 1) Remove with hooks via findOneAndRemove. 2) Return removed document.
   userRemoveOne(
     # Filter by fields
-    filter: FilterRemoveOneUserRelayInput
-    sort: SortRemoveOneUserRelayInput
-  ): RemoveOneUserRelayPayload
+    filter: FilterRemoveOneUserInput
+    sort: SortRemoveOneUserInput
+  ): RemoveOneUserPayload
+
+  # Remove many documents without returning them: Use Query.remove mongoose
+  # method. Do not apply mongoose defaults, setters, hooks and validation. 
   userRemoveMany(
     # Filter by fields
-    filter: FilterRemoveManyUserRelayInput!
-  ): RemoveManyUserRelayPayload
+    filter: FilterRemoveManyUserInput!
+  ): RemoveManyUserPayload
 }
 
-input OperatorsFilterFindManyUserRelayInput {
+input OperatorsFilterFindManyUserInput {
   # Filter value by operator(s)
-  age: AgeOperatorsFilterFindManyUserRelayInput
+  age: AgeOperatorsFilterFindManyUserInput
 
   # Filter value by operator(s)
-  _id: _idOperatorsFilterFindManyUserRelayInput
+  _id: _idOperatorsFilterFindManyUserInput
 }
 
-input OperatorsFilterFindOneUserRelayInput {
+input OperatorsFilterFindOneUserInput {
   # Filter value by operator(s)
-  age: AgeOperatorsFilterFindOneUserRelayInput
+  age: AgeOperatorsFilterFindOneUserInput
 
   # Filter value by operator(s)
-  _id: _idOperatorsFilterFindOneUserRelayInput
+  _id: _idOperatorsFilterFindOneUserInput
 }
 
-input OperatorsFilterRemoveManyUserRelayInput {
+input OperatorsFilterRemoveManyUserInput {
   # Filter value by operator(s)
-  age: AgeOperatorsFilterRemoveManyUserRelayInput
+  age: AgeOperatorsFilterRemoveManyUserInput
 
   # Filter value by operator(s)
-  _id: _idOperatorsFilterRemoveManyUserRelayInput
+  _id: _idOperatorsFilterRemoveManyUserInput
 }
 
-input OperatorsFilterRemoveOneUserRelayInput {
+input OperatorsFilterRemoveOneUserInput {
   # Filter value by operator(s)
-  age: AgeOperatorsFilterRemoveOneUserRelayInput
+  age: AgeOperatorsFilterRemoveOneUserInput
 
   # Filter value by operator(s)
-  _id: _idOperatorsFilterRemoveOneUserRelayInput
+  _id: _idOperatorsFilterRemoveOneUserInput
 }
 
-input OperatorsFilterUpdateManyUserRelayInput {
+input OperatorsFilterUpdateManyUserInput {
   # Filter value by operator(s)
-  age: AgeOperatorsFilterUpdateManyUserRelayInput
+  age: AgeOperatorsFilterUpdateManyUserInput
 
   # Filter value by operator(s)
-  _id: _idOperatorsFilterUpdateManyUserRelayInput
+  _id: _idOperatorsFilterUpdateManyUserInput
 }
 
-input OperatorsFilterUpdateOneUserRelayInput {
+input OperatorsFilterUpdateOneUserInput {
   # Filter value by operator(s)
-  age: AgeOperatorsFilterUpdateOneUserRelayInput
+  age: AgeOperatorsFilterUpdateOneUserInput
 
   # Filter value by operator(s)
-  _id: _idOperatorsFilterUpdateOneUserRelayInput
+  _id: _idOperatorsFilterUpdateOneUserInput
 }
 
-input OperatorsFilterUserRelayInput {
+input OperatorsFilterUserInput {
   # Filter value by operator(s)
-  age: AgeOperatorsFilterUserRelayInput
+  age: AgeOperatorsFilterUserInput
 
   # Filter value by operator(s)
-  _id: _idOperatorsFilterUserRelayInput
+  _id: _idOperatorsFilterUserInput
 }
 
 # Information about pagination in a connection.
@@ -391,24 +426,31 @@ type PageInfo {
 }
 
 type Query {
-  userById(_id: MongoID!): UserRelay
-  userByIds(_ids: [MongoID]!, limit: Int = 1000, sort: SortFindByIdsUserRelayInput): [UserRelay]
+  userById(_id: MongoID!): User
+  userByIds(_ids: [MongoID]!, limit: Int = 1000, sort: SortFindByIdsUserInput): [User]
   userOne(
     # Filter by fields
-    filter: FilterFindOneUserRelayInput
+    filter: FilterFindOneUserInput
     skip: Int
-    sort: SortFindOneUserRelayInput
-  ): UserRelay
+    sort: SortFindOneUserInput
+  ): User
   userMany(
     # Filter by fields
-    filter: FilterFindManyUserRelayInput
+    filter: FilterFindManyUserInput
     skip: Int
     limit: Int = 1000
-    sort: SortFindManyUserRelayInput
-  ): [UserRelay]
+    sort: SortFindManyUserInput
+  ): [User]
+  userManyGeo(
+    # Filter by fields
+    filter: FilterFindManyUserInput
+    skip: Int
+    limit: Int = 1000
+    sort: SortFindManyUserInput
+  ): [User]
   userTotal(
     # Filter by fields
-    filter: FilterUserRelayInput
+    filter: FilterUserInput
   ): Int
   userConnection(
     # Forward pagination argument for returning at most first edges
@@ -424,150 +466,159 @@ type Query {
     before: ConnectionCursor
 
     # Filter by fields
-    filter: FilterFindManyUserRelayInput
+    filter: FilterFindManyUserInput
 
     # Sort argument for data ordering
-    sort: SortConnectionUserRelayEnum = _ID_DESC
-  ): UserRelayConnection
+    sort: SortConnectionUserEnum = _ID_DESC
+  ): UserConnection
 }
 
-type RemoveByIdUserRelayPayload {
+type RemoveByIdUserPayload {
   # Removed document ID
   recordId: MongoID
 
   # Removed document
-  record: UserRelay
+  record: User
 }
 
-type RemoveManyUserRelayPayload {
+type RemoveManyUserPayload {
   # Affected documents number
   numAffected: Int
 }
 
-type RemoveOneUserRelayPayload {
+type RemoveOneUserPayload {
   # Removed document ID
   recordId: MongoID
 
   # Removed document
-  record: UserRelay
+  record: User
 }
 
-enum SortConnectionUserRelayEnum {
+enum SortConnectionUserEnum {
   _ID_DESC
   _ID_ASC
 }
 
-enum SortFindByIdsUserRelayInput {
-  _ID_ASC
-  _ID_DESC
-  AGE_ASC
-  AGE_DESC
-}
-
-enum SortFindManyUserRelayInput {
+enum SortFindByIdsUserInput {
   _ID_ASC
   _ID_DESC
   AGE_ASC
   AGE_DESC
 }
 
-enum SortFindOneUserRelayInput {
+enum SortFindManyUserInput {
   _ID_ASC
   _ID_DESC
   AGE_ASC
   AGE_DESC
 }
 
-enum SortRemoveOneUserRelayInput {
+enum SortFindOneUserInput {
   _ID_ASC
   _ID_DESC
   AGE_ASC
   AGE_DESC
 }
 
-enum SortUpdateManyUserRelayInput {
+enum SortRemoveOneUserInput {
   _ID_ASC
   _ID_DESC
   AGE_ASC
   AGE_DESC
 }
 
-enum SortUpdateOneUserRelayInput {
+enum SortUpdateManyUserInput {
   _ID_ASC
   _ID_DESC
   AGE_ASC
   AGE_DESC
 }
 
-input UpdateByIdUserRelayInput {
+enum SortUpdateOneUserInput {
+  _ID_ASC
+  _ID_DESC
+  AGE_ASC
+  AGE_DESC
+}
+
+input UpdateByIdUserInput {
   name: String
   age: Float
-  languages: [UserRelayUserRelayLanguagesInput]
-  contacts: UserRelayContactsInput
-  gender: EnumUserRelayGender
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
+  gender: EnumUserGender
+  address: [UserUserAddressInput]
 
   # Some dynamic data
   someMixed: JSON
   _id: MongoID!
 }
 
-type UpdateByIdUserRelayPayload {
+type UpdateByIdUserPayload {
   # Updated document ID
   recordId: MongoID
 
   # Updated document
-  record: UserRelay
+  record: User
 }
 
-input UpdateManyUserRelayInput {
+input UpdateManyUserInput {
   name: String
   age: Float
-  languages: [UserRelayUserRelayLanguagesInput]
-  contacts: UserRelayContactsInput
-  gender: EnumUserRelayGender
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
+  gender: EnumUserGender
+  address: [UserUserAddressInput]
 
   # Some dynamic data
   someMixed: JSON
 }
 
-type UpdateManyUserRelayPayload {
+type UpdateManyUserPayload {
   # Affected documents number
   numAffected: Int
 }
 
-input UpdateOneUserRelayInput {
+input UpdateOneUserInput {
   name: String
   age: Float
-  languages: [UserRelayUserRelayLanguagesInput]
-  contacts: UserRelayContactsInput
-  gender: EnumUserRelayGender
+  languages: [UserUserLanguagesInput]
+  contacts: UserContactsInput
+  gender: EnumUserGender
+  address: [UserUserAddressInput]
 
   # Some dynamic data
   someMixed: JSON
 }
 
-type UpdateOneUserRelayPayload {
+type UpdateOneUserPayload {
   # Updated document ID
   recordId: MongoID
 
   # Updated document
-  record: UserRelay
+  record: User
 }
 
-type UserRelay {
+type User {
   name: String
   age: Float
-  languages: [UserRelayLanguages]
-  contacts: UserRelayContacts
-  gender: EnumUserRelayGender
+  languages: [UserLanguages]
+  contacts: UserContacts
+  gender: EnumUserGender
+  address: [UserAddress]
 
   # Some dynamic data
   someMixed: JSON
   _id: MongoID
 }
 
+type UserAddress {
+  street: String
+  geo: [Float]
+}
+
 # A connection to a list of items.
-type UserRelayConnection {
+type UserConnection {
   # Total object count.
   count: Int
 
@@ -575,34 +626,39 @@ type UserRelayConnection {
   pageInfo: PageInfo!
 
   # Information to aid in pagination.
-  edges: [UserRelayEdge]
+  edges: [UserEdge]
 }
 
-type UserRelayContacts {
+type UserContacts {
   email: String
   phones: [String]
 }
 
-input UserRelayContactsInput {
+input UserContactsInput {
   email: String
   phones: [String]
 }
 
 # An edge in a connection.
-type UserRelayEdge {
+type UserEdge {
   # The item at the end of the edge
-  node: UserRelay
+  node: User
 
   # A cursor for use in pagination
   cursor: ConnectionCursor!
 }
 
-type UserRelayLanguages {
+type UserLanguages {
   language: String
-  skill: EnumUserRelayLanguagesSkill
+  skill: EnumUserLanguagesSkill
 }
 
-input UserRelayUserRelayLanguagesInput {
+input UserUserAddressInput {
+  street: String
+  geo: [Float]
+}
+
+input UserUserLanguagesInput {
   language: String
-  skill: EnumUserRelayLanguagesSkill
+  skill: EnumUserLanguagesSkill
 }

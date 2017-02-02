@@ -67,6 +67,38 @@ export default {
       `,
     },
     {
+      title: 'Find many Users (by geo distance)',
+      query: `
+{
+  distance_5_km: userMany(filter: {
+    geoDistance: {
+      lng: 76.911982,
+      lat: 43.233893,
+      distance: 5000,
+    }
+  }) {
+    name
+    address {
+      geo
+    }
+  }
+
+  distance_100_km: userMany(filter: {
+    geoDistance: {
+      lng: 76.911982,
+      lat: 43.233893,
+      distance: 100000,
+    }
+  }) {
+    name
+    address {
+      geo
+    }
+  }
+}
+      `,
+    },
+    {
       title: 'Find User with field of MIXED type',
       query: `
 {
