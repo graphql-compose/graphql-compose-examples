@@ -44,12 +44,6 @@ Object {
           "title": "Sales Representative",
         },
         Object {
-          "firstName": "Anne",
-          "lastName": "Dodsworth",
-          "notes": "Anne has a BA degree in English from St. Lawrence College.  She is fluent in French and German.",
-          "title": "Sales Representative",
-        },
-        Object {
           "firstName": "Nancy",
           "lastName": "Davolio",
           "notes": "Education includes a BA in psychology from Colorado State University in 1970.  She also completed The Art of the Cold Call.  Nancy is a member of Toastmasters International.",
@@ -65,6 +59,12 @@ Object {
           "firstName": "Robert",
           "lastName": "King",
           "notes": "Robert King served in the Peace Corps and traveled extensively before completing his degree in English at the University of Michigan in 1992 the year he joined the company.",
+          "title": "Sales Representative",
+        },
+        Object {
+          "firstName": "Anne",
+          "lastName": "Dodsworth",
+          "notes": "Anne has a BA degree in English from St. Lawrence College.  She is fluent in French and German.",
           "title": "Sales Representative",
         },
         Object {
