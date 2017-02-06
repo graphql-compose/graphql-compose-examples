@@ -17,6 +17,7 @@ import { ProductTC } from './models/product';
 import { RegionTC } from './models/region';
 import { ShipperTC } from './models/shipper';
 import { SupplierTC } from './models/supplier';
+import herokuSecurity from './auth/herokuSecurity';
 
 composeWithRelay(GQC.rootQuery());
 
@@ -59,8 +60,10 @@ const fields = {
 ViewerTC.addFields(fields);
 
 GQC.rootMutation().addFields({
-  createProduct: ProductTC.get('$createOne'),
-  removeProductById: ProductTC.get('$removeById'),
+  ...herokuSecurity({
+    createProduct: ProductTC.get('$createOne'),
+    removeProductById: ProductTC.get('$removeById'),
+  })
 });
 
 export default GQC.buildSchema();
