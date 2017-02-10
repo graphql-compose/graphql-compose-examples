@@ -248,5 +248,17 @@ export default {
 }
       `
     },
+    {
+      title: 'Mutation example (✋ 🛑 For security reason this operation is allowed only on localhost).',
+      query: `
+mutation {
+  removeProductById(input: {
+    _id: "589d4a5fbd19c70027d2f9b8",
+  }) {
+    recordId
+  }
+}
+      `
+    },
   ]
 };

@@ -36,7 +36,7 @@ function addExample(example, uri) {
     graphiql: true,
     formatError: (error) => ({
       message: error.message,
-      stack: error.stack.split('\n'),
+      stack: !error.message.match(/for security reason/i) ? error.stack.split('\n') : null,
     }),
   })));
   addToMainPage(example);

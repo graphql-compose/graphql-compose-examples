@@ -66,7 +66,8 @@
     "seed": "./node_modules/.bin/babel-node seed.js",
     "buildSchema": "./node_modules/.bin/babel-node buildSchema.js",
     "start": "npm run seed && babel-node index.js",
-    "dev": "nodemon index.js -e js --exec babel-node",
+    "start:watch": "npm run watch",
+    "watch": "nodemon index.js -e js --exec babel-node",
     "test": "jest",
     "link": "npm link graphql graphql-compose graphql-compose-connection graphql-compose-mongoose graphql-compose-relay mongoose",
     "unlink": "npm unlink graphql graphql-compose graphql-compose-connection graphql-compose-mongoose graphql-compose-relay mongoose && npm i"

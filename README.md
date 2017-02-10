@@ -4,7 +4,7 @@ Live example on Heroku: [https://graphql-compose.herokuapp.com/](https://graphql
 
 ```
 npm install
-npm run seed && npm run dev
+npm run seed && npm run start:watch
 open http://localhost:3000
 ```
 
