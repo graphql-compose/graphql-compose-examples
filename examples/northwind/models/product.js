@@ -34,7 +34,6 @@ export const Product = mongoose.model('Product', ProductSchema);
 
 export const ProductTC = composeWithRelay(composeWithMongoose(Product));
 
-
 const extendedResolver = ProductTC
   .getResolver('findMany')
   .addFilterArg({
