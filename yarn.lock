@@ -1751,9 +1751,9 @@ graphql-compose-connection@^2.1.3:
   dependencies:
     babel-runtime "^6.22.0"
 
-graphql-compose-elasticsearch@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/graphql-compose-elasticsearch/-/graphql-compose-elasticsearch-1.0.2.tgz#3fb8b20d34f6d546885205ef71eb24fbcccc5c99"
+graphql-compose-elasticsearch@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/graphql-compose-elasticsearch/-/graphql-compose-elasticsearch-1.1.0.tgz#432d00595cebadf8eea729b29282f3f7548ab4b6"
   dependencies:
     dox "^0.9.0"
 
