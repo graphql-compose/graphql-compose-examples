@@ -148,7 +148,7 @@ input CreateOneUserInput {
   languages: [UserUserLanguagesInput]
   contacts: UserContactsInput
   gender: EnumUserGender
-  address: [UserUserAddressInput]
+  address: UserAddressInput
 
   # Some dynamic data
   someMixed: JSON
@@ -180,7 +180,7 @@ input FilterFindManyUserInput {
   languages: [UserUserLanguagesInput]
   contacts: UserContactsInput
   gender: EnumUserGender
-  address: [UserUserAddressInput]
+  address: UserAddressInput
 
   # Some dynamic data
   someMixed: JSON
@@ -189,8 +189,8 @@ input FilterFindManyUserInput {
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindManyUserInput
 
-  # Search by 5km radius (`2dsphere` index on `geo` field)
-  geo: LonLat
+  # Search by distance in meters
+  geoDistance: GeoDistance
 }
 
 input FilterFindOneUserInput {
@@ -199,7 +199,7 @@ input FilterFindOneUserInput {
   languages: [UserUserLanguagesInput]
   contacts: UserContactsInput
   gender: EnumUserGender
-  address: [UserUserAddressInput]
+  address: UserAddressInput
 
   # Some dynamic data
   someMixed: JSON
@@ -215,7 +215,7 @@ input FilterRemoveManyUserInput {
   languages: [UserUserLanguagesInput]
   contacts: UserContactsInput
   gender: EnumUserGender
-  address: [UserUserAddressInput]
+  address: UserAddressInput
 
   # Some dynamic data
   someMixed: JSON
@@ -231,7 +231,7 @@ input FilterRemoveOneUserInput {
   languages: [UserUserLanguagesInput]
   contacts: UserContactsInput
   gender: EnumUserGender
-  address: [UserUserAddressInput]
+  address: UserAddressInput
 
   # Some dynamic data
   someMixed: JSON
@@ -247,7 +247,7 @@ input FilterUpdateManyUserInput {
   languages: [UserUserLanguagesInput]
   contacts: UserContactsInput
   gender: EnumUserGender
-  address: [UserUserAddressInput]
+  address: UserAddressInput
 
   # Some dynamic data
   someMixed: JSON
@@ -263,7 +263,7 @@ input FilterUpdateOneUserInput {
   languages: [UserUserLanguagesInput]
   contacts: UserContactsInput
   gender: EnumUserGender
-  address: [UserUserAddressInput]
+  address: UserAddressInput
 
   # Some dynamic data
   someMixed: JSON
@@ -279,7 +279,7 @@ input FilterUserInput {
   languages: [UserUserLanguagesInput]
   contacts: UserContactsInput
   gender: EnumUserGender
-  address: [UserUserAddressInput]
+  address: UserAddressInput
 
   # Some dynamic data
   someMixed: JSON
@@ -289,13 +289,16 @@ input FilterUserInput {
   _operators: OperatorsFilterUserInput
 }
 
-# The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
-scalar JSON
-
-input LonLat {
+input GeoDistance {
   lng: Float!
   lat: Float!
+
+  # Distance in meters
+  distance: Float!
 }
+
+# The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+scalar JSON
 
 # The `ID` scalar type represents a unique MongoDB identifier in collection.
 # MongoDB by default use 12-byte ObjectId value
@@ -441,13 +444,6 @@ type Query {
     limit: Int = 1000
     sort: SortFindManyUserInput
   ): [User]
-  userManyGeo(
-    # Filter by fields
-    filter: FilterFindManyUserInput
-    skip: Int
-    limit: Int = 1000
-    sort: SortFindManyUserInput
-  ): [User]
   userTotal(
     # Filter by fields
     filter: FilterUserInput
@@ -547,7 +543,7 @@ input UpdateByIdUserInput {
   languages: [UserUserLanguagesInput]
   contacts: UserContactsInput
   gender: EnumUserGender
-  address: [UserUserAddressInput]
+  address: UserAddressInput
 
   # Some dynamic data
   someMixed: JSON
@@ -568,7 +564,7 @@ input UpdateManyUserInput {
   languages: [UserUserLanguagesInput]
   contacts: UserContactsInput
   gender: EnumUserGender
-  address: [UserUserAddressInput]
+  address: UserAddressInput
 
   # Some dynamic data
   someMixed: JSON
@@ -585,7 +581,7 @@ input UpdateOneUserInput {
   languages: [UserUserLanguagesInput]
   contacts: UserContactsInput
   gender: EnumUserGender
-  address: [UserUserAddressInput]
+  address: UserAddressInput
 
   # Some dynamic data
   someMixed: JSON
@@ -605,7 +601,7 @@ type User {
   languages: [UserLanguages]
   contacts: UserContacts
   gender: EnumUserGender
-  address: [UserAddress]
+  address: UserAddress
 
   # Some dynamic data
   someMixed: JSON
@@ -615,6 +611,12 @@ type User {
 type UserAddress {
   street: String
   geo: [Float]
+}
+
+input UserAddressInput {
+  street: String
+  geo: [Float]
+  _id: MongoID
 }
 
 # A connection to a list of items.
@@ -651,11 +653,6 @@ type UserEdge {
 type UserLanguages {
   language: String
   skill: EnumUserLanguagesSkill
-}
-
-input UserUserAddressInput {
-  street: String
-  geo: [Float]
 }
 
 input UserUserLanguagesInput {

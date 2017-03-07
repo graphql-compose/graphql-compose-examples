@@ -275,6 +275,35 @@ input CompanyNameOperatorsFilterFindOneSupplierInput {
 # set.  Due this point, you may request previous or next records.
 scalar ConnectionCursor
 
+input CreateOneProductInput {
+  # Unique product id
+  productID: Float
+  name: String
+  supplierID: Float
+  categoryID: Float
+  quantityPerUnit: String
+  unitPrice: Float
+  unitsInStock: Float
+  unitsOnOrder: Float
+  reorderLevel: Float
+  discontinued: Boolean
+}
+
+type CreateOneProductPayload {
+  # Created document ID
+  recordId: MongoID
+
+  # Created document
+  record: Product
+
+  # The globally unique ID among all types
+  nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
 type Customer implements Node {
   # Customer unique ID
   customerID: String
@@ -797,6 +826,14 @@ input LastNameOperatorsFilterFindOneEmployeeInput {
 # (https://docs.mongodb.com/manual/reference/bson-types/#objectid). But MongoDB
 # also may accepts string or integer as correct values for _id field.
 scalar MongoID
+
+type Mutation {
+  # Create one document with mongoose defaults, setters, hooks and validation
+  createProduct(input: RelayCreateOneProductInput!): CreateOneProductPayload
+
+  # Remove one document: 1) Retrieve one document and remove with hooks via findByIdAndRemove. 2) Return removed document.
+  removeProductById(input: RelayRemoveByIdProductInput!): RemoveByIdProductPayload
+}
 
 input NameOperatorsFilterFindManyCategoryInput {
   gt: String
@@ -1321,6 +1358,37 @@ input RegionRegionTerritoriesInput {
 type RegionTerritories {
   territoryID: Float
   name: String
+}
+
+input RelayCreateOneProductInput {
+  record: CreateOneProductInput!
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+input RelayRemoveByIdProductInput {
+  _id: MongoID!
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
+type RemoveByIdProductPayload {
+  # Removed document ID
+  recordId: MongoID
+
+  # Removed document
+  record: Product
+
+  # The globally unique ID among all types
+  nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
 }
 
 type Shipper implements Node {

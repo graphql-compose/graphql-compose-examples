@@ -197,63 +197,6 @@
               "deprecationReason": null
             },
             {
-              "name": "userManyGeo",
-              "description": "",
-              "args": [
-                {
-                  "name": "filter",
-                  "description": "Filter by fields",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "FilterFindManyUserInput",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "skip",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "limit",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Int",
-                    "ofType": null
-                  },
-                  "defaultValue": "1000"
-                },
-                {
-                  "name": "sort",
-                  "description": null,
-                  "type": {
-                    "kind": "ENUM",
-                    "name": "SortFindManyUserInput",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "User",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "userTotal",
               "description": "",
               "args": [
@@ -443,13 +386,9 @@
               "description": null,
               "args": [],
               "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "UserAddress",
-                  "ofType": null
-                }
+                "kind": "OBJECT",
+                "name": "UserAddress",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -794,13 +733,9 @@
               "name": "address",
               "description": null,
               "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "UserUserAddressInput",
-                  "ofType": null
-                }
+                "kind": "INPUT_OBJECT",
+                "name": "UserAddressInput",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -907,7 +842,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "UserUserAddressInput",
+          "name": "UserAddressInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -932,6 +867,16 @@
                   "name": "Float",
                   "ofType": null
                 }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -1248,13 +1193,9 @@
               "name": "address",
               "description": null,
               "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "UserUserAddressInput",
-                  "ofType": null
-                }
+                "kind": "INPUT_OBJECT",
+                "name": "UserAddressInput",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -1289,11 +1230,11 @@
               "defaultValue": null
             },
             {
-              "name": "geo",
-              "description": "Search by 5km radius (`2dsphere` index on `geo` field)",
+              "name": "geoDistance",
+              "description": "Search by distance in meters",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "LonLat",
+                "name": "GeoDistance",
                 "ofType": null
               },
               "defaultValue": null
@@ -1514,7 +1455,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "LonLat",
+          "name": "GeoDistance",
           "description": "",
           "fields": null,
           "inputFields": [
@@ -1535,6 +1476,20 @@
             {
               "name": "lat",
               "description": "",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "distance",
+              "description": "Distance in meters",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1650,13 +1605,9 @@
               "name": "address",
               "description": null,
               "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "UserUserAddressInput",
-                  "ofType": null
-                }
+                "kind": "INPUT_OBJECT",
+                "name": "UserAddressInput",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -2452,13 +2403,9 @@
               "name": "address",
               "description": null,
               "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "UserUserAddressInput",
-                  "ofType": null
-                }
+                "kind": "INPUT_OBJECT",
+                "name": "UserAddressInput",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -2576,13 +2523,9 @@
               "name": "address",
               "description": null,
               "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "UserUserAddressInput",
-                  "ofType": null
-                }
+                "kind": "INPUT_OBJECT",
+                "name": "UserAddressInput",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -2714,13 +2657,9 @@
               "name": "address",
               "description": null,
               "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "UserUserAddressInput",
-                  "ofType": null
-                }
+                "kind": "INPUT_OBJECT",
+                "name": "UserAddressInput",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -2803,13 +2742,9 @@
               "name": "address",
               "description": null,
               "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "UserUserAddressInput",
-                  "ofType": null
-                }
+                "kind": "INPUT_OBJECT",
+                "name": "UserAddressInput",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -3191,13 +3126,9 @@
               "name": "address",
               "description": null,
               "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "UserUserAddressInput",
-                  "ofType": null
-                }
+                "kind": "INPUT_OBJECT",
+                "name": "UserAddressInput",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -3280,13 +3211,9 @@
               "name": "address",
               "description": null,
               "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "UserUserAddressInput",
-                  "ofType": null
-                }
+                "kind": "INPUT_OBJECT",
+                "name": "UserAddressInput",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -3691,13 +3618,9 @@
               "name": "address",
               "description": null,
               "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "UserUserAddressInput",
-                  "ofType": null
-                }
+                "kind": "INPUT_OBJECT",
+                "name": "UserAddressInput",
+                "ofType": null
               },
               "defaultValue": null
             },
@@ -4079,13 +4002,9 @@
               "name": "address",
               "description": null,
               "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "UserUserAddressInput",
-                  "ofType": null
-                }
+                "kind": "INPUT_OBJECT",
+                "name": "UserAddressInput",
+                "ofType": null
               },
               "defaultValue": null
             },
