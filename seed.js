@@ -11,16 +11,18 @@ async function run() {
   const exampleNames = getExampleNames();
   for (let name of exampleNames) {
     console.log(`Starting seed '${name}'...`);
-    const seedFile = resolveExamplePath(name, 'data/seed.js');
-    try {
-      fs.accessSync(seedFile, fs.F_OK);
-      let seedFn = require(seedFile).default;
-      await seedFn(db);
-    } catch (e) {
-      if (e.code === 'MODULE_NOT_FOUND') {
-        console.log(`  file '${seedFile}' not found. Skipping...`);
-      } else {
-        console.log(e);
+    if (fs.existsSync(resolveExamplePath(name, 'data'))) {
+      const seedFile = resolveExamplePath(name, 'data/seed.js');
+      try {
+        fs.accessSync(seedFile, fs.F_OK);
+        let seedFn = require(seedFile).default;
+        await seedFn(db);
+      } catch (e) {
+        if (e.code === 'MODULE_NOT_FOUND') {
+          console.log(`  file '${seedFile}' not found. Skipping...`);
+        } else {
+          console.log(e);
+        }
       }
     }
   }

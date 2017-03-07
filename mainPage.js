@@ -56,8 +56,11 @@ export function mainPage() {
           <a href="https://github.com/nodkz/graphql-compose-relay" target="_blank">https://github.com/nodkz/graphql-compose-relay</a>
           <br/>
           <a href="https://github.com/nodkz/graphql-compose-connection" target="_blank">https://github.com/nodkz/graphql-compose-connection</a>
+          <br/>
+          <a href="https://github.com/nodkz/graphql-compose-elasticsearch" target="_blank">https://github.com/nodkz/graphql-compose-elasticsearch</a>
         </div>
 
+        <br /><br /><br /><br /><br />
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
