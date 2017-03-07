@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`userForRelay > queries Create user mutation 1`] = `
 Object {
   "age": 24,

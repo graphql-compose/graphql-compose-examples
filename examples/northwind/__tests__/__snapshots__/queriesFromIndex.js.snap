@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`nortwind > queries Fulltext search with weights, negates term, phrase search 1`] = `
 Object {
   "data": Object {
@@ -79,6 +81,17 @@ Object {
 }
 `;
 
+exports[`nortwind > queries Mutation example (✋ 🛑 For security reason this operation is allowed only on localhost). 1`] = `
+Object {
+  "data": Object {
+    "removeProductById": null,
+  },
+  "errors": Array [
+    [GraphQLError: Cannot read property 'ip' of undefined],
+  ],
+}
+`;
+
 exports[`nortwind > queries OrderConnection -> OrderDetails -> Product 1`] = `
 Object {
   "data": Object {
@@ -105,7 +118,7 @@ Object {
                 Object {
                   "product": Object {
                     "discontinued": false,
-                    "name": "Jack\'s New England Clam Chowder",
+                    "name": "Jack's New England Clam Chowder",
                     "unitsInStock": 85,
                   },
                   "quantity": 40,
@@ -161,7 +174,7 @@ Object {
                 Object {
                   "product": Object {
                     "discontinued": false,
-                    "name": "Jack\'s New England Clam Chowder",
+                    "name": "Jack's New England Clam Chowder",
                     "unitsInStock": 85,
                   },
                   "quantity": 30,
@@ -199,7 +212,7 @@ Object {
                 Object {
                   "product": Object {
                     "discontinued": false,
-                    "name": "Chef Anton\'s Cajun Seasoning",
+                    "name": "Chef Anton's Cajun Seasoning",
                     "unitsInStock": 53,
                   },
                   "quantity": 1,
@@ -208,7 +221,7 @@ Object {
                 Object {
                   "product": Object {
                     "discontinued": false,
-                    "name": "Grandma\'s Boysenberry Spread",
+                    "name": "Grandma's Boysenberry Spread",
                     "unitsInStock": 120,
                   },
                   "quantity": 1,
@@ -217,7 +230,7 @@ Object {
                 Object {
                   "product": Object {
                     "discontinued": false,
-                    "name": "Uncle Bob\'s Organic Dried Pears",
+                    "name": "Uncle Bob's Organic Dried Pears",
                     "unitsInStock": 15,
                   },
                   "quantity": 1,
@@ -280,7 +293,7 @@ Object {
                 Object {
                   "product": Object {
                     "discontinued": false,
-                    "name": "Sir Rodney\'s Marmalade",
+                    "name": "Sir Rodney's Marmalade",
                     "unitsInStock": 40,
                   },
                   "quantity": 1,
@@ -316,7 +329,7 @@ Object {
                 Object {
                   "product": Object {
                     "discontinued": false,
-                    "name": "Jack\'s New England Clam Chowder",
+                    "name": "Jack's New England Clam Chowder",
                     "unitsInStock": 85,
                   },
                   "quantity": 3,
@@ -603,9 +616,9 @@ Object {
                   "address": Object {
                     "city": "Sydney",
                     "country": "Australia",
-                    "street": "170 Prince Edward Parade Hunter\'s Hill",
+                    "street": "170 Prince Edward Parade Hunter's Hill",
                   },
-                  "companyName": "G\'day Mate",
+                  "companyName": "G'day Mate",
                 },
               },
             },
@@ -652,11 +665,11 @@ Object {
         },
       },
       "p1": Object {
-        "name": "Chef Anton\'s Cajun Seasoning",
+        "name": "Chef Anton's Cajun Seasoning",
         "productID": 4,
       },
       "p2": Object {
-        "name": "Grandma\'s Boysenberry Spread",
+        "name": "Grandma's Boysenberry Spread",
         "orderConnection": Object {
           "count": 12,
           "edges": Array [
@@ -1001,7 +1014,7 @@ Object {
             Object {
               "node": Object {
                 "customer": Object {
-                  "companyName": "Bon app\'",
+                  "companyName": "Bon app'",
                   "contactName": "Laurence Lebihan",
                   "contactTitle": "Owner",
                   "orderConnection": Object {
@@ -1885,7 +1898,7 @@ Object {
             Object {
               "node": Object {
                 "customer": Object {
-                  "companyName": "Bon app\'",
+                  "companyName": "Bon app'",
                   "contactName": "Laurence Lebihan",
                   "contactTitle": "Owner",
                   "orderConnection": Object {
@@ -3659,7 +3672,7 @@ Object {
         "productID": 6,
       },
       "p3": Object {
-        "name": "Chef Anton\'s Gumbo Mix",
+        "name": "Chef Anton's Gumbo Mix",
         "productID": 5,
       },
       "supplier": Object {
