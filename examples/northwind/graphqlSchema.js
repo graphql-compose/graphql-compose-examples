@@ -10,7 +10,7 @@ const GQC = new ComposeStorage();
 import composeWithRelay from 'graphql-compose-relay';
 
 import { CategoryTC } from './models/category';
-import { CustomerTC } from './models/cutomer';
+import { CustomerTC } from './models/customer';
 import { EmployeeTC } from './models/employee';
 import { OrderTC } from './models/order';
 import { ProductTC } from './models/product';

@@ -3,7 +3,7 @@ import composeWithMongoose from 'graphql-compose-mongoose';
 import composeWithRelay from 'graphql-compose-relay';
 
 import { AddressSchema } from './addressSchema';
-import { CustomerTC } from './cutomer';
+import { CustomerTC } from './customer';
 import { EmployeeTC } from './employee';
 import { ShipperTC } from './shipper';
 import { ProductTC } from './product';
