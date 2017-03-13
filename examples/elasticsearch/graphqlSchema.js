@@ -1,6 +1,6 @@
-import { GraphQLSchema, GraphQLObjectType, GraphQLString } from 'graphql';
+import { GraphQLObjectType, GraphQLString } from 'graphql';
 import elasticsearch from 'elasticsearch';
-import { TypeComposer, ComposeStorage } from 'graphql-compose';
+import { ComposeStorage } from 'graphql-compose';
 import { ElasticApiParser } from 'graphql-compose-elasticsearch';
 
 const GQC = new ComposeStorage();
