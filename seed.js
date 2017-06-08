@@ -1,3 +1,4 @@
+/* eslint-disable no-await-in-loop */
 // This script scans `examples` folder for `data/seed.js` files and run them for seeding DB.
 
 import { MongoClient } from 'mongodb';
@@ -11,18 +12,23 @@ async function run() {
   const exampleNames = getExampleNames();
   for (const name of exampleNames) {
     console.log(`Starting seed '${name}'...`);
-    if (fs.existsSync(resolveExamplePath(name, 'data'))) {
+
+    try {
+      await new Promise((resolve, reject) => {
+        fs.access(resolveExamplePath(name, 'data/seed.js'), fs.F_OK, (err) => {
+          if (err) reject(err);
+          else resolve();
+        });
+      });
+
       const seedFile = resolveExamplePath(name, 'data/seed.js');
-      try {
-        fs.accessSync(seedFile, fs.F_OK);
-        const seedFn = require(seedFile).default;
-        await seedFn(db); // eslint-disable-line
-      } catch (e) {
-        if (e.code === 'MODULE_NOT_FOUND') {
-          console.log(`  file '${seedFile}' not found. Skipping...`);
-        } else {
-          console.log(e);
-        }
+      const seedFn = require(seedFile).default;
+      await seedFn(db); // eslint-disable-line
+    } catch (e) {
+      if (e.code === 'MODULE_NOT_FOUND') {
+        console.log(`  file '${seedFile}' not found. Skipping...`);
+      } else {
+        console.log(e);
       }
     }
   }

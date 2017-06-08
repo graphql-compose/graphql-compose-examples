@@ -11,7 +11,7 @@ RootQueryTC.setField('elastic50', {
   description: 'Elastic v5.0',
   type: new GraphQLObjectType({
     name: 'Elastic50',
-    fields: new ElasticApiParser({ version: '5_0', prefix: 'Elastic50' }).run(),
+    fields: (new ElasticApiParser({ version: '5_0', prefix: 'Elastic50' })).generateFieldMap(),
   }),
   args: {
     host: {
@@ -33,7 +33,7 @@ RootQueryTC.setField('elastic24', {
   description: 'Elastic v2.4',
   type: new GraphQLObjectType({
     name: 'Elastic24',
-    fields: new ElasticApiParser({ version: '2_4', prefix: 'Elastic24' }).run(),
+    fields: new ElasticApiParser({ version: '2_4', prefix: 'Elastic24' }).generateFieldMap(),
   }),
   args: {
     host: {
@@ -55,7 +55,7 @@ RootQueryTC.setField('elastic17', {
   description: 'Elastic v1.7',
   type: new GraphQLObjectType({
     name: 'Elastic17',
-    fields: new ElasticApiParser({ version: '5_0', prefix: 'Elastic17' }).run(),
+    fields: new ElasticApiParser({ version: '5_0', prefix: 'Elastic17' }).generateFieldMap(),
   }),
   args: {
     host: {
