@@ -10,7 +10,7 @@ export default async function seed(db) {
 
   const collectionNames = (await db.listCollections().toArray()).map(o => o.name);
 
-  return await Promise.all(
+  return Promise.all(
     files.map((file) => {
       return (async function () {
         const colName = `${collectionPrefix || ''}${file}`;
@@ -18,7 +18,7 @@ export default async function seed(db) {
           fs.readFileSync(`${__dirname}/${file}.json`, 'utf8')
         );
         data.forEach((d, i) => {
-          data[i]._id = new ObjectID.createFromHexString(data[i]._id)
+          data[i]._id = ObjectID.createFromHexString(data[i]._id)
         });
         if (collectionNames.includes(colName)) {
           console.log(`  '${colName}' dropped`);

@@ -16,7 +16,7 @@ export default async function seed(db) {
 
   const collectionNames = (await db.listCollections().toArray()).map(o => o.name);
 
-  return await Promise.all(
+  return Promise.all(
     files.map((file) => {
       return (async function () {
         const colName = `${collectionPrefix || ''}${file}`;

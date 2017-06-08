@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 db.categories.update({}, {$unset:{picture: ""}}, {multi: true});
 db.categories.update({}, {$rename:{categoryName: "name"}}, {multi: true});
 

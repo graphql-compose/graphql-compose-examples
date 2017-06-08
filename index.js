@@ -12,7 +12,7 @@ server.use(cors());
 // - graphql endpoint by uri /exampleDirName
 // - links and example queries to index page
 const exampleNames = getExampleNames();
-for (let name of exampleNames) {
+for (const name of exampleNames) {
   addExample(
     require(resolveExamplePath(name)).default,
     name
@@ -30,8 +30,8 @@ server.listen(expressPort, () => {
 
 
 function addExample(example, uri) {
-  example.uri = `/${uri}`;
-  server.use(example.uri, graphqlHTTP(req => ({
+  example.uri = `/${uri}`; // eslint-disable-line
+  server.use(example.uri, graphqlHTTP(() => ({
     schema: example.schema,
     graphiql: true,
     formatError: (error) => ({

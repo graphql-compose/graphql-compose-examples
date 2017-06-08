@@ -1,6 +1,5 @@
-import meta from '../index';
-import schema from '../graphqlSchema';
 import { graphql } from 'graphql';
+import meta from '../index';
 
 describe('nortwind > queries', () => {
   meta.queries.forEach(({ query, title }) => {

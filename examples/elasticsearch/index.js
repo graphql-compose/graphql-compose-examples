@@ -1,4 +1,3 @@
-import express from 'express';
 import GraphqlSchema from './graphqlSchema';
 
 export default {

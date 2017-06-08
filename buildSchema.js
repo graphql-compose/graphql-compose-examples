@@ -5,7 +5,7 @@ import { introspectionQuery, printSchema } from 'graphql/utilities';
 import { getExampleNames, resolveExamplePath } from './config';
 
 async function buildSchema(schemaPath) {
-  const Schema = require(`${schemaPath}/graphqlSchema`).default;
+  const Schema = require(`${schemaPath}/graphqlSchema`).default; // eslint-disable-line
   const result = await (graphql(Schema, introspectionQuery));
   if (result.errors) {
     console.error(
@@ -30,9 +30,9 @@ async function buildSchema(schemaPath) {
 
 async function run() {
   const exampleNames = getExampleNames();
-  for (let name of exampleNames) {
+  for (const name of exampleNames) {
     console.log(`Building schema for '${name}'...`);
-    await buildSchema(resolveExamplePath(name));
+    await buildSchema(resolveExamplePath(name)); // eslint-disable-line
   }
 
   console.log('Building schemas competed!');

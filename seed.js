@@ -9,14 +9,14 @@ async function run() {
   db = await MongoClient.connect(mongoUri, { promiseLibrary: Promise });
 
   const exampleNames = getExampleNames();
-  for (let name of exampleNames) {
+  for (const name of exampleNames) {
     console.log(`Starting seed '${name}'...`);
     if (fs.existsSync(resolveExamplePath(name, 'data'))) {
       const seedFile = resolveExamplePath(name, 'data/seed.js');
       try {
         fs.accessSync(seedFile, fs.F_OK);
-        let seedFn = require(seedFile).default;
-        await seedFn(db);
+        const seedFn = require(seedFile).default;
+        await seedFn(db); // eslint-disable-line
       } catch (e) {
         if (e.code === 'MODULE_NOT_FOUND') {
           console.log(`  file '${seedFile}' not found. Skipping...`);

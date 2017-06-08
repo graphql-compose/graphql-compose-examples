@@ -4,11 +4,7 @@
 // MULTI SCHEMA MODE IN ONE SERVER
 // create new GQC from ComposeStorage
 import { ComposeStorage } from 'graphql-compose';
-const GQC = new ComposeStorage();
-
-
 import composeWithRelay from 'graphql-compose-relay';
-
 import { CategoryTC } from './models/category';
 import { CustomerTC } from './models/customer';
 import { EmployeeTC } from './models/employee';
@@ -18,6 +14,8 @@ import { RegionTC } from './models/region';
 import { ShipperTC } from './models/shipper';
 import { SupplierTC } from './models/supplier';
 import allowOnlyForLocalhost from './auth/allowOnlyForLocalhost';
+
+const GQC = new ComposeStorage();
 
 composeWithRelay(GQC.rootQuery());
 

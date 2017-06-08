@@ -1,6 +1,5 @@
-import meta from '../index';
-import schema from '../graphqlSchema';
 import { graphql } from 'graphql';
+import meta from '../index';
 
 function findQueryByTitle(str) {
   const queryConfig = meta.queries.find(o => o.title === str);

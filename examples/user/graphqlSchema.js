@@ -1,11 +1,11 @@
-import { UserTC,UserListResolver } from './models/user';
-
 // SINGLE SCHEMA ON SERVER
 // import { GQC } from 'graphql-compose';
 
 // MULTI SCHEMA MODE IN ONE SERVER
 // create new GQC from ComposeStorage
 import { ComposeStorage } from 'graphql-compose';
+import { UserTC } from './models/user';
+
 const GQC = new ComposeStorage();
 
 // create GraphQL Schema with all available resolvers for User Type
