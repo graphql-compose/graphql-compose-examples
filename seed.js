@@ -13,15 +13,15 @@ async function run() {
   for (const name of exampleNames) {
     console.log(`Starting seed '${name}'...`);
 
+    const seedFile = resolveExamplePath(name, 'data/seed.js');
     try {
       await new Promise((resolve, reject) => {
-        fs.access(resolveExamplePath(name, 'data/seed.js'), fs.F_OK, (err) => {
+        fs.access(seedFile, fs.F_OK, (err) => {
           if (err) reject(err);
           else resolve();
         });
       });
 
-      const seedFile = resolveExamplePath(name, 'data/seed.js');
       const seedFn = require(seedFile).default;
       await seedFn(db); // eslint-disable-line
     } catch (e) {
