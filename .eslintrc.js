@@ -11,6 +11,10 @@ module.exports = {
   "plugins": [
     "prettier"
   ],
+  "env": {
+    "jasmine": true,
+    "jest": true
+  },
   "parser": "babel-eslint",
   "rules": {
     "import/no-unresolved": [2, {commonjs: true, amd: true}],

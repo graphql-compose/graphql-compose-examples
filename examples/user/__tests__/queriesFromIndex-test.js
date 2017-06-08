@@ -1,5 +1,34 @@
-import { graphql } from 'graphql';
-import meta from '../index';
+import { graphql } from "graphql";
+import { MongoClient } from "mongodb";
+import mongoose from "mongoose";
+import MongodbMemoryServer from "mongodb-memory-server";
+import seed from "../data/seed";
+import meta from "../index";
+
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000;
+
+let mongoServer;
+let db;
+beforeAll(async () => {
+  mongoServer = new MongodbMemoryServer();
+  const mongoUri = await mongoServer.getConnectionString();
+  mongoose.connect(mongoUri);
+  db = await MongoClient.connect(mongoUri, { promiseLibrary: Promise });
+  await seed(db);
+});
+
+afterAll(async () => {
+  await mongoose.disconnect();
+  await mongoServer.stop();
+});
+
+it("check seed", async () => {
+  expect((await db.listCollections().toArray()).map(o => o.name)).toEqual(
+    expect.arrayContaining([
+      "user_users"
+    ])
+  );
+});
 
 function findQueryByTitle(str) {
   const queryConfig = meta.queries.find(o => o.title === str);
