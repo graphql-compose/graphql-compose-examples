@@ -29,6 +29,11 @@ module.exports = {
     "import/prefer-default-export": 0,
     "no-use-before-define": 0,
     "no-param-reassign": 0,
-    "func-names": 0
+    "func-names": 0,
+    "prettier/prettier": ["error", {
+      "printWidth": 100,
+      "singleQuote": true,
+      "trailingComma": "es5",
+    }]
   }
 };
