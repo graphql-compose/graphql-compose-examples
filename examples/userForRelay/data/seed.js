@@ -18,7 +18,7 @@ export default async function seed(db: any) {
         data.forEach((d, i) => {
           data[i]._id = ObjectID.createFromHexString(data[i]._id);
         });
-        if (collectionNames.includes(colName)) {
+        if (collectionNames.indexOf(colName) > -1) {
           console.log(`  '${colName}' dropped`);
           await db.dropCollection(colName);
         }

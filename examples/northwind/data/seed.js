@@ -23,7 +23,7 @@ export default async function seed(db: any) {
       return (async function() {
         const colName = `${collectionPrefix || ''}${file}`;
         const data = JSON.parse(fs.readFileSync(`${__dirname}/json/${file}.json`, 'utf8'));
-        if (collectionNames.includes(colName)) {
+        if (collectionNames.indexOf(colName) > -1) {
           console.log(`  '${colName}' dropped`);
           await db.dropCollection(colName);
         }
