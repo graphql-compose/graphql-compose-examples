@@ -1,5 +1,6 @@
 ## This is example app of `graphql-compose`
 
+[![Travis](https://img.shields.io/travis/nodkz/graphql-compose-examples.svg?maxAge=2592000)](https://travis-ci.org/nodkz/graphql-compose-examples)
 [![Greenkeeper badge](https://badges.greenkeeper.io/nodkz/graphql-compose-examples.svg)](https://greenkeeper.io/)
 
 Live example on Heroku: [https://graphql-compose.herokuapp.com/](https://graphql-compose.herokuapp.com/)
@@ -50,7 +51,7 @@ This [schema](https://github.com/nodkz/graphql-compose-examples/tree/master/exam
   - this type will be added to `NodeInterface` for resolving via `RootQuery.node`
   - for mutations will be added `clientMutationId` to input and output objects types
   - also all arguments in mutations will be moved into `input` arg
-  
+
 <img width="1362" alt="screen shot 2017-03-13 at 10 20 34" src="https://cloud.githubusercontent.com/assets/1946920/23841356/d3bd6f42-07d6-11e7-94f5-cc3618eaf45a.png">
 
 
@@ -63,6 +64,6 @@ This is a sample data of some trading company, which consists from 8 models. All
 
 ## Elasticsearch REST API wrapper
 
-This [schema](https://github.com/nodkz/graphql-compose-examples/tree/master/examples/elasticsearch) uses [graphql-compose-elasticsearch](https://github.com/nodkz/graphql-compose-elasticsearch) module and  provides full API available in the official elasticsearch module. 
+This [schema](https://github.com/nodkz/graphql-compose-examples/tree/master/examples/elasticsearch) uses [graphql-compose-elasticsearch](https://github.com/nodkz/graphql-compose-elasticsearch) module and  provides full API available in the official elasticsearch module.
 
 <img width="1316" alt="screen shot 2017-03-07 at 22 26 17" src="https://cloud.githubusercontent.com/assets/1946920/23841396/2c123b3c-07d7-11e7-8c83-ff01c98090fb.png">
