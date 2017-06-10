@@ -1,5 +1,7 @@
 ## This is example app of `graphql-compose`
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/nodkz/graphql-compose-examples.svg)](https://greenkeeper.io/)
+
 Live example on Heroku: [https://graphql-compose.herokuapp.com/](https://graphql-compose.herokuapp.com/)
 
 ```
