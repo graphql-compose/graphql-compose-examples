@@ -1,8 +1,10 @@
-import qs from 'querystring'
+/* @flow */
+
+import qs from 'querystring';
 
 const examplesMeta = [];
 
-export function addToMainPage(example) {
+export function addToMainPage(example: any) {
   examplesMeta.push(example);
 }
 
@@ -10,21 +12,22 @@ function renderExamplesLinks() {
   const examplesHtml = examplesMeta.map(meta => {
     const titleHtml = `<h4>
       ${meta.title}
-      ${ meta.github
+      ${meta.github
         ? `<small><a href="${meta.github}" target="_blank">GitHub <span class="glyphicon glyphicon-new-window"></span></a></small>`
-        : ''
-      }
+        : ''}
     </h4>`;
 
     let descriptionHtml = '';
     if (meta.description) {
-      descriptionHtml = `<p>${meta.description}</p>`
+      descriptionHtml = `<p>${meta.description}</p>`;
     }
 
     const queries = meta.queries.map(queryData => {
-      return `<b><a href="${meta.uri}/?query=${qs.escape(queryData.query)}">${queryData.title}</a></b>`;
+      return `<b><a href="${meta.uri}/?query=${qs.escape(
+        queryData.query
+      )}">${queryData.title}</a></b>`;
     });
-    const queriesHtml = `<ul><li>${queries.join('</li><li>')}</li></ul>`
+    const queriesHtml = `<ul><li>${queries.join('</li><li>')}</li></ul>`;
 
     return `${titleHtml}${descriptionHtml}${queriesHtml}`;
   });

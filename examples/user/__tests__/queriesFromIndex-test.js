@@ -1,9 +1,11 @@
-import { graphql } from "graphql";
-import { MongoClient } from "mongodb";
-import mongoose from "mongoose";
-import MongodbMemoryServer from "mongodb-memory-server";
-import seed from "../data/seed";
-import meta from "../index";
+/* @flow */
+
+import { graphql } from 'graphql';
+import { MongoClient } from 'mongodb';
+import mongoose from 'mongoose';
+import MongodbMemoryServer from 'mongodb-memory-server';
+import seed from '../data/seed';
+import meta from '../index';
 
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000;
 
@@ -19,14 +21,13 @@ beforeAll(async () => {
 
 afterAll(async () => {
   await mongoose.disconnect();
-  await mongoServer.stop();
+  db.close();
+  mongoServer.stop();
 });
 
-it("check seed", async () => {
+it('check seed', async () => {
   expect((await db.listCollections().toArray()).map(o => o.name)).toEqual(
-    expect.arrayContaining([
-      "user_users"
-    ])
+    expect.arrayContaining(['user_users'])
   );
 });
 
@@ -45,7 +46,7 @@ describe('user > queries', () => {
     'Find many Users',
     'Find User with field of MIXED type',
   ];
-  alwaysSameResultTitles.forEach((title) => {
+  alwaysSameResultTitles.forEach(title => {
     it(title, async () => {
       const result = await graphql(meta.schema, findQueryByTitle(title));
       expect(result).toMatchSnapshot();
@@ -56,6 +57,7 @@ describe('user > queries', () => {
     const title = 'Create user mutation (with arg of MIXED type)';
     it(title, async () => {
       const result = await graphql(meta.schema, findQueryByTitle(title));
+      // $FlowFixMe
       expect(result.data.userCreate.record).toMatchSnapshot();
     });
   }

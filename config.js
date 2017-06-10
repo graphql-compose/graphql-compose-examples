@@ -1,15 +1,20 @@
+/* @flow */
+
 import path from 'path';
 import fs from 'fs';
 
 export const expressPort = process.env.PORT || 3000;
-export const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/graphql-compose-mongoose';
+export const mongoUri =
+  process.env.MONGODB_URI || 'mongodb://localhost:27017/graphql-compose-mongoose';
 export const examplesPath = './examples';
 
-export function getDirectories(srcpath) {
-  return fs.readdirSync(srcpath).filter(file => fs.statSync(path.join(srcpath, file)).isDirectory());
+export function getDirectories(srcPath: string): string[] {
+  return fs
+    .readdirSync(srcPath)
+    .filter(file => fs.statSync(path.join(srcPath, file)).isDirectory());
 }
 
-export function resolveExamplePath(...args) {
+export function resolveExamplePath(...args: any) {
   return path.resolve(examplesPath, ...args);
 }
 

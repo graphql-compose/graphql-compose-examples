@@ -1,10 +1,13 @@
+/* @flow */
+
 import GraphqlSchema from './graphqlSchema';
 
 export default {
   uri: '/user',
   schema: GraphqlSchema,
   title: 'User: simple schema with one type.',
-  description: 'This schema implements all 13 CRUD operations available in graphql-compose-mongoose.',
+  description:
+    'This schema implements all 13 CRUD operations available in graphql-compose-mongoose.',
   github: 'https://github.com/nodkz/graphql-compose-examples/tree/master/examples/user',
   queries: [
     {

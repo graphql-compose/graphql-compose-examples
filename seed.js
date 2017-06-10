@@ -1,3 +1,4 @@
+/* @flow */
 /* eslint-disable no-await-in-loop */
 // This script scans `examples` folder for `data/seed.js` files and run them for seeding DB.
 
@@ -16,12 +17,13 @@ async function run() {
     const seedFile = resolveExamplePath(name, 'data/seed.js');
     try {
       await new Promise((resolve, reject) => {
-        fs.access(seedFile, fs.F_OK, (err) => {
+        fs.access(seedFile, fs.F_OK, err => {
           if (err) reject(err);
           else resolve();
         });
       });
 
+      // $FlowFixMe
       const seedFn = require(seedFile).default;
       await seedFn(db); // eslint-disable-line
     } catch (e) {
@@ -35,7 +37,7 @@ async function run() {
 
   console.log('Seed competed!');
   db.close();
-};
+}
 
 run().catch(e => {
   console.log(e);

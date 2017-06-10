@@ -1,3 +1,5 @@
+/* @flow */
+
 // SINGLE SCHEMA ON SERVER
 // import { GQC } from 'graphql-compose';
 
@@ -61,7 +63,7 @@ GQC.rootMutation().addFields({
   ...allowOnlyForLocalhost({
     createProduct: ProductTC.get('$createOne'),
     removeProductById: ProductTC.get('$removeById'),
-  })
+  }),
 });
 
 export default GQC.buildSchema();

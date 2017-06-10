@@ -1,3 +1,4 @@
+/* @flow */
 // SINGLE SCHEMA ON SERVER
 // import { GQC } from 'graphql-compose';
 

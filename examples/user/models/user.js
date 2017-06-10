@@ -1,6 +1,7 @@
+/* @flow */
+
 import mongoose from 'mongoose';
 import composeWithMongoose from 'graphql-compose-mongoose';
-
 
 const LanguagesSchema = new mongoose.Schema(
   {
@@ -15,52 +16,55 @@ const LanguagesSchema = new mongoose.Schema(
   }
 );
 
-const AddressSchema = new mongoose.Schema(
+const AddressSchema = new mongoose.Schema({
+  street: String,
+  geo: {
+    type: [Number], // [<longitude>, <latitude>]
+    index: '2dsphere', // create the geospatial index
+  },
+});
+
+export const UserSchema = new mongoose.Schema(
   {
-    street: String,
-    geo: {
-      type: [Number],   // [<longitude>, <latitude>]
-      index: '2dsphere', // create the geospatial index
+    name: String, // standard types
+    age: {
+      type: Number,
+      index: true,
     },
+    languages: {
+      type: [LanguagesSchema], // you may include other schemas (also as array of embedded documents)
+      default: [],
+    },
+    contacts: {
+      // another mongoose way for providing embedded documents
+      email: String,
+      phones: [String], // array of strings
+    },
+    gender: {
+      // enum field with values
+      type: String,
+      enum: ['male', 'female', 'ladyboy'],
+    },
+    address: {
+      type: AddressSchema,
+    },
+    someMixed: {
+      type: mongoose.Schema.Types.Mixed,
+      description: 'Some dynamic data',
+    },
+  },
+  {
+    collection: 'user_users',
   }
 );
-
-export const UserSchema = new mongoose.Schema({
-  name: String, // standard types
-  age: {
-    type: Number,
-    index: true,
-  },
-  languages: {
-    type: [LanguagesSchema], // you may include other schemas (also as array of embedded documents)
-    default: [],
-  },
-  contacts: { // another mongoose way for providing embedded documents
-    email: String,
-    phones: [String], // array of strings
-  },
-  gender: { // enum field with values
-    type: String,
-    enum: ['male', 'female', 'ladyboy'],
-  },
-  address: {
-    type: AddressSchema,
-  },
-  someMixed: {
-    type: mongoose.Schema.Types.Mixed,
-    description: 'Some dynamic data',
-  },
-}, {
-  collection: 'user_users',
-});
 
 export const User = mongoose.model('User', UserSchema);
 
 export const UserTC = composeWithMongoose(User);
 
-
-UserTC.setResolver('findMany', UserTC.getResolver('findMany')
-  .addFilterArg({
+UserTC.setResolver(
+  'findMany',
+  UserTC.getResolver('findMany').addFilterArg({
     name: 'geoDistance',
     type: `input GeoDistance {
       lng: Float!
@@ -76,10 +80,10 @@ UserTC.setResolver('findMany', UserTC.getResolver('findMany')
         $near: {
           $geometry: {
             type: 'Point',
-            coordinates: [ value.lng, value.lat ],
+            coordinates: [value.lng, value.lat],
           },
-          $maxDistance: value.distance // <distance in meters>
-        }
+          $maxDistance: value.distance, // <distance in meters>
+        },
       };
     },
   })

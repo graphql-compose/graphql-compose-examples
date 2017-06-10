@@ -1,9 +1,11 @@
-import { graphql } from "graphql";
-import { MongoClient } from "mongodb";
-import mongoose from "mongoose";
-import MongodbMemoryServer from "mongodb-memory-server";
-import seed from "../data/seed";
-import meta from "../index";
+/* @flow */
+
+import { graphql } from 'graphql';
+import { MongoClient } from 'mongodb';
+import mongoose from 'mongoose';
+import MongodbMemoryServer from 'mongodb-memory-server';
+import seed from '../data/seed';
+import meta from '../index';
 
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000;
 
@@ -19,14 +21,13 @@ beforeAll(async () => {
 
 afterAll(async () => {
   await mongoose.disconnect();
-  await mongoServer.stop();
+  db.close();
+  mongoServer.stop();
 });
 
-it("check seed", async () => {
+it('check seed', async () => {
   expect((await db.listCollections().toArray()).map(o => o.name)).toEqual(
-    expect.arrayContaining([
-      "userForRelay_users"
-    ])
+    expect.arrayContaining(['userForRelay_users'])
   );
 });
 
@@ -39,13 +40,13 @@ function findQueryByTitle(str) {
 }
 
 describe('userForRelay > queries', () => {
-  const alwaysSameResultTitles = [
-    'Relay node',
-    'Relay Connection',
-  ];
-  alwaysSameResultTitles.forEach((title) => {
+  const alwaysSameResultTitles = ['Relay node', 'Relay Connection'];
+  alwaysSameResultTitles.forEach(title => {
     it(title, async () => {
-      const result = await graphql(meta.schema, findQueryByTitle(title));
+      const result = await graphql({
+        schema: meta.schema,
+        source: findQueryByTitle(title),
+      });
       expect(result).toMatchSnapshot();
     });
   });
@@ -53,8 +54,13 @@ describe('userForRelay > queries', () => {
   {
     const title = 'Create user mutation';
     it(title, async () => {
-      const result = await graphql(meta.schema, findQueryByTitle(title));
+      const result = await graphql({
+        schema: meta.schema,
+        source: findQueryByTitle(title),
+      });
+      // $FlowFixMe
       expect(result.data.userCreate.record).toMatchSnapshot();
+      // $FlowFixMe
       expect(result.data.userCreate.clientMutationId).toMatchSnapshot();
     });
   }

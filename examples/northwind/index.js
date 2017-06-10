@@ -1,3 +1,5 @@
+/* @flow */
+
 /* eslint-disable */
 
 import GraphqlSchema from "./graphqlSchema";

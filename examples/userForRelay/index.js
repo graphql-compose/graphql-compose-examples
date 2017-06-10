@@ -1,3 +1,5 @@
+/* @flow */
+
 import GraphqlSchema from './graphqlSchema';
 
 export default {
@@ -21,7 +23,7 @@ export default {
     }
   }
 }
-      `
+      `,
     },
     {
       title: 'Relay Connection',
@@ -38,7 +40,7 @@ export default {
     }
   }
 }
-      `
+      `,
     },
     {
       title: 'Create user mutation',
@@ -73,7 +75,7 @@ mutation {
     }
   }
 }
-      `
-    }
-  ]
+      `,
+    },
+  ],
 };

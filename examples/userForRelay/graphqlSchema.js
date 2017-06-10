@@ -1,3 +1,5 @@
+/* @flow */
+
 import { ComposeStorage } from 'graphql-compose';
 import composeWithRelay from 'graphql-compose-relay';
 import { UserTC } from './models/user';

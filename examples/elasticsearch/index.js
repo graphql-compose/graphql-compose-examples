@@ -1,10 +1,13 @@
+/* @flow */
+
 import GraphqlSchema from './graphqlSchema';
 
 export default {
   uri: '/elasticsearch',
   schema: GraphqlSchema,
   title: 'Elasticsearch REST API wrapper',
-  description: 'This schema provides full API available in the <a href="https://github.com/elastic/elasticsearch-js" target="_blank">official elasticsearch module</a>.',
+  description:
+    'This schema provides full API available in the <a href="https://github.com/elastic/elasticsearch-js" target="_blank">official elasticsearch module</a>.',
   github: 'https://github.com/nodkz/graphql-compose-examples/tree/master/examples/elasticsearch',
   queries: [
     {
@@ -15,7 +18,7 @@ query {
     search(q: "JavaScript")
   }
 }
-      `
+      `,
     },
     {
       title: 'Elastic search API 2.4',
@@ -25,7 +28,7 @@ query {
     search(q: "JavaScript")
   }
 }
-      `
+      `,
     },
     {
       title: 'Elastic search API 1.7',
@@ -35,7 +38,7 @@ query {
     search(q: "JavaScript")
   }
 }
-      `
-    }
-  ]
+      `,
+    },
+  ],
 };

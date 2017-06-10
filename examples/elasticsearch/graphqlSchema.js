@@ -1,17 +1,28 @@
+/* @flow */
+
 import { GraphQLObjectType, GraphQLString } from 'graphql';
 import elasticsearch from 'elasticsearch';
 import { ComposeStorage } from 'graphql-compose';
 import { ElasticApiParser } from 'graphql-compose-elasticsearch';
 
-const GQC = new ComposeStorage();
+function checkHost(host): void {
+  if (host === 'http://user:pass@example.com:9200') {
+    throw new Error(
+      "✋ 🛑 I don't have public elasticsearch instance for demo purposes. \n" +
+        '🚀 Demo will work if you provide public elasticsearch instance url \n' +
+        '🚀 in query argument `host: "http://user:pass@example.com:9200"` \n'
+    );
+  }
+}
 
+const GQC = new ComposeStorage();
 const RootQueryTC = GQC.rootQuery();
 
 RootQueryTC.setField('elastic50', {
   description: 'Elastic v5.0',
   type: new GraphQLObjectType({
     name: 'Elastic50',
-    fields: (new ElasticApiParser({ version: '5_0', prefix: 'Elastic50' })).generateFieldMap(),
+    fields: new ElasticApiParser({ version: '5_0', prefix: 'Elastic50' }).generateFieldMap(),
   }),
   args: {
     host: {
@@ -20,7 +31,9 @@ RootQueryTC.setField('elastic50', {
     },
   },
   resolve: (src, args, context) => {
-    context.elasticClient = new elasticsearch.Client({ // eslint-disable-line no-param-reassign
+    checkHost(args.host);
+    context.elasticClient = new elasticsearch.Client({
+      // eslint-disable-line no-param-reassign
       host: args.host,
       apiVersion: '5.0',
       requestTimeout: 5000,
@@ -42,7 +55,9 @@ RootQueryTC.setField('elastic24', {
     },
   },
   resolve: (src, args, context) => {
-    context.elasticClient = new elasticsearch.Client({ // eslint-disable-line no-param-reassign
+    checkHost(args.host);
+    context.elasticClient = new elasticsearch.Client({
+      // eslint-disable-line no-param-reassign
       host: args.host,
       apiVersion: '2.4',
       requestTimeout: 5000,
@@ -64,7 +79,9 @@ RootQueryTC.setField('elastic17', {
     },
   },
   resolve: (src, args, context) => {
-    context.elasticClient = new elasticsearch.Client({ // eslint-disable-line no-param-reassign
+    checkHost(args.host);
+    context.elasticClient = new elasticsearch.Client({
+      // eslint-disable-line no-param-reassign
       host: args.host,
       apiVersion: '1.7',
       requestTimeout: 5000,
