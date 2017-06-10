@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`elasticsearch > queries Elastic search API 1.7 1`] = `
+Object {
+  "data": Object {
+    "elastic17": null,
+  },
+  "errors": Array [
+    [GraphQLError: ✋ 🛑 I don't have public elasticsearch instance for demo purposes. 
+🚀 Demo will work if you provide public elasticsearch instance url 
+🚀 in query argument \`host: "http://user:pass@example.com:9200"\` 
+],
+  ],
+}
+`;
+
+exports[`elasticsearch > queries Elastic search API 2.4 1`] = `
+Object {
+  "data": Object {
+    "elastic24": null,
+  },
+  "errors": Array [
+    [GraphQLError: ✋ 🛑 I don't have public elasticsearch instance for demo purposes. 
+🚀 Demo will work if you provide public elasticsearch instance url 
+🚀 in query argument \`host: "http://user:pass@example.com:9200"\` 
+],
+  ],
+}
+`;
+
+exports[`elasticsearch > queries Elastic search API 5.0 1`] = `
+Object {
+  "data": Object {
+    "elastic50": null,
+  },
+  "errors": Array [
+    [GraphQLError: ✋ 🛑 I don't have public elasticsearch instance for demo purposes. 
+🚀 Demo will work if you provide public elasticsearch instance url 
+🚀 in query argument \`host: "http://user:pass@example.com:9200"\` 
+],
+  ],
+}
+`;
