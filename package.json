@@ -65,8 +65,9 @@
     "start:watch": "npm run watch",
     "watch": "nodemon index.js -e js --exec babel-node",
     "lint": "eslint examples *.js",
-    "test": "jest",
-    "all": "npm run test -- --coverage && npm run lint && npm run flow",
-    "flow": "./node_modules/.bin/flow stop && ./node_modules/.bin/flow"
+    "coverage": "jest --coverage --maxWorkers 2",
+    "lint": "eslint --ext .js ./src",
+    "flow": "./node_modules/.bin/flow stop && ./node_modules/.bin/flow",
+    "test": "npm run coverage && npm run lint && npm run flow"
   }
 }
