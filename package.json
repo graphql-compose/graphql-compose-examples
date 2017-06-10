@@ -64,9 +64,8 @@
     "start": "npm run seed && babel-node index.js",
     "start:watch": "npm run watch",
     "watch": "nodemon index.js -e js --exec babel-node",
-    "lint": "eslint examples *.js",
     "coverage": "jest --coverage --maxWorkers 2",
-    "lint": "eslint --ext .js ./src",
+    "lint": "eslint --ext .js ./examples",
     "flow": "./node_modules/.bin/flow stop && ./node_modules/.bin/flow",
     "test": "npm run coverage && npm run lint && npm run flow"
   }
