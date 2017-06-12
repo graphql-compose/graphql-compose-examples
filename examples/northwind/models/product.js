@@ -50,30 +50,30 @@ const extendedResolver = ProductTC.getResolver('findMany').addFilterArg({
 extendedResolver.name = 'findMany';
 ProductTC.addResolver(extendedResolver);
 
-ProductTC.addRelation('orderConnection', () => ({
-  resolver: OrderTC.getResolver('connection'),
-  args: {
+ProductTC.addRelation('orderConnection', {
+  resolver: () => OrderTC.getResolver('connection'),
+  prepareArgs: {
     filter: source => ({ details: { productID: source.productID } }),
   },
   projection: { productID: true },
-}));
+});
 
-ProductTC.addRelation('supplier', () => ({
-  resolver: SupplierTC.getResolver('findOne'),
-  args: {
+ProductTC.addRelation('supplier', {
+  resolver: () => SupplierTC.getResolver('findOne'),
+  prepareArgs: {
     filter: source => ({ supplierID: source.supplierID }),
     skip: null,
     sort: null,
   },
   projection: { supplierID: true },
-}));
+});
 
-ProductTC.addRelation('category', () => ({
-  resolver: CategoryTC.getResolver('findOne'),
-  args: {
+ProductTC.addRelation('category', {
+  resolver: () => CategoryTC.getResolver('findOne'),
+  prepareArgs: {
     filter: source => ({ categoryID: source.categoryID }),
     skip: null,
     sort: null,
   },
   projection: { categoryID: true },
-}));
+});

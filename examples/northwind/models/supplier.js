@@ -31,10 +31,10 @@ export const Supplier = mongoose.model('Supplier', SupplierSchema);
 
 export const SupplierTC = composeWithRelay(composeWithMongoose(Supplier));
 
-SupplierTC.addRelation('productConnection', () => ({
-  resolver: ProductTC.getResolver('connection'),
-  args: {
+SupplierTC.addRelation('productConnection', {
+  resolver: () => ProductTC.getResolver('connection'),
+  prepareArgs: {
     filter: source => ({ supplierID: source.supplierID }),
   },
   projection: { supplierID: true },
-}));
+});

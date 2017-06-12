@@ -31,7 +31,7 @@
     "express": "^4.15.3",
     "express-graphql": "^0.6.6",
     "graphql": "^0.10.1",
-    "graphql-compose": "^1.21.0",
+    "graphql-compose": "^2.0.0-alpha.3",
     "graphql-compose-connection": "^2.2.1",
     "graphql-compose-elasticsearch": "^1.7.9",
     "graphql-compose-mongoose": "^1.5.0",
@@ -41,7 +41,7 @@
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.3",
-    "eslint": "^3.19.0",
+    "eslint": "^4.0.0",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-config-prettier": "^2.1.1",
     "eslint-plugin-import": "^2.3.0",

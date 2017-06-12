@@ -37,9 +37,9 @@ export const Region = mongoose.model('Region', RegionSchema);
 
 export const RegionTC = composeWithRelay(composeWithMongoose(Region));
 
-RegionTC.addRelation('employees', () => ({
-  resolver: EmployeeTC.getResolver('findMany'),
-  args: {
+RegionTC.addRelation('employees', {
+  resolver: () => EmployeeTC.getResolver('findMany'),
+  prepareArgs: {
     filter: source => ({
       _operators: {
         territoryIDs: {
@@ -49,4 +49,4 @@ RegionTC.addRelation('employees', () => ({
     }),
   },
   projection: { territories: { territoryID: true } },
-}));
+});

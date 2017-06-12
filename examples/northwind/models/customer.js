@@ -32,10 +32,10 @@ export const Customer = mongoose.model('Customer', CustomerSchema);
 
 export const CustomerTC = composeWithRelay(composeWithMongoose(Customer));
 
-CustomerTC.addRelation('orderConnection', () => ({
-  resolver: OrderTC.getResolver('connection'),
-  args: {
+CustomerTC.addRelation('orderConnection', {
+  resolver: () => OrderTC.getResolver('connection'),
+  prepareArgs: {
     filter: source => ({ customerID: source.customerID }),
   },
   projection: { customerID: true },
-}));
+});

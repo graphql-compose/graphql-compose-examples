@@ -54,8 +54,8 @@ export const Order = mongoose.model('Order', OrderSchema);
 export const OrderTC = composeWithRelay(composeWithMongoose(Order));
 
 OrderTC.addRelation('customer', () => ({
-  resolver: CustomerTC.getResolver('findOne'),
-  args: {
+  resolver: () => CustomerTC.getResolver('findOne'),
+  prepareArgs: {
     filter: source => ({ customerID: source.customerID }),
     skip: null,
     sort: null,
@@ -63,33 +63,33 @@ OrderTC.addRelation('customer', () => ({
   projection: { customerID: true },
 }));
 
-OrderTC.addRelation('employee', () => ({
-  resolver: EmployeeTC.getResolver('findOne'),
-  args: {
+OrderTC.addRelation('employee', {
+  resolver: () => EmployeeTC.getResolver('findOne'),
+  prepareArgs: {
     filter: source => ({ employeeID: source.employeeID }),
     skip: null,
     sort: null,
   },
   projection: { employeeID: true },
-}));
+});
 
-OrderTC.addRelation('shipper', () => ({
-  resolver: ShipperTC.getResolver('findOne'),
-  args: {
+OrderTC.addRelation('shipper', {
+  resolver: () => ShipperTC.getResolver('findOne'),
+  prepareArgs: {
     filter: source => ({ shipperID: source.shipVia }),
     skip: null,
     sort: null,
   },
   projection: { shipVia: true },
-}));
+});
 
 const OrderDetailsTC = OrderTC.get('details');
-OrderDetailsTC.addRelation('product', () => ({
-  resolver: ProductTC.getResolver('findOne'),
-  args: {
+OrderDetailsTC.addRelation('product', {
+  resolver: () => ProductTC.getResolver('findOne'),
+  prepareArgs: {
     filter: source => ({ productID: source.productID }),
     skip: null,
     sort: null,
   },
   projection: { productID: true },
-}));
+});

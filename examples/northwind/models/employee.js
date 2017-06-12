@@ -80,31 +80,32 @@ const findManyResolver = EmployeeTC.getResolver('findMany').addFilterArg({
 });
 EmployeeTC.setResolver('findMany', findManyResolver);
 
-EmployeeTC.addRelation('chief', () => ({
-  resolver: EmployeeTC.getResolver('findOne').wrapResolve(next => resolveParams => {
-    // if `reportsTo` is empty, then return null, otherwise proceed relation
-    return resolveParams.source.reportsTo ? next(resolveParams) : null;
-  }),
-  args: {
+EmployeeTC.addRelation('chief', {
+  resolver: () =>
+    EmployeeTC.getResolver('findOne').wrapResolve(next => resolveParams => {
+      // if `reportsTo` is empty, then return null, otherwise proceed relation
+      return resolveParams.source.reportsTo ? next(resolveParams) : null;
+    }),
+  prepareArgs: {
     filter: source => ({ employeeID: source.reportsTo }),
     skip: null,
     sort: null,
   },
   projection: { reportsTo: true },
-}));
+});
 
-EmployeeTC.addRelation('subordinates', () => ({
-  resolver: EmployeeTC.getResolver('findMany'),
-  args: {
+EmployeeTC.addRelation('subordinates', {
+  resolver: () => EmployeeTC.getResolver('findMany'),
+  prepareArgs: {
     filter: source => ({ reportsTo: source.employeeID }),
   },
   projection: { employeeID: true },
-}));
+});
 
-EmployeeTC.addRelation('orderConnection', () => ({
-  resolver: OrderTC.getResolver('connection'),
-  args: {
+EmployeeTC.addRelation('orderConnection', {
+  resolver: () => OrderTC.getResolver('connection'),
+  prepareArgs: {
     filter: source => ({ employeeID: source.employeeID }),
   },
   projection: { employeeID: true },
-}));
+});

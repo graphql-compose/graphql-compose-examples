@@ -25,10 +25,10 @@ export const Shipper = mongoose.model('Shipper', ShipperSchema);
 
 export const ShipperTC = composeWithRelay(composeWithMongoose(Shipper));
 
-ShipperTC.addRelation('orderConnection', () => ({
-  resolver: OrderTC.getResolver('connection'),
-  args: {
+ShipperTC.addRelation('orderConnection', {
+  resolver: () => OrderTC.getResolver('connection'),
+  prepareArgs: {
     filter: source => ({ shipVia: source.shipperID }),
   },
   projection: { shipperID: true },
-}));
+});

@@ -28,10 +28,10 @@ export const Category = mongoose.model('Category', CategorySchema);
 
 export const CategoryTC = composeWithRelay(composeWithMongoose(Category));
 
-CategoryTC.addRelation('productConnection', () => ({
-  resolver: ProductTC.getResolver('connection'),
-  args: {
+CategoryTC.addRelation('productConnection', {
+  resolver: () => ProductTC.getResolver('connection'),
+  prepareArgs: {
     filter: source => ({ categoryID: source.categoryID }),
   },
   projection: { categoryID: true },
-}));
+});
