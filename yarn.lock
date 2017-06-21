@@ -1086,13 +1086,13 @@ debug@2.2.0:
   dependencies:
     ms "0.7.1"
 
-debug@2.6.7, debug@^2.2.0:
+debug@2.6.7:
   version "2.6.7"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.7.tgz#92bad1f6d05bbb6bba22cca88bcd0ec894c2861e"
   dependencies:
     ms "2.0.0"
 
-debug@2.6.8, debug@^2.1.1, debug@^2.6.3, debug@^2.6.8:
+debug@2.6.8, debug@^2.1.1, debug@^2.2.0, debug@^2.6.3, debug@^2.6.8:
   version "2.6.8"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.8.tgz#e731531ca2ede27d188222427da17821d68ff4fc"
   dependencies:
@@ -1252,9 +1252,9 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
-elasticsearch@^13.0.1:
-  version "13.0.1"
-  resolved "https://registry.yarnpkg.com/elasticsearch/-/elasticsearch-13.0.1.tgz#fa58204233052c4cd221e8721e48f3906b385b32"
+elasticsearch@^13.1.1:
+  version "13.1.1"
+  resolved "https://registry.yarnpkg.com/elasticsearch/-/elasticsearch-13.1.1.tgz#83dbb5cf76ecc9bdd3ffceb5ce74d5fc7d23e798"
   dependencies:
     agentkeepalive "^2.2.0"
     chalk "^1.0.0"
@@ -1330,9 +1330,9 @@ eslint-config-airbnb-base@^11.2.0:
   version "11.2.0"
   resolved "https://registry.yarnpkg.com/eslint-config-airbnb-base/-/eslint-config-airbnb-base-11.2.0.tgz#19a9dc4481a26f70904545ec040116876018f853"
 
-eslint-config-prettier@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-2.1.1.tgz#ab3923fb704eebecab6960906b7d0d6e801cde58"
+eslint-config-prettier@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-2.2.0.tgz#ca47663852789a75c10feba673e802cc1eff085f"
   dependencies:
     get-stdin "^5.0.1"
 
@@ -1366,9 +1366,9 @@ eslint-plugin-import@^2.3.0:
     minimatch "^3.0.3"
     read-pkg-up "^2.0.0"
 
-eslint-plugin-prettier@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-2.1.1.tgz#2fb7e2ab961f2b61d2c8cf91bc17716ca8c53868"
+eslint-plugin-prettier@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-2.1.2.tgz#4b90f4ee7f92bfbe2e926017e1ca40eb628965ea"
   dependencies:
     fast-diff "^1.1.1"
     jest-docblock "^20.0.1"
@@ -1662,9 +1662,9 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
-flow-bin@^0.47.0:
-  version "0.47.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.47.0.tgz#a2a08ab3e0d1f1cb57d17e27b30b118b62fda367"
+flow-bin@^0.48.0:
+  version "0.48.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.48.0.tgz#72d075143524358db8901525e3c784dc13a7c7ee"
 
 for-in@^1.0.1:
   version "1.0.2"
@@ -1859,42 +1859,42 @@ graceful-fs@^4.1.10, graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.4
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
-graphql-compose-connection@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/graphql-compose-connection/-/graphql-compose-connection-2.2.1.tgz#5a460fea48b7804293d6613e5db65008fc5598c2"
+graphql-compose-connection@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/graphql-compose-connection/-/graphql-compose-connection-2.2.2.tgz#16bc70feade9a127c672ef96fd7a4974bcd0559a"
   dependencies:
     babel-runtime "^6.23.0"
 
-graphql-compose-elasticsearch@^1.7.9:
-  version "1.7.9"
-  resolved "https://registry.yarnpkg.com/graphql-compose-elasticsearch/-/graphql-compose-elasticsearch-1.7.9.tgz#2f9362c59753043188b1e2c540c100361f1e1820"
+graphql-compose-elasticsearch@^1.7.10:
+  version "1.7.10"
+  resolved "https://registry.yarnpkg.com/graphql-compose-elasticsearch/-/graphql-compose-elasticsearch-1.7.10.tgz#148ab5efc4763b09dbed6420373046b7ed91b737"
   dependencies:
     babel-runtime "^6.23.0"
     dox "^0.9.0"
 
-graphql-compose-mongoose@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/graphql-compose-mongoose/-/graphql-compose-mongoose-1.5.0.tgz#3363734d3e7081c62866cf4c39d7ca9afac212f0"
+graphql-compose-mongoose@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/graphql-compose-mongoose/-/graphql-compose-mongoose-1.5.1.tgz#15eb43ba6b7f021564093faa304e207272ccc57b"
   dependencies:
     babel-runtime "^6.23.0"
     object-path "^0.11.4"
 
-graphql-compose-relay@^1.0.14:
-  version "1.0.14"
-  resolved "https://registry.yarnpkg.com/graphql-compose-relay/-/graphql-compose-relay-1.0.14.tgz#6ccb56a68565ea3a3a25988ed2c921ab2041139c"
+graphql-compose-relay@^1.0.15:
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/graphql-compose-relay/-/graphql-compose-relay-1.0.15.tgz#77c412e4f0b560b53d726f5b35ed849d1f05293e"
   dependencies:
     babel-runtime "^6.23.0"
 
-graphql-compose@^2.0.0-alpha.3:
-  version "2.0.0-alpha.3"
-  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-2.0.0-alpha.3.tgz#5083ecec5da9399b96416c4ebd409b09c5ba3e71"
+graphql-compose@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-2.0.0.tgz#edf7e8e1af0675721cfcfe55a3d2297663a5e284"
   dependencies:
     babel-runtime "^6.23.0"
     object-path "^0.11.4"
 
-graphql@^0.10.1:
-  version "0.10.1"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.10.1.tgz#75c93c2ce73aeb5bae2eefb555a8e9e39c36027d"
+graphql@^0.10.3:
+  version "0.10.3"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.10.3.tgz#c313afd5518e673351bee18fb63e2a0e487407ab"
   dependencies:
     iterall "^1.1.0"
 
@@ -2951,9 +2951,9 @@ mongodb@2.2.27:
     mongodb-core "2.1.11"
     readable-stream "2.2.7"
 
-mongoose@^4.10.5:
-  version "4.10.5"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.10.5.tgz#7cd50ee38d5057815e83962e3985f7dd9da769ad"
+mongoose@^4.10.7:
+  version "4.10.7"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.10.7.tgz#719681b98dac7fcbb0c39c3a2e87493d8ddf05ba"
   dependencies:
     async "2.1.4"
     bson "~1.0.4"
