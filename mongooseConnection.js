@@ -6,11 +6,10 @@ import { mongoUri } from './config';
 mongoose.Promise = Promise;
 
 const opts = {
-  server: {
-    auto_reconnect: true,
-    reconnectTries: Number.MAX_VALUE,
-    reconnectInterval: 1000,
-  },
+  autoReconnect: true,
+  reconnectTries: Number.MAX_VALUE,
+  reconnectInterval: 1000,
+  useMongoClient: true,
 };
 
 mongoose.connect(mongoUri, opts);

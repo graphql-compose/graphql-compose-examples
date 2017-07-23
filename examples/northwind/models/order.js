@@ -53,7 +53,7 @@ export const Order = mongoose.model('Order', OrderSchema);
 
 export const OrderTC = composeWithRelay(composeWithMongoose(Order));
 
-OrderTC.addRelation('customer', () => ({
+OrderTC.addRelation('customer', {
   resolver: () => CustomerTC.getResolver('findOne'),
   prepareArgs: {
     filter: source => ({ customerID: source.customerID }),
@@ -61,7 +61,7 @@ OrderTC.addRelation('customer', () => ({
     sort: null,
   },
   projection: { customerID: true },
-}));
+});
 
 OrderTC.addRelation('employee', {
   resolver: () => EmployeeTC.getResolver('findOne'),

@@ -25,32 +25,32 @@
     "babel-cli": "^6.24.1",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-preset-env": "^1.5.2",
-    "cors": "^2.8.3",
-    "elasticsearch": "^13.1.1",
+    "babel-preset-env": "^1.6.0",
+    "cors": "^2.8.4",
+    "elasticsearch": "^13.2.0",
     "express": "^4.15.3",
     "express-graphql": "^0.6.6",
-    "graphql": "^0.10.3",
-    "graphql-compose": "^2.0.0",
+    "graphql": "^0.10.5",
+    "graphql-compose": "^2.1.3",
     "graphql-compose-connection": "^2.2.2",
     "graphql-compose-elasticsearch": "^1.7.10",
-    "graphql-compose-mongoose": "^1.5.1",
+    "graphql-compose-mongoose": "^1.6.0",
     "graphql-compose-relay": "^1.0.15",
-    "mongoose": "^4.10.7"
+    "mongoose": "^4.11.3"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.3",
-    "eslint": "^4.0.0",
+    "eslint": "^4.3.0",
     "eslint-config-airbnb-base": "^11.2.0",
-    "eslint-config-prettier": "^2.2.0",
-    "eslint-plugin-import": "^2.3.0",
+    "eslint-config-prettier": "^2.3.0",
+    "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-prettier": "^2.1.2",
     "flow-bin": "^0.51.0",
     "jest": "^20.0.4",
     "mongodb-memory-server": "^1.3.4",
     "nodemon": "1.11.0",
-    "prettier": "^1.4.4"
+    "prettier": "^1.5.3"
   },
   "jest": {
     "roots": [
