@@ -14,10 +14,13 @@ GQC.rootQuery().addFields({
   userById: UserTC.getResolver('findById'),
   userByIds: UserTC.getResolver('findByIds'),
   userOne: UserTC.getResolver('findOne'),
-  userMany: UserTC.getResolver('findMany'),
+  userMany: UserTC.getResolver('findMany').debug(), // debug info to console for this resolver
   userTotal: UserTC.getResolver('count'),
   userConnection: UserTC.getResolver('connection'),
 });
+
+// For debug purposes you may display resolver internals in the following manner:
+// console.log(UserTC.getResolver('findMany').toString());
 
 GQC.rootMutation().addFields({
   userCreate: UserTC.getResolver('createOne'),

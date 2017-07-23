@@ -88,9 +88,9 @@ UserTC.setResolver(
     },
   })
   // /* FOR DEBUG */
-  // .wrapResolve((next) => (rp) => {
-  //   const res = next(rp);
-  //   console.log(rp);
-  //   return res;
-  // })
+  //   .debug()
+  // /* OR MORE PRECISELY */
+  //   .debugParams()
+  //   .debugPayload()
+  //   .debugExecTime()
 );
