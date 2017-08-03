@@ -14,11 +14,12 @@ let db;
 beforeAll(async () => {
   mongoServer = new MongodbMemoryServer();
   const mongoUri = await mongoServer.getConnectionString();
-  mongoose.connect(mongoUri);
+  const opts = { useMongoClient: true, promiseLibrary: Promise };
+  mongoose.connect(mongoUri, opts);
   mongoose.connection.once('disconnected', () => {
     console.log('MongoDB disconnected!');
   });
-  db = await MongoClient.connect(mongoUri, { promiseLibrary: Promise });
+  db = await MongoClient.connect(mongoUri, opts);
   await seed(db);
 });
 

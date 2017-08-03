@@ -14,8 +14,9 @@ let db;
 beforeAll(async () => {
   mongoServer = new MongodbMemoryServer();
   const mongoUri = await mongoServer.getConnectionString();
-  mongoose.connect(mongoUri);
-  db = await MongoClient.connect(mongoUri, { promiseLibrary: Promise });
+  const opts = { useMongoClient: true, promiseLibrary: Promise };
+  mongoose.connect(mongoUri, opts);
+  db = await MongoClient.connect(mongoUri, opts);
   await seed(db);
 });
 
