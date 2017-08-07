@@ -17,6 +17,7 @@ GQC.rootQuery().addFields({
   userMany: UserTC.getResolver('findMany'), // .debug(), // debug info to console for this resolver
   userTotal: UserTC.getResolver('count'),
   userConnection: UserTC.getResolver('connection'),
+  userPagination: UserTC.getResolver('pagination'),
 });
 
 // For debug purposes you may display resolver internals in the following manner:

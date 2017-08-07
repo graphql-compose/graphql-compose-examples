@@ -46,6 +46,7 @@ describe('user > queries', () => {
     'Find one User',
     'Find many Users',
     'Find User with field of MIXED type',
+    'Pagination',
   ];
   alwaysSameResultTitles.forEach(title => {
     it(title, async () => {

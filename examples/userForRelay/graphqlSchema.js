@@ -22,6 +22,7 @@ RootQueryTC.addFields({
   userMany: UserTC.getResolver('findMany'),
   userTotal: UserTC.getResolver('count'),
   userConnection: UserTC.getResolver('connection'),
+  userPagination: UserTC.getResolver('pagination'),
 });
 
 GQC.rootMutation().addFields({

@@ -148,5 +148,35 @@ mutation {
 }
       `,
     },
+    {
+      title: 'Pagination',
+      query: `
+{
+  userPagination(filter: { gender: male }, perPage: 2, page: 2, sort: _ID_ASC) {
+    items {
+      name
+      languages {
+        language
+        skill
+      }
+      contacts {
+        email
+      }
+      gender
+      age
+    }
+    count
+    pageInfo {
+      currentPage
+      perPage
+      itemCount
+      pageCount
+      hasPreviousPage
+      hasNextPage
+    }
+  }
+}
+      `,
+    },
   ],
 };

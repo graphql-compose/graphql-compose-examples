@@ -172,3 +172,55 @@ Object {
   },
 }
 `;
+
+exports[`user > queries Pagination 1`] = `
+Object {
+  "data": Object {
+    "userPagination": Object {
+      "count": 4,
+      "items": Array [
+        Object {
+          "age": 32,
+          "contacts": Object {
+            "email": "user7@example.com",
+          },
+          "gender": "male",
+          "languages": Array [
+            Object {
+              "language": "fr",
+              "skill": "basic",
+            },
+            Object {
+              "language": "ru",
+              "skill": "fluent",
+            },
+          ],
+          "name": "User 7",
+        },
+        Object {
+          "age": 21,
+          "contacts": Object {
+            "email": "user9@example.com",
+          },
+          "gender": "male",
+          "languages": Array [
+            Object {
+              "language": "es",
+              "skill": "fluent",
+            },
+          ],
+          "name": "User 9",
+        },
+      ],
+      "pageInfo": Object {
+        "currentPage": 2,
+        "hasNextPage": false,
+        "hasPreviousPage": true,
+        "itemCount": 4,
+        "pageCount": 2,
+        "perPage": 2,
+      },
+    },
+  },
+}
+`;
