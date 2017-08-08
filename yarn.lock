@@ -1882,7 +1882,7 @@ graceful-fs@^4.1.10, graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.4
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
-graphql-compose-connection@^2.2.2:
+graphql-compose-connection@>=2.2.1, graphql-compose-connection@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/graphql-compose-connection/-/graphql-compose-connection-2.2.2.tgz#16bc70feade9a127c672ef96fd7a4974bcd0559a"
   dependencies:
@@ -1895,14 +1895,17 @@ graphql-compose-elasticsearch@^1.7.10:
     babel-runtime "^6.23.0"
     dox "^0.9.0"
 
-graphql-compose-mongoose@^1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/graphql-compose-mongoose/-/graphql-compose-mongoose-1.7.0.tgz#81119fb335143d7ebb8734e51f72f65e4a3711f7"
+graphql-compose-mongoose@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/graphql-compose-mongoose/-/graphql-compose-mongoose-1.8.0.tgz#768b3f93ca00d6e74e1fa83b5147c603cdad6037"
   dependencies:
     babel-runtime "^6.23.0"
     object-path "^0.11.4"
+  optionalDependencies:
+    graphql-compose-connection ">=2.2.1"
+    graphql-compose-pagination ">=1.0.0"
 
-graphql-compose-pagination@^1.0.0:
+graphql-compose-pagination@>=1.0.0, graphql-compose-pagination@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/graphql-compose-pagination/-/graphql-compose-pagination-1.0.0.tgz#ae880d7ca2f22dc8337ac1b98f1628d17f944d3f"
   dependencies:
