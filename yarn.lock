@@ -771,7 +771,7 @@ babel-register@^6.26.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.15"
 
-babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.25.0:
+babel-runtime@^6.18.0, babel-runtime@^6.22.0:
   version "6.25.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.25.0.tgz#33b98eaa5d482bb01a8d1aa6b437ad2b01aec41c"
   dependencies:
@@ -2058,11 +2058,11 @@ graphql-compose-connection@^2.3.0:
   dependencies:
     babel-runtime "^6.26.0"
 
-graphql-compose-elasticsearch@^1.7.13:
-  version "1.7.13"
-  resolved "https://registry.yarnpkg.com/graphql-compose-elasticsearch/-/graphql-compose-elasticsearch-1.7.13.tgz#06866da9982b09707aca1b66fb2e4f2277a0a02c"
+graphql-compose-elasticsearch@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/graphql-compose-elasticsearch/-/graphql-compose-elasticsearch-1.8.0.tgz#5035dbb710f559d46a0af23ed8f4b8faa0a4acbf"
   dependencies:
-    babel-runtime "^6.25.0"
+    babel-runtime "^6.26.0"
     dox "^0.9.0"
 
 graphql-compose-mongoose@^1.9.0:

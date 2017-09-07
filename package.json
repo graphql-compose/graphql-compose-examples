@@ -33,7 +33,7 @@
     "graphql": "^0.11.3",
     "graphql-compose": "^2.9.0",
     "graphql-compose-connection": "^2.3.0",
-    "graphql-compose-elasticsearch": "^1.7.13",
+    "graphql-compose-elasticsearch": "^1.8.0",
     "graphql-compose-mongoose": "^1.9.0",
     "graphql-compose-pagination": "^1.1.0",
     "graphql-compose-relay": "^1.1.0",
