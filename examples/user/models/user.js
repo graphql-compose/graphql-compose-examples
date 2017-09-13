@@ -26,7 +26,10 @@ const AddressSchema = new mongoose.Schema({
 
 export const UserSchema = new mongoose.Schema(
   {
-    name: String, // standard types
+    name: {
+      type: String,
+      index: true,
+    },
     age: {
       type: Number,
       index: true,
@@ -57,6 +60,8 @@ export const UserSchema = new mongoose.Schema(
     collection: 'user_users',
   }
 );
+
+UserSchema.index({ gender: 1, age: -1 });
 
 export const User = mongoose.model('User', UserSchema);
 
