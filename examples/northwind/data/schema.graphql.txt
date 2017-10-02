@@ -163,7 +163,7 @@ type Category implements Node {
   categoryID: Float
   name: String
   description: String
-  _id: MongoID
+  _id: MongoID!
 
   # The globally unique ID among all types
   id: ID!
@@ -307,7 +307,7 @@ type Customer implements Node {
   contactName: String
   contactTitle: String
   address: CustomerAddress
-  _id: MongoID
+  _id: MongoID!
 
   # The globally unique ID among all types
   id: ID!
@@ -479,7 +479,7 @@ type Employee implements Node {
 
   # Attached territory ID from region collection
   territoryIDs: [Float]
-  _id: MongoID
+  _id: MongoID!
 
   # The globally unique ID among all types
   id: ID!
@@ -1084,7 +1084,7 @@ type Order implements Node {
 
   # List of ordered products
   details: [OrderDetails]
-  _id: MongoID
+  _id: MongoID!
 
   # The globally unique ID among all types
   id: ID!
@@ -1202,7 +1202,7 @@ type Product implements Node {
   unitsOnOrder: Float
   reorderLevel: Float
   discontinued: Boolean
-  _id: MongoID
+  _id: MongoID!
 
   # The globally unique ID among all types
   id: ID!
@@ -1309,7 +1309,7 @@ type Region implements Node {
   regionID: Float
   name: String
   territories: [RegionTerritories]
-  _id: MongoID
+  _id: MongoID!
 
   # The globally unique ID among all types
   id: ID!
@@ -1408,7 +1408,7 @@ type Shipper implements Node {
   shipperID: Float
   companyName: String
   phone: String
-  _id: MongoID
+  _id: MongoID!
 
   # The globally unique ID among all types
   id: ID!
@@ -1642,7 +1642,7 @@ type Supplier implements Node {
   contactName: String
   contactTitle: String
   address: CustomerAddress
-  _id: MongoID
+  _id: MongoID!
 
   # The globally unique ID among all types
   id: ID!

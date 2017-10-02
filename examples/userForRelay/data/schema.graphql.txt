@@ -684,7 +684,7 @@ type UserRelay implements Node {
   languages: [UserRelayLanguages]
   contacts: UserRelayContacts
   gender: EnumUserRelayGender
-  _id: MongoID
+  _id: MongoID!
 
   # The globally unique ID among all types
   id: ID!

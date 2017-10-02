@@ -856,7 +856,7 @@ type User {
 
   # Some dynamic data
   someMixed: JSON
-  _id: MongoID
+  _id: MongoID!
 }
 
 type UserAddress {
