@@ -138,10 +138,6 @@ input AgeOperatorsFilterUserInput {
   nin: [Float]
 }
 
-# The `ConnectionCursor` is String type, that represents a point of record in data
-# set.  Due this point, you may request previous or next records.
-scalar ConnectionCursor
-
 input CreateOneUserInput {
   name: String
   age: Float
@@ -185,6 +181,7 @@ input FilterFindManyUserInput {
   # Some dynamic data
   someMixed: JSON
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindManyUserInput
@@ -204,6 +201,7 @@ input FilterFindOneUserInput {
   # Some dynamic data
   someMixed: JSON
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindOneUserInput
@@ -220,6 +218,7 @@ input FilterRemoveManyUserInput {
   # Some dynamic data
   someMixed: JSON
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterRemoveManyUserInput
@@ -236,6 +235,7 @@ input FilterRemoveOneUserInput {
   # Some dynamic data
   someMixed: JSON
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterRemoveOneUserInput
@@ -252,6 +252,7 @@ input FilterUpdateManyUserInput {
   # Some dynamic data
   someMixed: JSON
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterUpdateManyUserInput
@@ -268,6 +269,7 @@ input FilterUpdateOneUserInput {
   # Some dynamic data
   someMixed: JSON
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterUpdateOneUserInput
@@ -284,9 +286,80 @@ input FilterUserInput {
   # Some dynamic data
   someMixed: JSON
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterUserInput
+}
+
+input GenderOperatorsFilterFindManyUserInput {
+  gt: EnumUserGender
+  gte: EnumUserGender
+  lt: EnumUserGender
+  lte: EnumUserGender
+  ne: EnumUserGender
+  in: [EnumUserGender]
+  nin: [EnumUserGender]
+}
+
+input GenderOperatorsFilterFindOneUserInput {
+  gt: EnumUserGender
+  gte: EnumUserGender
+  lt: EnumUserGender
+  lte: EnumUserGender
+  ne: EnumUserGender
+  in: [EnumUserGender]
+  nin: [EnumUserGender]
+}
+
+input GenderOperatorsFilterRemoveManyUserInput {
+  gt: EnumUserGender
+  gte: EnumUserGender
+  lt: EnumUserGender
+  lte: EnumUserGender
+  ne: EnumUserGender
+  in: [EnumUserGender]
+  nin: [EnumUserGender]
+}
+
+input GenderOperatorsFilterRemoveOneUserInput {
+  gt: EnumUserGender
+  gte: EnumUserGender
+  lt: EnumUserGender
+  lte: EnumUserGender
+  ne: EnumUserGender
+  in: [EnumUserGender]
+  nin: [EnumUserGender]
+}
+
+input GenderOperatorsFilterUpdateManyUserInput {
+  gt: EnumUserGender
+  gte: EnumUserGender
+  lt: EnumUserGender
+  lte: EnumUserGender
+  ne: EnumUserGender
+  in: [EnumUserGender]
+  nin: [EnumUserGender]
+}
+
+input GenderOperatorsFilterUpdateOneUserInput {
+  gt: EnumUserGender
+  gte: EnumUserGender
+  lt: EnumUserGender
+  lte: EnumUserGender
+  ne: EnumUserGender
+  in: [EnumUserGender]
+  nin: [EnumUserGender]
+}
+
+input GenderOperatorsFilterUserInput {
+  gt: EnumUserGender
+  gte: EnumUserGender
+  lt: EnumUserGender
+  lte: EnumUserGender
+  ne: EnumUserGender
+  in: [EnumUserGender]
+  nin: [EnumUserGender]
 }
 
 input GeoDistance {
@@ -357,9 +430,85 @@ type Mutation {
   ): RemoveManyUserPayload
 }
 
+input NameOperatorsFilterFindManyUserInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+}
+
+input NameOperatorsFilterFindOneUserInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+}
+
+input NameOperatorsFilterRemoveManyUserInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+}
+
+input NameOperatorsFilterRemoveOneUserInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+}
+
+input NameOperatorsFilterUpdateManyUserInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+}
+
+input NameOperatorsFilterUpdateOneUserInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+}
+
+input NameOperatorsFilterUserInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+}
+
 input OperatorsFilterFindManyUserInput {
   # Filter value by operator(s)
+  name: NameOperatorsFilterFindManyUserInput
+
+  # Filter value by operator(s)
   age: AgeOperatorsFilterFindManyUserInput
+
+  # Filter value by operator(s)
+  gender: GenderOperatorsFilterFindManyUserInput
 
   # Filter value by operator(s)
   _id: _idOperatorsFilterFindManyUserInput
@@ -367,7 +516,13 @@ input OperatorsFilterFindManyUserInput {
 
 input OperatorsFilterFindOneUserInput {
   # Filter value by operator(s)
+  name: NameOperatorsFilterFindOneUserInput
+
+  # Filter value by operator(s)
   age: AgeOperatorsFilterFindOneUserInput
+
+  # Filter value by operator(s)
+  gender: GenderOperatorsFilterFindOneUserInput
 
   # Filter value by operator(s)
   _id: _idOperatorsFilterFindOneUserInput
@@ -375,7 +530,13 @@ input OperatorsFilterFindOneUserInput {
 
 input OperatorsFilterRemoveManyUserInput {
   # Filter value by operator(s)
+  name: NameOperatorsFilterRemoveManyUserInput
+
+  # Filter value by operator(s)
   age: AgeOperatorsFilterRemoveManyUserInput
+
+  # Filter value by operator(s)
+  gender: GenderOperatorsFilterRemoveManyUserInput
 
   # Filter value by operator(s)
   _id: _idOperatorsFilterRemoveManyUserInput
@@ -383,7 +544,13 @@ input OperatorsFilterRemoveManyUserInput {
 
 input OperatorsFilterRemoveOneUserInput {
   # Filter value by operator(s)
+  name: NameOperatorsFilterRemoveOneUserInput
+
+  # Filter value by operator(s)
   age: AgeOperatorsFilterRemoveOneUserInput
+
+  # Filter value by operator(s)
+  gender: GenderOperatorsFilterRemoveOneUserInput
 
   # Filter value by operator(s)
   _id: _idOperatorsFilterRemoveOneUserInput
@@ -391,7 +558,13 @@ input OperatorsFilterRemoveOneUserInput {
 
 input OperatorsFilterUpdateManyUserInput {
   # Filter value by operator(s)
+  name: NameOperatorsFilterUpdateManyUserInput
+
+  # Filter value by operator(s)
   age: AgeOperatorsFilterUpdateManyUserInput
+
+  # Filter value by operator(s)
+  gender: GenderOperatorsFilterUpdateManyUserInput
 
   # Filter value by operator(s)
   _id: _idOperatorsFilterUpdateManyUserInput
@@ -399,7 +572,13 @@ input OperatorsFilterUpdateManyUserInput {
 
 input OperatorsFilterUpdateOneUserInput {
   # Filter value by operator(s)
+  name: NameOperatorsFilterUpdateOneUserInput
+
+  # Filter value by operator(s)
   age: AgeOperatorsFilterUpdateOneUserInput
+
+  # Filter value by operator(s)
+  gender: GenderOperatorsFilterUpdateOneUserInput
 
   # Filter value by operator(s)
   _id: _idOperatorsFilterUpdateOneUserInput
@@ -407,7 +586,13 @@ input OperatorsFilterUpdateOneUserInput {
 
 input OperatorsFilterUserInput {
   # Filter value by operator(s)
+  name: NameOperatorsFilterUserInput
+
+  # Filter value by operator(s)
   age: AgeOperatorsFilterUserInput
+
+  # Filter value by operator(s)
+  gender: GenderOperatorsFilterUserInput
 
   # Filter value by operator(s)
   _id: _idOperatorsFilterUserInput
@@ -426,6 +611,27 @@ type PageInfo {
 
   # When paginating forwards, the cursor to continue.
   endCursor: String
+}
+
+# Information about pagination.
+type PaginationInfo {
+  # Current page number
+  currentPage: Int!
+
+  # Number of items per page
+  perPage: Int!
+
+  # Total number of pages
+  pageCount: Int
+
+  # Total number of items
+  itemCount: Int
+
+  # When paginating forwards, are there more items?
+  hasNextPage: Boolean
+
+  # When paginating backwards, are there more items?
+  hasPreviousPage: Boolean
 }
 
 type Query {
@@ -453,13 +659,13 @@ type Query {
     first: Int
 
     # Forward pagination argument for returning at most first edges
-    after: ConnectionCursor
+    after: String
 
     # Backward pagination argument for returning at most last edges
     last: Int
 
     # Backward pagination argument for returning at most last edges
-    before: ConnectionCursor
+    before: String
 
     # Filter by fields
     filter: FilterFindManyUserInput
@@ -467,6 +673,15 @@ type Query {
     # Sort argument for data ordering
     sort: SortConnectionUserEnum = _ID_DESC
   ): UserConnection
+  userPagination(
+    # Page number for displaying
+    page: Int
+    perPage: Int = 20
+
+    # Filter by fields
+    filter: FilterFindManyUserInput
+    sort: SortFindManyUserInput
+  ): UserPagination
 }
 
 type RemoveByIdUserPayload {
@@ -498,43 +713,79 @@ enum SortConnectionUserEnum {
 enum SortFindByIdsUserInput {
   _ID_ASC
   _ID_DESC
+  NAME_ASC
+  NAME_DESC
   AGE_ASC
   AGE_DESC
+  GENDER_ASC
+  GENDER_DESC
+  GENDER__AGE_ASC
+  GENDER__AGE_DESC
 }
 
 enum SortFindManyUserInput {
   _ID_ASC
   _ID_DESC
+  NAME_ASC
+  NAME_DESC
   AGE_ASC
   AGE_DESC
+  GENDER_ASC
+  GENDER_DESC
+  GENDER__AGE_ASC
+  GENDER__AGE_DESC
 }
 
 enum SortFindOneUserInput {
   _ID_ASC
   _ID_DESC
+  NAME_ASC
+  NAME_DESC
   AGE_ASC
   AGE_DESC
+  GENDER_ASC
+  GENDER_DESC
+  GENDER__AGE_ASC
+  GENDER__AGE_DESC
 }
 
 enum SortRemoveOneUserInput {
   _ID_ASC
   _ID_DESC
+  NAME_ASC
+  NAME_DESC
   AGE_ASC
   AGE_DESC
+  GENDER_ASC
+  GENDER_DESC
+  GENDER__AGE_ASC
+  GENDER__AGE_DESC
 }
 
 enum SortUpdateManyUserInput {
   _ID_ASC
   _ID_DESC
+  NAME_ASC
+  NAME_DESC
   AGE_ASC
   AGE_DESC
+  GENDER_ASC
+  GENDER_DESC
+  GENDER__AGE_ASC
+  GENDER__AGE_DESC
 }
 
 enum SortUpdateOneUserInput {
   _ID_ASC
   _ID_DESC
+  NAME_ASC
+  NAME_DESC
   AGE_ASC
   AGE_DESC
+  GENDER_ASC
+  GENDER_DESC
+  GENDER__AGE_ASC
+  GENDER__AGE_DESC
 }
 
 input UpdateByIdUserInput {
@@ -611,6 +862,7 @@ type User {
 type UserAddress {
   street: String
   geo: [Float]
+  _id: MongoID
 }
 
 input UserAddressInput {
@@ -628,7 +880,7 @@ type UserConnection {
   pageInfo: PageInfo!
 
   # Information to aid in pagination.
-  edges: [UserEdge]
+  edges: [UserEdge!]!
 }
 
 type UserContacts {
@@ -647,12 +899,24 @@ type UserEdge {
   node: User
 
   # A cursor for use in pagination
-  cursor: ConnectionCursor!
+  cursor: String!
 }
 
 type UserLanguages {
   language: String
   skill: EnumUserLanguagesSkill
+}
+
+# List of items with pagination.
+type UserPagination {
+  # Total object count.
+  count: Int
+
+  # Array of objects.
+  items: [User]
+
+  # Information to aid in pagination.
+  pageInfo: PaginationInfo!
 }
 
 input UserUserLanguagesInput {

@@ -265,7 +265,7 @@
                   "description": "Forward pagination argument for returning at most first edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -285,7 +285,7 @@
                   "description": "Backward pagination argument for returning at most last edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -314,6 +314,63 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UserRelayConnection",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "UserRelay",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "userPagination",
+              "description": "",
+              "args": [
+                {
+                  "name": "page",
+                  "description": "Page number for displaying",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "perPage",
+                  "description": "",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "20"
+                },
+                {
+                  "name": "filter",
+                  "description": "Filter by fields",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyUserRelayInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "sort",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "SortFindManyUserRelayInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UserRelayPagination",
                 "ofType": {
                   "kind": "OBJECT",
                   "name": "UserRelay",
@@ -759,6 +816,20 @@
               "defaultValue": null
             },
             {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_operators",
               "description": "List of fields that can be filtered via operators",
               "type": {
@@ -1154,6 +1225,20 @@
               "defaultValue": null
             },
             {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_operators",
               "description": "List of fields that can be filtered via operators",
               "type": {
@@ -1483,6 +1568,20 @@
               "defaultValue": null
             },
             {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_operators",
               "description": "List of fields that can be filtered via operators",
               "type": {
@@ -1707,16 +1806,6 @@
           "possibleTypes": null
         },
         {
-          "kind": "SCALAR",
-          "name": "ConnectionCursor",
-          "description": "The `ConnectionCursor` is String type, that represents a point of record in data set.  Due this point, you may request previous or next records.",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
           "kind": "ENUM",
           "name": "SortConnectionUserRelayEnum",
           "description": null,
@@ -1777,15 +1866,23 @@
               "description": "Information to aid in pagination.",
               "args": [],
               "type": {
-                "kind": "LIST",
+                "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "UserRelayEdge",
+                  "kind": "LIST",
+                  "name": null,
                   "ofType": {
-                    "kind": "OBJECT",
-                    "name": "UserRelay",
-                    "ofType": null
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "UserRelayEdge",
+                      "ofType": {
+                        "kind": "OBJECT",
+                        "name": "UserRelay",
+                        "ofType": null
+                      }
+                    }
                   }
                 }
               },
@@ -1901,9 +1998,155 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "ConnectionCursor",
+                  "name": "String",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UserRelayPagination",
+          "description": "List of items with pagination.",
+          "fields": [
+            {
+              "name": "count",
+              "description": "Total object count.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "items",
+              "description": "Array of objects.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "UserRelay",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageInfo",
+              "description": "Information to aid in pagination.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PaginationInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PaginationInfo",
+          "description": "Information about pagination.",
+          "fields": [
+            {
+              "name": "currentPage",
+              "description": "Current page number",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "perPage",
+              "description": "Number of items per page",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageCount",
+              "description": "Total number of pages",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "itemCount",
+              "description": "Total number of items",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "hasNextPage",
+              "description": "When paginating forwards, are there more items?",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "hasPreviousPage",
+              "description": "When paginating backwards, are there more items?",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -2647,6 +2890,20 @@
               "defaultValue": null
             },
             {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_operators",
               "description": "List of fields that can be filtered via operators",
               "type": {
@@ -3175,6 +3432,20 @@
               "defaultValue": null
             },
             {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_operators",
               "description": "List of fields that can be filtered via operators",
               "type": {
@@ -3686,6 +3957,20 @@
               "defaultValue": null
             },
             {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_operators",
               "description": "List of fields that can be filtered via operators",
               "type": {
@@ -4105,6 +4390,20 @@
                 "kind": "SCALAR",
                 "name": "MongoID",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             },

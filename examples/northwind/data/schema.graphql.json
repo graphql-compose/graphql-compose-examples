@@ -304,7 +304,7 @@
                   "description": "Forward pagination argument for returning at most first edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -324,7 +324,7 @@
                   "description": "Backward pagination argument for returning at most last edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -524,7 +524,7 @@
                   "description": "Forward pagination argument for returning at most first edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -544,7 +544,7 @@
                   "description": "Backward pagination argument for returning at most last edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -701,7 +701,7 @@
                   "description": "Forward pagination argument for returning at most first edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -721,7 +721,7 @@
                   "description": "Backward pagination argument for returning at most last edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -1021,7 +1021,7 @@
                   "description": "Forward pagination argument for returning at most first edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -1041,7 +1041,7 @@
                   "description": "Backward pagination argument for returning at most last edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -1128,6 +1128,20 @@
                 "kind": "SCALAR",
                 "name": "MongoID",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             },
@@ -1629,7 +1643,7 @@
                   "description": "Forward pagination argument for returning at most first edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -1649,7 +1663,7 @@
                   "description": "Backward pagination argument for returning at most last edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -1686,16 +1700,6 @@
               "ofType": null
             }
           ],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "SCALAR",
-          "name": "ConnectionCursor",
-          "description": "The `ConnectionCursor` is String type, that represents a point of record in data set.  Due this point, you may request previous or next records.",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
@@ -1784,15 +1788,23 @@
               "description": "Information to aid in pagination.",
               "args": [],
               "type": {
-                "kind": "LIST",
+                "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "ProductEdge",
+                  "kind": "LIST",
+                  "name": null,
                   "ofType": {
-                    "kind": "OBJECT",
-                    "name": "Product",
-                    "ofType": null
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "ProductEdge",
+                      "ofType": {
+                        "kind": "OBJECT",
+                        "name": "Product",
+                        "ofType": null
+                      }
+                    }
                   }
                 }
               },
@@ -1908,7 +1920,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "ConnectionCursor",
+                  "name": "String",
                   "ofType": null
                 }
               },
@@ -2093,7 +2105,7 @@
                   "description": "Forward pagination argument for returning at most first edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -2113,7 +2125,7 @@
                   "description": "Backward pagination argument for returning at most last edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -2250,15 +2262,23 @@
               "description": "Information to aid in pagination.",
               "args": [],
               "type": {
-                "kind": "LIST",
+                "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "OrderEdge",
+                  "kind": "LIST",
+                  "name": null,
                   "ofType": {
-                    "kind": "OBJECT",
-                    "name": "Order",
-                    "ofType": null
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "OrderEdge",
+                      "ofType": {
+                        "kind": "OBJECT",
+                        "name": "Order",
+                        "ofType": null
+                      }
+                    }
                   }
                 }
               },
@@ -2297,7 +2317,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "ConnectionCursor",
+                  "name": "String",
                   "ofType": null
                 }
               },
@@ -2803,7 +2823,7 @@
                   "description": "Forward pagination argument for returning at most first edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -2823,7 +2843,7 @@
                   "description": "Backward pagination argument for returning at most last edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -3110,7 +3130,7 @@
                   "description": "Forward pagination argument for returning at most first edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -3130,7 +3150,7 @@
                   "description": "Backward pagination argument for returning at most last edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -3329,7 +3349,7 @@
                   "description": "Forward pagination argument for returning at most first edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -3349,7 +3369,7 @@
                   "description": "Backward pagination argument for returning at most last edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -3501,7 +3521,7 @@
                   "description": "Forward pagination argument for returning at most first edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -3521,7 +3541,7 @@
                   "description": "Backward pagination argument for returning at most last edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -3604,6 +3624,20 @@
                 "kind": "SCALAR",
                 "name": "MongoID",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             },
@@ -4040,6 +4074,20 @@
                 "kind": "SCALAR",
                 "name": "MongoID",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             },
@@ -4551,6 +4599,20 @@
               "defaultValue": null
             },
             {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_operators",
               "description": "List of fields that can be filtered via operators",
               "type": {
@@ -4958,15 +5020,23 @@
               "description": "Information to aid in pagination.",
               "args": [],
               "type": {
-                "kind": "LIST",
+                "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "CustomerEdge",
+                  "kind": "LIST",
+                  "name": null,
                   "ofType": {
-                    "kind": "OBJECT",
-                    "name": "Customer",
-                    "ofType": null
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "CustomerEdge",
+                      "ofType": {
+                        "kind": "OBJECT",
+                        "name": "Customer",
+                        "ofType": null
+                      }
+                    }
                   }
                 }
               },
@@ -5005,7 +5075,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "ConnectionCursor",
+                  "name": "String",
                   "ofType": null
                 }
               },
@@ -5145,6 +5215,20 @@
                 "kind": "SCALAR",
                 "name": "MongoID",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             },
@@ -5772,6 +5856,20 @@
               "defaultValue": null
             },
             {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_operators",
               "description": "List of fields that can be filtered via operators",
               "type": {
@@ -6334,6 +6432,20 @@
               "defaultValue": null
             },
             {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_operators",
               "description": "List of fields that can be filtered via operators",
               "type": {
@@ -6885,6 +6997,20 @@
               "defaultValue": null
             },
             {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_operators",
               "description": "List of fields that can be filtered via operators",
               "type": {
@@ -7320,6 +7446,20 @@
                 "kind": "SCALAR",
                 "name": "MongoID",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             },
@@ -7933,6 +8073,20 @@
               "defaultValue": null
             },
             {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_operators",
               "description": "List of fields that can be filtered via operators",
               "type": {
@@ -8486,6 +8640,20 @@
               "defaultValue": null
             },
             {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_operators",
               "description": "List of fields that can be filtered via operators",
               "type": {
@@ -8993,6 +9161,20 @@
               "defaultValue": null
             },
             {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_operators",
               "description": "List of fields that can be filtered via operators",
               "type": {
@@ -9298,6 +9480,20 @@
               "defaultValue": null
             },
             {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_operators",
               "description": "List of fields that can be filtered via operators",
               "type": {
@@ -9599,6 +9795,20 @@
                 "kind": "SCALAR",
                 "name": "MongoID",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             },
@@ -9924,6 +10134,20 @@
                 "kind": "SCALAR",
                 "name": "MongoID",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             },
@@ -10364,6 +10588,20 @@
               "defaultValue": null
             },
             {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_operators",
               "description": "List of fields that can be filtered via operators",
               "type": {
@@ -10771,15 +11009,23 @@
               "description": "Information to aid in pagination.",
               "args": [],
               "type": {
-                "kind": "LIST",
+                "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "SupplierEdge",
+                  "kind": "LIST",
+                  "name": null,
                   "ofType": {
-                    "kind": "OBJECT",
-                    "name": "Supplier",
-                    "ofType": null
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "SupplierEdge",
+                      "ofType": {
+                        "kind": "OBJECT",
+                        "name": "Supplier",
+                        "ofType": null
+                      }
+                    }
                   }
                 }
               },
@@ -10818,7 +11064,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "ConnectionCursor",
+                  "name": "String",
                   "ofType": null
                 }
               },

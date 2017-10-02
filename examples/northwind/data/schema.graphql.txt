@@ -172,13 +172,13 @@ type Category implements Node {
     first: Int
 
     # Forward pagination argument for returning at most first edges
-    after: ConnectionCursor
+    after: String
 
     # Backward pagination argument for returning at most last edges
     last: Int
 
     # Backward pagination argument for returning at most last edges
-    before: ConnectionCursor
+    before: String
 
     # Sort argument for data ordering
     sort: SortConnectionProductEnum = _ID_DESC
@@ -271,10 +271,6 @@ input CompanyNameOperatorsFilterFindOneSupplierInput {
   nin: [String]
 }
 
-# The `ConnectionCursor` is String type, that represents a point of record in data
-# set.  Due this point, you may request previous or next records.
-scalar ConnectionCursor
-
 input CreateOneProductInput {
   # Unique product id
   productID: Float
@@ -320,13 +316,13 @@ type Customer implements Node {
     first: Int
 
     # Forward pagination argument for returning at most first edges
-    after: ConnectionCursor
+    after: String
 
     # Backward pagination argument for returning at most last edges
     last: Int
 
     # Backward pagination argument for returning at most last edges
-    before: ConnectionCursor
+    before: String
 
     # Sort argument for data ordering
     sort: SortConnectionOrderEnum = _ID_DESC
@@ -360,7 +356,7 @@ type CustomerConnection {
   pageInfo: PageInfo!
 
   # Information to aid in pagination.
-  edges: [CustomerEdge]
+  edges: [CustomerEdge!]!
 }
 
 # An edge in a connection.
@@ -369,7 +365,7 @@ type CustomerEdge {
   node: Customer
 
   # A cursor for use in pagination
-  cursor: ConnectionCursor!
+  cursor: String!
 }
 
 input CustomerIDOperatorsFilterFindManyCustomerInput {
@@ -494,13 +490,13 @@ type Employee implements Node {
     first: Int
 
     # Forward pagination argument for returning at most first edges
-    after: ConnectionCursor
+    after: String
 
     # Backward pagination argument for returning at most last edges
     last: Int
 
     # Backward pagination argument for returning at most last edges
-    before: ConnectionCursor
+    before: String
 
     # Sort argument for data ordering
     sort: SortConnectionOrderEnum = _ID_DESC
@@ -559,6 +555,7 @@ input FilterFindManyCategoryInput {
   name: String
   description: String
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindManyCategoryInput
@@ -572,6 +569,7 @@ input FilterFindManyCustomerInput {
   contactTitle: String
   address: CustomerAddressInput
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindManyCustomerInput
@@ -595,6 +593,7 @@ input FilterFindManyEmployeeInput {
   # Attached territory ID from region collection
   territoryIDs: [Float]
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindManyEmployeeInput
@@ -619,6 +618,7 @@ input FilterFindManyOrderInput {
   # List of ordered products
   details: [OrderOrderDetailsInput]
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindManyOrderInput
@@ -637,6 +637,7 @@ input FilterFindManyProductInput {
   reorderLevel: Float
   discontinued: Boolean
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindManyProductInput
@@ -651,6 +652,7 @@ input FilterFindManyRegionInput {
   name: String
   territories: [RegionRegionTerritoriesInput]
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindManyRegionInput
@@ -662,6 +664,7 @@ input FilterFindManyShipperInput {
   companyName: String
   phone: String
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindManyShipperInput
@@ -675,6 +678,7 @@ input FilterFindManySupplierInput {
   contactTitle: String
   address: CustomerAddressInput
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindManySupplierInput
@@ -686,6 +690,7 @@ input FilterFindOneCategoryInput {
   name: String
   description: String
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindOneCategoryInput
@@ -699,6 +704,7 @@ input FilterFindOneCustomerInput {
   contactTitle: String
   address: CustomerAddressInput
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindOneCustomerInput
@@ -722,6 +728,7 @@ input FilterFindOneEmployeeInput {
   # Attached territory ID from region collection
   territoryIDs: [Float]
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindOneEmployeeInput
@@ -743,6 +750,7 @@ input FilterFindOneOrderInput {
   # List of ordered products
   details: [OrderOrderDetailsInput]
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindOneOrderInput
@@ -761,6 +769,7 @@ input FilterFindOneProductInput {
   reorderLevel: Float
   discontinued: Boolean
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindOneProductInput
@@ -772,6 +781,7 @@ input FilterFindOneRegionInput {
   name: String
   territories: [RegionRegionTerritoriesInput]
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindOneRegionInput
@@ -783,6 +793,7 @@ input FilterFindOneShipperInput {
   companyName: String
   phone: String
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindOneShipperInput
@@ -796,6 +807,7 @@ input FilterFindOneSupplierInput {
   contactTitle: String
   address: CustomerAddressInput
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindOneSupplierInput
@@ -1090,7 +1102,7 @@ type OrderConnection {
   pageInfo: PageInfo!
 
   # Information to aid in pagination.
-  edges: [OrderEdge]
+  edges: [OrderEdge!]!
 }
 
 type OrderDetails {
@@ -1107,7 +1119,7 @@ type OrderEdge {
   node: Order
 
   # A cursor for use in pagination
-  cursor: ConnectionCursor!
+  cursor: String!
 }
 
 input OrderIDOperatorsFilterFindManyOrderInput {
@@ -1199,13 +1211,13 @@ type Product implements Node {
     first: Int
 
     # Forward pagination argument for returning at most first edges
-    after: ConnectionCursor
+    after: String
 
     # Backward pagination argument for returning at most last edges
     last: Int
 
     # Backward pagination argument for returning at most last edges
-    before: ConnectionCursor
+    before: String
 
     # Sort argument for data ordering
     sort: SortConnectionOrderEnum = _ID_DESC
@@ -1223,7 +1235,7 @@ type ProductConnection {
   pageInfo: PageInfo!
 
   # Information to aid in pagination.
-  edges: [ProductEdge]
+  edges: [ProductEdge!]!
 }
 
 # An edge in a connection.
@@ -1232,7 +1244,7 @@ type ProductEdge {
   node: Product
 
   # A cursor for use in pagination
-  cursor: ConnectionCursor!
+  cursor: String!
 }
 
 input ProductIDOperatorsFilterFindManyProductInput {
@@ -1405,13 +1417,13 @@ type Shipper implements Node {
     first: Int
 
     # Forward pagination argument for returning at most first edges
-    after: ConnectionCursor
+    after: String
 
     # Backward pagination argument for returning at most last edges
     last: Int
 
     # Backward pagination argument for returning at most last edges
-    before: ConnectionCursor
+    before: String
 
     # Sort argument for data ordering
     sort: SortConnectionOrderEnum = _ID_DESC
@@ -1639,13 +1651,13 @@ type Supplier implements Node {
     first: Int
 
     # Forward pagination argument for returning at most first edges
-    after: ConnectionCursor
+    after: String
 
     # Backward pagination argument for returning at most last edges
     last: Int
 
     # Backward pagination argument for returning at most last edges
-    before: ConnectionCursor
+    before: String
 
     # Sort argument for data ordering
     sort: SortConnectionProductEnum = _ID_DESC
@@ -1661,7 +1673,7 @@ type SupplierConnection {
   pageInfo: PageInfo!
 
   # Information to aid in pagination.
-  edges: [SupplierEdge]
+  edges: [SupplierEdge!]!
 }
 
 # An edge in a connection.
@@ -1670,7 +1682,7 @@ type SupplierEdge {
   node: Supplier
 
   # A cursor for use in pagination
-  cursor: ConnectionCursor!
+  cursor: String!
 }
 
 input SupplierIDOperatorsFilterFindManySupplierInput {
@@ -1810,13 +1822,13 @@ type Viewer {
     first: Int
 
     # Forward pagination argument for returning at most first edges
-    after: ConnectionCursor
+    after: String
 
     # Backward pagination argument for returning at most last edges
     last: Int
 
     # Backward pagination argument for returning at most last edges
-    before: ConnectionCursor
+    before: String
 
     # Filter by fields
     filter: FilterFindManyCustomerInput
@@ -1848,13 +1860,13 @@ type Viewer {
     first: Int
 
     # Forward pagination argument for returning at most first edges
-    after: ConnectionCursor
+    after: String
 
     # Backward pagination argument for returning at most last edges
     last: Int
 
     # Backward pagination argument for returning at most last edges
-    before: ConnectionCursor
+    before: String
 
     # Filter by fields
     filter: FilterFindManyOrderInput
@@ -1880,13 +1892,13 @@ type Viewer {
     first: Int
 
     # Forward pagination argument for returning at most first edges
-    after: ConnectionCursor
+    after: String
 
     # Backward pagination argument for returning at most last edges
     last: Int
 
     # Backward pagination argument for returning at most last edges
-    before: ConnectionCursor
+    before: String
 
     # Filter by fields
     filter: FilterFindManyProductInput
@@ -1931,13 +1943,13 @@ type Viewer {
     first: Int
 
     # Forward pagination argument for returning at most first edges
-    after: ConnectionCursor
+    after: String
 
     # Backward pagination argument for returning at most last edges
     last: Int
 
     # Backward pagination argument for returning at most last edges
-    before: ConnectionCursor
+    before: String
 
     # Filter by fields
     filter: FilterFindManySupplierInput

@@ -238,7 +238,7 @@
                   "description": "Forward pagination argument for returning at most first edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -258,7 +258,7 @@
                   "description": "Backward pagination argument for returning at most last edges",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "ConnectionCursor",
+                    "name": "String",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -287,6 +287,63 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UserConnection",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "User",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "userPagination",
+              "description": "",
+              "args": [
+                {
+                  "name": "page",
+                  "description": "Page number for displaying",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "perPage",
+                  "description": "",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "20"
+                },
+                {
+                  "name": "filter",
+                  "description": "Filter by fields",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyUserInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "sort",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "SortFindManyUserInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UserPagination",
                 "ofType": {
                   "kind": "OBJECT",
                   "name": "User",
@@ -607,6 +664,18 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "_id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -655,6 +724,18 @@
               "deprecationReason": null
             },
             {
+              "name": "NAME_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NAME_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "AGE_ASC",
               "description": null,
               "isDeprecated": false,
@@ -662,6 +743,30 @@
             },
             {
               "name": "AGE_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER__AGE_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER__AGE_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -756,6 +861,20 @@
                 "kind": "SCALAR",
                 "name": "MongoID",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             },
@@ -892,11 +1011,31 @@
           "fields": null,
           "inputFields": [
             {
+              "name": "name",
+              "description": "Filter value by operator(s)",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "NameOperatorsFilterFindOneUserInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "age",
               "description": "Filter value by operator(s)",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterFindOneUserInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gender",
+              "description": "Filter value by operator(s)",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "GenderOperatorsFilterFindOneUserInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -908,6 +1047,95 @@
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindOneUserInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "NameOperatorsFilterFindOneUserInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             }
@@ -995,6 +1223,95 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "GenderOperatorsFilterFindOneUserInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "EnumUserGender",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "EnumUserGender",
                   "ofType": null
                 }
               },
@@ -1115,6 +1432,18 @@
               "deprecationReason": null
             },
             {
+              "name": "NAME_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NAME_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "AGE_ASC",
               "description": null,
               "isDeprecated": false,
@@ -1122,6 +1451,30 @@
             },
             {
               "name": "AGE_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER__AGE_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER__AGE_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -1220,6 +1573,20 @@
               "defaultValue": null
             },
             {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_operators",
               "description": "List of fields that can be filtered via operators",
               "type": {
@@ -1251,11 +1618,31 @@
           "fields": null,
           "inputFields": [
             {
+              "name": "name",
+              "description": "Filter value by operator(s)",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "NameOperatorsFilterFindManyUserInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "age",
               "description": "Filter value by operator(s)",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterFindManyUserInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gender",
+              "description": "Filter value by operator(s)",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "GenderOperatorsFilterFindManyUserInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1267,6 +1654,95 @@
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindManyUserInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "NameOperatorsFilterFindManyUserInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             }
@@ -1354,6 +1830,95 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "GenderOperatorsFilterFindManyUserInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "EnumUserGender",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "EnumUserGender",
                   "ofType": null
                 }
               },
@@ -1527,6 +2092,18 @@
               "deprecationReason": null
             },
             {
+              "name": "NAME_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NAME_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "AGE_ASC",
               "description": null,
               "isDeprecated": false,
@@ -1534,6 +2111,30 @@
             },
             {
               "name": "AGE_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER__AGE_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER__AGE_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -1632,6 +2233,20 @@
               "defaultValue": null
             },
             {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_operators",
               "description": "List of fields that can be filtered via operators",
               "type": {
@@ -1653,11 +2268,31 @@
           "fields": null,
           "inputFields": [
             {
+              "name": "name",
+              "description": "Filter value by operator(s)",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "NameOperatorsFilterUserInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "age",
               "description": "Filter value by operator(s)",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterUserInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gender",
+              "description": "Filter value by operator(s)",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "GenderOperatorsFilterUserInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1669,6 +2304,95 @@
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterUserInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "NameOperatorsFilterUserInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             }
@@ -1756,6 +2480,95 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "GenderOperatorsFilterUserInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "EnumUserGender",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "EnumUserGender",
                   "ofType": null
                 }
               },
@@ -1856,16 +2669,6 @@
           "possibleTypes": null
         },
         {
-          "kind": "SCALAR",
-          "name": "ConnectionCursor",
-          "description": "The `ConnectionCursor` is String type, that represents a point of record in data set.  Due this point, you may request previous or next records.",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
           "kind": "ENUM",
           "name": "SortConnectionUserEnum",
           "description": null,
@@ -1926,15 +2729,23 @@
               "description": "Information to aid in pagination.",
               "args": [],
               "type": {
-                "kind": "LIST",
+                "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "UserEdge",
+                  "kind": "LIST",
+                  "name": null,
                   "ofType": {
-                    "kind": "OBJECT",
-                    "name": "User",
-                    "ofType": null
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "UserEdge",
+                      "ofType": {
+                        "kind": "OBJECT",
+                        "name": "User",
+                        "ofType": null
+                      }
+                    }
                   }
                 }
               },
@@ -2050,9 +2861,155 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "ConnectionCursor",
+                  "name": "String",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UserPagination",
+          "description": "List of items with pagination.",
+          "fields": [
+            {
+              "name": "count",
+              "description": "Total object count.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "items",
+              "description": "Array of objects.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "User",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageInfo",
+              "description": "Information to aid in pagination.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PaginationInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PaginationInfo",
+          "description": "Information about pagination.",
+          "fields": [
+            {
+              "name": "currentPage",
+              "description": "Current page number",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "perPage",
+              "description": "Number of items per page",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageCount",
+              "description": "Total number of pages",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "itemCount",
+              "description": "Total number of items",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "hasNextPage",
+              "description": "When paginating forwards, are there more items?",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "hasPreviousPage",
+              "description": "When paginating backwards, are there more items?",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -2769,6 +3726,20 @@
               "defaultValue": null
             },
             {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_operators",
               "description": "List of fields that can be filtered via operators",
               "type": {
@@ -2790,11 +3761,31 @@
           "fields": null,
           "inputFields": [
             {
+              "name": "name",
+              "description": "Filter value by operator(s)",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "NameOperatorsFilterUpdateOneUserInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "age",
               "description": "Filter value by operator(s)",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterUpdateOneUserInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gender",
+              "description": "Filter value by operator(s)",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "GenderOperatorsFilterUpdateOneUserInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2806,6 +3797,95 @@
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterUpdateOneUserInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "NameOperatorsFilterUpdateOneUserInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             }
@@ -2893,6 +3973,95 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "GenderOperatorsFilterUpdateOneUserInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "EnumUserGender",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "EnumUserGender",
                   "ofType": null
                 }
               },
@@ -3013,6 +4182,18 @@
               "deprecationReason": null
             },
             {
+              "name": "NAME_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NAME_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "AGE_ASC",
               "description": null,
               "isDeprecated": false,
@@ -3020,6 +4201,30 @@
             },
             {
               "name": "AGE_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER__AGE_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER__AGE_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -3238,6 +4443,20 @@
               "defaultValue": null
             },
             {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_operators",
               "description": "List of fields that can be filtered via operators",
               "type": {
@@ -3259,11 +4478,31 @@
           "fields": null,
           "inputFields": [
             {
+              "name": "name",
+              "description": "Filter value by operator(s)",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "NameOperatorsFilterUpdateManyUserInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "age",
               "description": "Filter value by operator(s)",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterUpdateManyUserInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gender",
+              "description": "Filter value by operator(s)",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "GenderOperatorsFilterUpdateManyUserInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -3275,6 +4514,95 @@
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterUpdateManyUserInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "NameOperatorsFilterUpdateManyUserInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             }
@@ -3362,6 +4690,95 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "GenderOperatorsFilterUpdateManyUserInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "EnumUserGender",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "EnumUserGender",
                   "ofType": null
                 }
               },
@@ -3482,6 +4899,18 @@
               "deprecationReason": null
             },
             {
+              "name": "NAME_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NAME_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "AGE_ASC",
               "description": null,
               "isDeprecated": false,
@@ -3489,6 +4918,30 @@
             },
             {
               "name": "AGE_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER__AGE_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER__AGE_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -3645,6 +5098,20 @@
               "defaultValue": null
             },
             {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_operators",
               "description": "List of fields that can be filtered via operators",
               "type": {
@@ -3666,11 +5133,31 @@
           "fields": null,
           "inputFields": [
             {
+              "name": "name",
+              "description": "Filter value by operator(s)",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "NameOperatorsFilterRemoveOneUserInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "age",
               "description": "Filter value by operator(s)",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterRemoveOneUserInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gender",
+              "description": "Filter value by operator(s)",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "GenderOperatorsFilterRemoveOneUserInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -3682,6 +5169,95 @@
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterRemoveOneUserInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "NameOperatorsFilterRemoveOneUserInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             }
@@ -3769,6 +5345,95 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "GenderOperatorsFilterRemoveOneUserInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "EnumUserGender",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "EnumUserGender",
                   "ofType": null
                 }
               },
@@ -3889,6 +5554,18 @@
               "deprecationReason": null
             },
             {
+              "name": "NAME_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NAME_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "AGE_ASC",
               "description": null,
               "isDeprecated": false,
@@ -3896,6 +5573,30 @@
             },
             {
               "name": "AGE_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER__AGE_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "GENDER__AGE_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -4029,6 +5730,20 @@
               "defaultValue": null
             },
             {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_operators",
               "description": "List of fields that can be filtered via operators",
               "type": {
@@ -4050,11 +5765,31 @@
           "fields": null,
           "inputFields": [
             {
+              "name": "name",
+              "description": "Filter value by operator(s)",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "NameOperatorsFilterRemoveManyUserInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "age",
               "description": "Filter value by operator(s)",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterRemoveManyUserInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gender",
+              "description": "Filter value by operator(s)",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "GenderOperatorsFilterRemoveManyUserInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -4066,6 +5801,95 @@
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterRemoveManyUserInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "NameOperatorsFilterRemoveManyUserInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "defaultValue": null
             }
@@ -4153,6 +5977,95 @@
                 "ofType": {
                   "kind": "SCALAR",
                   "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "GenderOperatorsFilterRemoveManyUserInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "EnumUserGender",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "EnumUserGender",
                   "ofType": null
                 }
               },

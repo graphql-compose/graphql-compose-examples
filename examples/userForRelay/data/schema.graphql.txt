@@ -138,10 +138,6 @@ input AgeOperatorsFilterUserRelayInput {
   nin: [Float]
 }
 
-# The `ConnectionCursor` is String type, that represents a point of record in data
-# set.  Due this point, you may request previous or next records.
-scalar ConnectionCursor
-
 input CreateOneUserRelayInput {
   name: String
   age: Float
@@ -184,6 +180,7 @@ input FilterFindManyUserRelayInput {
   contacts: UserRelayContactsInput
   gender: EnumUserRelayGender
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindManyUserRelayInput
@@ -196,6 +193,7 @@ input FilterFindOneUserRelayInput {
   contacts: UserRelayContactsInput
   gender: EnumUserRelayGender
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterFindOneUserRelayInput
@@ -208,6 +206,7 @@ input FilterRemoveManyUserRelayInput {
   contacts: UserRelayContactsInput
   gender: EnumUserRelayGender
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterRemoveManyUserRelayInput
@@ -220,6 +219,7 @@ input FilterRemoveOneUserRelayInput {
   contacts: UserRelayContactsInput
   gender: EnumUserRelayGender
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterRemoveOneUserRelayInput
@@ -232,6 +232,7 @@ input FilterUpdateManyUserRelayInput {
   contacts: UserRelayContactsInput
   gender: EnumUserRelayGender
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterUpdateManyUserRelayInput
@@ -244,6 +245,7 @@ input FilterUpdateOneUserRelayInput {
   contacts: UserRelayContactsInput
   gender: EnumUserRelayGender
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterUpdateOneUserRelayInput
@@ -256,6 +258,7 @@ input FilterUserRelayInput {
   contacts: UserRelayContactsInput
   gender: EnumUserRelayGender
   _id: MongoID
+  _ids: [MongoID]
 
   # List of fields that can be filtered via operators
   _operators: OperatorsFilterUserRelayInput
@@ -373,6 +376,27 @@ type PageInfo {
   endCursor: String
 }
 
+# Information about pagination.
+type PaginationInfo {
+  # Current page number
+  currentPage: Int!
+
+  # Number of items per page
+  perPage: Int!
+
+  # Total number of pages
+  pageCount: Int
+
+  # Total number of items
+  itemCount: Int
+
+  # When paginating forwards, are there more items?
+  hasNextPage: Boolean
+
+  # When paginating backwards, are there more items?
+  hasPreviousPage: Boolean
+}
+
 type Query {
   # Fetches an object that has globally unique ID among all types
   node(
@@ -403,13 +427,13 @@ type Query {
     first: Int
 
     # Forward pagination argument for returning at most first edges
-    after: ConnectionCursor
+    after: String
 
     # Backward pagination argument for returning at most last edges
     last: Int
 
     # Backward pagination argument for returning at most last edges
-    before: ConnectionCursor
+    before: String
 
     # Filter by fields
     filter: FilterFindManyUserRelayInput
@@ -417,6 +441,15 @@ type Query {
     # Sort argument for data ordering
     sort: SortConnectionUserRelayEnum = _ID_DESC
   ): UserRelayConnection
+  userPagination(
+    # Page number for displaying
+    page: Int
+    perPage: Int = 20
+
+    # Filter by fields
+    filter: FilterFindManyUserRelayInput
+    sort: SortFindManyUserRelayInput
+  ): UserRelayPagination
 }
 
 input RelayCreateOneUserRelayInput {
@@ -666,7 +699,7 @@ type UserRelayConnection {
   pageInfo: PageInfo!
 
   # Information to aid in pagination.
-  edges: [UserRelayEdge]
+  edges: [UserRelayEdge!]!
 }
 
 type UserRelayContacts {
@@ -685,12 +718,24 @@ type UserRelayEdge {
   node: UserRelay
 
   # A cursor for use in pagination
-  cursor: ConnectionCursor!
+  cursor: String!
 }
 
 type UserRelayLanguages {
   language: String
   skill: EnumUserRelayLanguagesSkill
+}
+
+# List of items with pagination.
+type UserRelayPagination {
+  # Total object count.
+  count: Int
+
+  # Array of objects.
+  items: [UserRelay]
+
+  # Information to aid in pagination.
+  pageInfo: PaginationInfo!
 }
 
 input UserRelayUserRelayLanguagesInput {
