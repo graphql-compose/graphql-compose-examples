@@ -2075,7 +2075,7 @@ graphql-compose-elasticsearch@^1.8.0:
     babel-runtime "^6.26.0"
     dox "^0.9.0"
 
-graphql-compose-mongoose@^1.9.1:
+graphql-compose-mongoose@^1.9.2:
   version "1.9.2"
   resolved "https://registry.yarnpkg.com/graphql-compose-mongoose/-/graphql-compose-mongoose-1.9.2.tgz#2d3d5455e67f9c0669bd75abba433fda92482919"
   dependencies:
