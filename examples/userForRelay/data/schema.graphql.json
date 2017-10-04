@@ -1986,9 +1986,13 @@
               "description": "The item at the end of the edge",
               "args": [],
               "type": {
-                "kind": "OBJECT",
-                "name": "UserRelay",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "UserRelay",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null

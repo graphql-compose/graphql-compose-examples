@@ -362,7 +362,7 @@ type CustomerConnection {
 # An edge in a connection.
 type CustomerEdge {
   # The item at the end of the edge
-  node: Customer
+  node: Customer!
 
   # A cursor for use in pagination
   cursor: String!
@@ -1116,7 +1116,7 @@ type OrderDetails {
 # An edge in a connection.
 type OrderEdge {
   # The item at the end of the edge
-  node: Order
+  node: Order!
 
   # A cursor for use in pagination
   cursor: String!
@@ -1241,7 +1241,7 @@ type ProductConnection {
 # An edge in a connection.
 type ProductEdge {
   # The item at the end of the edge
-  node: Product
+  node: Product!
 
   # A cursor for use in pagination
   cursor: String!
@@ -1679,7 +1679,7 @@ type SupplierConnection {
 # An edge in a connection.
 type SupplierEdge {
   # The item at the end of the edge
-  node: Supplier
+  node: Supplier!
 
   # A cursor for use in pagination
   cursor: String!

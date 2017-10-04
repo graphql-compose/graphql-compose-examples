@@ -715,7 +715,7 @@ input UserRelayContactsInput {
 # An edge in a connection.
 type UserRelayEdge {
   # The item at the end of the edge
-  node: UserRelay
+  node: UserRelay!
 
   # A cursor for use in pagination
   cursor: String!

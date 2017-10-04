@@ -1908,9 +1908,13 @@
               "description": "The item at the end of the edge",
               "args": [],
               "type": {
-                "kind": "OBJECT",
-                "name": "Product",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Product",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -2309,9 +2313,13 @@
               "description": "The item at the end of the edge",
               "args": [],
               "type": {
-                "kind": "OBJECT",
-                "name": "Order",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Order",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -5087,9 +5095,13 @@
               "description": "The item at the end of the edge",
               "args": [],
               "type": {
-                "kind": "OBJECT",
-                "name": "Customer",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Customer",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -11080,9 +11092,13 @@
               "description": "The item at the end of the edge",
               "args": [],
               "type": {
-                "kind": "OBJECT",
-                "name": "Supplier",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Supplier",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
