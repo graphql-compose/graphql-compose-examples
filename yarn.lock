@@ -2068,13 +2068,13 @@ graphql-compose-connection@>=2.3.0:
   dependencies:
     babel-runtime "^6.26.0"
 
-graphql-compose-connection@^2.5.1:
+graphql-compose-connection@^2.5.2:
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/graphql-compose-connection/-/graphql-compose-connection-2.5.2.tgz#e041e7c38527c354bb70a7fe97c7cdf932e76981"
   dependencies:
     babel-runtime "^6.26.0"
 
-graphql-compose-elasticsearch@^1.8.1:
+graphql-compose-elasticsearch@^1.8.2:
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/graphql-compose-elasticsearch/-/graphql-compose-elasticsearch-1.8.2.tgz#2c45fbec3c8714464e49f603b709566b54f9d67b"
   dependencies:
