@@ -64,8 +64,8 @@
   },
   "scripts": {
     "build": "npm run buildSchema",
-    "seed": "./node_modules/.bin/babel-node seed.js",
-    "buildSchema": "./node_modules/.bin/babel-node buildSchema.js",
+    "seed": "./node_modules/.bin/babel-node ./scripts/seed.js",
+    "buildSchema": "./node_modules/.bin/babel-node ./scripts/buildSchema.js",
     "start": "npm run seed && babel-node index.js",
     "start:watch": "npm run watch",
     "watch": "nodemon index.js -e js --exec babel-node",

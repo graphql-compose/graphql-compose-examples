@@ -350,7 +350,7 @@ input CustomerAddressInput {
 # A connection to a list of items.
 type CustomerConnection {
   # Total object count.
-  count: Int
+  count: Int!
 
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -1096,7 +1096,7 @@ type Order implements Node {
 # A connection to a list of items.
 type OrderConnection {
   # Total object count.
-  count: Int
+  count: Int!
 
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -1229,7 +1229,7 @@ type Product implements Node {
 # A connection to a list of items.
 type ProductConnection {
   # Total object count.
-  count: Int
+  count: Int!
 
   # Information to aid in pagination.
   pageInfo: PageInfo!
@@ -1667,7 +1667,7 @@ type Supplier implements Node {
 # A connection to a list of items.
 type SupplierConnection {
   # Total object count.
-  count: Int
+  count: Int!
 
   # Information to aid in pagination.
   pageInfo: PageInfo!

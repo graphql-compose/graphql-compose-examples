@@ -874,7 +874,7 @@ input UserAddressInput {
 # A connection to a list of items.
 type UserConnection {
   # Total object count.
-  count: Int
+  count: Int!
 
   # Information to aid in pagination.
   pageInfo: PageInfo!

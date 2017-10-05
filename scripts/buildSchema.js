@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import { graphql } from 'graphql';
 import { introspectionQuery, printSchema } from 'graphql/utilities';
-import { getExampleNames, resolveExamplePath } from './config';
+import { getExampleNames, resolveExamplePath } from '../config';
 
 async function buildSchema(schemaPath) {
   // $FlowFixMe
@@ -13,16 +13,15 @@ async function buildSchema(schemaPath) {
   if (result.errors) {
     console.error('ERROR introspecting schema: ', JSON.stringify(result.errors, null, 2));
   } else {
-    fs.writeFileSync(
-      path.join(schemaPath, './data/schema.graphql.json'),
-      JSON.stringify(result, null, 2)
-    );
-    console.log(`  write file ${path.join(schemaPath, './data/schema.graphql.json')}`);
+    const jsonFile = path.join(schemaPath, './data/schema.graphql.json');
+    fs.writeFileSync(jsonFile, JSON.stringify(result, null, 2));
+    console.log(`  write file ${jsonFile}`);
   }
 
   // Save user readable type system shorthand of schema
-  fs.writeFileSync(path.join(schemaPath, './data/schema.graphql.txt'), printSchema(Schema));
-  console.log(`  write file ${path.join(schemaPath, './data/schema.graphql.txt')}`);
+  const gqlFile = path.join(schemaPath, './data/schema.graphql');
+  fs.writeFileSync(gqlFile, printSchema(Schema));
+  console.log(`  write file ${gqlFile}`);
 }
 
 async function run() {

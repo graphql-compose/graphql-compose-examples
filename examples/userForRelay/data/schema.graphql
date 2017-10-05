@@ -693,7 +693,7 @@ type UserRelay implements Node {
 # A connection to a list of items.
 type UserRelayConnection {
   # Total object count.
-  count: Int
+  count: Int!
 
   # Information to aid in pagination.
   pageInfo: PageInfo!

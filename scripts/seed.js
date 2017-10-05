@@ -4,7 +4,7 @@
 
 import { MongoClient } from 'mongodb';
 import fs from 'fs';
-import { getExampleNames, resolveExamplePath, mongoUri } from './config';
+import { getExampleNames, resolveExamplePath, mongoUri } from '../config';
 
 let db;
 async function run() {
@@ -27,7 +27,7 @@ async function run() {
       const seedFn = require(seedFile).default;
       await seedFn(db); // eslint-disable-line
     } catch (e) {
-      if (e.code === 'MODULE_NOT_FOUND') {
+      if (e.code === 'MODULE_NOT_FOUND' || e.code === 'ENOENT') {
         console.log(`  file '${seedFile}' not found. Skipping...`);
       } else {
         console.log(e);
