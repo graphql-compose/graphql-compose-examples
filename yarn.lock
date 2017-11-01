@@ -1556,9 +1556,9 @@ eslint-scope@^3.7.1:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint@^4.9.0:
-  version "4.9.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.9.0.tgz#76879d274068261b191fe0f2f56c74c2f4208e8b"
+eslint@^4.10.0:
+  version "4.10.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.10.0.tgz#f25d0d7955c81968c2309aa5c9a229e045176bb7"
   dependencies:
     ajv "^5.2.0"
     babel-code-frame "^6.22.0"
@@ -2070,50 +2070,44 @@ graceful-fs@^4.1.10, graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.4
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
-graphql-compose-connection@>=2.3.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/graphql-compose-connection/-/graphql-compose-connection-2.5.0.tgz#c5df1224d503e53b3ef5546cdbd9d20f8012a211"
+graphql-compose-connection@>=2.5.3, graphql-compose-connection@^2.5.3:
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/graphql-compose-connection/-/graphql-compose-connection-2.5.3.tgz#15998e47142bfe4abe67d9f1959267ccda6c2a89"
   dependencies:
     babel-runtime "^6.26.0"
 
-graphql-compose-connection@^2.5.2:
-  version "2.5.2"
-  resolved "https://registry.yarnpkg.com/graphql-compose-connection/-/graphql-compose-connection-2.5.2.tgz#e041e7c38527c354bb70a7fe97c7cdf932e76981"
-  dependencies:
-    babel-runtime "^6.26.0"
-
-graphql-compose-elasticsearch@^1.8.3:
-  version "1.8.3"
-  resolved "https://registry.yarnpkg.com/graphql-compose-elasticsearch/-/graphql-compose-elasticsearch-1.8.3.tgz#927024e8ca9eaa07d7121f1affa954712133dabe"
+graphql-compose-elasticsearch@^1.8.4:
+  version "1.8.4"
+  resolved "https://registry.yarnpkg.com/graphql-compose-elasticsearch/-/graphql-compose-elasticsearch-1.8.4.tgz#2f5df2a782c4da80b94c63f43ab079e99bad54e1"
   dependencies:
     babel-runtime "^6.26.0"
     dox "^0.9.0"
 
-graphql-compose-mongoose@^1.9.2:
-  version "1.9.2"
-  resolved "https://registry.yarnpkg.com/graphql-compose-mongoose/-/graphql-compose-mongoose-1.9.2.tgz#2d3d5455e67f9c0669bd75abba433fda92482919"
+graphql-compose-mongoose@^1.9.3:
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/graphql-compose-mongoose/-/graphql-compose-mongoose-1.9.3.tgz#4cd128840e8827bc64029388fe5fe1374cf1ec35"
   dependencies:
     babel-runtime "^6.26.0"
     object-path "^0.11.4"
   optionalDependencies:
-    graphql-compose-connection ">=2.3.0"
-    graphql-compose-pagination ">=1.1.0"
+    graphql-compose-connection ">=2.5.3"
+    graphql-compose-pagination ">=1.1.1"
 
-graphql-compose-pagination@>=1.1.0, graphql-compose-pagination@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/graphql-compose-pagination/-/graphql-compose-pagination-1.1.0.tgz#2968919f465e10ebe99c67fdc0d6ad79277c4bc3"
-  dependencies:
-    babel-runtime "^6.26.0"
-
-graphql-compose-relay@^1.1.1:
+graphql-compose-pagination@>=1.1.1, graphql-compose-pagination@^1.1.1:
   version "1.1.1"
-  resolved "https://registry.yarnpkg.com/graphql-compose-relay/-/graphql-compose-relay-1.1.1.tgz#fe77cbdca00c650edc1a8c4017739dd83884121b"
+  resolved "https://registry.yarnpkg.com/graphql-compose-pagination/-/graphql-compose-pagination-1.1.1.tgz#ed06449c7e41270d57c9c7c71789670e482abd9b"
   dependencies:
     babel-runtime "^6.26.0"
 
-graphql-compose@^2.9.4:
-  version "2.9.4"
-  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-2.9.4.tgz#8e0a55435b83b21f3b60b4b728f74be2c48fc10e"
+graphql-compose-relay@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/graphql-compose-relay/-/graphql-compose-relay-1.1.2.tgz#872cbfeb2c4cd81408442b1b147acacb5a65380c"
+  dependencies:
+    babel-runtime "^6.26.0"
+
+graphql-compose@^2.9.5:
+  version "2.9.5"
+  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-2.9.5.tgz#10aa1feb22b02c5d32d939571f09dd96bddc1505"
   dependencies:
     babel-runtime "^6.26.0"
     object-path "^0.11.4"
@@ -2217,9 +2211,9 @@ home-or-tmp@^2.0.0:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.1"
 
-hooks-fixed@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/hooks-fixed/-/hooks-fixed-2.0.0.tgz#a01d894d52ac7f6599bbb1f63dfc9c411df70cba"
+hooks-fixed@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/hooks-fixed/-/hooks-fixed-2.0.2.tgz#20076daa07e77d8a6106883ce3f1722e051140b0"
 
 hosted-git-info@^2.1.4:
   version "2.5.0"
@@ -3228,13 +3222,13 @@ mongodb@2.2.33:
     mongodb-core "2.1.17"
     readable-stream "2.2.7"
 
-mongoose@^4.12.3:
-  version "4.12.3"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.12.3.tgz#7099bf8ce4945150001f4c2462e56c9e958ddcb9"
+mongoose@^4.12.5:
+  version "4.12.5"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.12.5.tgz#c5fecc40a48402120e9a2cf5bd27a674da9ce331"
   dependencies:
     async "2.1.4"
     bson "~1.0.4"
-    hooks-fixed "2.0.0"
+    hooks-fixed "2.0.2"
     kareem "1.5.0"
     mongodb "2.2.33"
     mpath "0.3.0"
