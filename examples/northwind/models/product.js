@@ -58,6 +58,14 @@ ProductTC.addRelation('orderConnection', {
   projection: { productID: true },
 });
 
+ProductTC.addRelation('orderList', {
+  resolver: () => OrderTC.getResolver('findMany'),
+  prepareArgs: {
+    filter: source => ({ details: { productID: source.productID } }),
+  },
+  projection: { productID: true },
+});
+
 ProductTC.addRelation('supplier', {
   resolver: () => SupplierTC.getResolver('findOne'),
   prepareArgs: {

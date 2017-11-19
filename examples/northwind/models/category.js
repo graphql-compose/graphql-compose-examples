@@ -35,3 +35,11 @@ CategoryTC.addRelation('productConnection', {
   },
   projection: { categoryID: true },
 });
+
+CategoryTC.addRelation('productList', {
+  resolver: () => ProductTC.getResolver('findMany'),
+  prepareArgs: {
+    filter: source => ({ categoryID: source.categoryID }),
+  },
+  projection: { categoryID: true },
+});
