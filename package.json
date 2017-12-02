@@ -51,7 +51,7 @@
     "eslint-config-prettier": "^2.8.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-prettier": "^2.3.1",
-    "flow-bin": "^0.59.0",
+    "flow-bin": "^0.60.1",
     "jest": "^21.2.1",
     "mongodb-memory-server": "^1.6.3",
     "nodemon": "^1.12.1",
