@@ -183,6 +183,7 @@ type Category implements Node {
     # Sort argument for data ordering
     sort: SortConnectionProductEnum = _ID_DESC
   ): ProductConnection
+  productList(skip: Int, limit: Int = 1000, sort: SortFindManyProductInput): [Product]
 }
 
 input CategoryIDOperatorsFilterFindManyCategoryInput {
@@ -1222,6 +1223,7 @@ type Product implements Node {
     # Sort argument for data ordering
     sort: SortConnectionOrderEnum = _ID_DESC
   ): OrderConnection
+  orderList(skip: Int, limit: Int = 1000, sort: SortFindManyOrderInput): [Order]
   supplier: Supplier
   category: Category
 }
@@ -1530,6 +1532,15 @@ enum SortFindManyEmployeeInput {
   LASTNAME_DESC
   LASTNAME__FIRSTNAME_ASC
   LASTNAME__FIRSTNAME_DESC
+}
+
+enum SortFindManyOrderInput {
+  _ID_ASC
+  _ID_DESC
+  ORDERID_ASC
+  ORDERID_DESC
+  DETAILS_ASC
+  DETAILS_DESC
 }
 
 enum SortFindManyProductInput {

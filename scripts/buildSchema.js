@@ -8,7 +8,7 @@ import { getExampleNames, resolveExamplePath } from '../config';
 
 async function buildSchema(schemaPath) {
   // $FlowFixMe
-  const Schema = require(`${schemaPath}/graphqlSchema`).default; // eslint-disable-line
+  const Schema = require(`${schemaPath}/schema`).default; // eslint-disable-line
   const result = await graphql(Schema, introspectionQuery);
   if (result.errors) {
     console.error('ERROR introspecting schema: ', JSON.stringify(result.errors, null, 2));
