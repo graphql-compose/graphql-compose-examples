@@ -47,7 +47,7 @@ export function mainPage() {
           <h1>GraphQL-Compose examples</h1>
           ${renderExamplesLinks()}
 
-          <br /><br /><br /><br />
+          <br /><br /><br />
           <h3>Source code:</h3>
           <a href="https://github.com/nodkz/graphql-compose-examples" target="_blank">https://github.com/nodkz/graphql-compose-examples</a>
 
@@ -61,6 +61,8 @@ export function mainPage() {
           <a href="https://github.com/nodkz/graphql-compose-connection" target="_blank">https://github.com/nodkz/graphql-compose-connection</a>
           <br/>
           <a href="https://github.com/nodkz/graphql-compose-elasticsearch" target="_blank">https://github.com/nodkz/graphql-compose-elasticsearch</a>
+          <br/>
+          <a href="https://github.com/graphql-compose/graphql-compose-aws" target="_blank">https://github.com/graphql-compose/graphql-compose-aws</a>
         </div>
 
         <br /><br /><br /><br /><br />

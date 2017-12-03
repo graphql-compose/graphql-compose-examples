@@ -8,11 +8,17 @@ export default {
   title: 'AWS Cloud API wrapper',
   description:
     'This schema provides full API available in the <a href="https://github.com/aws/aws-sdk-js" target="_blank">official aws-sdk js client</a>.',
-  github: 'https://github.com/nodkz/graphql-compose-examples/tree/master/examples/aws',
+  github: 'https://github.com/graphql-compose/graphql-compose-aws',
   queries: [
     {
       title: 'AWS EC2 instance list',
       query: `
+
+# ✋ 🛑 Please provide you credentials for obtaining working demo.
+# ✋ 🛑 You need to wait about 30 seconds, before documentation and
+# autocompletion became avaliable. Needs to download about
+# 9MB schema introspection. Free Heroku account is not so fast, sorry.
+
 query {
   aws(config: {
     accessKeyId: "---> YOUR_KEY <---",
@@ -68,6 +74,12 @@ query {
     {
       title: 'Several AWS API calls in one query with different services and regions',
       query: `
+
+# ✋ 🛑 Please provide you credentials for obtaining working demo.
+# ✋ 🛑 You need to wait about 30 seconds, before documentation and
+# autocompletion became avaliable. Needs to download about
+# 9MB schema introspection. Free Heroku account is not so fast, sorry.
+
 query {
   aws(config: {
     accessKeyId: "---> YOUR_KEY <---",
