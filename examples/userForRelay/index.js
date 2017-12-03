@@ -1,10 +1,10 @@
 /* @flow */
 
-import GraphqlSchema from './graphqlSchema';
+import schema from './schema';
 
 export default {
   uri: '/userForRelay',
-  schema: GraphqlSchema,
+  schema,
   title: 'User for Relay: simple schema with one type.',
   description: 'This schema shows all available CRUD operations which are compatible with Relay.',
   github: 'https://github.com/nodkz/graphql-compose-examples/tree/master/examples/userForRelay',

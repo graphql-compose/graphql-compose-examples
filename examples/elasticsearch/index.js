@@ -1,10 +1,10 @@
 /* @flow */
 
-import GraphqlSchema from './graphqlSchema';
+import schema from './schema';
 
 export default {
   uri: '/elasticsearch',
-  schema: GraphqlSchema,
+  schema,
   title: 'Elasticsearch REST API wrapper',
   description:
     'This schema provides full API available in the <a href="https://github.com/elastic/elasticsearch-js" target="_blank">official elasticsearch module</a>.',

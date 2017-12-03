@@ -1,10 +1,10 @@
 /* @flow */
 
-import GraphqlSchema from './graphqlSchema';
+import schema from './schema';
 
 export default {
   uri: '/user',
-  schema: GraphqlSchema,
+  schema,
   title: 'User: simple schema with one type.',
   description:
     'This schema implements all 13 CRUD operations available in graphql-compose-mongoose.',
