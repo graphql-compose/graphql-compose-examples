@@ -12,9 +12,13 @@ function renderExamplesLinks() {
   const examplesHtml = examplesMeta.map(meta => {
     const titleHtml = `<h4>
       ${meta.title}
-      ${meta.github
-        ? `<small><a href="${meta.github}" target="_blank">GitHub <span class="glyphicon glyphicon-new-window"></span></a></small>`
-        : ''}
+      ${
+        meta.github
+          ? `<small><a href="${
+              meta.github
+            }" target="_blank">GitHub <span class="glyphicon glyphicon-new-window"></span></a></small>`
+          : ''
+      }
     </h4>`;
 
     let descriptionHtml = '';
@@ -23,10 +27,15 @@ function renderExamplesLinks() {
     }
 
     const queries = meta.queries.map(queryData => {
-      return `<b><a href="${meta.uri}/?query=${qs.escape(
-        queryData.query
-      )}">${queryData.title}</a></b>`;
+      return `<b><a href="${meta.uri}/?query=${qs.escape(queryData.query)}" target="_blank">${
+        queryData.title
+      }</a></b>`;
     });
+    queries.push(
+      `<b><a href="${
+        meta.uri
+      }-playground" target="_blank">GraphQL Playground</a> (improved GraphiQL IDE)</b>`
+    );
     const queriesHtml = `<ul><li>${queries.join('</li><li>')}</li></ul>`;
 
     return `${titleHtml}${descriptionHtml}${queriesHtml}`;

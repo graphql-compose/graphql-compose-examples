@@ -3,6 +3,7 @@
 import express from 'express';
 import cors from 'cors';
 import graphqlHTTP from 'express-graphql';
+import expressPlayground from 'graphql-playground-middleware-express';
 import { mainPage, addToMainPage } from './mainPage';
 import { expressPort, getExampleNames, resolveExamplePath } from './config';
 import './mongooseConnection';
@@ -44,5 +45,6 @@ function addExample(example, uri) {
       }),
     }))
   );
+  server.get(`${example.uri}-playground`, expressPlayground({ endpoint: example.uri }));
   addToMainPage(example);
 }
