@@ -39,3 +39,11 @@ CustomerTC.addRelation('orderConnection', {
   },
   projection: { customerID: true },
 });
+
+CustomerTC.addRelation('orderList', {
+  resolver: () => OrderTC.getResolver('findMany'),
+  prepareArgs: {
+    filter: source => ({ customerID: source.customerID }),
+  },
+  projection: { productID: true },
+});
