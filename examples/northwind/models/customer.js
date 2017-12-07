@@ -45,5 +45,5 @@ CustomerTC.addRelation('orderList', {
   prepareArgs: {
     filter: source => ({ customerID: source.customerID }),
   },
-  projection: { productID: true },
+  projection: { customerID: true },
 });
