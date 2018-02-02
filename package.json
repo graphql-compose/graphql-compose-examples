@@ -4,7 +4,7 @@
   "description": "Examples of graphql-compose",
   "engines": {
     "node": "8.6.0",
-    "yarn": "1.2.1"
+    "yarn": "1.3.2"
   },
   "files": [
     "lib"
