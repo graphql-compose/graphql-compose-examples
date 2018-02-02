@@ -9,7 +9,6 @@ const opts = {
   autoReconnect: true,
   reconnectTries: Number.MAX_VALUE,
   reconnectInterval: 1000,
-  useMongoClient: true,
 };
 
 mongoose.connect(mongoUri, opts);

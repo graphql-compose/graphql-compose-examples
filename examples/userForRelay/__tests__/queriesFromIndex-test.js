@@ -10,19 +10,21 @@ import meta from '../index';
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000;
 
 let mongoServer;
+let con;
 let db;
 beforeAll(async () => {
-  mongoServer = new MongodbMemoryServer();
+  mongoServer = new MongodbMemoryServer({ instance: { dbName: 'userForRelay' } });
   const mongoUri = await mongoServer.getConnectionString();
-  const opts = { useMongoClient: true, promiseLibrary: Promise };
+  const opts = { promiseLibrary: Promise };
   mongoose.connect(mongoUri, opts);
-  db = await MongoClient.connect(mongoUri, opts);
+  con = await MongoClient.connect(mongoUri, opts);
+  db = con.db('userForRelay');
   await seed(db);
 });
 
 afterAll(async () => {
   await mongoose.disconnect();
-  db.close();
+  con.close();
   mongoServer.stop();
 });
 
