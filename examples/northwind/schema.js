@@ -4,8 +4,8 @@
 // import { GQC } from 'graphql-compose';
 
 // MULTI SCHEMA MODE IN ONE SERVER
-// create new GQC from ComposeStorage
-import { ComposeStorage } from 'graphql-compose';
+// create new GQC from SchemaComposer
+import { SchemaComposer } from 'graphql-compose';
 import composeWithRelay from 'graphql-compose-relay';
 import { CategoryTC } from './models/category';
 import { CustomerTC } from './models/customer';
@@ -17,11 +17,11 @@ import { ShipperTC } from './models/shipper';
 import { SupplierTC } from './models/supplier';
 import allowOnlyForLocalhost from './auth/allowOnlyForLocalhost';
 
-const GQC = new ComposeStorage();
+const GQC = new SchemaComposer();
 
 composeWithRelay(GQC.rootQuery());
 
-const ViewerTC = GQC.get('Viewer');
+const ViewerTC = GQC.getOrCreateTC('Viewer');
 GQC.rootQuery().addFields({
   viewer: {
     type: ViewerTC.getType(),

@@ -1,6 +1,6 @@
 /* @flow */
 
-import { ComposeStorage } from 'graphql-compose';
+import { SchemaComposer } from 'graphql-compose';
 import composeWithRelay from 'graphql-compose-relay';
 import { UserTC } from './models/user';
 
@@ -8,9 +8,9 @@ import { UserTC } from './models/user';
 // import { GQC } from 'graphql-compose';
 
 // MULTI SCHEMA MODE IN ONE SERVER
-// create new GQC from ComposeStorage
-// import { ComposeStorage } from 'graphql-compose';
-const GQC = new ComposeStorage();
+// create new GQC from SchemaComposer
+// import { SchemaComposer } from 'graphql-compose';
+const GQC = new SchemaComposer();
 
 const RootQueryTC = GQC.rootQuery();
 composeWithRelay(RootQueryTC);

@@ -3,11 +3,11 @@
 // import { GQC } from 'graphql-compose';
 
 // MULTI SCHEMA MODE IN ONE SERVER
-// create new GQC from ComposeStorage
-import { ComposeStorage } from 'graphql-compose';
+// create new GQC from SchemaComposer
+import { SchemaComposer } from 'graphql-compose';
 import { UserTC } from './models/user';
 
-const GQC = new ComposeStorage();
+const GQC = new SchemaComposer();
 
 // create GraphQL Schema with all available resolvers for User Type
 GQC.rootQuery().addFields({

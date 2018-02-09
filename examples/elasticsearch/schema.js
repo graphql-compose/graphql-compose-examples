@@ -2,7 +2,7 @@
 
 import { GraphQLObjectType, GraphQLString } from 'graphql';
 import elasticsearch from 'elasticsearch';
-import { ComposeStorage } from 'graphql-compose';
+import { SchemaComposer } from 'graphql-compose';
 import { ElasticApiParser } from 'graphql-compose-elasticsearch';
 
 function checkHost(host): void {
@@ -15,7 +15,7 @@ function checkHost(host): void {
   }
 }
 
-const GQC = new ComposeStorage();
+const GQC = new SchemaComposer();
 const RootQueryTC = GQC.rootQuery();
 
 RootQueryTC.setField('elastic50', {
