@@ -2411,9 +2411,9 @@ graphql-compose-relay@^1.1.8:
   dependencies:
     babel-runtime "^6.26.0"
 
-graphql-compose@^3.0.0-beta.5:
-  version "3.0.0-beta.5"
-  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-3.0.0-beta.5.tgz#f7ce749248594dd7479a9cea9acb7cc23aecf830"
+graphql-compose@^3.0.0-beta.6:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-3.0.0.tgz#a3f9e6b38e47024b26e35b7ec11e350b6bb64d73"
   dependencies:
     babel-runtime "^6.26.0"
     object-path "^0.11.4"
