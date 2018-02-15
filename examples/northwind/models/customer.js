@@ -1,9 +1,7 @@
 /* @flow */
 
 import mongoose, { Schema } from 'mongoose';
-import composeWithMongoose from 'graphql-compose-mongoose';
-import composeWithRelay from 'graphql-compose-relay';
-
+import { composeWithMongoose, composeWithRelay } from '../gqc';
 import { AddressSchema } from './addressSchema';
 import { OrderTC } from './order';
 

@@ -5,8 +5,8 @@
 
 // MULTI SCHEMA MODE IN ONE SERVER
 // create new GQC from SchemaComposer
-import { SchemaComposer } from 'graphql-compose';
-import composeWithRelay from 'graphql-compose-relay';
+
+import { GQC, composeWithRelay } from './gqc';
 import { CategoryTC } from './models/category';
 import { CustomerTC } from './models/customer';
 import { EmployeeTC } from './models/employee';
@@ -16,8 +16,6 @@ import { RegionTC } from './models/region';
 import { ShipperTC } from './models/shipper';
 import { SupplierTC } from './models/supplier';
 import allowOnlyForLocalhost from './auth/allowOnlyForLocalhost';
-
-const GQC = new SchemaComposer();
 
 composeWithRelay(GQC.rootQuery());
 

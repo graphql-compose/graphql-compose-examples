@@ -1,6 +1,6 @@
 /* @flow */
 
-import type { Resolver } from 'graphql-compose';
+import type { Resolver } from '../gqc';
 
 export default function allowOnlyForLocalhost(resolvers: { [name: string]: Resolver }) {
   const secureResolvers = {};

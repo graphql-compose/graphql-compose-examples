@@ -317,9 +317,9 @@ atob@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.0.3.tgz#19c7a760473774468f20b2d2d03372ad7d4cbf5d"
 
-aws-sdk@^2.192.0:
-  version "2.192.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.192.0.tgz#4170d9086bd1f07e7517cc47bad37d12676ec52a"
+aws-sdk@^2.195.0:
+  version "2.195.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.195.0.tgz#8feb922277455b7ddb608831ef4572b9097048cf"
   dependencies:
     buffer "4.9.1"
     events "^1.1.1"
@@ -1910,9 +1910,9 @@ expand-range@^1.8.1:
   dependencies:
     fill-range "^2.1.0"
 
-expect@^22.2.2:
-  version "22.2.2"
-  resolved "https://registry.yarnpkg.com/expect/-/expect-22.2.2.tgz#6cb6ae2eeb651a4187b9096de70333a018fab63f"
+expect@^22.3.0:
+  version "22.3.0"
+  resolved "https://registry.yarnpkg.com/expect/-/expect-22.3.0.tgz#b1cb7db27a951ab6055f43937277152a9f668028"
   dependencies:
     ansi-styles "^3.2.0"
     jest-diff "^22.1.0"
@@ -2376,9 +2376,9 @@ graphql-compose-aws@^1.0.2:
   dependencies:
     babel-runtime "^6.26.0"
 
-graphql-compose-connection@>=2.5.7, graphql-compose-connection@^2.5.7:
-  version "2.5.7"
-  resolved "https://registry.yarnpkg.com/graphql-compose-connection/-/graphql-compose-connection-2.5.7.tgz#09179730de1183e20edc768a5a8eae157f516d4b"
+graphql-compose-connection@>=3.0.0, graphql-compose-connection@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/graphql-compose-connection/-/graphql-compose-connection-3.0.0.tgz#d637e4e54e26e96b4a2c8792209ec6cd2e9d413c"
   dependencies:
     babel-runtime "^6.26.0"
 
@@ -2389,31 +2389,31 @@ graphql-compose-elasticsearch@^1.8.9:
     babel-runtime "^6.26.0"
     dox "^0.9.0"
 
-graphql-compose-mongoose@^1.11.3:
-  version "1.11.3"
-  resolved "https://registry.yarnpkg.com/graphql-compose-mongoose/-/graphql-compose-mongoose-1.11.3.tgz#1320cc0e2e9305652558837b193c963e0a67c8bb"
+graphql-compose-mongoose@^2.0.0-beta.2:
+  version "2.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/graphql-compose-mongoose/-/graphql-compose-mongoose-2.0.0-beta.2.tgz#f00ed01e694951e726935e97371dc5c42df63f1f"
   dependencies:
     babel-runtime "^6.26.0"
     object-path "^0.11.4"
   optionalDependencies:
-    graphql-compose-connection ">=2.5.7"
-    graphql-compose-pagination ">=1.1.5"
+    graphql-compose-connection ">=3.0.0"
+    graphql-compose-pagination ">=3.0.0"
 
-graphql-compose-pagination@>=1.1.5, graphql-compose-pagination@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/graphql-compose-pagination/-/graphql-compose-pagination-1.1.5.tgz#770f8f8c2ee56d613a26dcd28f87736879e305a0"
-  dependencies:
-    babel-runtime "^6.26.0"
-
-graphql-compose-relay@^1.1.8:
-  version "1.1.8"
-  resolved "https://registry.yarnpkg.com/graphql-compose-relay/-/graphql-compose-relay-1.1.8.tgz#834c02da5b7cb6c719f848a6d40697a122f82c59"
-  dependencies:
-    babel-runtime "^6.26.0"
-
-graphql-compose@^3.0.0-beta.6:
+graphql-compose-pagination@>=3.0.0, graphql-compose-pagination@^3.0.0:
   version "3.0.0"
-  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-3.0.0.tgz#a3f9e6b38e47024b26e35b7ec11e350b6bb64d73"
+  resolved "https://registry.yarnpkg.com/graphql-compose-pagination/-/graphql-compose-pagination-3.0.0.tgz#d445e37ca3939cdf7c73850fba5e6c793d28afaa"
+  dependencies:
+    babel-runtime "^6.26.0"
+
+graphql-compose-relay@^1.1.9:
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/graphql-compose-relay/-/graphql-compose-relay-1.1.9.tgz#b5f89d20439864851bc3cfd8e60bb1130d8d3296"
+  dependencies:
+    babel-runtime "^6.26.0"
+
+graphql-compose@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-3.0.3.tgz#c90a8991e71a149997c17d554fbf73adac26dd35"
   dependencies:
     babel-runtime "^6.26.0"
     object-path "^0.11.4"
@@ -3075,9 +3075,9 @@ jest-changed-files@^22.2.0:
   dependencies:
     throat "^4.0.0"
 
-jest-cli@^22.2.2:
-  version "22.2.2"
-  resolved "https://registry.yarnpkg.com/jest-cli/-/jest-cli-22.2.2.tgz#4431a93a29549da5dcb6d4a41dd03503c9198cd6"
+jest-cli@^22.3.0:
+  version "22.3.0"
+  resolved "https://registry.yarnpkg.com/jest-cli/-/jest-cli-22.3.0.tgz#3fd986f2674f4168c91965be56ab9917a82a45db"
   dependencies:
     ansi-escapes "^3.0.0"
     chalk "^2.0.1"
@@ -3091,17 +3091,17 @@ jest-cli@^22.2.2:
     istanbul-lib-instrument "^1.8.0"
     istanbul-lib-source-maps "^1.2.1"
     jest-changed-files "^22.2.0"
-    jest-config "^22.2.2"
-    jest-environment-jsdom "^22.2.2"
+    jest-config "^22.3.0"
+    jest-environment-jsdom "^22.3.0"
     jest-get-type "^22.1.0"
-    jest-haste-map "^22.2.2"
+    jest-haste-map "^22.3.0"
     jest-message-util "^22.2.0"
     jest-regex-util "^22.1.0"
     jest-resolve-dependencies "^22.1.0"
-    jest-runner "^22.2.2"
-    jest-runtime "^22.2.2"
+    jest-runner "^22.3.0"
+    jest-runtime "^22.3.0"
     jest-snapshot "^22.2.0"
-    jest-util "^22.2.2"
+    jest-util "^22.3.0"
     jest-worker "^22.2.2"
     micromatch "^2.3.11"
     node-notifier "^5.2.1"
@@ -3113,19 +3113,19 @@ jest-cli@^22.2.2:
     which "^1.2.12"
     yargs "^10.0.3"
 
-jest-config@^22.2.2:
-  version "22.2.2"
-  resolved "https://registry.yarnpkg.com/jest-config/-/jest-config-22.2.2.tgz#6b8ed615bc51239847d15460086f174dad4a7015"
+jest-config@^22.3.0:
+  version "22.3.0"
+  resolved "https://registry.yarnpkg.com/jest-config/-/jest-config-22.3.0.tgz#94c7149f123933a872ee24c1719687419c4a623c"
   dependencies:
     chalk "^2.0.1"
     glob "^7.1.1"
-    jest-environment-jsdom "^22.2.2"
-    jest-environment-node "^22.2.2"
+    jest-environment-jsdom "^22.3.0"
+    jest-environment-node "^22.3.0"
     jest-get-type "^22.1.0"
-    jest-jasmine2 "^22.2.2"
+    jest-jasmine2 "^22.3.0"
     jest-regex-util "^22.1.0"
-    jest-resolve "^22.2.2"
-    jest-util "^22.2.2"
+    jest-resolve "^22.3.0"
+    jest-util "^22.3.0"
     jest-validate "^22.2.2"
     pretty-format "^22.1.0"
 
@@ -3148,28 +3148,28 @@ jest-docblock@^22.2.2:
   dependencies:
     detect-newline "^2.1.0"
 
-jest-environment-jsdom@^22.2.2:
-  version "22.2.2"
-  resolved "https://registry.yarnpkg.com/jest-environment-jsdom/-/jest-environment-jsdom-22.2.2.tgz#3513ccdccc2bc41daf9cdee199b7069b0d9feebc"
+jest-environment-jsdom@^22.3.0:
+  version "22.3.0"
+  resolved "https://registry.yarnpkg.com/jest-environment-jsdom/-/jest-environment-jsdom-22.3.0.tgz#c267a063e5dc16219fba0e07542d8aa2576a1c88"
   dependencies:
     jest-mock "^22.2.0"
-    jest-util "^22.2.2"
+    jest-util "^22.3.0"
     jsdom "^11.5.1"
 
-jest-environment-node@^22.2.2:
-  version "22.2.2"
-  resolved "https://registry.yarnpkg.com/jest-environment-node/-/jest-environment-node-22.2.2.tgz#570896eef2dd0f939c71bd5712ef4321958c1270"
+jest-environment-node@^22.3.0:
+  version "22.3.0"
+  resolved "https://registry.yarnpkg.com/jest-environment-node/-/jest-environment-node-22.3.0.tgz#97d34d9706a718d743075149d1950555c10338c0"
   dependencies:
     jest-mock "^22.2.0"
-    jest-util "^22.2.2"
+    jest-util "^22.3.0"
 
 jest-get-type@^22.1.0:
   version "22.1.0"
   resolved "https://registry.yarnpkg.com/jest-get-type/-/jest-get-type-22.1.0.tgz#4e90af298ed6181edc85d2da500dbd2753e0d5a9"
 
-jest-haste-map@^22.2.2:
-  version "22.2.2"
-  resolved "https://registry.yarnpkg.com/jest-haste-map/-/jest-haste-map-22.2.2.tgz#9d3d5a14bd5e05ab9176979f2a5fbb4ddc80eb20"
+jest-haste-map@^22.3.0:
+  version "22.3.0"
+  resolved "https://registry.yarnpkg.com/jest-haste-map/-/jest-haste-map-22.3.0.tgz#e7f048a88735bae07ca12de8785eb8bc522adeab"
   dependencies:
     fb-watchman "^2.0.0"
     graceful-fs "^4.1.11"
@@ -3178,14 +3178,14 @@ jest-haste-map@^22.2.2:
     micromatch "^2.3.11"
     sane "^2.0.0"
 
-jest-jasmine2@^22.2.2:
-  version "22.2.2"
-  resolved "https://registry.yarnpkg.com/jest-jasmine2/-/jest-jasmine2-22.2.2.tgz#9065255c8f635ae9dfa33fc66068f59adf53c9aa"
+jest-jasmine2@^22.3.0:
+  version "22.3.0"
+  resolved "https://registry.yarnpkg.com/jest-jasmine2/-/jest-jasmine2-22.3.0.tgz#ea127dfbb04c6e03998ae0358225435e47520666"
   dependencies:
     callsites "^2.0.0"
     chalk "^2.0.1"
     co "^4.6.0"
-    expect "^22.2.2"
+    expect "^22.3.0"
     graceful-fs "^4.1.11"
     is-generator-fn "^1.0.0"
     jest-diff "^22.1.0"
@@ -3232,32 +3232,32 @@ jest-resolve-dependencies@^22.1.0:
   dependencies:
     jest-regex-util "^22.1.0"
 
-jest-resolve@^22.2.2:
-  version "22.2.2"
-  resolved "https://registry.yarnpkg.com/jest-resolve/-/jest-resolve-22.2.2.tgz#6f49d91e3680c86a4d5e5f72ccdab3996d1cbc19"
+jest-resolve@^22.3.0:
+  version "22.3.0"
+  resolved "https://registry.yarnpkg.com/jest-resolve/-/jest-resolve-22.3.0.tgz#648e797f708e8701071a0fa9fac652c577bb66d9"
   dependencies:
     browser-resolve "^1.11.2"
     chalk "^2.0.1"
 
-jest-runner@^22.2.2:
-  version "22.2.2"
-  resolved "https://registry.yarnpkg.com/jest-runner/-/jest-runner-22.2.2.tgz#17fff27a61b63b58cf104c9cdcc0fdfccd3878ce"
+jest-runner@^22.3.0:
+  version "22.3.0"
+  resolved "https://registry.yarnpkg.com/jest-runner/-/jest-runner-22.3.0.tgz#70393f62770be754e2d14f5ca3d896e408aa001a"
   dependencies:
     exit "^0.1.2"
-    jest-config "^22.2.2"
+    jest-config "^22.3.0"
     jest-docblock "^22.2.2"
-    jest-haste-map "^22.2.2"
-    jest-jasmine2 "^22.2.2"
+    jest-haste-map "^22.3.0"
+    jest-jasmine2 "^22.3.0"
     jest-leak-detector "^22.1.0"
     jest-message-util "^22.2.0"
-    jest-runtime "^22.2.2"
-    jest-util "^22.2.2"
+    jest-runtime "^22.3.0"
+    jest-util "^22.3.0"
     jest-worker "^22.2.2"
     throat "^4.0.0"
 
-jest-runtime@^22.2.2:
-  version "22.2.2"
-  resolved "https://registry.yarnpkg.com/jest-runtime/-/jest-runtime-22.2.2.tgz#256d0efb65deae1c23b819d88cec5ab43d7a4ed6"
+jest-runtime@^22.3.0:
+  version "22.3.0"
+  resolved "https://registry.yarnpkg.com/jest-runtime/-/jest-runtime-22.3.0.tgz#1883d6a4227c1f6af276ead3ed27654257d1ef8c"
   dependencies:
     babel-core "^6.0.0"
     babel-jest "^22.2.2"
@@ -3266,11 +3266,11 @@ jest-runtime@^22.2.2:
     convert-source-map "^1.4.0"
     exit "^0.1.2"
     graceful-fs "^4.1.11"
-    jest-config "^22.2.2"
-    jest-haste-map "^22.2.2"
+    jest-config "^22.3.0"
+    jest-haste-map "^22.3.0"
     jest-regex-util "^22.1.0"
-    jest-resolve "^22.2.2"
-    jest-util "^22.2.2"
+    jest-resolve "^22.3.0"
+    jest-util "^22.3.0"
     json-stable-stringify "^1.0.1"
     micromatch "^2.3.11"
     realpath-native "^1.0.0"
@@ -3290,9 +3290,9 @@ jest-snapshot@^22.2.0:
     natural-compare "^1.4.0"
     pretty-format "^22.1.0"
 
-jest-util@^22.2.2:
-  version "22.2.2"
-  resolved "https://registry.yarnpkg.com/jest-util/-/jest-util-22.2.2.tgz#335484b6aeae0c5a1ae498401630324977fe3465"
+jest-util@^22.3.0:
+  version "22.3.0"
+  resolved "https://registry.yarnpkg.com/jest-util/-/jest-util-22.3.0.tgz#d05bff567a3a86c0e9b3838d812f8290aa768097"
   dependencies:
     callsites "^2.0.0"
     chalk "^2.0.1"
@@ -3317,12 +3317,12 @@ jest-worker@^22.2.2:
   dependencies:
     merge-stream "^1.0.1"
 
-jest@^22.2.2:
-  version "22.2.2"
-  resolved "https://registry.yarnpkg.com/jest/-/jest-22.2.2.tgz#26aca0f5e4eaa76d52f2792b14033a3d1e7be2bd"
+jest@^22.3.0:
+  version "22.3.0"
+  resolved "https://registry.yarnpkg.com/jest/-/jest-22.3.0.tgz#07434314d2e8662ea936552d950680b7e6551b0d"
   dependencies:
     import-local "^1.0.0"
-    jest-cli "^22.2.2"
+    jest-cli "^22.3.0"
 
 jmespath@0.15.0:
   version "0.15.0"
@@ -3753,9 +3753,9 @@ mongodb-core@3.0.2:
     bson "~1.0.4"
     require_optional "^1.0.1"
 
-mongodb-memory-server@^1.6.5:
-  version "1.6.5"
-  resolved "https://registry.yarnpkg.com/mongodb-memory-server/-/mongodb-memory-server-1.6.5.tgz#6dd8ab3c67ed238d46f981ab565b3c07bb368644"
+mongodb-memory-server@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/mongodb-memory-server/-/mongodb-memory-server-1.7.0.tgz#726eca78b4d71399b8182ad87bead068b3e44416"
   dependencies:
     babel-runtime "^6.26.0"
     debug "^3.1.0"
@@ -3769,7 +3769,7 @@ mongodb-memory-server@^1.6.5:
     request "^2.83.0"
     request-promise "^4.2.2"
     tmp "^0.0.33"
-    uuid "^3.0.1"
+    uuid "^3.2.1"
 
 mongodb@3.0.2:
   version "3.0.2"
@@ -3781,9 +3781,9 @@ mongoose-legacy-pluralize@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/mongoose-legacy-pluralize/-/mongoose-legacy-pluralize-1.0.2.tgz#3ba9f91fa507b5186d399fb40854bff18fb563e4"
 
-mongoose@^5.0.4:
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.0.4.tgz#de30d256ff10c6d93654317ce7624c12ddeeb34f"
+mongoose@^5.0.5:
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.0.5.tgz#19277743efe45ef178b94050aad94338e7e3e9ee"
   dependencies:
     async "2.1.4"
     bson "~1.0.4"
@@ -5320,9 +5320,13 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
 
-uuid@3.1.0, uuid@^3.0.0, uuid@^3.0.1, uuid@^3.1.0:
+uuid@3.1.0, uuid@^3.0.0, uuid@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.1.0.tgz#3dd3d3e790abc24d7b0d3a034ffababe28ebbc04"
+
+uuid@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.2.1.tgz#12c528bb9d58d0b9265d9a2f6f0fe8be17ff1f14"
 
 v8flags@^2.1.1:
   version "2.1.1"
