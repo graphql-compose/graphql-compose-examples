@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@babel/code-frame@7.0.0-beta.44", "@babel/code-frame@^7.0.0-beta.40":
+"@babel/code-frame@7.0.0-beta.44":
   version "7.0.0-beta.44"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.0.0-beta.44.tgz#2a02643368de80916162be70865c97774f3adbd9"
   dependencies:
@@ -63,7 +63,7 @@
     babylon "7.0.0-beta.44"
     lodash "^4.2.0"
 
-"@babel/traverse@^7.0.0-beta.40":
+"@babel/traverse@7.0.0-beta.44":
   version "7.0.0-beta.44"
   resolved "https://registry.yarnpkg.com/@babel/traverse/-/traverse-7.0.0-beta.44.tgz#a970a2c45477ad18017e2e465a0606feee0d2966"
   dependencies:
@@ -78,7 +78,7 @@
     invariant "^2.2.0"
     lodash "^4.2.0"
 
-"@babel/types@7.0.0-beta.44", "@babel/types@^7.0.0-beta.40":
+"@babel/types@7.0.0-beta.44":
   version "7.0.0-beta.44"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.0.0-beta.44.tgz#6b1b164591f77dec0a0342aca995f2d046b3a757"
   dependencies:
@@ -350,9 +350,9 @@ atob@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.0.3.tgz#19c7a760473774468f20b2d2d03372ad7d4cbf5d"
 
-aws-sdk@^2.219.1:
-  version "2.219.1"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.219.1.tgz#d2d9705726ffd32661632e781e90bfaafd3c1693"
+aws-sdk@^2.224.1:
+  version "2.224.1"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.224.1.tgz#82fe93e10b3e818f315c35ce8667cdc8db94a0b3"
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
@@ -430,14 +430,14 @@ babel-core@^6.0.0, babel-core@^6.26.0:
     slash "^1.0.0"
     source-map "^0.5.6"
 
-babel-eslint@^8.2.2:
-  version "8.2.2"
-  resolved "http://registry.npmjs.org/babel-eslint/-/babel-eslint-8.2.2.tgz#1102273354c6f0b29b4ea28a65f97d122296b68b"
+babel-eslint@^8.2.3:
+  version "8.2.3"
+  resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-8.2.3.tgz#1a2e6681cc9bc4473c32899e59915e19cd6733cf"
   dependencies:
-    "@babel/code-frame" "^7.0.0-beta.40"
-    "@babel/traverse" "^7.0.0-beta.40"
-    "@babel/types" "^7.0.0-beta.40"
-    babylon "^7.0.0-beta.40"
+    "@babel/code-frame" "7.0.0-beta.44"
+    "@babel/traverse" "7.0.0-beta.44"
+    "@babel/types" "7.0.0-beta.44"
+    babylon "7.0.0-beta.44"
     eslint-scope "~3.7.1"
     eslint-visitor-keys "^1.0.0"
 
@@ -919,7 +919,7 @@ babel-types@^6.18.0, babel-types@^6.19.0, babel-types@^6.24.1, babel-types@^6.26
     lodash "^4.17.4"
     to-fast-properties "^1.0.3"
 
-babylon@7.0.0-beta.44, babylon@^7.0.0-beta.40:
+babylon@7.0.0-beta.44:
   version "7.0.0-beta.44"
   resolved "https://registry.yarnpkg.com/babylon/-/babylon-7.0.0-beta.44.tgz#89159e15e6e30c5096e22d738d8c0af8a0e8ca1d"
 
@@ -1119,7 +1119,7 @@ buffer@^3.0.1:
     ieee754 "^1.1.4"
     isarray "^1.0.0"
 
-builtin-modules@^1.0.0, builtin-modules@^1.1.1:
+builtin-modules@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-1.1.1.tgz#270f076c5a72c02f5b65a47df94c5fe3a278892f"
 
@@ -1768,11 +1768,10 @@ eslint-module-utils@^2.2.0:
     debug "^2.6.8"
     pkg-dir "^1.0.0"
 
-eslint-plugin-import@^2.10.0:
-  version "2.10.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.10.0.tgz#fa09083d5a75288df9c6c7d09fe12255985655e7"
+eslint-plugin-import@^2.11.0:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.11.0.tgz#15aeea37a67499d848e8e981806d4627b5503816"
   dependencies:
-    builtin-modules "^1.1.1"
     contains-path "^0.1.0"
     debug "^2.6.8"
     doctrine "1.5.0"
@@ -1782,6 +1781,7 @@ eslint-plugin-import@^2.10.0:
     lodash "^4.17.4"
     minimatch "^3.0.3"
     read-pkg-up "^2.0.0"
+    resolve "^1.6.0"
 
 eslint-plugin-prettier@^2.6.0:
   version "2.6.0"
@@ -2170,9 +2170,9 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
-flow-bin@0.69.0:
-  version "0.69.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.69.0.tgz#053159a684a6051fcbf0b71a2eb19a9679082da6"
+flow-bin@0.70.0:
+  version "0.70.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.70.0.tgz#080ae83a997f2b4ddb3dc2649bf13336825292b5"
 
 for-in@^1.0.1, for-in@^1.0.2:
   version "1.0.2"
@@ -2410,28 +2410,34 @@ graceful-fs@^4.1.10, graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.4
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
-graphql-compose-aws@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/graphql-compose-aws/-/graphql-compose-aws-1.0.2.tgz#aaf326f9f6b79e2a66d9a263f4630d1518dbe47a"
+graphql-compose-aws@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/graphql-compose-aws/-/graphql-compose-aws-1.0.3.tgz#b6550cf8eb76dbb499b8cc3978a75844354d5620"
   dependencies:
     babel-runtime "^6.26.0"
 
-graphql-compose-connection@>=3.0.0, graphql-compose-connection@^3.0.0:
+graphql-compose-connection@>=3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/graphql-compose-connection/-/graphql-compose-connection-3.0.0.tgz#d637e4e54e26e96b4a2c8792209ec6cd2e9d413c"
   dependencies:
     babel-runtime "^6.26.0"
 
-graphql-compose-elasticsearch@^1.8.11:
-  version "1.8.11"
-  resolved "https://registry.yarnpkg.com/graphql-compose-elasticsearch/-/graphql-compose-elasticsearch-1.8.11.tgz#93c42412c6d4fd5a18ac2157c556d522b9231ed5"
+graphql-compose-connection@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/graphql-compose-connection/-/graphql-compose-connection-3.0.1.tgz#0a8d24f41c5b2fb1d6cf4f9a199a2ade310c7611"
+  dependencies:
+    babel-runtime "^6.26.0"
+
+graphql-compose-elasticsearch@^1.8.12:
+  version "1.8.12"
+  resolved "https://registry.yarnpkg.com/graphql-compose-elasticsearch/-/graphql-compose-elasticsearch-1.8.12.tgz#144138e92e2c29db0b157a535d90e41cb8224dab"
   dependencies:
     babel-runtime "^6.26.0"
     dox "^0.9.0"
 
-graphql-compose-mongoose@^3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/graphql-compose-mongoose/-/graphql-compose-mongoose-3.1.2.tgz#841aaf31034c373c23537c74921408728c2c095e"
+graphql-compose-mongoose@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/graphql-compose-mongoose/-/graphql-compose-mongoose-4.0.0.tgz#c6e06381f8492db3df0656f89b64e2ebcb8a584d"
   dependencies:
     babel-runtime "^6.26.0"
     object-path "^0.11.4"
@@ -2439,21 +2445,27 @@ graphql-compose-mongoose@^3.1.2:
     graphql-compose-connection ">=3.0.0"
     graphql-compose-pagination ">=3.0.0"
 
-graphql-compose-pagination@>=3.0.0, graphql-compose-pagination@^3.0.0:
+graphql-compose-pagination@>=3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/graphql-compose-pagination/-/graphql-compose-pagination-3.0.0.tgz#d445e37ca3939cdf7c73850fba5e6c793d28afaa"
   dependencies:
     babel-runtime "^6.26.0"
 
-graphql-compose-relay@^1.1.10:
-  version "1.1.10"
-  resolved "https://registry.yarnpkg.com/graphql-compose-relay/-/graphql-compose-relay-1.1.10.tgz#2372aeb7ebad51953a215e35f2ba1eb5a6cc8acd"
+graphql-compose-pagination@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/graphql-compose-pagination/-/graphql-compose-pagination-3.0.1.tgz#671b57503d92fc56a6f8285a566d55473b7a8046"
   dependencies:
     babel-runtime "^6.26.0"
 
-graphql-compose@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-3.1.1.tgz#97fcf4f4a0aa5d58906eb9ec4166cbf426437c73"
+graphql-compose-relay@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/graphql-compose-relay/-/graphql-compose-relay-2.0.0.tgz#6de43977979055e91295c65c97895fea51debdb4"
+  dependencies:
+    babel-runtime "^6.26.0"
+
+graphql-compose@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-4.0.0.tgz#6b260dc4e220c33feae46e50e34edd9072ef0244"
   dependencies:
     babel-runtime "^6.26.0"
     object-path "^0.11.4"
@@ -2481,9 +2493,9 @@ graphql-playground-html@1.5.5:
   dependencies:
     graphql-config "2.0.0"
 
-graphql-playground-middleware-express@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/graphql-playground-middleware-express/-/graphql-playground-middleware-express-1.6.0.tgz#2a9da3a397ea63573c0186cb7b61f300d45794a0"
+graphql-playground-middleware-express@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/graphql-playground-middleware-express/-/graphql-playground-middleware-express-1.6.1.tgz#d6287d124a1c55845a52a7d727c371da99cdf0b0"
   dependencies:
     graphql-playground-html "1.5.5"
 
@@ -3830,9 +3842,9 @@ mixin-deep@^1.2.0:
   dependencies:
     minimist "0.0.8"
 
-mongodb-core@3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/mongodb-core/-/mongodb-core-3.0.4.tgz#a3fdf466e697a2f1df87e458e5e2df1c26cc654b"
+mongodb-core@3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/mongodb-core/-/mongodb-core-3.0.6.tgz#c1bf0ab868ece5b1d90917b58d7a8855cd8ba6ff"
   dependencies:
     bson "~1.0.4"
     require_optional "^1.0.1"
@@ -3855,35 +3867,35 @@ mongodb-memory-server@^1.7.3:
     tmp "^0.0.33"
     uuid "^3.2.1"
 
-mongodb@3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.0.4.tgz#ee0c0f7bc565edc5f40ee2d23170e522a8ad2286"
+mongodb@3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.0.6.tgz#72d2444b14f9784869e0c33436c49c8dca5083e4"
   dependencies:
-    mongodb-core "3.0.4"
+    mongodb-core "3.0.6"
 
 mongoose-legacy-pluralize@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/mongoose-legacy-pluralize/-/mongoose-legacy-pluralize-1.0.2.tgz#3ba9f91fa507b5186d399fb40854bff18fb563e4"
 
-mongoose@^5.0.12:
-  version "5.0.12"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.0.12.tgz#608a3829bf2edae47b0078cd1970ede2a033b3a0"
+mongoose@^5.0.15:
+  version "5.0.15"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.0.15.tgz#5260a65e5777224ae6a24f5dc8b8d39b548c826c"
   dependencies:
     async "2.1.4"
     bson "~1.0.4"
     kareem "2.0.6"
     lodash.get "4.4.2"
-    mongodb "3.0.4"
+    mongodb "3.0.6"
     mongoose-legacy-pluralize "1.0.2"
-    mpath "0.3.0"
+    mpath "0.4.1"
     mquery "3.0.0"
     ms "2.0.0"
     regexp-clone "0.0.1"
     sliced "1.0.1"
 
-mpath@0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/mpath/-/mpath-0.3.0.tgz#7a58f789e9b5fd3c94520634157960f26bd5ef44"
+mpath@0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/mpath/-/mpath-0.4.1.tgz#ed10388430380bf7bbb5be1391e5d6969cb08e89"
 
 mquery@3.0.0:
   version "3.0.0"
@@ -4318,9 +4330,9 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier@^1.11.1:
-  version "1.11.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.11.1.tgz#61e43fc4cd44e68f2b0dfc2c38cd4bb0fccdcc75"
+prettier@^1.12.0:
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.12.0.tgz#d26fc5894b9230de97629b39cae225b503724ce8"
 
 pretty-format@^22.4.3:
   version "22.4.3"
@@ -4722,6 +4734,12 @@ resolve@1.1.7:
 resolve@^1.2.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.4.0.tgz#a75be01c53da25d934a98ebd0e4c4a7312f92a86"
+  dependencies:
+    path-parse "^1.0.5"
+
+resolve@^1.6.0:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.7.1.tgz#aadd656374fd298aee895bc026b8297418677fd3"
   dependencies:
     path-parse "^1.0.5"
 
