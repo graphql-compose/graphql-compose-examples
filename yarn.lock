@@ -350,9 +350,9 @@ atob@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.0.3.tgz#19c7a760473774468f20b2d2d03372ad7d4cbf5d"
 
-aws-sdk@^2.224.1:
-  version "2.224.1"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.224.1.tgz#82fe93e10b3e818f315c35ce8667cdc8db94a0b3"
+aws-sdk@^2.225.1:
+  version "2.225.1"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.225.1.tgz#6ec6994a6337f2b553b16f6576df34ea1ac314d8"
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
@@ -2428,16 +2428,16 @@ graphql-compose-connection@^3.0.1:
   dependencies:
     babel-runtime "^6.26.0"
 
-graphql-compose-elasticsearch@^1.8.12:
-  version "1.8.12"
-  resolved "https://registry.yarnpkg.com/graphql-compose-elasticsearch/-/graphql-compose-elasticsearch-1.8.12.tgz#144138e92e2c29db0b157a535d90e41cb8224dab"
+graphql-compose-elasticsearch@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/graphql-compose-elasticsearch/-/graphql-compose-elasticsearch-1.9.0.tgz#d440d207a794cb9467cdd7fcee12e9832caf1fc3"
   dependencies:
     babel-runtime "^6.26.0"
     dox "^0.9.0"
 
-graphql-compose-mongoose@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/graphql-compose-mongoose/-/graphql-compose-mongoose-4.0.0.tgz#c6e06381f8492db3df0656f89b64e2ebcb8a584d"
+graphql-compose-mongoose@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/graphql-compose-mongoose/-/graphql-compose-mongoose-4.1.0.tgz#ca7124e873089cd0ca9a6176cda9230d38288ac2"
   dependencies:
     babel-runtime "^6.26.0"
     object-path "^0.11.4"
@@ -2463,9 +2463,9 @@ graphql-compose-relay@^2.0.0:
   dependencies:
     babel-runtime "^6.26.0"
 
-graphql-compose@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-4.0.0.tgz#6b260dc4e220c33feae46e50e34edd9072ef0244"
+graphql-compose@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-4.0.1.tgz#b580c131dc32d5a8a527ad448ac97615ccb17bef"
   dependencies:
     babel-runtime "^6.26.0"
     object-path "^0.11.4"
@@ -4330,9 +4330,9 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier@^1.12.0:
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.12.0.tgz#d26fc5894b9230de97629b39cae225b503724ce8"
+prettier@^1.12.1:
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.12.1.tgz#c1ad20e803e7749faf905a409d2367e06bbe7325"
 
 pretty-format@^22.4.3:
   version "22.4.3"
