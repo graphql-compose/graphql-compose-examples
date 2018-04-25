@@ -350,9 +350,9 @@ atob@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.0.3.tgz#19c7a760473774468f20b2d2d03372ad7d4cbf5d"
 
-aws-sdk@^2.225.1:
-  version "2.225.1"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.225.1.tgz#6ec6994a6337f2b553b16f6576df34ea1ac314d8"
+aws-sdk@^2.228.1:
+  version "2.228.1"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.228.1.tgz#57b3cc29671cbc80a36d45bbeada8ad269079f2d"
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
@@ -2463,11 +2463,12 @@ graphql-compose-relay@^2.0.0:
   dependencies:
     babel-runtime "^6.26.0"
 
-graphql-compose@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-4.0.1.tgz#b580c131dc32d5a8a527ad448ac97615ccb17bef"
+graphql-compose@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-4.2.0.tgz#c34c2c34ddec683081d43910fd147c411aebd1ba"
   dependencies:
     babel-runtime "^6.26.0"
+    graphql-type-json "^0.2.1"
     object-path "^0.11.4"
 
 graphql-config@2.0.0:
@@ -2504,6 +2505,10 @@ graphql-request@^1.4.0:
   resolved "https://registry.yarnpkg.com/graphql-request/-/graphql-request-1.4.1.tgz#0772743cfac8dfdd4d69d36106a96c9bdd191ce8"
   dependencies:
     cross-fetch "1.1.1"
+
+graphql-type-json@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/graphql-type-json/-/graphql-type-json-0.2.1.tgz#d2c177e2f1b17d87f81072cd05311c0754baa420"
 
 graphql@0.13.2:
   version "0.13.2"
@@ -3842,9 +3847,9 @@ mixin-deep@^1.2.0:
   dependencies:
     minimist "0.0.8"
 
-mongodb-core@3.0.6:
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/mongodb-core/-/mongodb-core-3.0.6.tgz#c1bf0ab868ece5b1d90917b58d7a8855cd8ba6ff"
+mongodb-core@3.0.7:
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/mongodb-core/-/mongodb-core-3.0.7.tgz#a9941f14883a75768d554cef5fd67756a9cc0f25"
   dependencies:
     bson "~1.0.4"
     require_optional "^1.0.1"
@@ -3867,25 +3872,25 @@ mongodb-memory-server@^1.7.3:
     tmp "^0.0.33"
     uuid "^3.2.1"
 
-mongodb@3.0.6:
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.0.6.tgz#72d2444b14f9784869e0c33436c49c8dca5083e4"
+mongodb@3.0.7:
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.0.7.tgz#cfcbaee992d78dabca67177f8f9db9cf13ac3a44"
   dependencies:
-    mongodb-core "3.0.6"
+    mongodb-core "3.0.7"
 
 mongoose-legacy-pluralize@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/mongoose-legacy-pluralize/-/mongoose-legacy-pluralize-1.0.2.tgz#3ba9f91fa507b5186d399fb40854bff18fb563e4"
 
-mongoose@^5.0.15:
-  version "5.0.15"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.0.15.tgz#5260a65e5777224ae6a24f5dc8b8d39b548c826c"
+mongoose@^5.0.16:
+  version "5.0.16"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.0.16.tgz#a405ff0a6583442d9c55fead8ea4fdbdc0b4f5ba"
   dependencies:
     async "2.1.4"
     bson "~1.0.4"
     kareem "2.0.6"
     lodash.get "4.4.2"
-    mongodb "3.0.6"
+    mongodb "3.0.7"
     mongoose-legacy-pluralize "1.0.2"
     mpath "0.4.1"
     mquery "3.0.0"
