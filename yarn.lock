@@ -350,9 +350,9 @@ atob@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.0.3.tgz#19c7a760473774468f20b2d2d03372ad7d4cbf5d"
 
-aws-sdk@^2.228.1:
-  version "2.228.1"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.228.1.tgz#57b3cc29671cbc80a36d45bbeada8ad269079f2d"
+aws-sdk@^2.229.1:
+  version "2.229.1"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.229.1.tgz#6123c8acee0de534a0585e1375ee19c4de54a39e"
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
@@ -2170,9 +2170,9 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
-flow-bin@0.70.0:
-  version "0.70.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.70.0.tgz#080ae83a997f2b4ddb3dc2649bf13336825292b5"
+flow-bin@0.71.0:
+  version "0.71.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.71.0.tgz#fd1b27a6458c3ebaa5cb811853182ed631918b70"
 
 for-in@^1.0.1, for-in@^1.0.2:
   version "1.0.2"
@@ -2410,9 +2410,9 @@ graceful-fs@^4.1.10, graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.4
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/graceful-readlink/-/graceful-readlink-1.0.1.tgz#4cafad76bc62f02fa039b2f94e9a3dd3a391a725"
 
-graphql-compose-aws@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/graphql-compose-aws/-/graphql-compose-aws-1.0.3.tgz#b6550cf8eb76dbb499b8cc3978a75844354d5620"
+graphql-compose-aws@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/graphql-compose-aws/-/graphql-compose-aws-1.0.4.tgz#806d84d4d7b358270f0d2dd81461d768a9ea899a"
   dependencies:
     babel-runtime "^6.26.0"
 
@@ -2435,9 +2435,9 @@ graphql-compose-elasticsearch@^1.9.0:
     babel-runtime "^6.26.0"
     dox "^0.9.0"
 
-graphql-compose-mongoose@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/graphql-compose-mongoose/-/graphql-compose-mongoose-4.1.0.tgz#ca7124e873089cd0ca9a6176cda9230d38288ac2"
+graphql-compose-mongoose@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/graphql-compose-mongoose/-/graphql-compose-mongoose-4.1.1.tgz#25142f4018d51d87647b32a61616ca3c52d318f9"
   dependencies:
     babel-runtime "^6.26.0"
     object-path "^0.11.4"
@@ -2463,9 +2463,9 @@ graphql-compose-relay@^2.0.0:
   dependencies:
     babel-runtime "^6.26.0"
 
-graphql-compose@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-4.2.0.tgz#c34c2c34ddec683081d43910fd147c411aebd1ba"
+graphql-compose@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-4.3.0.tgz#913d43e7d6c5b43a5248e12c48b72c5ef96bfef1"
   dependencies:
     babel-runtime "^6.26.0"
     graphql-type-json "^0.2.1"
