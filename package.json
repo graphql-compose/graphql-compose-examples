@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Examples of graphql-compose",
   "engines": {
-    "node": "8.6.0",
+    "node": "8.10.0",
     "yarn": "1.6.0"
   },
   "files": [
