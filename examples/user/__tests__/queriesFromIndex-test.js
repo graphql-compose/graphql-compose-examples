@@ -16,8 +16,14 @@ beforeAll(async () => {
   mongoServer = new MongodbMemoryServer({ instance: { dbName: 'user' } });
   const mongoUri = await mongoServer.getConnectionString();
   const opts = { promiseLibrary: Promise };
-  mongoose.connect(mongoUri, opts);
-  con = await MongoClient.connect(mongoUri, opts);
+  mongoose.connect(
+    mongoUri,
+    opts
+  );
+  con = await MongoClient.connect(
+    mongoUri,
+    opts
+  );
   db = con.db('user');
   await seed(db);
   // take time to mongo create indexes if needed

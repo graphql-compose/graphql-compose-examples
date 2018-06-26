@@ -16,11 +16,17 @@ beforeAll(async () => {
   mongoServer = new MongodbMemoryServer({ instance: { dbName: 'northwind' } });
   const mongoUri = await mongoServer.getConnectionString();
   const opts = { promiseLibrary: Promise };
-  mongoose.connect(mongoUri, opts);
+  mongoose.connect(
+    mongoUri,
+    opts
+  );
   mongoose.connection.once('disconnected', () => {
     console.log('MongoDB disconnected!');
   });
-  con = await MongoClient.connect(mongoUri, opts);
+  con = await MongoClient.connect(
+    mongoUri,
+    opts
+  );
   db = con.db('northwind');
   await seed(db);
   // take time to mongo create indexes if needed
