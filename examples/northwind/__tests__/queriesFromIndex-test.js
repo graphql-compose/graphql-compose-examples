@@ -30,7 +30,7 @@ beforeAll(async () => {
   db = con.db('northwind');
   await seed(db);
   // take time to mongo create indexes if needed
-  await new Promise(resolve => setTimeout(resolve, 1000));
+  await new Promise(resolve => setTimeout(resolve, 3000));
 });
 
 afterAll(async () => {
