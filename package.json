@@ -40,7 +40,7 @@
     "graphql-compose-aws": "^1.1.0",
     "graphql-compose-connection": "^3.2.0",
     "graphql-compose-elasticsearch": "^1.10.1",
-    "graphql-compose-mongoose": "^4.3.0",
+    "graphql-compose-mongoose": "^4.4.0",
     "graphql-compose-pagination": "^3.3.0",
     "graphql-compose-relay": "^2.1.1",
     "graphql-playground-middleware-express": "^1.7.2",

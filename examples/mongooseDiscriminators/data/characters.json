@@ -1,0 +1,92 @@
+[
+  {
+    "_id": "100000000000000000000001",
+    "type": "Person",
+  	"name": "Luke Skywalker",
+  	"height": "172",
+  	"mass": "77",
+  	"films": [
+  		"https://swapi.co/api/films/2/",
+  		"https://swapi.co/api/films/6/",
+  		"https://swapi.co/api/films/3/",
+  		"https://swapi.co/api/films/1/",
+  		"https://swapi.co/api/films/7/"
+  	],
+    "gender": "male",
+    "hairColor": "blond",
+  	"starships": [
+  		"https://swapi.co/api/starships/12/",
+  		"https://swapi.co/api/starships/22/"
+  	]
+  },
+  {
+    "_id": "100000000000000000000002",
+    "type": "Droid",
+  	"name": "C-3PO",
+  	"height": "167",
+  	"mass": "75",
+  	"films": [
+  		"https://swapi.co/api/films/2/",
+  		"https://swapi.co/api/films/5/",
+  		"https://swapi.co/api/films/4/",
+  		"https://swapi.co/api/films/6/",
+  		"https://swapi.co/api/films/3/",
+  		"https://swapi.co/api/films/1/"
+  	],
+    "makeDate": "112BBY",
+    "primaryFunction": ["Function 1", "Function 2"]
+  },
+  {
+    "_id": "100000000000000000000003",
+    "type": "Droid",
+  	"name": "R2-D2",
+  	"height": "96",
+  	"mass": "32",
+  	"films": [
+  		"https://swapi.co/api/films/2/",
+  		"https://swapi.co/api/films/5/",
+  		"https://swapi.co/api/films/4/",
+  		"https://swapi.co/api/films/6/",
+  		"https://swapi.co/api/films/3/",
+  		"https://swapi.co/api/films/1/",
+  		"https://swapi.co/api/films/7/"
+  	],
+    "makeDate": "33BBY",
+    "primaryFunction": ["Function 1", "Function 3"]
+  },
+  {
+    "_id": "100000000000000000000004",
+    "type": "Person",
+  	"name": "Darth Vader",
+  	"height": "202",
+  	"mass": "136",
+  	"films": [
+  		"https://swapi.co/api/films/2/",
+  		"https://swapi.co/api/films/6/",
+  		"https://swapi.co/api/films/3/",
+  		"https://swapi.co/api/films/1/"
+  	],
+    "hairColor": "none",
+  	"gender": "male",
+    "starships": [
+  		"https://swapi.co/api/starships/13/"
+  	]
+  },
+  {
+    "_id": "100000000000000000000005",
+    "type": "Person",
+  	"name": "Leia Organa",
+  	"height": "150",
+  	"mass": "49",
+  	"films": [
+  		"https://swapi.co/api/films/2/",
+  		"https://swapi.co/api/films/6/",
+  		"https://swapi.co/api/films/3/",
+  		"https://swapi.co/api/films/1/",
+  		"https://swapi.co/api/films/7/"
+  	],
+    "hairColor": "brown",
+  	"gender": "female",
+  	"starships": []
+  }
+]

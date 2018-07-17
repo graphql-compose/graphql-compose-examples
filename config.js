@@ -19,7 +19,7 @@ export function resolveExamplePath(...args: any) {
 }
 
 export function getExampleNames() {
-  const preferableOrder = ['user', 'userForRelay', 'northwind'];
+  const preferableOrder = ['user', 'userForRelay', 'northwind', 'mongooseDiscriminators'];
   const dirs = getDirectories(examplesPath);
 
   const result = [];

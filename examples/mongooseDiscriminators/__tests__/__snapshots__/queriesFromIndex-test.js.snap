@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mongooseDiscriminators > queries Find many with fragments on Interface type 1`] = `
+Object {
+  "data": Object {
+    "characterMany": Array [
+      Object {
+        "__typename": "Person",
+        "hairColor": "blond",
+        "name": "Luke Skywalker",
+      },
+      Object {
+        "__typename": "Droid",
+        "makeDate": "112BBY",
+        "name": "C-3PO",
+      },
+      Object {
+        "__typename": "Droid",
+        "makeDate": "33BBY",
+        "name": "R2-D2",
+      },
+      Object {
+        "__typename": "Person",
+        "hairColor": "none",
+        "name": "Darth Vader",
+      },
+      Object {
+        "__typename": "Person",
+        "hairColor": "brown",
+        "name": "Leia Organa",
+      },
+    ],
+    "droidMany": Array [
+      Object {
+        "makeDate": "112BBY",
+        "name": "C-3PO",
+      },
+      Object {
+        "makeDate": "33BBY",
+        "name": "R2-D2",
+      },
+    ],
+    "personMany": Array [
+      Object {
+        "hairColor": "blond",
+        "name": "Luke Skywalker",
+      },
+      Object {
+        "hairColor": "none",
+        "name": "Darth Vader",
+      },
+      Object {
+        "hairColor": "brown",
+        "name": "Leia Organa",
+      },
+    ],
+  },
+}
+`;
