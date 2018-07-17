@@ -11,13 +11,19 @@ const opts = {
   reconnectInterval: 1000,
 };
 
-mongoose.connect(mongoUri, opts);
+mongoose.connect(
+  mongoUri,
+  opts
+);
 
 export const { connection } = mongoose;
 connection.on('error', e => {
   if (e.message.code === 'ETIMEDOUT') {
     console.log(e);
-    mongoose.connect(mongoUri, opts);
+    mongoose.connect(
+      mongoUri,
+      opts
+    );
   }
   console.log(e);
 });

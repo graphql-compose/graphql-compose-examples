@@ -15,7 +15,7 @@ let db;
 beforeAll(async () => {
   mongoServer = new MongodbMemoryServer({ instance: { dbName: 'northwind' } });
   const mongoUri = await mongoServer.getConnectionString();
-  const opts = { promiseLibrary: Promise };
+  const opts = { useNewUrlParser: true };
   mongoose.connect(
     mongoUri,
     opts

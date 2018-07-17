@@ -15,7 +15,7 @@ let db;
 beforeAll(async () => {
   mongoServer = new MongodbMemoryServer({ instance: { dbName: 'user' } });
   const mongoUri = await mongoServer.getConnectionString();
-  const opts = { promiseLibrary: Promise };
+  const opts = { useNewUrlParser: true };
   mongoose.connect(
     mongoUri,
     opts
@@ -47,7 +47,7 @@ function findQueryByTitle(str) {
   if (queryConfig && queryConfig.query) {
     return queryConfig.query;
   }
-  return 'query not found';
+  throw new Error(`Query not found by name: ${str}`);
 }
 
 describe('user > queries', () => {

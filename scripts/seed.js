@@ -8,7 +8,12 @@ import { getExampleNames, resolveExamplePath, mongoUri } from '../config';
 
 let db;
 async function run() {
-  db = await MongoClient.connect(mongoUri, { promiseLibrary: Promise });
+  const con = await MongoClient.connect(
+    mongoUri,
+    { useNewUrlParser: true }
+  );
+
+  db = con.db('graphql-compose-mongoose');
 
   const exampleNames = getExampleNames();
   for (const name of exampleNames) {
@@ -36,7 +41,7 @@ async function run() {
   }
 
   console.log('Seed competed!');
-  db.close();
+  con.close();
 }
 
 run().catch(e => {
