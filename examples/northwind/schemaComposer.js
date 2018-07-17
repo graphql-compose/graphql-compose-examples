@@ -14,9 +14,9 @@ type TContext = {
   ip: string,
 };
 
-const GQC: SchemaComposer<TContext> = new SchemaComposer();
-const { TypeComposer, InputTypeComposer, EnumTypeComposer, Resolver } = GQC;
-export { GQC, TypeComposer, InputTypeComposer, EnumTypeComposer, Resolver };
+const schemaComposer: SchemaComposer<TContext> = new SchemaComposer();
+const { TypeComposer, InputTypeComposer, EnumTypeComposer, Resolver } = schemaComposer;
+export { schemaComposer, TypeComposer, InputTypeComposer, EnumTypeComposer, Resolver };
 
 export const composeWithMongoose: (*, *) => TypeComposer = _composeWithMongoose;
 export { composeWithRelay };

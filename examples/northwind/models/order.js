@@ -1,7 +1,7 @@
 /* @flow */
 
 import mongoose, { Schema } from 'mongoose';
-import { composeWithMongoose, composeWithRelay } from '../gqc';
+import { composeWithMongoose, composeWithRelay } from '../schemaComposer';
 import { AddressSchema } from './addressSchema';
 import { CustomerTC } from './customer';
 import { EmployeeTC } from './employee';

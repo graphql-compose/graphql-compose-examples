@@ -1,6 +1,6 @@
 /* @flow */
 
-import type { Resolver } from '../gqc';
+import type { Resolver } from '../schemaComposer';
 
 export default function allowOnlyForLocalhost(resolvers: { [name: string]: Resolver }) {
   const secureResolvers = {};

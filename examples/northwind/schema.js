@@ -1,12 +1,13 @@
 /* @flow */
 
 // SINGLE SCHEMA ON SERVER
-// import { GQC } from 'graphql-compose';
+// import { schemaComposer } from 'graphql-compose';
 
 // MULTI SCHEMA MODE IN ONE SERVER
-// create new GQC from SchemaComposer
+// import { SchemaComposer } from 'graphql-compose';
+// const schemaComposer = new SchemaComposer();
 
-import { GQC, composeWithRelay } from './gqc';
+import { schemaComposer, composeWithRelay } from './schemaComposer';
 import { CategoryTC } from './models/category';
 import { CustomerTC } from './models/customer';
 import { EmployeeTC } from './models/employee';
@@ -17,10 +18,10 @@ import { ShipperTC } from './models/shipper';
 import { SupplierTC } from './models/supplier';
 import allowOnlyForLocalhost from './auth/allowOnlyForLocalhost';
 
-composeWithRelay(GQC.rootQuery());
+composeWithRelay(schemaComposer.Query);
 
-const ViewerTC = GQC.getOrCreateTC('Viewer');
-GQC.rootQuery().addFields({
+const ViewerTC = schemaComposer.getOrCreateTC('Viewer');
+schemaComposer.Query.addFields({
   viewer: {
     type: ViewerTC.getType(),
     description: 'Data under client context',
@@ -57,11 +58,11 @@ const fields = {
 
 ViewerTC.addFields(fields);
 
-GQC.rootMutation().addFields({
+schemaComposer.Mutation.addFields({
   ...allowOnlyForLocalhost({
     createProduct: ProductTC.get('$createOne'),
     removeProductById: ProductTC.get('$removeById'),
   }),
 });
 
-export default GQC.buildSchema();
+export default schemaComposer.buildSchema();

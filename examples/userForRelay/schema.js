@@ -4,18 +4,11 @@ import { SchemaComposer } from 'graphql-compose';
 import composeWithRelay from 'graphql-compose-relay';
 import { UserTC } from './models/user';
 
-// SINGLE SCHEMA ON SERVER
-// import { GQC } from 'graphql-compose';
+const schemaComposer = new SchemaComposer();
 
-// MULTI SCHEMA MODE IN ONE SERVER
-// create new GQC from SchemaComposer
-// import { SchemaComposer } from 'graphql-compose';
-const GQC = new SchemaComposer();
+composeWithRelay(schemaComposer.Query);
 
-const RootQueryTC = GQC.rootQuery();
-composeWithRelay(RootQueryTC);
-
-RootQueryTC.addFields({
+schemaComposer.Query.addFields({
   userById: UserTC.getResolver('findById'),
   userByIds: UserTC.getResolver('findByIds'),
   userOne: UserTC.getResolver('findOne'),
@@ -25,7 +18,7 @@ RootQueryTC.addFields({
   userPagination: UserTC.getResolver('pagination'),
 });
 
-GQC.rootMutation().addFields({
+schemaComposer.Mutation.addFields({
   userCreate: UserTC.getResolver('createOne'),
   userUpdateById: UserTC.getResolver('updateById'),
   userUpdateOne: UserTC.getResolver('updateOne'),
@@ -35,5 +28,5 @@ GQC.rootMutation().addFields({
   userRemoveMany: UserTC.getResolver('removeMany'),
 });
 
-const graphqlSchema = GQC.buildSchema();
+const graphqlSchema = schemaComposer.buildSchema();
 export default graphqlSchema;

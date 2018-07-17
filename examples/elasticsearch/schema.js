@@ -15,10 +15,9 @@ function checkHost(host): void {
   }
 }
 
-const GQC = new SchemaComposer();
-const RootQueryTC = GQC.rootQuery();
+const schemaComposer = new SchemaComposer();
 
-RootQueryTC.setField('elastic50', {
+schemaComposer.Query.setField('elastic50', {
   description: 'Elastic v5.0',
   type: new GraphQLObjectType({
     name: 'Elastic50',
@@ -42,7 +41,7 @@ RootQueryTC.setField('elastic50', {
   },
 });
 
-RootQueryTC.setField('elastic24', {
+schemaComposer.Query.setField('elastic24', {
   description: 'Elastic v2.4',
   type: new GraphQLObjectType({
     name: 'Elastic24',
@@ -66,7 +65,7 @@ RootQueryTC.setField('elastic24', {
   },
 });
 
-RootQueryTC.setField('elastic17', {
+schemaComposer.Query.setField('elastic17', {
   description: 'Elastic v1.7',
   type: new GraphQLObjectType({
     name: 'Elastic17',
@@ -90,5 +89,5 @@ RootQueryTC.setField('elastic17', {
   },
 });
 
-const graphqlSchema = GQC.buildSchema();
+const graphqlSchema = schemaComposer.buildSchema();
 export default graphqlSchema;
