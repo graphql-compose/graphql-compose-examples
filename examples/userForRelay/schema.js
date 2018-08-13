@@ -20,6 +20,7 @@ schemaComposer.Query.addFields({
 
 schemaComposer.Mutation.addFields({
   userCreate: UserTC.getResolver('createOne'),
+  userCreateMany: UserTC.getResolver('createMany'),
   userUpdateById: UserTC.getResolver('updateById'),
   userUpdateOne: UserTC.getResolver('updateOne'),
   userUpdateMany: UserTC.getResolver('updateMany'),
