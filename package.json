@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/nodkz/graphql-compose-examples",
   "dependencies": {
-    "aws-sdk": "^2.275.1",
+    "aws-sdk": "^2.291.0",
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
@@ -36,30 +36,30 @@
     "express": "^4.16.3",
     "express-graphql": "^0.6.12",
     "graphql": "0.13.2",
-    "graphql-compose": "^4.7.1",
+    "graphql-compose": "^4.8.2",
     "graphql-compose-aws": "^1.1.0",
     "graphql-compose-connection": "^3.2.0",
     "graphql-compose-elasticsearch": "^1.10.1",
-    "graphql-compose-mongoose": "^4.4.0",
+    "graphql-compose-mongoose": "^4.6.0",
     "graphql-compose-pagination": "^3.3.0",
     "graphql-compose-relay": "^2.1.1",
     "graphql-playground-middleware-express": "^1.7.2",
-    "mongoose": "^5.2.4"
+    "mongoose": "^5.2.7"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.6",
-    "babel-jest": "^23.4.0",
-    "eslint": "^5.1.0",
-    "eslint-config-airbnb-base": "^13.0.0",
+    "babel-jest": "^23.4.2",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^2.6.2",
-    "flow-bin": "0.76.0",
-    "jest": "^23.4.1",
-    "mongodb-memory-server": "^1.9.0",
-    "nodemon": "^1.18.2",
-    "prettier": "^1.13.7",
-    "request": "^2.87.0"
+    "flow-bin": "0.78.0",
+    "jest": "^23.5.0",
+    "mongodb-memory-server": "^1.9.3",
+    "nodemon": "^1.18.3",
+    "prettier": "^1.14.2",
+    "request": "^2.88.0"
   },
   "jest": {
     "roots": [
