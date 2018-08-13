@@ -1,7 +1,6 @@
 ## This is example app of `graphql-compose`
 
 [![Travis](https://img.shields.io/travis/graphql-compose/graphql-compose-examples.svg?maxAge=2592000)](https://travis-ci.org/graphql-compose/graphql-compose-examples)
-[![Greenkeeper badge](https://badges.greenkeeper.io/graphql-compose/graphql-compose-examples.svg)](https://greenkeeper.io/)
 
 Live example on Heroku: [https://graphql-compose.herokuapp.com/](https://graphql-compose.herokuapp.com/)
 
