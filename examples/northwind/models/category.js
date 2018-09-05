@@ -1,10 +1,10 @@
 /* @flow */
 
-import mongoose, { Schema } from 'mongoose';
+import mongoose from 'mongoose';
 import { composeWithMongoose, composeWithRelay } from '../schemaComposer';
 import { ProductTC } from './product';
 
-export const CategorySchema = new Schema(
+export const CategorySchema = new mongoose.Schema(
   {
     categoryID: {
       type: Number,

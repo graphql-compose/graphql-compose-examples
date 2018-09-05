@@ -1,6 +1,5 @@
 /* @flow */
 
-import { GraphQLObjectType, GraphQLString } from 'graphql';
 import elasticsearch from 'elasticsearch';
 import { SchemaComposer } from 'graphql-compose';
 import { ElasticApiParser } from 'graphql-compose-elasticsearch';
@@ -19,13 +18,13 @@ const schemaComposer = new SchemaComposer();
 
 schemaComposer.Query.setField('elastic50', {
   description: 'Elastic v5.0',
-  type: new GraphQLObjectType({
+  type: schemaComposer.TypeComposer.create({
     name: 'Elastic50',
     fields: new ElasticApiParser({ version: '5_0', prefix: 'Elastic50' }).generateFieldMap(),
   }),
   args: {
     host: {
-      type: GraphQLString,
+      type: 'String',
       defaultValue: 'http://user:pass@example.com:9200',
     },
   },
@@ -43,13 +42,13 @@ schemaComposer.Query.setField('elastic50', {
 
 schemaComposer.Query.setField('elastic24', {
   description: 'Elastic v2.4',
-  type: new GraphQLObjectType({
+  type: schemaComposer.TypeComposer.create({
     name: 'Elastic24',
     fields: new ElasticApiParser({ version: '2_4', prefix: 'Elastic24' }).generateFieldMap(),
   }),
   args: {
     host: {
-      type: GraphQLString,
+      type: 'String',
       defaultValue: 'http://user:pass@example.com:9200',
     },
   },
@@ -67,13 +66,13 @@ schemaComposer.Query.setField('elastic24', {
 
 schemaComposer.Query.setField('elastic17', {
   description: 'Elastic v1.7',
-  type: new GraphQLObjectType({
+  type: schemaComposer.TypeComposer.create({
     name: 'Elastic17',
     fields: new ElasticApiParser({ version: '5_0', prefix: 'Elastic17' }).generateFieldMap(),
   }),
   args: {
     host: {
-      type: GraphQLString,
+      type: 'String',
       defaultValue: 'http://user:pass@example.com:9200',
     },
   },

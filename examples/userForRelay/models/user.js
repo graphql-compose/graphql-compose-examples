@@ -1,8 +1,7 @@
 /* @flow */
 
 import mongoose from 'mongoose';
-import composeWithMongoose from 'graphql-compose-mongoose';
-import composeWithRelay from 'graphql-compose-relay';
+import { composeWithMongoose, composeWithRelay } from '../schemaComposer';
 
 const LanguagesSchema = new mongoose.Schema(
   {

@@ -1,11 +1,11 @@
 /* @flow */
 
-import mongoose, { Schema } from 'mongoose';
+import mongoose from 'mongoose';
 import { composeWithMongoose, composeWithRelay } from '../schemaComposer';
 import { AddressSchema } from './addressSchema';
 import { OrderTC } from './order';
 
-export const CustomerSchema = new Schema(
+export const CustomerSchema = new mongoose.Schema(
   {
     customerID: {
       type: String,

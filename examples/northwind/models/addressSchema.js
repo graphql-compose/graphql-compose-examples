@@ -1,8 +1,8 @@
 /* @flow */
 
-import { Schema } from 'mongoose';
+import mongoose from 'mongoose';
 
-export const AddressSchema = new Schema(
+export const AddressSchema = new mongoose.Schema(
   {
     street: String,
     city: String,

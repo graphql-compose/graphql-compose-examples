@@ -1,12 +1,12 @@
 /* @flow */
 
-import mongoose, { Schema } from 'mongoose';
+import mongoose from 'mongoose';
 import { composeWithMongoose, composeWithRelay } from '../schemaComposer';
 import { OrderTC } from './order';
 import { SupplierTC } from './supplier';
 import { CategoryTC } from './category';
 
-export const ProductSchema = new Schema(
+export const ProductSchema = new mongoose.Schema(
   {
     productID: {
       type: Number,
@@ -41,8 +41,8 @@ const extendedResolver = ProductTC.getResolver('findMany').addFilterArg({
   name: 'nameRegexp',
   type: 'String',
   description: 'Search by regExp',
-    query: (query, value, resolveParams) => { // eslint-disable-line
-      query.name = new RegExp(value, 'i'); // eslint-disable-line
+  query: (query, value) => {
+    query.name = new RegExp(value, 'i'); // eslint-disable-line
   },
 });
 extendedResolver.name = 'findMany';

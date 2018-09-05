@@ -7,10 +7,8 @@
 // import { SchemaComposer } from 'graphql-compose';
 // const schemaComposer = new SchemaComposer();
 
-import { SchemaComposer } from 'graphql-compose';
+import { schemaComposer } from './schemaComposer';
 import { UserTC } from './models/user';
-
-const schemaComposer = new SchemaComposer();
 
 // create GraphQL Schema with all available resolvers for User Type
 schemaComposer.Query.addFields({

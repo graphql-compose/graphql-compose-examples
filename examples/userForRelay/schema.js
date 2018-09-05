@@ -1,10 +1,7 @@
 /* @flow */
 
-import { SchemaComposer } from 'graphql-compose';
-import composeWithRelay from 'graphql-compose-relay';
+import { schemaComposer, composeWithRelay } from './schemaComposer';
 import { UserTC } from './models/user';
-
-const schemaComposer = new SchemaComposer();
 
 composeWithRelay(schemaComposer.Query);
 

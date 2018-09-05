@@ -1,6 +1,6 @@
 /* @flow */
 
-import mongoose, { Schema } from 'mongoose';
+import mongoose from 'mongoose';
 import { composeWithMongoose, composeWithRelay } from '../schemaComposer';
 import { AddressSchema } from './addressSchema';
 import { CustomerTC } from './customer';
@@ -8,7 +8,7 @@ import { EmployeeTC } from './employee';
 import { ShipperTC } from './shipper';
 import { ProductTC } from './product';
 
-export const OrderDetailsSchema = new Schema(
+export const OrderDetailsSchema = new mongoose.Schema(
   {
     productID: Number,
     unitPrice: Number,
@@ -20,7 +20,7 @@ export const OrderDetailsSchema = new Schema(
   }
 );
 
-export const OrderSchema = new Schema(
+export const OrderSchema = new mongoose.Schema(
   {
     orderID: {
       type: Number,

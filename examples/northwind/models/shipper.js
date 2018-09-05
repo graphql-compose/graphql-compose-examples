@@ -1,10 +1,10 @@
 /* @flow */
 
-import mongoose, { Schema } from 'mongoose';
+import mongoose from 'mongoose';
 import { composeWithMongoose, composeWithRelay } from '../schemaComposer';
 import { OrderTC } from './order';
 
-export const ShipperSchema = new Schema(
+export const ShipperSchema = new mongoose.Schema(
   {
     shipperID: {
       type: Number,

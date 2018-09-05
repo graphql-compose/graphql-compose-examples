@@ -1,10 +1,10 @@
 /* @flow */
 
-import mongoose, { Schema } from 'mongoose';
+import mongoose from 'mongoose';
 import { composeWithMongoose, composeWithRelay } from '../schemaComposer';
 import { EmployeeTC } from './employee';
 
-export const TerritorySchema = Schema(
+export const TerritorySchema = mongoose.Schema(
   {
     territoryID: Number,
     name: String,
@@ -14,7 +14,7 @@ export const TerritorySchema = Schema(
   }
 );
 
-export const RegionSchema = new Schema(
+export const RegionSchema = new mongoose.Schema(
   {
     regionID: {
       type: Number,

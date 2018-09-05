@@ -1,7 +1,7 @@
 /* @flow */
 
 import mongoose from 'mongoose';
-import composeWithMongoose from 'graphql-compose-mongoose';
+import { composeWithMongoose } from '../schemaComposer';
 
 const LanguagesSchema = new mongoose.Schema(
   {
@@ -78,7 +78,7 @@ UserTC.setResolver(
       distance: Float!
     }`,
     description: 'Search by distance in meters',
-    query: (rawQuery, value, resolveParams) => { // eslint-disable-line
+    query: (rawQuery, value) => {
       if (!value.lng || !value.lat || !value.distance) return;
       // read more https://docs.mongodb.com/manual/tutorial/query-a-2dsphere-index/
       rawQuery['address.geo'] = {
