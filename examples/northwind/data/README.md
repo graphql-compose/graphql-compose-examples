@@ -50,7 +50,7 @@ File `mongo-shell-transform.js` is a `mongo shell` script, that makes data trans
   - reportsTo: int<EmployeeID>
   - ~photoPath->REMOVED: string~
   - territoryIDs: ARRAY from **employee-territories** (49 subdocs in total)
-    - employeeID: int
+    - ~employeeID->REMOVED: int~
     - territoryID: int
 - **orders** (830 docs)
   - orderID: int
