@@ -10,6 +10,12 @@ Run `./mongo-import.sh` for load data from `csv` folder to your local mongodb, a
 
 File `mongo-shell-transform.js` is a `mongo shell` script, that makes data transformation (rename/remove/embed fields). Called internally in `./mongo-import.sh`.
 
+### Schema Diagrams
+
+![Northwind Business Data Domain](./northwind-business-data-domain.svg)
+
+![Northwind MongoDB Schema](./northwind-mongodb-schema.svg)
+
 ### How schema was transformed
 - **categories** (8 docs)
   - categoryID: int
