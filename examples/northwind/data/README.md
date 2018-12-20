@@ -15,7 +15,7 @@ File `mongo-shell-transform.js` is a `mongo shell` script, that makes data trans
   - categoryID: int
   - categoryName->name: string
   - description: string
-  - picture->REMOVED: bin
+  - ~picture->REMOVED: bin~
 - **customers** (91 docs)
   - customerID: string
   - companyName: string
@@ -28,7 +28,7 @@ File `mongo-shell-transform.js` is a `mongo shell` script, that makes data trans
     - postalCode: string
     - country: string
     - phone: string
-    - fax->REMOVED: string
+    - ~fax->REMOVED: string~
 - **employees** (9 docs)
   - employeeID: int
   - lastName: string
@@ -44,18 +44,18 @@ File `mongo-shell-transform.js` is a `mongo shell` script, that makes data trans
     - postalCode: string
     - country: string
     - homePhone->phone: string
-    - extension->REMOVED: string
-  - photo->REMOVED: bin
+    - ~extension->REMOVED: string~
+  - ~photo->REMOVED: bin~
   - notes: string
   - reportsTo: int<EmployeeID>
-  - photoPath->REMOVED: string
+  - ~photoPath->REMOVED: string~
   - territoryIDs: ARRAY from **employee-territories** (49 subdocs in total)
     - employeeID: int
     - territoryID: int
 - **orders** (830 docs)
   - orderID: int
-  - customerID: string
-  - employeeID: int
+  - customerID: string<Customers>
+  - employeeID: int<Employees>
   - orderDate: datetime
   - requiredDate: datetime
   - shippedDate: datetime
@@ -69,16 +69,16 @@ File `mongo-shell-transform.js` is a `mongo shell` script, that makes data trans
     - shipPostalCode->postalCode: string
     - shipCountry->country: string
   - details: EMBEDDED ARRAY of **order-details** (2155 subdocs in total)
-    - orderID->REMOVED: int
-    - productID: int
+    - ~orderID->REMOVED: int~
+    - productID: int<Products>
     - unitPrice: float
     - quantity: int
     - discount: float
 - **products** (77 docs)
   - productID: int
   - productName: string
-  - supplierID: int
-  - categoryID: int
+  - supplierID: int<Suppliers>
+  - categoryID: int<Categories>
   - quantityPerUnit: string
   - unitPrice: float
   - unitsInStock: int
@@ -91,7 +91,7 @@ File `mongo-shell-transform.js` is a `mongo shell` script, that makes data trans
   - territories: EMBEDDED ARRAY of **territories** (53 subdocs in total)
     - territoryID: int
     - territoryDescription->name: string
-    - regionID: int
+    - ~regionID->REMOVED: int~
 - **shippers** (3 docs)
   - shipperID: int
   - companyName: string
@@ -108,8 +108,8 @@ File `mongo-shell-transform.js` is a `mongo shell` script, that makes data trans
     - postalCode: string
     - country: string
     - phone: string
-    - fax->REMOVED: string
-  - homePage->REMOVED: string
+    - ~fax->REMOVED: string~
+  - ~homePage->REMOVED: string~
 
 
 ### Thanks to
