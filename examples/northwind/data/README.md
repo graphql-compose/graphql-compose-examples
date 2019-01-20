@@ -82,7 +82,7 @@ File `mongo-shell-transform.js` is a `mongo shell` script, that makes data trans
     - discount: float
 - **products** (77 docs)
   - productID: int
-  - productName: string
+  - productName->name: string
   - supplierID: int<Suppliers>
   - categoryID: int<Categories>
   - quantityPerUnit: string
