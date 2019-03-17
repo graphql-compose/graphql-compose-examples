@@ -1,9 +1,9 @@
 /* @flow */
 
-import mongoose from 'mongoose';
+import { Schema, model, type ObjectId } from 'mongoose';
 import { composeWithMongoose } from '../schemaComposer';
 
-const LanguagesSchema = new mongoose.Schema(
+const LanguagesSchema = new Schema(
   {
     language: String,
     skill: {
@@ -16,7 +16,7 @@ const LanguagesSchema = new mongoose.Schema(
   }
 );
 
-const AddressSchema = new mongoose.Schema({
+const AddressSchema = new Schema({
   street: String,
   geo: {
     type: [Number], // [<longitude>, <latitude>]
@@ -24,7 +24,7 @@ const AddressSchema = new mongoose.Schema({
   },
 });
 
-export const UserSchema = new mongoose.Schema(
+export const UserSchema: Schema<UserDoc> = new Schema(
   {
     name: {
       type: String,
@@ -52,7 +52,7 @@ export const UserSchema = new mongoose.Schema(
       type: AddressSchema,
     },
     someMixed: {
-      type: mongoose.Schema.Types.Mixed,
+      type: Schema.Types.Mixed,
       description: 'Some dynamic data',
     },
   },
@@ -61,11 +61,47 @@ export const UserSchema = new mongoose.Schema(
   }
 );
 
+// Just a demo how to annotate mongoose models in Flowtype
+// But better to use TypeScript & Decorators with `typegoose` package.
+export class UserDoc /* :: extends Mongoose$Document */ {
+  // $FlowFixMe
+  _id: ObjectId;
+
+  name: string;
+
+  age: number;
+
+  languages: Array<{
+    language: string,
+    skill: 'basic' | 'fluent' | 'native',
+  }>;
+
+  contacts: {
+    email: string,
+    phones: string[],
+  };
+
+  gender: 'male' | 'female' | 'ladyboy';
+}
+
 UserSchema.index({ gender: 1, age: -1 });
 
-export const User = mongoose.model('User', UserSchema);
+export const User = model('User', UserSchema);
 
-export const UserTC = composeWithMongoose(User);
+export const UserTC = composeWithMongoose<UserDoc>(User);
+
+UserTC.addFields({
+  virtualField: {
+    type: 'String',
+    args: {
+      lang: 'String',
+    },
+    resolve: (source, args, context, info) => {
+      // following vars have autocompletion (excepts args in Flow)
+      return source.contacts.email + context.ip + info.fieldName;
+    },
+  },
+});
 
 UserTC.setResolver(
   'findMany',

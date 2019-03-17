@@ -1,10 +1,10 @@
 /* @flow */
 
-import mongoose from 'mongoose';
+import { Schema, model } from 'mongoose';
 import { composeWithMongoose, composeWithRelay } from '../schemaComposer';
 import { OrderTC } from './order';
 
-export const ShipperSchema = new mongoose.Schema(
+export const ShipperSchema: Schema<any> = new Schema(
   {
     shipperID: {
       type: Number,
@@ -19,9 +19,9 @@ export const ShipperSchema = new mongoose.Schema(
   }
 );
 
-export const Shipper = mongoose.model('Shipper', ShipperSchema);
+export const Shipper = model('Shipper', ShipperSchema);
 
-export const ShipperTC = composeWithRelay(composeWithMongoose(Shipper));
+export const ShipperTC = composeWithRelay(composeWithMongoose<any>(Shipper));
 
 ShipperTC.addRelation('orderConnection', {
   resolver: () => OrderTC.getResolver('connection'),

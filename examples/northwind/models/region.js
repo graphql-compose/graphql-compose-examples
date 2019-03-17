@@ -1,10 +1,10 @@
 /* @flow */
 
-import mongoose from 'mongoose';
+import { Schema, model } from 'mongoose';
 import { composeWithMongoose, composeWithRelay } from '../schemaComposer';
 import { EmployeeTC } from './employee';
 
-export const TerritorySchema = mongoose.Schema(
+export const TerritorySchema: Schema<any> = new Schema(
   {
     territoryID: Number,
     name: String,
@@ -14,7 +14,7 @@ export const TerritorySchema = mongoose.Schema(
   }
 );
 
-export const RegionSchema = new mongoose.Schema(
+export const RegionSchema: Schema<any> = new Schema(
   {
     regionID: {
       type: Number,
@@ -31,9 +31,9 @@ export const RegionSchema = new mongoose.Schema(
   }
 );
 
-export const Region = mongoose.model('Region', RegionSchema);
+export const Region = model('Region', RegionSchema);
 
-export const RegionTC = composeWithRelay(composeWithMongoose(Region));
+export const RegionTC = composeWithRelay(composeWithMongoose<any>(Region));
 
 RegionTC.addRelation('employees', {
   resolver: () => EmployeeTC.getResolver('findMany'),

@@ -3,6 +3,7 @@
 > **©Fargo**
 
 This is a sample data of some trading company:
+
 - Initial SQLish schema can be found in [csv folder](https://github.com/nodkz/graphql-compose-mongoose-example/tree/master/examples/northwind/data/csv).
 - Modified/normalized MongoDBish schema in [json folder](https://github.com/nodkz/graphql-compose-mongoose-example/tree/master/examples/northwind/data/json).
 
@@ -17,6 +18,7 @@ File `mongo-shell-transform.js` is a `mongo shell` script, that makes data trans
 ![Northwind MongoDB Schema](./northwind-mongodb-schema.svg)
 
 ### How schema was transformed
+
 - **categories** (8 docs)
   - categoryID: int
   - categoryName->name: string

@@ -1,11 +1,11 @@
 /* @flow */
 
-import mongoose from 'mongoose';
+import { Schema, model } from 'mongoose';
 import { composeWithMongoose, composeWithRelay } from '../schemaComposer';
 import { AddressSchema } from './addressSchema';
 import { ProductTC } from './product';
 
-export const SupplierSchema = new mongoose.Schema(
+export const SupplierSchema: Schema<any> = new Schema(
   {
     supplierID: {
       type: Number,
@@ -25,9 +25,9 @@ export const SupplierSchema = new mongoose.Schema(
   }
 );
 
-export const Supplier = mongoose.model('Supplier', SupplierSchema);
+export const Supplier = model('Supplier', SupplierSchema);
 
-export const SupplierTC = composeWithRelay(composeWithMongoose(Supplier));
+export const SupplierTC = composeWithRelay(composeWithMongoose<any>(Supplier));
 
 SupplierTC.addRelation('productConnection', {
   resolver: () => ProductTC.getResolver('connection'),

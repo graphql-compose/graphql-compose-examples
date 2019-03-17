@@ -11,6 +11,16 @@ export default {
   github: 'https://github.com/nodkz/graphql-compose-examples/tree/master/examples/elasticsearch',
   queries: [
     {
+      title: 'Elastic search API 6.0',
+      query: `
+query {
+  elastic60(host: "http://user:pass@example.com:9200") {
+    search(q: "JavaScript")
+  }
+}
+      `,
+    },
+    {
       title: 'Elastic search API 5.0',
       query: `
 query {

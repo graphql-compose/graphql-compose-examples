@@ -16,14 +16,8 @@ beforeAll(async () => {
   mongoServer = new MongodbMemoryServer({ instance: { dbName: 'userForRelay' } });
   const mongoUri = await mongoServer.getConnectionString();
   const opts = { useNewUrlParser: true };
-  mongoose.connect(
-    mongoUri,
-    opts
-  );
-  con = await MongoClient.connect(
-    mongoUri,
-    opts
-  );
+  mongoose.connect(mongoUri, opts);
+  con = await MongoClient.connect(mongoUri, opts);
   db = con.db('userForRelay');
   await seed(db);
   // take time to mongo create indexes if needed

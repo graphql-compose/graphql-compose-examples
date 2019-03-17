@@ -2,7 +2,8 @@
 
 import mongoose from 'mongoose';
 import { composeWithMongooseDiscriminators } from 'graphql-compose-mongoose';
-import { schemaComposer } from './schemaComposer';
+import { type ObjectTypeComposer } from 'graphql-compose';
+import { schemaComposer, type TContext } from './schemaComposer';
 
 // pick a discriminatorKey
 const DKey = 'type';
@@ -55,7 +56,16 @@ export const CharacterModel = mongoose.model('Character', CharacterSchema);
 export const DroidModel = CharacterModel.discriminator(enumCharacterType.DROID, DroidSchema);
 export const PersonModel = CharacterModel.discriminator(enumCharacterType.PERSON, PersonSchema);
 
-export const CharacterDTC = composeWithMongooseDiscriminators(CharacterModel, { schemaComposer });
+export const CharacterDTC = composeWithMongooseDiscriminators<any, TContext>(CharacterModel, {
+  schemaComposer,
+});
 
-export const DroidTC = CharacterDTC.discriminator(DroidModel);
-export const PersonTC = CharacterDTC.discriminator(PersonModel);
+type DroidT = any;
+export const DroidTC: ObjectTypeComposer<DroidT, TContext> = CharacterDTC.discriminator<DroidT>(
+  DroidModel
+);
+
+type PersonT = any;
+export const PersonTC: ObjectTypeComposer<PersonT, TContext> = CharacterDTC.discriminator<PersonT>(
+  PersonModel
+);

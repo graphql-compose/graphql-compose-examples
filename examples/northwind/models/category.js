@@ -1,10 +1,10 @@
 /* @flow */
 
-import mongoose from 'mongoose';
+import { Schema, model } from 'mongoose';
 import { composeWithMongoose, composeWithRelay } from '../schemaComposer';
 import { ProductTC } from './product';
 
-export const CategorySchema = new mongoose.Schema(
+export const CategorySchema: Schema<any> = new Schema(
   {
     categoryID: {
       type: Number,
@@ -22,9 +22,9 @@ export const CategorySchema = new mongoose.Schema(
   }
 );
 
-export const Category = mongoose.model('Category', CategorySchema);
+export const Category = model('Category', CategorySchema);
 
-export const CategoryTC = composeWithRelay(composeWithMongoose(Category));
+export const CategoryTC = composeWithRelay(composeWithMongoose<any>(Category));
 
 CategoryTC.addRelation('productConnection', {
   resolver: () => ProductTC.getResolver('connection'),

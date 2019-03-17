@@ -1,11 +1,11 @@
 /* @flow */
 
-import mongoose from 'mongoose';
+import { Schema, model } from 'mongoose';
 import { composeWithMongoose, composeWithRelay } from '../schemaComposer';
 import { AddressSchema } from './addressSchema';
 import { OrderTC } from './order';
 
-export const EmployeeSchema = new mongoose.Schema(
+export const EmployeeSchema: Schema<any> = new Schema(
   {
     employeeID: {
       type: Number,
@@ -61,9 +61,9 @@ EmployeeSchema.index(
   }
 );
 
-export const Employee = mongoose.model('Employee', EmployeeSchema);
+export const Employee = model('Employee', EmployeeSchema);
 
-export const EmployeeTC = composeWithRelay(composeWithMongoose(Employee));
+export const EmployeeTC = composeWithRelay(composeWithMongoose<any>(Employee));
 
 const findManyResolver = EmployeeTC.getResolver('findMany').addFilterArg({
   name: 'fullTextSearch',

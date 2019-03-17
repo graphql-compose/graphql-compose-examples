@@ -1,9 +1,9 @@
 /* @flow */
 
-import mongoose from 'mongoose';
+import { model, Schema, type ObjectId } from 'mongoose';
 import { composeWithMongoose, composeWithRelay } from '../schemaComposer';
 
-const LanguagesSchema = new mongoose.Schema(
+const LanguagesSchema = new Schema(
   {
     language: String,
     skill: {
@@ -16,7 +16,7 @@ const LanguagesSchema = new mongoose.Schema(
   }
 );
 
-export const UserSchema = new mongoose.Schema(
+export const UserSchema: Schema<UserDoc> = new Schema(
   {
     name: String, // standard types
     age: {
@@ -43,6 +43,31 @@ export const UserSchema = new mongoose.Schema(
   }
 );
 
-export const User = mongoose.model('UserRelay', UserSchema);
+// Just a demo how to annotate mongoose models in Flowtype
+// But better to use TypeScript & Decorators with `typegoose` package.
+export class UserDoc /* :: extends Mongoose$Document */ {
+  // $FlowFixMe
+  _id: ObjectId;
 
-export const UserTC = composeWithRelay(composeWithMongoose(User));
+  name: string;
+
+  age: number;
+
+  languages: Array<{
+    language: string,
+    skill: 'basic' | 'fluent' | 'native',
+  }>;
+
+  contacts: {
+    email: string,
+    phones: string[],
+  };
+
+  gender: 'male' | 'female' | 'ladyboy';
+}
+
+UserSchema.loadClass(UserDoc);
+
+export const User = model('UserRelay', UserSchema);
+
+export const UserTC = composeWithRelay(composeWithMongoose<UserDoc>(User));

@@ -1,6 +1,6 @@
 /* @flow */
 
-import mongoose from 'mongoose';
+import { Schema, model } from 'mongoose';
 import { composeWithMongoose, composeWithRelay } from '../schemaComposer';
 import { AddressSchema } from './addressSchema';
 import { CustomerTC } from './customer';
@@ -8,7 +8,7 @@ import { EmployeeTC } from './employee';
 import { ShipperTC } from './shipper';
 import { ProductTC } from './product';
 
-export const OrderDetailsSchema = new mongoose.Schema(
+export const OrderDetailsSchema: Schema<any> = new Schema(
   {
     productID: Number,
     unitPrice: Number,
@@ -20,7 +20,7 @@ export const OrderDetailsSchema = new mongoose.Schema(
   }
 );
 
-export const OrderSchema = new mongoose.Schema(
+export const OrderSchema: Schema<any> = new Schema(
   {
     orderID: {
       type: Number,
@@ -47,9 +47,9 @@ export const OrderSchema = new mongoose.Schema(
   }
 );
 
-export const Order = mongoose.model('Order', OrderSchema);
+export const Order = model('Order', OrderSchema);
 
-export const OrderTC = composeWithRelay(composeWithMongoose(Order));
+export const OrderTC = composeWithRelay(composeWithMongoose<any>(Order));
 
 OrderTC.addRelation('customer', {
   resolver: () => CustomerTC.getResolver('findOne'),

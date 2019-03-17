@@ -9,4 +9,8 @@
 
 import { SchemaComposer } from 'graphql-compose';
 
-export const schemaComposer = new SchemaComposer();
+export type TContext = {
+  ip: string,
+};
+
+export const schemaComposer: SchemaComposer<TContext> = new SchemaComposer();

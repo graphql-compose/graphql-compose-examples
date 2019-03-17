@@ -1,12 +1,12 @@
 /* @flow */
 
-import mongoose from 'mongoose';
+import { Schema, model } from 'mongoose';
 import { composeWithMongoose, composeWithRelay } from '../schemaComposer';
 import { OrderTC } from './order';
 import { SupplierTC } from './supplier';
 import { CategoryTC } from './category';
 
-export const ProductSchema = new mongoose.Schema(
+export const ProductSchema: Schema<any> = new Schema(
   {
     productID: {
       type: Number,
@@ -33,9 +33,9 @@ export const ProductSchema = new mongoose.Schema(
 
 ProductSchema.index({ name: 1, supplierID: 1 }, { unique: true });
 
-export const Product = mongoose.model('Product', ProductSchema);
+export const Product = model('Product', ProductSchema);
 
-export const ProductTC = composeWithRelay(composeWithMongoose(Product));
+export const ProductTC = composeWithRelay(composeWithMongoose<any>(Product));
 
 const extendedResolver = ProductTC.getResolver('findMany').addFilterArg({
   name: 'nameRegexp',

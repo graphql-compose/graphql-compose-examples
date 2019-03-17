@@ -26,5 +26,12 @@ schemaComposer.Mutation.addFields({
   userRemoveMany: UserTC.getResolver('removeMany'),
 });
 
+UserTC.setField('staticAnalysisDemoField', {
+  type: 'String',
+  resolve: (source, args, context, info) => {
+    return source.contacts.email + context.ip + info.fieldName;
+  },
+});
+
 const graphqlSchema = schemaComposer.buildSchema();
 export default graphqlSchema;

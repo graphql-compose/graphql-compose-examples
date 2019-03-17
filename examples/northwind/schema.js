@@ -20,7 +20,7 @@ import allowOnlyForLocalhost from './auth/allowOnlyForLocalhost';
 
 composeWithRelay(schemaComposer.Query);
 
-const ViewerTC = schemaComposer.getOrCreateTC('Viewer');
+const ViewerTC = schemaComposer.getOrCreateOTC('Viewer');
 schemaComposer.Query.addFields({
   viewer: {
     type: ViewerTC.getType(),
