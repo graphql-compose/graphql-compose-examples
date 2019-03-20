@@ -16,6 +16,8 @@ import {
   convertSchemaToGraphQL as _convertSchemaToGraphQL,
 } from 'graphql-compose-mongoose/node8';
 
+export { Resolver } from 'graphql-compose';
+
 type TContext = {
   ip: string,
 };

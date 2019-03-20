@@ -84,7 +84,7 @@ Object {
 exports[`nortwind > queries Mutation example (✋ 🛑 For security reason this operation is allowed only on localhost). 1`] = `
 Object {
   "data": Object {
-    "removeProductById": null,
+    "removeProduct": null,
   },
   "errors": Array [
     [GraphQLError: Cannot read property 'ip' of undefined],

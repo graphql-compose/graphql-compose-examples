@@ -7,7 +7,7 @@
 // import { SchemaComposer } from 'graphql-compose';
 // const schemaComposer = new SchemaComposer();
 
-import { schemaComposer, composeWithRelay } from './schemaComposer';
+import { schemaComposer, composeWithRelay, Resolver } from './schemaComposer';
 import { CategoryTC } from './models/category';
 import { CustomerTC } from './models/customer';
 import { EmployeeTC } from './models/employee';
@@ -34,16 +34,20 @@ const fields = {
   categoryList: CategoryTC.getResolver('findMany'),
 
   customer: CustomerTC.getResolver('findOne'),
+  customerPagination: CustomerTC.getResolver('pagination'),
   customerConnection: CustomerTC.getResolver('connection'),
 
   employee: EmployeeTC.getResolver('findOne'),
   employeeList: EmployeeTC.getResolver('findMany'),
+  employeePagination: EmployeeTC.getResolver('pagination'),
 
   order: OrderTC.getResolver('findOne'),
+  orderPagination: OrderTC.getResolver('pagination'),
   orderConnection: OrderTC.getResolver('connection'),
 
   product: ProductTC.getResolver('findOne'),
   productList: ProductTC.getResolver('findMany'),
+  productPagination: ProductTC.getResolver('pagination'),
   productConnection: ProductTC.getResolver('connection'),
 
   region: RegionTC.getResolver('findOne'),
@@ -60,9 +64,26 @@ ViewerTC.addFields(fields);
 
 schemaComposer.Mutation.addFields({
   ...allowOnlyForLocalhost({
-    createProduct: ProductTC.get('$createOne'),
-    removeProductById: ProductTC.get('$removeById'),
+    ...addQueryToPayload({
+      createProduct: ProductTC.getResolver('createOne'),
+      updateProduct: ProductTC.getResolver('updateById'),
+      removeProduct: ProductTC.getResolver('removeById'),
+
+      createOrder: OrderTC.getResolver('createOne'),
+      updateOrder: OrderTC.getResolver('updateById'),
+      removeOrder: OrderTC.getResolver('removeById'),
+    }),
   }),
 });
+
+function addQueryToPayload(resolvers: { [name: string]: Resolver<any, any, any> }) {
+  Object.keys(resolvers).forEach(k => {
+    resolvers[k].getTypeComposer().setField('query', {
+      type: 'Query',
+      resolve: () => ({}),
+    });
+  });
+  return resolvers;
+}
 
 export default schemaComposer.buildSchema();
