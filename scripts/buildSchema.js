@@ -22,6 +22,10 @@ async function buildSchema(schemaPath) {
   const gqlFile = path.join(schemaPath, './data/schema.graphql');
   fs.writeFileSync(gqlFile, printSchema(Schema));
   console.log(`  write file ${gqlFile}`);
+
+  const gqlFile2 = path.join(schemaPath, './data/schema.v11.graphql');
+  fs.writeFileSync(gqlFile2, printSchema(Schema, { commentDescriptions: true }));
+  console.log(`  write file ${gqlFile2}`);
 }
 
 async function run() {
