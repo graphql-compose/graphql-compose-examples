@@ -539,6 +539,18 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "staticAnalysisDemoField",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -565,7 +577,7 @@
         {
           "kind": "SCALAR",
           "name": "Float",
-          "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). ",
+          "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point). ",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -783,7 +795,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserRelayUserRelayLanguagesInput",
+                  "name": "UserRelayLanguagesInput",
                   "ofType": null
                 }
               },
@@ -835,11 +847,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterFindOneUserRelayInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindOneUserRelayInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindOneUserRelayInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -850,7 +898,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "UserRelayUserRelayLanguagesInput",
+          "name": "UserRelayLanguagesInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -917,12 +965,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterFindOneUserRelayInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "age",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterFindOneUserRelayInput",
@@ -932,7 +980,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindOneUserRelayInput",
@@ -1192,7 +1240,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserRelayUserRelayLanguagesInput",
+                  "name": "UserRelayLanguagesInput",
                   "ofType": null
                 }
               },
@@ -1244,11 +1292,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterFindManyUserRelayInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyUserRelayInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyUserRelayInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -1260,12 +1344,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterFindManyUserRelayInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "age",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterFindManyUserRelayInput",
@@ -1275,7 +1359,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindManyUserRelayInput",
@@ -1535,7 +1619,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserRelayUserRelayLanguagesInput",
+                  "name": "UserRelayLanguagesInput",
                   "ofType": null
                 }
               },
@@ -1587,11 +1671,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterUserRelayInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterUserRelayInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterUserRelayInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -1603,12 +1723,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterUserRelayInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "age",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterUserRelayInput",
@@ -1618,7 +1738,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterUserRelayInput",
@@ -2202,6 +2322,33 @@
               "deprecationReason": null
             },
             {
+              "name": "userCreateMany",
+              "description": "Creates Many documents with mongoose defaults, setters, hooks and validation",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "RelayCreateManyUserRelayInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateManyUserRelayPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "userUpdateById",
               "description": "Update one document: 1) Retrieve one document by findById. 2) Apply updates to mongoose document. 3) Mongoose applies defaults, setters, hooks and validation. 4) And save it.",
               "args": [
@@ -2438,7 +2585,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserRelayUserRelayLanguagesInput",
+                  "name": "UserRelayLanguagesInput",
                   "ofType": null
                 }
               },
@@ -2494,6 +2641,205 @@
                 "kind": "OBJECT",
                 "name": "UserRelay",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nodeId",
+              "description": "The globally unique ID among all types",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "clientMutationId",
+              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "RelayCreateManyUserRelayInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "records",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "CreateManyUserRelayInput",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "clientMutationId",
+              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CreateManyUserRelayInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "name",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "age",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "languages",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "UserRelayLanguagesInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "contacts",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "UserRelayContactsInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gender",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserRelayGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateManyUserRelayPayload",
+          "description": null,
+          "fields": [
+            {
+              "name": "recordIds",
+              "description": "Created document ID",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "MongoID",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "records",
+              "description": "Created documents",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "UserRelay",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createCount",
+              "description": "Count of all documents created",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -2597,7 +2943,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserRelayUserRelayLanguagesInput",
+                  "name": "UserRelayLanguagesInput",
                   "ofType": null
                 }
               },
@@ -2800,7 +3146,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserRelayUserRelayLanguagesInput",
+                  "name": "UserRelayLanguagesInput",
                   "ofType": null
                 }
               },
@@ -2865,7 +3211,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserRelayUserRelayLanguagesInput",
+                  "name": "UserRelayLanguagesInput",
                   "ofType": null
                 }
               },
@@ -2917,11 +3263,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterUpdateOneUserRelayInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterUpdateOneUserRelayInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterUpdateOneUserRelayInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -2933,12 +3315,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterUpdateOneUserRelayInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "age",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterUpdateOneUserRelayInput",
@@ -2948,7 +3330,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterUpdateOneUserRelayInput",
@@ -3342,7 +3724,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserRelayUserRelayLanguagesInput",
+                  "name": "UserRelayLanguagesInput",
                   "ofType": null
                 }
               },
@@ -3407,7 +3789,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserRelayUserRelayLanguagesInput",
+                  "name": "UserRelayLanguagesInput",
                   "ofType": null
                 }
               },
@@ -3459,11 +3841,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterUpdateManyUserRelayInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterUpdateManyUserRelayInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterUpdateManyUserRelayInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -3475,12 +3893,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterUpdateManyUserRelayInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "age",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterUpdateManyUserRelayInput",
@@ -3490,7 +3908,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterUpdateManyUserRelayInput",
@@ -3932,7 +4350,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserRelayUserRelayLanguagesInput",
+                  "name": "UserRelayLanguagesInput",
                   "ofType": null
                 }
               },
@@ -3984,11 +4402,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterRemoveOneUserRelayInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterRemoveOneUserRelayInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterRemoveOneUserRelayInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -4000,12 +4454,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterRemoveOneUserRelayInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "age",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterRemoveOneUserRelayInput",
@@ -4015,7 +4469,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterRemoveOneUserRelayInput",
@@ -4369,7 +4823,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserRelayUserRelayLanguagesInput",
+                  "name": "UserRelayLanguagesInput",
                   "ofType": null
                 }
               },
@@ -4421,11 +4875,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterRemoveManyUserRelayInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterRemoveManyUserRelayInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterRemoveManyUserRelayInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -4437,12 +4927,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterRemoveManyUserRelayInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "age",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterRemoveManyUserRelayInput",
@@ -4452,7 +4942,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterRemoveManyUserRelayInput",
@@ -5354,54 +5844,6 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
-            },
-            {
-              "name": "onOperation",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Use `locations`."
-            },
-            {
-              "name": "onFragment",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Use `locations`."
-            },
-            {
-              "name": "onField",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Use `locations`."
             }
           ],
           "inputFields": null,
@@ -5456,6 +5898,12 @@
             {
               "name": "INLINE_FRAGMENT",
               "description": "Location adjacent to an inline fragment.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "VARIABLE_DEFINITION",
+              "description": "Location adjacent to a variable definition.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -5531,31 +5979,6 @@
       ],
       "directives": [
         {
-          "name": "include",
-          "description": "Directs the executor to include this field or fragment only when the `if` argument is true.",
-          "locations": [
-            "FIELD",
-            "FRAGMENT_SPREAD",
-            "INLINE_FRAGMENT"
-          ],
-          "args": [
-            {
-              "name": "if",
-              "description": "Included when true.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ]
-        },
-        {
           "name": "skip",
           "description": "Directs the executor to skip this field or fragment when the `if` argument is true.",
           "locations": [
@@ -5581,6 +6004,31 @@
           ]
         },
         {
+          "name": "include",
+          "description": "Directs the executor to include this field or fragment only when the `if` argument is true.",
+          "locations": [
+            "FIELD",
+            "FRAGMENT_SPREAD",
+            "INLINE_FRAGMENT"
+          ],
+          "args": [
+            {
+              "name": "if",
+              "description": "Included when true.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ]
+        },
+        {
           "name": "deprecated",
           "description": "Marks an element of a GraphQL schema as no longer supported.",
           "locations": [
@@ -5590,7 +6038,7 @@
           "args": [
             {
               "name": "reason",
-              "description": "Explains why this element was deprecated, usually also including a suggestion for how to access supported similar data. Formatted in [Markdown](https://daringfireball.net/projects/markdown/).",
+              "description": "Explains why this element was deprecated, usually also including a suggestion for how to access supported similar data. Formatted using the Markdown syntax (as specified by [CommonMark](https://commonmark.org/).",
               "type": {
                 "kind": "SCALAR",
                 "name": "String",

@@ -477,6 +477,29 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "virtualField",
+              "description": null,
+              "args": [
+                {
+                  "name": "lang",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -497,7 +520,7 @@
         {
           "kind": "SCALAR",
           "name": "Float",
-          "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). ",
+          "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point). ",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -812,7 +835,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserUserLanguagesInput",
+                  "name": "UserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -884,11 +907,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterFindOneUserInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindOneUserInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindOneUserInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -899,7 +958,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "UserUserLanguagesInput",
+          "name": "UserLanguagesInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -1011,12 +1070,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterFindOneUserInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "name",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "NameOperatorsFilterFindOneUserInput",
@@ -1026,7 +1085,7 @@
             },
             {
               "name": "age",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterFindOneUserInput",
@@ -1036,7 +1095,7 @@
             },
             {
               "name": "gender",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "GenderOperatorsFilterFindOneUserInput",
@@ -1046,7 +1105,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindOneUserInput",
@@ -1520,7 +1579,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserUserLanguagesInput",
+                  "name": "UserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -1592,11 +1651,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterFindManyUserInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyUserInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyUserInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             },
@@ -1618,12 +1713,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterFindManyUserInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "name",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "NameOperatorsFilterFindManyUserInput",
@@ -1633,7 +1728,7 @@
             },
             {
               "name": "age",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterFindManyUserInput",
@@ -1643,7 +1738,7 @@
             },
             {
               "name": "gender",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "GenderOperatorsFilterFindManyUserInput",
@@ -1653,7 +1748,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindManyUserInput",
@@ -2025,12 +2120,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "GeoDistance",
-          "description": "",
+          "description": null,
           "fields": null,
           "inputFields": [
             {
               "name": "lng",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -2044,7 +2139,7 @@
             },
             {
               "name": "lat",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -2058,7 +2153,7 @@
             },
             {
               "name": "distance",
-              "description": "Distance in meters",
+              "description": null,
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -2180,7 +2275,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserUserLanguagesInput",
+                  "name": "UserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -2252,11 +2347,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterUserInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterUserInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterUserInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -2268,12 +2399,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterUserInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "name",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "NameOperatorsFilterUserInput",
@@ -2283,7 +2414,7 @@
             },
             {
               "name": "age",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterUserInput",
@@ -2293,7 +2424,7 @@
             },
             {
               "name": "gender",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "GenderOperatorsFilterUserInput",
@@ -2303,7 +2434,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterUserInput",
@@ -3065,6 +3196,41 @@
               "deprecationReason": null
             },
             {
+              "name": "userCreateMany",
+              "description": "Creates Many documents with mongoose defaults, setters, hooks and validation",
+              "args": [
+                {
+                  "name": "records",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "LIST",
+                      "name": null,
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "name": null,
+                        "ofType": {
+                          "kind": "INPUT_OBJECT",
+                          "name": "CreateManyUserInput",
+                          "ofType": null
+                        }
+                      }
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateManyUserPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "userUpdateById",
               "description": "Update one document: 1) Retrieve one document by findById. 2) Apply updates to mongoose document. 3) Mongoose applies defaults, setters, hooks and validation. 4) And save it.",
               "args": [
@@ -3342,7 +3508,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserUserLanguagesInput",
+                  "name": "UserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -3430,6 +3596,158 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "CreateManyUserInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "name",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "age",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "languages",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "UserLanguagesInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "contacts",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "UserContactsInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gender",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserGender",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "address",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "UserAddressInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "someMixed",
+              "description": "Some dynamic data",
+              "type": {
+                "kind": "SCALAR",
+                "name": "JSON",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateManyUserPayload",
+          "description": null,
+          "fields": [
+            {
+              "name": "recordIds",
+              "description": "Created document ID",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "MongoID",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "records",
+              "description": "Created documents",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "User",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createCount",
+              "description": "Count of all documents created",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "UpdateByIdUserInput",
           "description": null,
           "fields": null,
@@ -3462,7 +3780,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserUserLanguagesInput",
+                  "name": "UserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -3596,7 +3914,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserUserLanguagesInput",
+                  "name": "UserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -3681,7 +3999,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserUserLanguagesInput",
+                  "name": "UserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -3753,11 +4071,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterUpdateOneUserInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterUpdateOneUserInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterUpdateOneUserInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -3769,12 +4123,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterUpdateOneUserInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "name",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "NameOperatorsFilterUpdateOneUserInput",
@@ -3784,7 +4138,7 @@
             },
             {
               "name": "age",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterUpdateOneUserInput",
@@ -3794,7 +4148,7 @@
             },
             {
               "name": "gender",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "GenderOperatorsFilterUpdateOneUserInput",
@@ -3804,7 +4158,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterUpdateOneUserInput",
@@ -4313,7 +4667,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserUserLanguagesInput",
+                  "name": "UserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -4398,7 +4752,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserUserLanguagesInput",
+                  "name": "UserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -4470,11 +4824,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterUpdateManyUserInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterUpdateManyUserInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterUpdateManyUserInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -4486,12 +4876,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterUpdateManyUserInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "name",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "NameOperatorsFilterUpdateManyUserInput",
@@ -4501,7 +4891,7 @@
             },
             {
               "name": "age",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterUpdateManyUserInput",
@@ -4511,7 +4901,7 @@
             },
             {
               "name": "gender",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "GenderOperatorsFilterUpdateManyUserInput",
@@ -4521,7 +4911,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterUpdateManyUserInput",
@@ -5053,7 +5443,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserUserLanguagesInput",
+                  "name": "UserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -5125,11 +5515,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterRemoveOneUserInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterRemoveOneUserInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterRemoveOneUserInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -5141,12 +5567,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterRemoveOneUserInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "name",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "NameOperatorsFilterRemoveOneUserInput",
@@ -5156,7 +5582,7 @@
             },
             {
               "name": "age",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterRemoveOneUserInput",
@@ -5166,7 +5592,7 @@
             },
             {
               "name": "gender",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "GenderOperatorsFilterRemoveOneUserInput",
@@ -5176,7 +5602,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterRemoveOneUserInput",
@@ -5685,7 +6111,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserUserLanguagesInput",
+                  "name": "UserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -5757,11 +6183,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterRemoveManyUserInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterRemoveManyUserInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterRemoveManyUserInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -5773,12 +6235,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterRemoveManyUserInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "name",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "NameOperatorsFilterRemoveManyUserInput",
@@ -5788,7 +6250,7 @@
             },
             {
               "name": "age",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterRemoveManyUserInput",
@@ -5798,7 +6260,7 @@
             },
             {
               "name": "gender",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "GenderOperatorsFilterRemoveManyUserInput",
@@ -5808,7 +6270,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterRemoveManyUserInput",
@@ -6864,54 +7326,6 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
-            },
-            {
-              "name": "onOperation",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Use `locations`."
-            },
-            {
-              "name": "onFragment",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Use `locations`."
-            },
-            {
-              "name": "onField",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Use `locations`."
             }
           ],
           "inputFields": null,
@@ -6966,6 +7380,12 @@
             {
               "name": "INLINE_FRAGMENT",
               "description": "Location adjacent to an inline fragment.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "VARIABLE_DEFINITION",
+              "description": "Location adjacent to a variable definition.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -7041,31 +7461,6 @@
       ],
       "directives": [
         {
-          "name": "include",
-          "description": "Directs the executor to include this field or fragment only when the `if` argument is true.",
-          "locations": [
-            "FIELD",
-            "FRAGMENT_SPREAD",
-            "INLINE_FRAGMENT"
-          ],
-          "args": [
-            {
-              "name": "if",
-              "description": "Included when true.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ]
-        },
-        {
           "name": "skip",
           "description": "Directs the executor to skip this field or fragment when the `if` argument is true.",
           "locations": [
@@ -7091,6 +7486,31 @@
           ]
         },
         {
+          "name": "include",
+          "description": "Directs the executor to include this field or fragment only when the `if` argument is true.",
+          "locations": [
+            "FIELD",
+            "FRAGMENT_SPREAD",
+            "INLINE_FRAGMENT"
+          ],
+          "args": [
+            {
+              "name": "if",
+              "description": "Included when true.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ]
+        },
+        {
           "name": "deprecated",
           "description": "Marks an element of a GraphQL schema as no longer supported.",
           "locations": [
@@ -7100,7 +7520,7 @@
           "args": [
             {
               "name": "reason",
-              "description": "Explains why this element was deprecated, usually also including a suggestion for how to access supported similar data. Formatted in [Markdown](https://daringfireball.net/projects/markdown/).",
+              "description": "Explains why this element was deprecated, usually also including a suggestion for how to access supported similar data. Formatted using the Markdown syntax (as specified by [CommonMark](https://commonmark.org/).",
               "type": {
                 "kind": "SCALAR",
                 "name": "String",

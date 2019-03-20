@@ -159,76 +159,76 @@ input _idOperatorsFilterFindOneSupplierInput {
 }
 
 type Category implements Node {
-  # Category unique ID
+  """Category unique ID"""
   categoryID: Float
   name: String
   description: String
   _id: MongoID!
 
-  # The globally unique ID among all types
+  """The globally unique ID among all types"""
   id: ID!
   productConnection(
-    # Forward pagination argument for returning at most first edges
+    """Forward pagination argument for returning at most first edges"""
     first: Int
 
-    # Forward pagination argument for returning at most first edges
+    """Forward pagination argument for returning at most first edges"""
     after: String
 
-    # Backward pagination argument for returning at most last edges
+    """Backward pagination argument for returning at most last edges"""
     last: Int
 
-    # Backward pagination argument for returning at most last edges
+    """Backward pagination argument for returning at most last edges"""
     before: String
 
-    # Sort argument for data ordering
+    """Sort argument for data ordering"""
     sort: SortConnectionProductEnum = _ID_DESC
   ): ProductConnection
   productList(skip: Int, limit: Int = 1000, sort: SortFindManyProductInput): [Product]
 }
 
 input CategoryIDOperatorsFilterFindManyCategoryInput {
-  # Category unique ID
+  """Category unique ID"""
   gt: Float
 
-  # Category unique ID
+  """Category unique ID"""
   gte: Float
 
-  # Category unique ID
+  """Category unique ID"""
   lt: Float
 
-  # Category unique ID
+  """Category unique ID"""
   lte: Float
 
-  # Category unique ID
+  """Category unique ID"""
   ne: Float
 
-  # Category unique ID
+  """Category unique ID"""
   in: [Float]
 
-  # Category unique ID
+  """Category unique ID"""
   nin: [Float]
 }
 
 input CategoryIDOperatorsFilterFindOneCategoryInput {
-  # Category unique ID
+  """Category unique ID"""
   gt: Float
 
-  # Category unique ID
+  """Category unique ID"""
   gte: Float
 
-  # Category unique ID
+  """Category unique ID"""
   lt: Float
 
-  # Category unique ID
+  """Category unique ID"""
   lte: Float
 
-  # Category unique ID
+  """Category unique ID"""
   ne: Float
 
-  # Category unique ID
+  """Category unique ID"""
   in: [Float]
 
-  # Category unique ID
+  """Category unique ID"""
   nin: [Float]
 }
 
@@ -272,8 +272,43 @@ input CompanyNameOperatorsFilterFindOneSupplierInput {
   nin: [String]
 }
 
+input CreateOneOrderInput {
+  """Order unique ID"""
+  orderID: Float
+  customerID: String
+  employeeID: Float
+  orderDate: Date
+  requiredDate: Date
+  shippedDate: Date
+  shipVia: Float
+  freight: Float
+  shipName: String
+  shipAddress: CustomerAddressInput
+
+  """List of ordered products"""
+  details: [OrderDetailsInput]
+}
+
+type CreateOneOrderPayload {
+  """Created document ID"""
+  recordId: MongoID
+
+  """Created document"""
+  record: Order
+
+  """The globally unique ID among all types"""
+  nodeId: ID
+
+  """
+  The client mutation ID used by clients like Relay to track the mutation. If
+  given, returned in the response payload of the mutation.
+  """
+  clientMutationId: String
+  query: Query
+}
+
 input CreateOneProductInput {
-  # Unique product id
+  """Unique product id"""
   productID: Float
   name: String
   supplierID: Float
@@ -287,22 +322,25 @@ input CreateOneProductInput {
 }
 
 type CreateOneProductPayload {
-  # Created document ID
+  """Created document ID"""
   recordId: MongoID
 
-  # Created document
+  """Created document"""
   record: Product
 
-  # The globally unique ID among all types
+  """The globally unique ID among all types"""
   nodeId: ID
 
-  # The client mutation ID used by clients like Relay to track the mutation. If
-  # given, returned in the response payload of the mutation.
+  """
+  The client mutation ID used by clients like Relay to track the mutation. If
+  given, returned in the response payload of the mutation.
+  """
   clientMutationId: String
+  query: Query
 }
 
 type Customer implements Node {
-  # Customer unique ID
+  """Customer unique ID"""
   customerID: String
   companyName: String
   contactName: String
@@ -310,24 +348,25 @@ type Customer implements Node {
   address: CustomerAddress
   _id: MongoID!
 
-  # The globally unique ID among all types
+  """The globally unique ID among all types"""
   id: ID!
   orderConnection(
-    # Forward pagination argument for returning at most first edges
+    """Forward pagination argument for returning at most first edges"""
     first: Int
 
-    # Forward pagination argument for returning at most first edges
+    """Forward pagination argument for returning at most first edges"""
     after: String
 
-    # Backward pagination argument for returning at most last edges
+    """Backward pagination argument for returning at most last edges"""
     last: Int
 
-    # Backward pagination argument for returning at most last edges
+    """Backward pagination argument for returning at most last edges"""
     before: String
 
-    # Sort argument for data ordering
+    """Sort argument for data ordering"""
     sort: SortConnectionOrderEnum = _ID_DESC
   ): OrderConnection
+  orderList(skip: Int, limit: Int = 1000, sort: SortFindManyOrderInput): [Order]
 }
 
 type CustomerAddress {
@@ -348,123 +387,135 @@ input CustomerAddressInput {
   phone: String
 }
 
-# A connection to a list of items.
+"""A connection to a list of items."""
 type CustomerConnection {
-  # Total object count.
+  """Total object count."""
   count: Int!
 
-  # Information to aid in pagination.
+  """Information to aid in pagination."""
   pageInfo: PageInfo!
 
-  # Information to aid in pagination.
+  """Information to aid in pagination."""
   edges: [CustomerEdge!]!
 }
 
-# An edge in a connection.
+"""An edge in a connection."""
 type CustomerEdge {
-  # The item at the end of the edge
+  """The item at the end of the edge"""
   node: Customer!
 
-  # A cursor for use in pagination
+  """A cursor for use in pagination"""
   cursor: String!
 }
 
 input CustomerIDOperatorsFilterFindManyCustomerInput {
-  # Customer unique ID
+  """Customer unique ID"""
   gt: String
 
-  # Customer unique ID
+  """Customer unique ID"""
   gte: String
 
-  # Customer unique ID
+  """Customer unique ID"""
   lt: String
 
-  # Customer unique ID
+  """Customer unique ID"""
   lte: String
 
-  # Customer unique ID
+  """Customer unique ID"""
   ne: String
 
-  # Customer unique ID
+  """Customer unique ID"""
   in: [String]
 
-  # Customer unique ID
+  """Customer unique ID"""
   nin: [String]
 }
 
 input CustomerIDOperatorsFilterFindOneCustomerInput {
-  # Customer unique ID
+  """Customer unique ID"""
   gt: String
 
-  # Customer unique ID
+  """Customer unique ID"""
   gte: String
 
-  # Customer unique ID
+  """Customer unique ID"""
   lt: String
 
-  # Customer unique ID
+  """Customer unique ID"""
   lte: String
 
-  # Customer unique ID
+  """Customer unique ID"""
   ne: String
 
-  # Customer unique ID
+  """Customer unique ID"""
   in: [String]
 
-  # Customer unique ID
+  """Customer unique ID"""
   nin: [String]
+}
+
+"""List of items with pagination."""
+type CustomerPagination {
+  """Total object count."""
+  count: Int
+
+  """Array of objects."""
+  items: [Customer]
+
+  """Information to aid in pagination."""
+  pageInfo: PaginationInfo!
 }
 
 scalar Date
 
 input DetailsOperatorsFilterFindManyOrderInput {
-  # List of ordered products
-  gt: OrderOrderDetailsInput
+  """List of ordered products"""
+  gt: OrderDetailsInput
 
-  # List of ordered products
-  gte: OrderOrderDetailsInput
+  """List of ordered products"""
+  gte: OrderDetailsInput
 
-  # List of ordered products
-  lt: OrderOrderDetailsInput
+  """List of ordered products"""
+  lt: OrderDetailsInput
 
-  # List of ordered products
-  lte: OrderOrderDetailsInput
+  """List of ordered products"""
+  lte: OrderDetailsInput
 
-  # List of ordered products
-  ne: OrderOrderDetailsInput
+  """List of ordered products"""
+  ne: OrderDetailsInput
 
-  # List of ordered products
-  in: [OrderOrderDetailsInput]
+  """List of ordered products"""
+  in: [OrderDetailsInput]
 
-  # List of ordered products
-  nin: [OrderOrderDetailsInput]
+  """List of ordered products"""
+  nin: [OrderDetailsInput]
 }
 
 input DetailsOperatorsFilterFindOneOrderInput {
-  # List of ordered products
-  gt: OrderOrderDetailsInput
+  """List of ordered products"""
+  gt: OrderDetailsInput
 
-  # List of ordered products
-  gte: OrderOrderDetailsInput
+  """List of ordered products"""
+  gte: OrderDetailsInput
 
-  # List of ordered products
-  lt: OrderOrderDetailsInput
+  """List of ordered products"""
+  lt: OrderDetailsInput
 
-  # List of ordered products
-  lte: OrderOrderDetailsInput
+  """List of ordered products"""
+  lte: OrderDetailsInput
 
-  # List of ordered products
-  ne: OrderOrderDetailsInput
+  """List of ordered products"""
+  ne: OrderDetailsInput
 
-  # List of ordered products
-  in: [OrderOrderDetailsInput]
+  """List of ordered products"""
+  in: [OrderDetailsInput]
 
-  # List of ordered products
-  nin: [OrderOrderDetailsInput]
+  """List of ordered products"""
+  nin: [OrderDetailsInput]
 }
 
 type Employee implements Node {
-  # Category unique ID
+  """Category unique ID"""
   employeeID: Float
   lastName: String
   firstName: String
@@ -475,95 +526,109 @@ type Employee implements Node {
   address: CustomerAddress
   notes: String
 
-  # ID of chief
+  """ID of chief"""
   reportsTo: Float
 
-  # Attached territory ID from region collection
+  """Attached territory ID from region collection"""
   territoryIDs: [Float]
   _id: MongoID!
 
-  # The globally unique ID among all types
+  """The globally unique ID among all types"""
   id: ID!
   chief: Employee
   subordinates(skip: Int, limit: Int = 1000, sort: SortFindManyEmployeeInput): [Employee]
   orderConnection(
-    # Forward pagination argument for returning at most first edges
+    """Forward pagination argument for returning at most first edges"""
     first: Int
 
-    # Forward pagination argument for returning at most first edges
+    """Forward pagination argument for returning at most first edges"""
     after: String
 
-    # Backward pagination argument for returning at most last edges
+    """Backward pagination argument for returning at most last edges"""
     last: Int
 
-    # Backward pagination argument for returning at most last edges
+    """Backward pagination argument for returning at most last edges"""
     before: String
 
-    # Sort argument for data ordering
+    """Sort argument for data ordering"""
     sort: SortConnectionOrderEnum = _ID_DESC
   ): OrderConnection
 }
 
 input EmployeeIDOperatorsFilterFindManyEmployeeInput {
-  # Category unique ID
+  """Category unique ID"""
   gt: Float
 
-  # Category unique ID
+  """Category unique ID"""
   gte: Float
 
-  # Category unique ID
+  """Category unique ID"""
   lt: Float
 
-  # Category unique ID
+  """Category unique ID"""
   lte: Float
 
-  # Category unique ID
+  """Category unique ID"""
   ne: Float
 
-  # Category unique ID
+  """Category unique ID"""
   in: [Float]
 
-  # Category unique ID
+  """Category unique ID"""
   nin: [Float]
 }
 
 input EmployeeIDOperatorsFilterFindOneEmployeeInput {
-  # Category unique ID
+  """Category unique ID"""
   gt: Float
 
-  # Category unique ID
+  """Category unique ID"""
   gte: Float
 
-  # Category unique ID
+  """Category unique ID"""
   lt: Float
 
-  # Category unique ID
+  """Category unique ID"""
   lte: Float
 
-  # Category unique ID
+  """Category unique ID"""
   ne: Float
 
-  # Category unique ID
+  """Category unique ID"""
   in: [Float]
 
-  # Category unique ID
+  """Category unique ID"""
   nin: [Float]
 }
 
+"""List of items with pagination."""
+type EmployeePagination {
+  """Total object count."""
+  count: Int
+
+  """Array of objects."""
+  items: [Employee]
+
+  """Information to aid in pagination."""
+  pageInfo: PaginationInfo!
+}
+
 input FilterFindManyCategoryInput {
-  # Category unique ID
+  """Category unique ID"""
   categoryID: Float
   name: String
   description: String
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterFindManyCategoryInput
+  OR: [FilterFindManyCategoryInput!]
+  AND: [FilterFindManyCategoryInput!]
 }
 
 input FilterFindManyCustomerInput {
-  # Customer unique ID
+  """Customer unique ID"""
   customerID: String
   companyName: String
   contactName: String
@@ -572,12 +637,14 @@ input FilterFindManyCustomerInput {
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterFindManyCustomerInput
+  OR: [FilterFindManyCustomerInput!]
+  AND: [FilterFindManyCustomerInput!]
 }
 
 input FilterFindManyEmployeeInput {
-  # Category unique ID
+  """Category unique ID"""
   employeeID: Float
   lastName: String
   firstName: String
@@ -588,23 +655,25 @@ input FilterFindManyEmployeeInput {
   address: CustomerAddressInput
   notes: String
 
-  # ID of chief
+  """ID of chief"""
   reportsTo: Float
 
-  # Attached territory ID from region collection
+  """Attached territory ID from region collection"""
   territoryIDs: [Float]
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterFindManyEmployeeInput
+  OR: [FilterFindManyEmployeeInput!]
+  AND: [FilterFindManyEmployeeInput!]
 
-  # Fulltext search with mongodb stemming and weights
+  """Fulltext search with mongodb stemming and weights"""
   fullTextSearch: String
 }
 
 input FilterFindManyOrderInput {
-  # Order unique ID
+  """Order unique ID"""
   orderID: Float
   customerID: String
   employeeID: Float
@@ -616,17 +685,19 @@ input FilterFindManyOrderInput {
   shipName: String
   shipAddress: CustomerAddressInput
 
-  # List of ordered products
-  details: [OrderOrderDetailsInput]
+  """List of ordered products"""
+  details: [OrderDetailsInput]
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterFindManyOrderInput
+  OR: [FilterFindManyOrderInput!]
+  AND: [FilterFindManyOrderInput!]
 }
 
 input FilterFindManyProductInput {
-  # Unique product id
+  """Unique product id"""
   productID: Float
   name: String
   supplierID: Float
@@ -640,39 +711,45 @@ input FilterFindManyProductInput {
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterFindManyProductInput
+  OR: [FilterFindManyProductInput!]
+  AND: [FilterFindManyProductInput!]
 
-  # Search by regExp
+  """Search by regExp"""
   nameRegexp: String
 }
 
 input FilterFindManyRegionInput {
-  # Region unique ID
+  """Region unique ID"""
   regionID: Float
   name: String
-  territories: [RegionRegionTerritoriesInput]
+  territories: [RegionTerritoriesInput]
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterFindManyRegionInput
+  OR: [FilterFindManyRegionInput!]
+  AND: [FilterFindManyRegionInput!]
 }
 
 input FilterFindManyShipperInput {
-  # Shipper unique ID
+  """Shipper unique ID"""
   shipperID: Float
   companyName: String
   phone: String
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterFindManyShipperInput
+  OR: [FilterFindManyShipperInput!]
+  AND: [FilterFindManyShipperInput!]
 }
 
 input FilterFindManySupplierInput {
-  # Supplier unique ID
+  """Supplier unique ID"""
   supplierID: Float
   companyName: String
   contactName: String
@@ -681,24 +758,28 @@ input FilterFindManySupplierInput {
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterFindManySupplierInput
+  OR: [FilterFindManySupplierInput!]
+  AND: [FilterFindManySupplierInput!]
 }
 
 input FilterFindOneCategoryInput {
-  # Category unique ID
+  """Category unique ID"""
   categoryID: Float
   name: String
   description: String
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterFindOneCategoryInput
+  OR: [FilterFindOneCategoryInput!]
+  AND: [FilterFindOneCategoryInput!]
 }
 
 input FilterFindOneCustomerInput {
-  # Customer unique ID
+  """Customer unique ID"""
   customerID: String
   companyName: String
   contactName: String
@@ -707,12 +788,14 @@ input FilterFindOneCustomerInput {
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterFindOneCustomerInput
+  OR: [FilterFindOneCustomerInput!]
+  AND: [FilterFindOneCustomerInput!]
 }
 
 input FilterFindOneEmployeeInput {
-  # Category unique ID
+  """Category unique ID"""
   employeeID: Float
   lastName: String
   firstName: String
@@ -723,20 +806,22 @@ input FilterFindOneEmployeeInput {
   address: CustomerAddressInput
   notes: String
 
-  # ID of chief
+  """ID of chief"""
   reportsTo: Float
 
-  # Attached territory ID from region collection
+  """Attached territory ID from region collection"""
   territoryIDs: [Float]
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterFindOneEmployeeInput
+  OR: [FilterFindOneEmployeeInput!]
+  AND: [FilterFindOneEmployeeInput!]
 }
 
 input FilterFindOneOrderInput {
-  # Order unique ID
+  """Order unique ID"""
   orderID: Float
   customerID: String
   employeeID: Float
@@ -748,17 +833,19 @@ input FilterFindOneOrderInput {
   shipName: String
   shipAddress: CustomerAddressInput
 
-  # List of ordered products
-  details: [OrderOrderDetailsInput]
+  """List of ordered products"""
+  details: [OrderDetailsInput]
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterFindOneOrderInput
+  OR: [FilterFindOneOrderInput!]
+  AND: [FilterFindOneOrderInput!]
 }
 
 input FilterFindOneProductInput {
-  # Unique product id
+  """Unique product id"""
   productID: Float
   name: String
   supplierID: Float
@@ -772,36 +859,42 @@ input FilterFindOneProductInput {
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterFindOneProductInput
+  OR: [FilterFindOneProductInput!]
+  AND: [FilterFindOneProductInput!]
 }
 
 input FilterFindOneRegionInput {
-  # Region unique ID
+  """Region unique ID"""
   regionID: Float
   name: String
-  territories: [RegionRegionTerritoriesInput]
+  territories: [RegionTerritoriesInput]
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterFindOneRegionInput
+  OR: [FilterFindOneRegionInput!]
+  AND: [FilterFindOneRegionInput!]
 }
 
 input FilterFindOneShipperInput {
-  # Shipper unique ID
+  """Shipper unique ID"""
   shipperID: Float
   companyName: String
   phone: String
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterFindOneShipperInput
+  OR: [FilterFindOneShipperInput!]
+  AND: [FilterFindOneShipperInput!]
 }
 
 input FilterFindOneSupplierInput {
-  # Supplier unique ID
+  """Supplier unique ID"""
   supplierID: Float
   companyName: String
   contactName: String
@@ -810,8 +903,10 @@ input FilterFindOneSupplierInput {
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterFindOneSupplierInput
+  OR: [FilterFindOneSupplierInput!]
+  AND: [FilterFindOneSupplierInput!]
 }
 
 input LastNameOperatorsFilterFindManyEmployeeInput {
@@ -834,18 +929,48 @@ input LastNameOperatorsFilterFindOneEmployeeInput {
   nin: [String]
 }
 
-# The `ID` scalar type represents a unique MongoDB identifier in collection.
-# MongoDB by default use 12-byte ObjectId value
-# (https://docs.mongodb.com/manual/reference/bson-types/#objectid). But MongoDB
-# also may accepts string or integer as correct values for _id field.
+"""
+The `ID` scalar type represents a unique MongoDB identifier in collection.
+MongoDB by default use 12-byte ObjectId value
+(https://docs.mongodb.com/manual/reference/bson-types/#objectid). But MongoDB
+also may accepts string or integer as correct values for _id field.
+"""
 scalar MongoID
 
 type Mutation {
-  # Create one document with mongoose defaults, setters, hooks and validation
+  """
+  Create one document with mongoose defaults, setters, hooks and validation
+  """
   createProduct(input: RelayCreateOneProductInput!): CreateOneProductPayload
 
-  # Remove one document: 1) Retrieve one document and remove with hooks via findByIdAndRemove. 2) Return removed document.
-  removeProductById(input: RelayRemoveByIdProductInput!): RemoveByIdProductPayload
+  """
+  Update one document: 1) Retrieve one document by findById. 2) Apply updates to
+  mongoose document. 3) Mongoose applies defaults, setters, hooks and
+  validation. 4) And save it.
+  """
+  updateProduct(input: RelayUpdateByIdProductInput!): UpdateByIdProductPayload
+
+  """
+  Remove one document: 1) Retrieve one document and remove with hooks via findByIdAndRemove. 2) Return removed document.
+  """
+  removeProduct(input: RelayRemoveByIdProductInput!): RemoveByIdProductPayload
+
+  """
+  Create one document with mongoose defaults, setters, hooks and validation
+  """
+  createOrder(input: RelayCreateOneOrderInput!): CreateOneOrderPayload
+
+  """
+  Update one document: 1) Retrieve one document by findById. 2) Apply updates to
+  mongoose document. 3) Mongoose applies defaults, setters, hooks and
+  validation. 4) And save it.
+  """
+  updateOrder(input: RelayUpdateByIdOrderInput!): UpdateByIdOrderPayload
+
+  """
+  Remove one document: 1) Retrieve one document and remove with hooks via findByIdAndRemove. 2) Return removed document.
+  """
+  removeOrder(input: RelayRemoveByIdOrderInput!): RemoveByIdOrderPayload
 }
 
 input NameOperatorsFilterFindManyCategoryInput {
@@ -888,190 +1013,128 @@ input NameOperatorsFilterFindOneProductInput {
   nin: [String]
 }
 
-# An object, that can be fetched by the globally unique ID among all types.
+"""
+An object, that can be fetched by the globally unique ID among all types.
+"""
 interface Node {
-  # The globally unique ID among all types.
+  """The globally unique ID among all types."""
   id: ID!
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterFindManyCategoryInput {
-  # Filter value by operator(s)
   categoryID: CategoryIDOperatorsFilterFindManyCategoryInput
-
-  # Filter value by operator(s)
   name: NameOperatorsFilterFindManyCategoryInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterFindManyCategoryInput
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterFindManyCustomerInput {
-  # Filter value by operator(s)
   customerID: CustomerIDOperatorsFilterFindManyCustomerInput
-
-  # Filter value by operator(s)
   companyName: CompanyNameOperatorsFilterFindManyCustomerInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterFindManyCustomerInput
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterFindManyEmployeeInput {
-  # Filter value by operator(s)
   employeeID: EmployeeIDOperatorsFilterFindManyEmployeeInput
-
-  # Filter value by operator(s)
   lastName: LastNameOperatorsFilterFindManyEmployeeInput
-
-  # Filter value by operator(s)
   territoryIDs: TerritoryIDsOperatorsFilterFindManyEmployeeInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterFindManyEmployeeInput
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterFindManyOrderInput {
-  # Filter value by operator(s)
   orderID: OrderIDOperatorsFilterFindManyOrderInput
-
-  # Filter value by operator(s)
   details: DetailsOperatorsFilterFindManyOrderInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterFindManyOrderInput
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterFindManyProductInput {
-  # Filter value by operator(s)
   productID: ProductIDOperatorsFilterFindManyProductInput
-
-  # Filter value by operator(s)
   name: NameOperatorsFilterFindManyProductInput
-
-  # Filter value by operator(s)
   unitPrice: UnitPriceOperatorsFilterFindManyProductInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterFindManyProductInput
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterFindManyRegionInput {
-  # Filter value by operator(s)
   regionID: RegionIDOperatorsFilterFindManyRegionInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterFindManyRegionInput
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterFindManyShipperInput {
-  # Filter value by operator(s)
   shipperID: ShipperIDOperatorsFilterFindManyShipperInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterFindManyShipperInput
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterFindManySupplierInput {
-  # Filter value by operator(s)
   supplierID: SupplierIDOperatorsFilterFindManySupplierInput
-
-  # Filter value by operator(s)
   companyName: CompanyNameOperatorsFilterFindManySupplierInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterFindManySupplierInput
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterFindOneCategoryInput {
-  # Filter value by operator(s)
   categoryID: CategoryIDOperatorsFilterFindOneCategoryInput
-
-  # Filter value by operator(s)
   name: NameOperatorsFilterFindOneCategoryInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterFindOneCategoryInput
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterFindOneCustomerInput {
-  # Filter value by operator(s)
   customerID: CustomerIDOperatorsFilterFindOneCustomerInput
-
-  # Filter value by operator(s)
   companyName: CompanyNameOperatorsFilterFindOneCustomerInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterFindOneCustomerInput
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterFindOneEmployeeInput {
-  # Filter value by operator(s)
   employeeID: EmployeeIDOperatorsFilterFindOneEmployeeInput
-
-  # Filter value by operator(s)
   lastName: LastNameOperatorsFilterFindOneEmployeeInput
-
-  # Filter value by operator(s)
   territoryIDs: TerritoryIDsOperatorsFilterFindOneEmployeeInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterFindOneEmployeeInput
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterFindOneOrderInput {
-  # Filter value by operator(s)
   orderID: OrderIDOperatorsFilterFindOneOrderInput
-
-  # Filter value by operator(s)
   details: DetailsOperatorsFilterFindOneOrderInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterFindOneOrderInput
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterFindOneProductInput {
-  # Filter value by operator(s)
   productID: ProductIDOperatorsFilterFindOneProductInput
-
-  # Filter value by operator(s)
   name: NameOperatorsFilterFindOneProductInput
-
-  # Filter value by operator(s)
   unitPrice: UnitPriceOperatorsFilterFindOneProductInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterFindOneProductInput
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterFindOneRegionInput {
-  # Filter value by operator(s)
   regionID: RegionIDOperatorsFilterFindOneRegionInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterFindOneRegionInput
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterFindOneShipperInput {
-  # Filter value by operator(s)
   shipperID: ShipperIDOperatorsFilterFindOneShipperInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterFindOneShipperInput
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterFindOneSupplierInput {
-  # Filter value by operator(s)
   supplierID: SupplierIDOperatorsFilterFindOneSupplierInput
-
-  # Filter value by operator(s)
   companyName: CompanyNameOperatorsFilterFindOneSupplierInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterFindOneSupplierInput
 }
 
 type Order implements Node {
-  # Order unique ID
+  """Order unique ID"""
   orderID: Float
   customerID: String
   employeeID: Float
@@ -1083,26 +1146,26 @@ type Order implements Node {
   shipName: String
   shipAddress: CustomerAddress
 
-  # List of ordered products
+  """List of ordered products"""
   details: [OrderDetails]
   _id: MongoID!
 
-  # The globally unique ID among all types
+  """The globally unique ID among all types"""
   id: ID!
   customer: Customer
   employee: Employee
   shipper: Shipper
 }
 
-# A connection to a list of items.
+"""A connection to a list of items."""
 type OrderConnection {
-  # Total object count.
+  """Total object count."""
   count: Int!
 
-  # Information to aid in pagination.
+  """Information to aid in pagination."""
   pageInfo: PageInfo!
 
-  # Information to aid in pagination.
+  """Information to aid in pagination."""
   edges: [OrderEdge!]!
 }
 
@@ -1114,85 +1177,118 @@ type OrderDetails {
   product: Product
 }
 
-# An edge in a connection.
-type OrderEdge {
-  # The item at the end of the edge
-  node: Order!
-
-  # A cursor for use in pagination
-  cursor: String!
-}
-
-input OrderIDOperatorsFilterFindManyOrderInput {
-  # Order unique ID
-  gt: Float
-
-  # Order unique ID
-  gte: Float
-
-  # Order unique ID
-  lt: Float
-
-  # Order unique ID
-  lte: Float
-
-  # Order unique ID
-  ne: Float
-
-  # Order unique ID
-  in: [Float]
-
-  # Order unique ID
-  nin: [Float]
-}
-
-input OrderIDOperatorsFilterFindOneOrderInput {
-  # Order unique ID
-  gt: Float
-
-  # Order unique ID
-  gte: Float
-
-  # Order unique ID
-  lt: Float
-
-  # Order unique ID
-  lte: Float
-
-  # Order unique ID
-  ne: Float
-
-  # Order unique ID
-  in: [Float]
-
-  # Order unique ID
-  nin: [Float]
-}
-
-input OrderOrderDetailsInput {
+input OrderDetailsInput {
   productID: Float
   unitPrice: Float
   quantity: Float
   discount: Float
 }
 
-# Information about pagination in a connection.
+"""An edge in a connection."""
+type OrderEdge {
+  """The item at the end of the edge"""
+  node: Order!
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+input OrderIDOperatorsFilterFindManyOrderInput {
+  """Order unique ID"""
+  gt: Float
+
+  """Order unique ID"""
+  gte: Float
+
+  """Order unique ID"""
+  lt: Float
+
+  """Order unique ID"""
+  lte: Float
+
+  """Order unique ID"""
+  ne: Float
+
+  """Order unique ID"""
+  in: [Float]
+
+  """Order unique ID"""
+  nin: [Float]
+}
+
+input OrderIDOperatorsFilterFindOneOrderInput {
+  """Order unique ID"""
+  gt: Float
+
+  """Order unique ID"""
+  gte: Float
+
+  """Order unique ID"""
+  lt: Float
+
+  """Order unique ID"""
+  lte: Float
+
+  """Order unique ID"""
+  ne: Float
+
+  """Order unique ID"""
+  in: [Float]
+
+  """Order unique ID"""
+  nin: [Float]
+}
+
+"""List of items with pagination."""
+type OrderPagination {
+  """Total object count."""
+  count: Int
+
+  """Array of objects."""
+  items: [Order]
+
+  """Information to aid in pagination."""
+  pageInfo: PaginationInfo!
+}
+
+"""Information about pagination in a connection."""
 type PageInfo {
-  # When paginating forwards, are there more items?
+  """When paginating forwards, are there more items?"""
   hasNextPage: Boolean!
 
-  # When paginating backwards, are there more items?
+  """When paginating backwards, are there more items?"""
   hasPreviousPage: Boolean!
 
-  # When paginating backwards, the cursor to continue.
+  """When paginating backwards, the cursor to continue."""
   startCursor: String
 
-  # When paginating forwards, the cursor to continue.
+  """When paginating forwards, the cursor to continue."""
   endCursor: String
 }
 
+"""Information about pagination."""
+type PaginationInfo {
+  """Current page number"""
+  currentPage: Int!
+
+  """Number of items per page"""
+  perPage: Int!
+
+  """Total number of pages"""
+  pageCount: Int
+
+  """Total number of items"""
+  itemCount: Int
+
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean
+}
+
 type Product implements Node {
-  # Unique product id
+  """Unique product id"""
   productID: Float
   name: String
   supplierID: Float
@@ -1205,22 +1301,22 @@ type Product implements Node {
   discontinued: Boolean
   _id: MongoID!
 
-  # The globally unique ID among all types
+  """The globally unique ID among all types"""
   id: ID!
   orderConnection(
-    # Forward pagination argument for returning at most first edges
+    """Forward pagination argument for returning at most first edges"""
     first: Int
 
-    # Forward pagination argument for returning at most first edges
+    """Forward pagination argument for returning at most first edges"""
     after: String
 
-    # Backward pagination argument for returning at most last edges
+    """Backward pagination argument for returning at most last edges"""
     last: Int
 
-    # Backward pagination argument for returning at most last edges
+    """Backward pagination argument for returning at most last edges"""
     before: String
 
-    # Sort argument for data ordering
+    """Sort argument for data ordering"""
     sort: SortConnectionOrderEnum = _ID_DESC
   ): OrderConnection
   orderList(skip: Int, limit: Int = 1000, sort: SortFindManyOrderInput): [Order]
@@ -1228,145 +1324,152 @@ type Product implements Node {
   category: Category
 }
 
-# A connection to a list of items.
+"""A connection to a list of items."""
 type ProductConnection {
-  # Total object count.
+  """Total object count."""
   count: Int!
 
-  # Information to aid in pagination.
+  """Information to aid in pagination."""
   pageInfo: PageInfo!
 
-  # Information to aid in pagination.
+  """Information to aid in pagination."""
   edges: [ProductEdge!]!
 }
 
-# An edge in a connection.
+"""An edge in a connection."""
 type ProductEdge {
-  # The item at the end of the edge
+  """The item at the end of the edge"""
   node: Product!
 
-  # A cursor for use in pagination
+  """A cursor for use in pagination"""
   cursor: String!
 }
 
 input ProductIDOperatorsFilterFindManyProductInput {
-  # Unique product id
+  """Unique product id"""
   gt: Float
 
-  # Unique product id
+  """Unique product id"""
   gte: Float
 
-  # Unique product id
+  """Unique product id"""
   lt: Float
 
-  # Unique product id
+  """Unique product id"""
   lte: Float
 
-  # Unique product id
+  """Unique product id"""
   ne: Float
 
-  # Unique product id
+  """Unique product id"""
   in: [Float]
 
-  # Unique product id
+  """Unique product id"""
   nin: [Float]
 }
 
 input ProductIDOperatorsFilterFindOneProductInput {
-  # Unique product id
+  """Unique product id"""
   gt: Float
 
-  # Unique product id
+  """Unique product id"""
   gte: Float
 
-  # Unique product id
+  """Unique product id"""
   lt: Float
 
-  # Unique product id
+  """Unique product id"""
   lte: Float
 
-  # Unique product id
+  """Unique product id"""
   ne: Float
 
-  # Unique product id
+  """Unique product id"""
   in: [Float]
 
-  # Unique product id
+  """Unique product id"""
   nin: [Float]
 }
 
+"""List of items with pagination."""
+type ProductPagination {
+  """Total object count."""
+  count: Int
+
+  """Array of objects."""
+  items: [Product]
+
+  """Information to aid in pagination."""
+  pageInfo: PaginationInfo!
+}
+
 type Query {
-  # Fetches an object that has globally unique ID among all types
+  """Fetches an object that has globally unique ID among all types"""
   node(
-    # The globally unique ID among all types
+    """The globally unique ID among all types"""
     id: ID!
   ): Node
 
-  # Data under client context
+  """Data under client context"""
   viewer: Viewer
 }
 
 type Region implements Node {
-  # Region unique ID
+  """Region unique ID"""
   regionID: Float
   name: String
   territories: [RegionTerritories]
   _id: MongoID!
 
-  # The globally unique ID among all types
+  """The globally unique ID among all types"""
   id: ID!
   employees(skip: Int, limit: Int = 1000, sort: SortFindManyEmployeeInput): [Employee]
 }
 
 input RegionIDOperatorsFilterFindManyRegionInput {
-  # Region unique ID
+  """Region unique ID"""
   gt: Float
 
-  # Region unique ID
+  """Region unique ID"""
   gte: Float
 
-  # Region unique ID
+  """Region unique ID"""
   lt: Float
 
-  # Region unique ID
+  """Region unique ID"""
   lte: Float
 
-  # Region unique ID
+  """Region unique ID"""
   ne: Float
 
-  # Region unique ID
+  """Region unique ID"""
   in: [Float]
 
-  # Region unique ID
+  """Region unique ID"""
   nin: [Float]
 }
 
 input RegionIDOperatorsFilterFindOneRegionInput {
-  # Region unique ID
+  """Region unique ID"""
   gt: Float
 
-  # Region unique ID
+  """Region unique ID"""
   gte: Float
 
-  # Region unique ID
+  """Region unique ID"""
   lt: Float
 
-  # Region unique ID
+  """Region unique ID"""
   lte: Float
 
-  # Region unique ID
+  """Region unique ID"""
   ne: Float
 
-  # Region unique ID
+  """Region unique ID"""
   in: [Float]
 
-  # Region unique ID
+  """Region unique ID"""
   nin: [Float]
-}
-
-input RegionRegionTerritoriesInput {
-  territoryID: Float
-  name: String
 }
 
 type RegionTerritories {
@@ -1374,107 +1477,177 @@ type RegionTerritories {
   name: String
 }
 
+input RegionTerritoriesInput {
+  territoryID: Float
+  name: String
+}
+
+input RelayCreateOneOrderInput {
+  record: CreateOneOrderInput!
+
+  """
+  The client mutation ID used by clients like Relay to track the mutation. If
+  given, returned in the response payload of the mutation.
+  """
+  clientMutationId: String
+}
+
 input RelayCreateOneProductInput {
   record: CreateOneProductInput!
 
-  # The client mutation ID used by clients like Relay to track the mutation. If
-  # given, returned in the response payload of the mutation.
+  """
+  The client mutation ID used by clients like Relay to track the mutation. If
+  given, returned in the response payload of the mutation.
+  """
+  clientMutationId: String
+}
+
+input RelayRemoveByIdOrderInput {
+  _id: MongoID!
+
+  """
+  The client mutation ID used by clients like Relay to track the mutation. If
+  given, returned in the response payload of the mutation.
+  """
   clientMutationId: String
 }
 
 input RelayRemoveByIdProductInput {
   _id: MongoID!
 
-  # The client mutation ID used by clients like Relay to track the mutation. If
-  # given, returned in the response payload of the mutation.
+  """
+  The client mutation ID used by clients like Relay to track the mutation. If
+  given, returned in the response payload of the mutation.
+  """
   clientMutationId: String
+}
+
+input RelayUpdateByIdOrderInput {
+  record: UpdateByIdOrderInput!
+
+  """
+  The client mutation ID used by clients like Relay to track the mutation. If
+  given, returned in the response payload of the mutation.
+  """
+  clientMutationId: String
+}
+
+input RelayUpdateByIdProductInput {
+  record: UpdateByIdProductInput!
+
+  """
+  The client mutation ID used by clients like Relay to track the mutation. If
+  given, returned in the response payload of the mutation.
+  """
+  clientMutationId: String
+}
+
+type RemoveByIdOrderPayload {
+  """Removed document ID"""
+  recordId: MongoID
+
+  """Removed document"""
+  record: Order
+
+  """The globally unique ID among all types"""
+  nodeId: ID
+
+  """
+  The client mutation ID used by clients like Relay to track the mutation. If
+  given, returned in the response payload of the mutation.
+  """
+  clientMutationId: String
+  query: Query
 }
 
 type RemoveByIdProductPayload {
-  # Removed document ID
+  """Removed document ID"""
   recordId: MongoID
 
-  # Removed document
+  """Removed document"""
   record: Product
 
-  # The globally unique ID among all types
+  """The globally unique ID among all types"""
   nodeId: ID
 
-  # The client mutation ID used by clients like Relay to track the mutation. If
-  # given, returned in the response payload of the mutation.
+  """
+  The client mutation ID used by clients like Relay to track the mutation. If
+  given, returned in the response payload of the mutation.
+  """
   clientMutationId: String
+  query: Query
 }
 
 type Shipper implements Node {
-  # Shipper unique ID
+  """Shipper unique ID"""
   shipperID: Float
   companyName: String
   phone: String
   _id: MongoID!
 
-  # The globally unique ID among all types
+  """The globally unique ID among all types"""
   id: ID!
   orderConnection(
-    # Forward pagination argument for returning at most first edges
+    """Forward pagination argument for returning at most first edges"""
     first: Int
 
-    # Forward pagination argument for returning at most first edges
+    """Forward pagination argument for returning at most first edges"""
     after: String
 
-    # Backward pagination argument for returning at most last edges
+    """Backward pagination argument for returning at most last edges"""
     last: Int
 
-    # Backward pagination argument for returning at most last edges
+    """Backward pagination argument for returning at most last edges"""
     before: String
 
-    # Sort argument for data ordering
+    """Sort argument for data ordering"""
     sort: SortConnectionOrderEnum = _ID_DESC
   ): OrderConnection
 }
 
 input ShipperIDOperatorsFilterFindManyShipperInput {
-  # Shipper unique ID
+  """Shipper unique ID"""
   gt: Float
 
-  # Shipper unique ID
+  """Shipper unique ID"""
   gte: Float
 
-  # Shipper unique ID
+  """Shipper unique ID"""
   lt: Float
 
-  # Shipper unique ID
+  """Shipper unique ID"""
   lte: Float
 
-  # Shipper unique ID
+  """Shipper unique ID"""
   ne: Float
 
-  # Shipper unique ID
+  """Shipper unique ID"""
   in: [Float]
 
-  # Shipper unique ID
+  """Shipper unique ID"""
   nin: [Float]
 }
 
 input ShipperIDOperatorsFilterFindOneShipperInput {
-  # Shipper unique ID
+  """Shipper unique ID"""
   gt: Float
 
-  # Shipper unique ID
+  """Shipper unique ID"""
   gte: Float
 
-  # Shipper unique ID
+  """Shipper unique ID"""
   lt: Float
 
-  # Shipper unique ID
+  """Shipper unique ID"""
   lte: Float
 
-  # Shipper unique ID
+  """Shipper unique ID"""
   ne: Float
 
-  # Shipper unique ID
+  """Shipper unique ID"""
   in: [Float]
 
-  # Shipper unique ID
+  """Shipper unique ID"""
   nin: [Float]
 }
 
@@ -1519,6 +1692,15 @@ enum SortFindManyCategoryInput {
   CATEGORYID_DESC
   NAME_ASC
   NAME_DESC
+}
+
+enum SortFindManyCustomerInput {
+  _ID_ASC
+  _ID_DESC
+  CUSTOMERID_ASC
+  CUSTOMERID_DESC
+  COMPANYNAME_ASC
+  COMPANYNAME_DESC
 }
 
 enum SortFindManyEmployeeInput {
@@ -1647,7 +1829,7 @@ enum SortFindOneSupplierInput {
 }
 
 type Supplier implements Node {
-  # Supplier unique ID
+  """Supplier unique ID"""
   supplierID: Float
   companyName: String
   contactName: String
@@ -1655,136 +1837,136 @@ type Supplier implements Node {
   address: CustomerAddress
   _id: MongoID!
 
-  # The globally unique ID among all types
+  """The globally unique ID among all types"""
   id: ID!
   productConnection(
-    # Forward pagination argument for returning at most first edges
+    """Forward pagination argument for returning at most first edges"""
     first: Int
 
-    # Forward pagination argument for returning at most first edges
+    """Forward pagination argument for returning at most first edges"""
     after: String
 
-    # Backward pagination argument for returning at most last edges
+    """Backward pagination argument for returning at most last edges"""
     last: Int
 
-    # Backward pagination argument for returning at most last edges
+    """Backward pagination argument for returning at most last edges"""
     before: String
 
-    # Sort argument for data ordering
+    """Sort argument for data ordering"""
     sort: SortConnectionProductEnum = _ID_DESC
   ): ProductConnection
 }
 
-# A connection to a list of items.
+"""A connection to a list of items."""
 type SupplierConnection {
-  # Total object count.
+  """Total object count."""
   count: Int!
 
-  # Information to aid in pagination.
+  """Information to aid in pagination."""
   pageInfo: PageInfo!
 
-  # Information to aid in pagination.
+  """Information to aid in pagination."""
   edges: [SupplierEdge!]!
 }
 
-# An edge in a connection.
+"""An edge in a connection."""
 type SupplierEdge {
-  # The item at the end of the edge
+  """The item at the end of the edge"""
   node: Supplier!
 
-  # A cursor for use in pagination
+  """A cursor for use in pagination"""
   cursor: String!
 }
 
 input SupplierIDOperatorsFilterFindManySupplierInput {
-  # Supplier unique ID
+  """Supplier unique ID"""
   gt: Float
 
-  # Supplier unique ID
+  """Supplier unique ID"""
   gte: Float
 
-  # Supplier unique ID
+  """Supplier unique ID"""
   lt: Float
 
-  # Supplier unique ID
+  """Supplier unique ID"""
   lte: Float
 
-  # Supplier unique ID
+  """Supplier unique ID"""
   ne: Float
 
-  # Supplier unique ID
+  """Supplier unique ID"""
   in: [Float]
 
-  # Supplier unique ID
+  """Supplier unique ID"""
   nin: [Float]
 }
 
 input SupplierIDOperatorsFilterFindOneSupplierInput {
-  # Supplier unique ID
+  """Supplier unique ID"""
   gt: Float
 
-  # Supplier unique ID
+  """Supplier unique ID"""
   gte: Float
 
-  # Supplier unique ID
+  """Supplier unique ID"""
   lt: Float
 
-  # Supplier unique ID
+  """Supplier unique ID"""
   lte: Float
 
-  # Supplier unique ID
+  """Supplier unique ID"""
   ne: Float
 
-  # Supplier unique ID
+  """Supplier unique ID"""
   in: [Float]
 
-  # Supplier unique ID
+  """Supplier unique ID"""
   nin: [Float]
 }
 
 input TerritoryIDsOperatorsFilterFindManyEmployeeInput {
-  # Attached territory ID from region collection
+  """Attached territory ID from region collection"""
   gt: Float
 
-  # Attached territory ID from region collection
+  """Attached territory ID from region collection"""
   gte: Float
 
-  # Attached territory ID from region collection
+  """Attached territory ID from region collection"""
   lt: Float
 
-  # Attached territory ID from region collection
+  """Attached territory ID from region collection"""
   lte: Float
 
-  # Attached territory ID from region collection
+  """Attached territory ID from region collection"""
   ne: Float
 
-  # Attached territory ID from region collection
+  """Attached territory ID from region collection"""
   in: [Float]
 
-  # Attached territory ID from region collection
+  """Attached territory ID from region collection"""
   nin: [Float]
 }
 
 input TerritoryIDsOperatorsFilterFindOneEmployeeInput {
-  # Attached territory ID from region collection
+  """Attached territory ID from region collection"""
   gt: Float
 
-  # Attached territory ID from region collection
+  """Attached territory ID from region collection"""
   gte: Float
 
-  # Attached territory ID from region collection
+  """Attached territory ID from region collection"""
   lt: Float
 
-  # Attached territory ID from region collection
+  """Attached territory ID from region collection"""
   lte: Float
 
-  # Attached territory ID from region collection
+  """Attached territory ID from region collection"""
   ne: Float
 
-  # Attached territory ID from region collection
+  """Attached territory ID from region collection"""
   in: [Float]
 
-  # Attached territory ID from region collection
+  """Attached territory ID from region collection"""
   nin: [Float]
 }
 
@@ -1808,164 +1990,269 @@ input UnitPriceOperatorsFilterFindOneProductInput {
   nin: [Float]
 }
 
+input UpdateByIdOrderInput {
+  """Order unique ID"""
+  orderID: Float
+  customerID: String
+  employeeID: Float
+  orderDate: Date
+  requiredDate: Date
+  shippedDate: Date
+  shipVia: Float
+  freight: Float
+  shipName: String
+  shipAddress: CustomerAddressInput
+
+  """List of ordered products"""
+  details: [OrderDetailsInput]
+  _id: MongoID!
+}
+
+type UpdateByIdOrderPayload {
+  """Updated document ID"""
+  recordId: MongoID
+
+  """Updated document"""
+  record: Order
+
+  """The globally unique ID among all types"""
+  nodeId: ID
+
+  """
+  The client mutation ID used by clients like Relay to track the mutation. If
+  given, returned in the response payload of the mutation.
+  """
+  clientMutationId: String
+  query: Query
+}
+
+input UpdateByIdProductInput {
+  """Unique product id"""
+  productID: Float
+  name: String
+  supplierID: Float
+  categoryID: Float
+  quantityPerUnit: String
+  unitPrice: Float
+  unitsInStock: Float
+  unitsOnOrder: Float
+  reorderLevel: Float
+  discontinued: Boolean
+  _id: MongoID!
+}
+
+type UpdateByIdProductPayload {
+  """Updated document ID"""
+  recordId: MongoID
+
+  """Updated document"""
+  record: Product
+
+  """The globally unique ID among all types"""
+  nodeId: ID
+
+  """
+  The client mutation ID used by clients like Relay to track the mutation. If
+  given, returned in the response payload of the mutation.
+  """
+  clientMutationId: String
+  query: Query
+}
+
 type Viewer {
   category(
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterFindOneCategoryInput
     skip: Int
     sort: SortFindOneCategoryInput
   ): Category
   categoryList(
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterFindManyCategoryInput
     skip: Int
     limit: Int = 1000
     sort: SortFindManyCategoryInput
   ): [Category]
   customer(
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterFindOneCustomerInput
     skip: Int
     sort: SortFindOneCustomerInput
   ): Customer
+  customerPagination(
+    """Page number for displaying"""
+    page: Int
+    perPage: Int = 20
+
+    """Filter by fields"""
+    filter: FilterFindManyCustomerInput
+    sort: SortFindManyCustomerInput
+  ): CustomerPagination
   customerConnection(
-    # Forward pagination argument for returning at most first edges
+    """Forward pagination argument for returning at most first edges"""
     first: Int
 
-    # Forward pagination argument for returning at most first edges
+    """Forward pagination argument for returning at most first edges"""
     after: String
 
-    # Backward pagination argument for returning at most last edges
+    """Backward pagination argument for returning at most last edges"""
     last: Int
 
-    # Backward pagination argument for returning at most last edges
+    """Backward pagination argument for returning at most last edges"""
     before: String
 
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterFindManyCustomerInput
 
-    # Sort argument for data ordering
+    """Sort argument for data ordering"""
     sort: SortConnectionCustomerEnum = _ID_DESC
   ): CustomerConnection
   employee(
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterFindOneEmployeeInput
     skip: Int
     sort: SortFindOneEmployeeInput
   ): Employee
   employeeList(
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterFindManyEmployeeInput
     skip: Int
     limit: Int = 1000
     sort: SortFindManyEmployeeInput
   ): [Employee]
+  employeePagination(
+    """Page number for displaying"""
+    page: Int
+    perPage: Int = 20
+
+    """Filter by fields"""
+    filter: FilterFindManyEmployeeInput
+    sort: SortFindManyEmployeeInput
+  ): EmployeePagination
   order(
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterFindOneOrderInput
     skip: Int
     sort: SortFindOneOrderInput
   ): Order
+  orderPagination(
+    """Page number for displaying"""
+    page: Int
+    perPage: Int = 20
+
+    """Filter by fields"""
+    filter: FilterFindManyOrderInput
+    sort: SortFindManyOrderInput
+  ): OrderPagination
   orderConnection(
-    # Forward pagination argument for returning at most first edges
+    """Forward pagination argument for returning at most first edges"""
     first: Int
 
-    # Forward pagination argument for returning at most first edges
+    """Forward pagination argument for returning at most first edges"""
     after: String
 
-    # Backward pagination argument for returning at most last edges
+    """Backward pagination argument for returning at most last edges"""
     last: Int
 
-    # Backward pagination argument for returning at most last edges
+    """Backward pagination argument for returning at most last edges"""
     before: String
 
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterFindManyOrderInput
 
-    # Sort argument for data ordering
+    """Sort argument for data ordering"""
     sort: SortConnectionOrderEnum = _ID_DESC
   ): OrderConnection
   product(
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterFindOneProductInput
     skip: Int
     sort: SortFindOneProductInput
   ): Product
   productList(
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterFindManyProductInput
     skip: Int
     limit: Int = 1000
     sort: SortFindManyProductInput
   ): [Product]
+  productPagination(
+    """Page number for displaying"""
+    page: Int
+    perPage: Int = 20
+
+    """Filter by fields"""
+    filter: FilterFindManyProductInput
+    sort: SortFindManyProductInput
+  ): ProductPagination
   productConnection(
-    # Forward pagination argument for returning at most first edges
+    """Forward pagination argument for returning at most first edges"""
     first: Int
 
-    # Forward pagination argument for returning at most first edges
+    """Forward pagination argument for returning at most first edges"""
     after: String
 
-    # Backward pagination argument for returning at most last edges
+    """Backward pagination argument for returning at most last edges"""
     last: Int
 
-    # Backward pagination argument for returning at most last edges
+    """Backward pagination argument for returning at most last edges"""
     before: String
 
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterFindManyProductInput
 
-    # Sort argument for data ordering
+    """Sort argument for data ordering"""
     sort: SortConnectionProductEnum = _ID_DESC
   ): ProductConnection
   region(
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterFindOneRegionInput
     skip: Int
     sort: SortFindOneRegionInput
   ): Region
   regionList(
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterFindManyRegionInput
     skip: Int
     limit: Int = 1000
     sort: SortFindManyRegionInput
   ): [Region]
   shipper(
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterFindOneShipperInput
     skip: Int
     sort: SortFindOneShipperInput
   ): Shipper
   shipperList(
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterFindManyShipperInput
     skip: Int
     limit: Int = 1000
     sort: SortFindManyShipperInput
   ): [Shipper]
   supplier(
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterFindOneSupplierInput
     skip: Int
     sort: SortFindOneSupplierInput
   ): Supplier
   supplierConnection(
-    # Forward pagination argument for returning at most first edges
+    """Forward pagination argument for returning at most first edges"""
     first: Int
 
-    # Forward pagination argument for returning at most first edges
+    """Forward pagination argument for returning at most first edges"""
     after: String
 
-    # Backward pagination argument for returning at most last edges
+    """Backward pagination argument for returning at most last edges"""
     last: Int
 
-    # Backward pagination argument for returning at most last edges
+    """Backward pagination argument for returning at most last edges"""
     before: String
 
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterFindManySupplierInput
 
-    # Sort argument for data ordering
+    """Sort argument for data ordering"""
     sort: SortConnectionSupplierEnum = _ID_DESC
   ): SupplierConnection
 }

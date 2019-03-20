@@ -286,6 +286,63 @@
               "deprecationReason": null
             },
             {
+              "name": "customerPagination",
+              "description": "",
+              "args": [
+                {
+                  "name": "page",
+                  "description": "Page number for displaying",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "perPage",
+                  "description": "",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "20"
+                },
+                {
+                  "name": "filter",
+                  "description": "Filter by fields",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyCustomerInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "sort",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "SortFindManyCustomerInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CustomerPagination",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Customer",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "customerConnection",
               "description": "",
               "args": [
@@ -463,6 +520,63 @@
               "deprecationReason": null
             },
             {
+              "name": "employeePagination",
+              "description": "",
+              "args": [
+                {
+                  "name": "page",
+                  "description": "Page number for displaying",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "perPage",
+                  "description": "",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "20"
+                },
+                {
+                  "name": "filter",
+                  "description": "Filter by fields",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyEmployeeInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "sort",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "SortFindManyEmployeeInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "EmployeePagination",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Employee",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "order",
               "description": "",
               "args": [
@@ -501,6 +615,63 @@
                 "kind": "OBJECT",
                 "name": "Order",
                 "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "orderPagination",
+              "description": "",
+              "args": [
+                {
+                  "name": "page",
+                  "description": "Page number for displaying",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "perPage",
+                  "description": "",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "20"
+                },
+                {
+                  "name": "filter",
+                  "description": "Filter by fields",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyOrderInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "sort",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "SortFindManyOrderInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "OrderPagination",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Order",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -673,6 +844,63 @@
               "type": {
                 "kind": "LIST",
                 "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Product",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "productPagination",
+              "description": "",
+              "args": [
+                {
+                  "name": "page",
+                  "description": "Page number for displaying",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "perPage",
+                  "description": "",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "20"
+                },
+                {
+                  "name": "filter",
+                  "description": "Filter by fields",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyProductInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "sort",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "SortFindManyProductInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "ProductPagination",
                 "ofType": {
                   "kind": "OBJECT",
                   "name": "Product",
@@ -1147,11 +1375,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterFindOneCategoryInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindOneCategoryInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindOneCategoryInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -1163,7 +1427,7 @@
         {
           "kind": "SCALAR",
           "name": "Float",
-          "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). ",
+          "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point). ",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -1193,12 +1457,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterFindOneCategoryInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "categoryID",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "CategoryIDOperatorsFilterFindOneCategoryInput",
@@ -1208,7 +1472,7 @@
             },
             {
               "name": "name",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "NameOperatorsFilterFindOneCategoryInput",
@@ -1218,7 +1482,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindOneCategoryInput",
@@ -2996,6 +3260,53 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "orderList",
+              "description": null,
+              "args": [
+                {
+                  "name": "skip",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "limit",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "1000"
+                },
+                {
+                  "name": "sort",
+                  "description": null,
+                  "type": {
+                    "kind": "ENUM",
+                    "name": "SortFindManyOrderInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Order",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -3007,6 +3318,53 @@
             }
           ],
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "SortFindManyOrderInput",
+          "description": null,
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "_ID_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "_ID_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ORDERID_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ORDERID_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "DETAILS_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "DETAILS_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
@@ -3544,53 +3902,6 @@
           "possibleTypes": null
         },
         {
-          "kind": "ENUM",
-          "name": "SortFindManyOrderInput",
-          "description": null,
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": [
-            {
-              "name": "_ID_ASC",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "_ID_DESC",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "ORDERID_ASC",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "ORDERID_DESC",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "DETAILS_ASC",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "DETAILS_DESC",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "possibleTypes": null
-        },
-        {
           "kind": "OBJECT",
           "name": "Supplier",
           "description": null,
@@ -3899,11 +4210,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterFindManyCategoryInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyCategoryInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyCategoryInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -3915,12 +4262,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterFindManyCategoryInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "categoryID",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "CategoryIDOperatorsFilterFindManyCategoryInput",
@@ -3930,7 +4277,7 @@
             },
             {
               "name": "name",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "NameOperatorsFilterFindManyCategoryInput",
@@ -3940,7 +4287,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindManyCategoryInput",
@@ -4349,11 +4696,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterFindOneCustomerInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindOneCustomerInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindOneCustomerInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -4436,12 +4819,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterFindOneCustomerInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "customerID",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "CustomerIDOperatorsFilterFindOneCustomerInput",
@@ -4451,7 +4834,7 @@
             },
             {
               "name": "companyName",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "CompanyNameOperatorsFilterFindOneCustomerInput",
@@ -4461,7 +4844,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindOneCustomerInput",
@@ -4870,11 +5253,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterFindManyCustomerInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyCustomerInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyCustomerInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -4886,12 +5305,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterFindManyCustomerInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "customerID",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "CustomerIDOperatorsFilterFindManyCustomerInput",
@@ -4901,7 +5320,7 @@
             },
             {
               "name": "companyName",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "CompanyNameOperatorsFilterFindManyCustomerInput",
@@ -4911,7 +5330,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindManyCustomerInput",
@@ -5188,6 +5607,199 @@
             }
           ],
           "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "SortFindManyCustomerInput",
+          "description": null,
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "_ID_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "_ID_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CUSTOMERID_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "CUSTOMERID_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "COMPANYNAME_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "COMPANYNAME_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CustomerPagination",
+          "description": "List of items with pagination.",
+          "fields": [
+            {
+              "name": "count",
+              "description": "Total object count.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "items",
+              "description": "Array of objects.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Customer",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageInfo",
+              "description": "Information to aid in pagination.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PaginationInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PaginationInfo",
+          "description": "Information about pagination.",
+          "fields": [
+            {
+              "name": "currentPage",
+              "description": "Current page number",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "perPage",
+              "description": "Number of items per page",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageCount",
+              "description": "Total number of pages",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "itemCount",
+              "description": "Total number of items",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "hasNextPage",
+              "description": "When paginating forwards, are there more items?",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "hasPreviousPage",
+              "description": "When paginating backwards, are there more items?",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -5498,11 +6110,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterFindOneEmployeeInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindOneEmployeeInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindOneEmployeeInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -5514,12 +6162,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterFindOneEmployeeInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "employeeID",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "EmployeeIDOperatorsFilterFindOneEmployeeInput",
@@ -5529,7 +6177,7 @@
             },
             {
               "name": "lastName",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "LastNameOperatorsFilterFindOneEmployeeInput",
@@ -5539,7 +6187,7 @@
             },
             {
               "name": "territoryIDs",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "TerritoryIDsOperatorsFilterFindOneEmployeeInput",
@@ -5549,7 +6197,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindOneEmployeeInput",
@@ -6135,11 +6783,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterFindManyEmployeeInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyEmployeeInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyEmployeeInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             },
@@ -6161,12 +6845,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterFindManyEmployeeInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "employeeID",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "EmployeeIDOperatorsFilterFindManyEmployeeInput",
@@ -6176,7 +6860,7 @@
             },
             {
               "name": "lastName",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "LastNameOperatorsFilterFindManyEmployeeInput",
@@ -6186,7 +6870,7 @@
             },
             {
               "name": "territoryIDs",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "TerritoryIDsOperatorsFilterFindManyEmployeeInput",
@@ -6196,7 +6880,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindManyEmployeeInput",
@@ -6566,6 +7250,61 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "EmployeePagination",
+          "description": "List of items with pagination.",
+          "fields": [
+            {
+              "name": "count",
+              "description": "Total object count.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "items",
+              "description": "Array of objects.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Employee",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageInfo",
+              "description": "Information to aid in pagination.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PaginationInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindOneOrderInput",
           "description": null,
@@ -6679,7 +7418,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "OrderOrderDetailsInput",
+                  "name": "OrderDetailsInput",
                   "ofType": null
                 }
               },
@@ -6711,11 +7450,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterFindOneOrderInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindOneOrderInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindOneOrderInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -6726,7 +7501,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "OrderOrderDetailsInput",
+          "name": "OrderDetailsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -6778,12 +7553,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterFindOneOrderInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "orderID",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OrderIDOperatorsFilterFindOneOrderInput",
@@ -6793,7 +7568,7 @@
             },
             {
               "name": "details",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "DetailsOperatorsFilterFindOneOrderInput",
@@ -6803,7 +7578,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindOneOrderInput",
@@ -6916,7 +7691,7 @@
               "description": "List of ordered products",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OrderOrderDetailsInput",
+                "name": "OrderDetailsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -6926,7 +7701,7 @@
               "description": "List of ordered products",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OrderOrderDetailsInput",
+                "name": "OrderDetailsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -6936,7 +7711,7 @@
               "description": "List of ordered products",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OrderOrderDetailsInput",
+                "name": "OrderDetailsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -6946,7 +7721,7 @@
               "description": "List of ordered products",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OrderOrderDetailsInput",
+                "name": "OrderDetailsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -6956,7 +7731,7 @@
               "description": "List of ordered products",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OrderOrderDetailsInput",
+                "name": "OrderDetailsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -6969,7 +7744,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "OrderOrderDetailsInput",
+                  "name": "OrderDetailsInput",
                   "ofType": null
                 }
               },
@@ -6983,7 +7758,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "OrderOrderDetailsInput",
+                  "name": "OrderDetailsInput",
                   "ofType": null
                 }
               },
@@ -7244,7 +8019,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "OrderOrderDetailsInput",
+                  "name": "OrderDetailsInput",
                   "ofType": null
                 }
               },
@@ -7276,11 +8051,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterFindManyOrderInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyOrderInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyOrderInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -7292,12 +8103,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterFindManyOrderInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "orderID",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OrderIDOperatorsFilterFindManyOrderInput",
@@ -7307,7 +8118,7 @@
             },
             {
               "name": "details",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "DetailsOperatorsFilterFindManyOrderInput",
@@ -7317,7 +8128,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindManyOrderInput",
@@ -7430,7 +8241,7 @@
               "description": "List of ordered products",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OrderOrderDetailsInput",
+                "name": "OrderDetailsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -7440,7 +8251,7 @@
               "description": "List of ordered products",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OrderOrderDetailsInput",
+                "name": "OrderDetailsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -7450,7 +8261,7 @@
               "description": "List of ordered products",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OrderOrderDetailsInput",
+                "name": "OrderDetailsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -7460,7 +8271,7 @@
               "description": "List of ordered products",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OrderOrderDetailsInput",
+                "name": "OrderDetailsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -7470,7 +8281,7 @@
               "description": "List of ordered products",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OrderOrderDetailsInput",
+                "name": "OrderDetailsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -7483,7 +8294,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "OrderOrderDetailsInput",
+                  "name": "OrderDetailsInput",
                   "ofType": null
                 }
               },
@@ -7497,7 +8308,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "OrderOrderDetailsInput",
+                  "name": "OrderDetailsInput",
                   "ofType": null
                 }
               },
@@ -7594,6 +8405,61 @@
             }
           ],
           "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "OrderPagination",
+          "description": "List of items with pagination.",
+          "fields": [
+            {
+              "name": "count",
+              "description": "Total object count.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "items",
+              "description": "Array of objects.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Order",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageInfo",
+              "description": "Information to aid in pagination.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PaginationInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -7729,11 +8595,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterFindOneProductInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindOneProductInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindOneProductInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -7745,12 +8647,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterFindOneProductInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "productID",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "ProductIDOperatorsFilterFindOneProductInput",
@@ -7760,7 +8662,7 @@
             },
             {
               "name": "name",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "NameOperatorsFilterFindOneProductInput",
@@ -7770,7 +8672,7 @@
             },
             {
               "name": "unitPrice",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "UnitPriceOperatorsFilterFindOneProductInput",
@@ -7780,7 +8682,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindOneProductInput",
@@ -8352,11 +9254,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterFindManyProductInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyProductInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyProductInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             },
@@ -8378,12 +9316,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterFindManyProductInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "productID",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "ProductIDOperatorsFilterFindManyProductInput",
@@ -8393,7 +9331,7 @@
             },
             {
               "name": "name",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "NameOperatorsFilterFindManyProductInput",
@@ -8403,7 +9341,7 @@
             },
             {
               "name": "unitPrice",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "UnitPriceOperatorsFilterFindManyProductInput",
@@ -8413,7 +9351,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindManyProductInput",
@@ -8783,6 +9721,61 @@
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "ProductPagination",
+          "description": "List of items with pagination.",
+          "fields": [
+            {
+              "name": "count",
+              "description": "Total object count.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "items",
+              "description": "Array of objects.",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Product",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "pageInfo",
+              "description": "Information to aid in pagination.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PaginationInfo",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindOneRegionInput",
           "description": null,
@@ -8816,7 +9809,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "RegionRegionTerritoriesInput",
+                  "name": "RegionTerritoriesInput",
                   "ofType": null
                 }
               },
@@ -8848,11 +9841,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterFindOneRegionInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindOneRegionInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindOneRegionInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -8863,7 +9892,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "RegionRegionTerritoriesInput",
+          "name": "RegionTerritoriesInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -8895,12 +9924,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterFindOneRegionInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "regionID",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "RegionIDOperatorsFilterFindOneRegionInput",
@@ -8910,7 +9939,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindOneRegionInput",
@@ -9341,7 +10370,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "RegionRegionTerritoriesInput",
+                  "name": "RegionTerritoriesInput",
                   "ofType": null
                 }
               },
@@ -9373,11 +10402,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterFindManyRegionInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyRegionInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyRegionInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -9389,12 +10454,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterFindManyRegionInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "regionID",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "RegionIDOperatorsFilterFindManyRegionInput",
@@ -9404,7 +10469,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindManyRegionInput",
@@ -9692,11 +10757,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterFindOneShipperInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindOneShipperInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindOneShipperInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -9708,12 +10809,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterFindOneShipperInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "shipperID",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "ShipperIDOperatorsFilterFindOneShipperInput",
@@ -9723,7 +10824,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindOneShipperInput",
@@ -10011,11 +11112,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterFindManyShipperInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyShipperInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManyShipperInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -10027,12 +11164,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterFindManyShipperInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "shipperID",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "ShipperIDOperatorsFilterFindManyShipperInput",
@@ -10042,7 +11179,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindManyShipperInput",
@@ -10350,11 +11487,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterFindOneSupplierInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindOneSupplierInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindOneSupplierInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -10366,12 +11539,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterFindOneSupplierInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "supplierID",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "SupplierIDOperatorsFilterFindOneSupplierInput",
@@ -10381,7 +11554,7 @@
             },
             {
               "name": "companyName",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "CompanyNameOperatorsFilterFindOneSupplierInput",
@@ -10391,7 +11564,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindOneSupplierInput",
@@ -10800,11 +11973,47 @@
             },
             {
               "name": "_operators",
-              "description": "List of fields that can be filtered via operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OperatorsFilterFindManySupplierInput",
                 "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManySupplierInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterFindManySupplierInput",
+                    "ofType": null
+                  }
+                }
               },
               "defaultValue": null
             }
@@ -10816,12 +12025,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "OperatorsFilterFindManySupplierInput",
-          "description": null,
+          "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
             {
               "name": "supplierID",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "SupplierIDOperatorsFilterFindManySupplierInput",
@@ -10831,7 +12040,7 @@
             },
             {
               "name": "companyName",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "CompanyNameOperatorsFilterFindManySupplierInput",
@@ -10841,7 +12050,7 @@
             },
             {
               "name": "_id",
-              "description": "Filter value by operator(s)",
+              "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindManySupplierInput",
@@ -11315,7 +12524,34 @@
               "deprecationReason": null
             },
             {
-              "name": "removeProductById",
+              "name": "updateProduct",
+              "description": "Update one document: 1) Retrieve one document by findById. 2) Apply updates to mongoose document. 3) Mongoose applies defaults, setters, hooks and validation. 4) And save it.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "RelayUpdateByIdProductInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateByIdProductPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "removeProduct",
               "description": "Remove one document: 1) Retrieve one document and remove with hooks via findByIdAndRemove. 2) Return removed document.",
               "args": [
                 {
@@ -11336,6 +12572,87 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "RemoveByIdProductPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "createOrder",
+              "description": "Create one document with mongoose defaults, setters, hooks and validation",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "RelayCreateOneOrderInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "CreateOneOrderPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "updateOrder",
+              "description": "Update one document: 1) Retrieve one document by findById. 2) Apply updates to mongoose document. 3) Mongoose applies defaults, setters, hooks and validation. 4) And save it.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "RelayUpdateByIdOrderInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "UpdateByIdOrderPayload",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "removeOrder",
+              "description": "Remove one document: 1) Retrieve one document and remove with hooks via findByIdAndRemove. 2) Return removed document.",
+              "args": [
+                {
+                  "name": "input",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "RelayRemoveByIdOrderInput",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "RemoveByIdOrderPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -11545,6 +12862,249 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "query",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Query",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "RelayUpdateByIdProductInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "record",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "UpdateByIdProductInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "clientMutationId",
+              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateByIdProductInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "productID",
+              "description": "Unique product id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "name",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "supplierID",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "categoryID",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "quantityPerUnit",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "unitPrice",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "unitsInStock",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "unitsOnOrder",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "reorderLevel",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "discontinued",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_id",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateByIdProductPayload",
+          "description": null,
+          "fields": [
+            {
+              "name": "recordId",
+              "description": "Updated document ID",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "record",
+              "description": "Updated document",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Product",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nodeId",
+              "description": "The globally unique ID among all types",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "clientMutationId",
+              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "query",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Query",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -11635,6 +13195,600 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "query",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Query",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "RelayCreateOneOrderInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "record",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "CreateOneOrderInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "clientMutationId",
+              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "CreateOneOrderInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "orderID",
+              "description": "Order unique ID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "customerID",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "employeeID",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "orderDate",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Date",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "requiredDate",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Date",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shippedDate",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Date",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shipVia",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "freight",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shipName",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shipAddress",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "CustomerAddressInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "details",
+              "description": "List of ordered products",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "OrderDetailsInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CreateOneOrderPayload",
+          "description": null,
+          "fields": [
+            {
+              "name": "recordId",
+              "description": "Created document ID",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "record",
+              "description": "Created document",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Order",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nodeId",
+              "description": "The globally unique ID among all types",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "clientMutationId",
+              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "query",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Query",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "RelayUpdateByIdOrderInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "record",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "UpdateByIdOrderInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "clientMutationId",
+              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateByIdOrderInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "orderID",
+              "description": "Order unique ID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "customerID",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "employeeID",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "orderDate",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Date",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "requiredDate",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Date",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shippedDate",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Date",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shipVia",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "freight",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shipName",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shipAddress",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "CustomerAddressInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "details",
+              "description": "List of ordered products",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "OrderDetailsInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_id",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "UpdateByIdOrderPayload",
+          "description": null,
+          "fields": [
+            {
+              "name": "recordId",
+              "description": "Updated document ID",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "record",
+              "description": "Updated document",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Order",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nodeId",
+              "description": "The globally unique ID among all types",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "clientMutationId",
+              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "query",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Query",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "RelayRemoveByIdOrderInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "_id",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "clientMutationId",
+              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "RemoveByIdOrderPayload",
+          "description": null,
+          "fields": [
+            {
+              "name": "recordId",
+              "description": "Removed document ID",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "record",
+              "description": "Removed document",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Order",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "nodeId",
+              "description": "The globally unique ID among all types",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "ID",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "clientMutationId",
+              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "query",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Query",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -12310,54 +14464,6 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
-            },
-            {
-              "name": "onOperation",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Use `locations`."
-            },
-            {
-              "name": "onFragment",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Use `locations`."
-            },
-            {
-              "name": "onField",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": true,
-              "deprecationReason": "Use `locations`."
             }
           ],
           "inputFields": null,
@@ -12412,6 +14518,12 @@
             {
               "name": "INLINE_FRAGMENT",
               "description": "Location adjacent to an inline fragment.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "VARIABLE_DEFINITION",
+              "description": "Location adjacent to a variable definition.",
               "isDeprecated": false,
               "deprecationReason": null
             },
@@ -12487,31 +14599,6 @@
       ],
       "directives": [
         {
-          "name": "include",
-          "description": "Directs the executor to include this field or fragment only when the `if` argument is true.",
-          "locations": [
-            "FIELD",
-            "FRAGMENT_SPREAD",
-            "INLINE_FRAGMENT"
-          ],
-          "args": [
-            {
-              "name": "if",
-              "description": "Included when true.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ]
-        },
-        {
           "name": "skip",
           "description": "Directs the executor to skip this field or fragment when the `if` argument is true.",
           "locations": [
@@ -12537,6 +14624,31 @@
           ]
         },
         {
+          "name": "include",
+          "description": "Directs the executor to include this field or fragment only when the `if` argument is true.",
+          "locations": [
+            "FIELD",
+            "FRAGMENT_SPREAD",
+            "INLINE_FRAGMENT"
+          ],
+          "args": [
+            {
+              "name": "if",
+              "description": "Included when true.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ]
+        },
+        {
           "name": "deprecated",
           "description": "Marks an element of a GraphQL schema as no longer supported.",
           "locations": [
@@ -12546,7 +14658,7 @@
           "args": [
             {
               "name": "reason",
-              "description": "Explains why this element was deprecated, usually also including a suggestion for how to access supported similar data. Formatted in [Markdown](https://daringfireball.net/projects/markdown/).",
+              "description": "Explains why this element was deprecated, usually also including a suggestion for how to access supported similar data. Formatted using the Markdown syntax (as specified by [CommonMark](https://commonmark.org/).",
               "type": {
                 "kind": "SCALAR",
                 "name": "String",

@@ -138,23 +138,46 @@ input AgeOperatorsFilterUserInput {
   nin: [Float]
 }
 
-input CreateOneUserInput {
+input CreateManyUserInput {
   name: String
   age: Float
-  languages: [UserUserLanguagesInput]
+  languages: [UserLanguagesInput]
   contacts: UserContactsInput
   gender: EnumUserGender
   address: UserAddressInput
 
-  # Some dynamic data
+  """Some dynamic data"""
+  someMixed: JSON
+}
+
+type CreateManyUserPayload {
+  """Created document ID"""
+  recordIds: [MongoID]!
+
+  """Created documents"""
+  records: [User]!
+
+  """Count of all documents created"""
+  createCount: Int!
+}
+
+input CreateOneUserInput {
+  name: String
+  age: Float
+  languages: [UserLanguagesInput]
+  contacts: UserContactsInput
+  gender: EnumUserGender
+  address: UserAddressInput
+
+  """Some dynamic data"""
   someMixed: JSON
 }
 
 type CreateOneUserPayload {
-  # Created document ID
+  """Created document ID"""
   recordId: MongoID
 
-  # Created document
+  """Created document"""
   record: User
 }
 
@@ -173,123 +196,137 @@ enum EnumUserLanguagesSkill {
 input FilterFindManyUserInput {
   name: String
   age: Float
-  languages: [UserUserLanguagesInput]
+  languages: [UserLanguagesInput]
   contacts: UserContactsInput
   gender: EnumUserGender
   address: UserAddressInput
 
-  # Some dynamic data
+  """Some dynamic data"""
   someMixed: JSON
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterFindManyUserInput
+  OR: [FilterFindManyUserInput!]
+  AND: [FilterFindManyUserInput!]
 
-  # Search by distance in meters
+  """Search by distance in meters"""
   geoDistance: GeoDistance
 }
 
 input FilterFindOneUserInput {
   name: String
   age: Float
-  languages: [UserUserLanguagesInput]
+  languages: [UserLanguagesInput]
   contacts: UserContactsInput
   gender: EnumUserGender
   address: UserAddressInput
 
-  # Some dynamic data
+  """Some dynamic data"""
   someMixed: JSON
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterFindOneUserInput
+  OR: [FilterFindOneUserInput!]
+  AND: [FilterFindOneUserInput!]
 }
 
 input FilterRemoveManyUserInput {
   name: String
   age: Float
-  languages: [UserUserLanguagesInput]
+  languages: [UserLanguagesInput]
   contacts: UserContactsInput
   gender: EnumUserGender
   address: UserAddressInput
 
-  # Some dynamic data
+  """Some dynamic data"""
   someMixed: JSON
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterRemoveManyUserInput
+  OR: [FilterRemoveManyUserInput!]
+  AND: [FilterRemoveManyUserInput!]
 }
 
 input FilterRemoveOneUserInput {
   name: String
   age: Float
-  languages: [UserUserLanguagesInput]
+  languages: [UserLanguagesInput]
   contacts: UserContactsInput
   gender: EnumUserGender
   address: UserAddressInput
 
-  # Some dynamic data
+  """Some dynamic data"""
   someMixed: JSON
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterRemoveOneUserInput
+  OR: [FilterRemoveOneUserInput!]
+  AND: [FilterRemoveOneUserInput!]
 }
 
 input FilterUpdateManyUserInput {
   name: String
   age: Float
-  languages: [UserUserLanguagesInput]
+  languages: [UserLanguagesInput]
   contacts: UserContactsInput
   gender: EnumUserGender
   address: UserAddressInput
 
-  # Some dynamic data
+  """Some dynamic data"""
   someMixed: JSON
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterUpdateManyUserInput
+  OR: [FilterUpdateManyUserInput!]
+  AND: [FilterUpdateManyUserInput!]
 }
 
 input FilterUpdateOneUserInput {
   name: String
   age: Float
-  languages: [UserUserLanguagesInput]
+  languages: [UserLanguagesInput]
   contacts: UserContactsInput
   gender: EnumUserGender
   address: UserAddressInput
 
-  # Some dynamic data
+  """Some dynamic data"""
   someMixed: JSON
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterUpdateOneUserInput
+  OR: [FilterUpdateOneUserInput!]
+  AND: [FilterUpdateOneUserInput!]
 }
 
 input FilterUserInput {
   name: String
   age: Float
-  languages: [UserUserLanguagesInput]
+  languages: [UserLanguagesInput]
   contacts: UserContactsInput
   gender: EnumUserGender
   address: UserAddressInput
 
-  # Some dynamic data
+  """Some dynamic data"""
   someMixed: JSON
   _id: MongoID
   _ids: [MongoID]
 
-  # List of fields that can be filtered via operators
+  """List of *indexed* fields that can be filtered via operators."""
   _operators: OperatorsFilterUserInput
+  OR: [FilterUserInput!]
+  AND: [FilterUserInput!]
 }
 
 input GenderOperatorsFilterFindManyUserInput {
@@ -365,67 +402,88 @@ input GenderOperatorsFilterUserInput {
 input GeoDistance {
   lng: Float!
   lat: Float!
-
-  # Distance in meters
   distance: Float!
 }
 
-# The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
 scalar JSON
 
-# The `ID` scalar type represents a unique MongoDB identifier in collection.
-# MongoDB by default use 12-byte ObjectId value
-# (https://docs.mongodb.com/manual/reference/bson-types/#objectid). But MongoDB
-# also may accepts string or integer as correct values for _id field.
+"""
+The `ID` scalar type represents a unique MongoDB identifier in collection.
+MongoDB by default use 12-byte ObjectId value
+(https://docs.mongodb.com/manual/reference/bson-types/#objectid). But MongoDB
+also may accepts string or integer as correct values for _id field.
+"""
 scalar MongoID
 
 type Mutation {
-  # Create one document with mongoose defaults, setters, hooks and validation
+  """
+  Create one document with mongoose defaults, setters, hooks and validation
+  """
   userCreate(record: CreateOneUserInput!): CreateOneUserPayload
 
-  # Update one document: 1) Retrieve one document by findById. 2) Apply updates to
-  # mongoose document. 3) Mongoose applies defaults, setters, hooks and
-  # validation. 4) And save it.
+  """
+  Creates Many documents with mongoose defaults, setters, hooks and validation
+  """
+  userCreateMany(records: [CreateManyUserInput!]!): CreateManyUserPayload
+
+  """
+  Update one document: 1) Retrieve one document by findById. 2) Apply updates to
+  mongoose document. 3) Mongoose applies defaults, setters, hooks and
+  validation. 4) And save it.
+  """
   userUpdateById(record: UpdateByIdUserInput!): UpdateByIdUserPayload
 
-  # Update one document: 1) Retrieve one document via findOne. 2) Apply updates to
-  # mongoose document. 3) Mongoose applies defaults, setters, hooks and
-  # validation. 4) And save it.
+  """
+  Update one document: 1) Retrieve one document via findOne. 2) Apply updates to
+  mongoose document. 3) Mongoose applies defaults, setters, hooks and
+  validation. 4) And save it.
+  """
   userUpdateOne(
     record: UpdateOneUserInput!
 
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterUpdateOneUserInput
     sort: SortUpdateOneUserInput
     skip: Int
   ): UpdateOneUserPayload
 
-  # Update many documents without returning them: Use Query.update mongoose
-  # method. Do not apply mongoose defaults, setters, hooks and validation. 
+  """
+  Update many documents without returning them: Use Query.update mongoose
+  method. Do not apply mongoose defaults, setters, hooks and validation. 
+  """
   userUpdateMany(
     record: UpdateManyUserInput!
 
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterUpdateManyUserInput
     sort: SortUpdateManyUserInput
     skip: Int
     limit: Int = 1000
   ): UpdateManyUserPayload
 
-  # Remove one document: 1) Retrieve one document and remove with hooks via findByIdAndRemove. 2) Return removed document.
+  """
+  Remove one document: 1) Retrieve one document and remove with hooks via findByIdAndRemove. 2) Return removed document.
+  """
   userRemoveById(_id: MongoID!): RemoveByIdUserPayload
 
-  # Remove one document: 1) Remove with hooks via findOneAndRemove. 2) Return removed document.
+  """
+  Remove one document: 1) Remove with hooks via findOneAndRemove. 2) Return removed document.
+  """
   userRemoveOne(
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterRemoveOneUserInput
     sort: SortRemoveOneUserInput
   ): RemoveOneUserPayload
 
-  # Remove many documents without returning them: Use Query.remove mongoose
-  # method. Do not apply mongoose defaults, setters, hooks and validation. 
+  """
+  Remove many documents without returning them: Use Query.remove mongoose
+  method. Do not apply mongoose defaults, setters, hooks and validation. 
+  """
   userRemoveMany(
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterRemoveManyUserInput!
   ): RemoveManyUserPayload
 }
@@ -500,137 +558,95 @@ input NameOperatorsFilterUserInput {
   nin: [String]
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterFindManyUserInput {
-  # Filter value by operator(s)
   name: NameOperatorsFilterFindManyUserInput
-
-  # Filter value by operator(s)
   age: AgeOperatorsFilterFindManyUserInput
-
-  # Filter value by operator(s)
   gender: GenderOperatorsFilterFindManyUserInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterFindManyUserInput
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterFindOneUserInput {
-  # Filter value by operator(s)
   name: NameOperatorsFilterFindOneUserInput
-
-  # Filter value by operator(s)
   age: AgeOperatorsFilterFindOneUserInput
-
-  # Filter value by operator(s)
   gender: GenderOperatorsFilterFindOneUserInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterFindOneUserInput
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterRemoveManyUserInput {
-  # Filter value by operator(s)
   name: NameOperatorsFilterRemoveManyUserInput
-
-  # Filter value by operator(s)
   age: AgeOperatorsFilterRemoveManyUserInput
-
-  # Filter value by operator(s)
   gender: GenderOperatorsFilterRemoveManyUserInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterRemoveManyUserInput
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterRemoveOneUserInput {
-  # Filter value by operator(s)
   name: NameOperatorsFilterRemoveOneUserInput
-
-  # Filter value by operator(s)
   age: AgeOperatorsFilterRemoveOneUserInput
-
-  # Filter value by operator(s)
   gender: GenderOperatorsFilterRemoveOneUserInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterRemoveOneUserInput
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterUpdateManyUserInput {
-  # Filter value by operator(s)
   name: NameOperatorsFilterUpdateManyUserInput
-
-  # Filter value by operator(s)
   age: AgeOperatorsFilterUpdateManyUserInput
-
-  # Filter value by operator(s)
   gender: GenderOperatorsFilterUpdateManyUserInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterUpdateManyUserInput
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterUpdateOneUserInput {
-  # Filter value by operator(s)
   name: NameOperatorsFilterUpdateOneUserInput
-
-  # Filter value by operator(s)
   age: AgeOperatorsFilterUpdateOneUserInput
-
-  # Filter value by operator(s)
   gender: GenderOperatorsFilterUpdateOneUserInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterUpdateOneUserInput
 }
 
+"""For performance reason this type contains only *indexed* fields."""
 input OperatorsFilterUserInput {
-  # Filter value by operator(s)
   name: NameOperatorsFilterUserInput
-
-  # Filter value by operator(s)
   age: AgeOperatorsFilterUserInput
-
-  # Filter value by operator(s)
   gender: GenderOperatorsFilterUserInput
-
-  # Filter value by operator(s)
   _id: _idOperatorsFilterUserInput
 }
 
-# Information about pagination in a connection.
+"""Information about pagination in a connection."""
 type PageInfo {
-  # When paginating forwards, are there more items?
+  """When paginating forwards, are there more items?"""
   hasNextPage: Boolean!
 
-  # When paginating backwards, are there more items?
+  """When paginating backwards, are there more items?"""
   hasPreviousPage: Boolean!
 
-  # When paginating backwards, the cursor to continue.
+  """When paginating backwards, the cursor to continue."""
   startCursor: String
 
-  # When paginating forwards, the cursor to continue.
+  """When paginating forwards, the cursor to continue."""
   endCursor: String
 }
 
-# Information about pagination.
+"""Information about pagination."""
 type PaginationInfo {
-  # Current page number
+  """Current page number"""
   currentPage: Int!
 
-  # Number of items per page
+  """Number of items per page"""
   perPage: Int!
 
-  # Total number of pages
+  """Total number of pages"""
   pageCount: Int
 
-  # Total number of items
+  """Total number of items"""
   itemCount: Int
 
-  # When paginating forwards, are there more items?
+  """When paginating forwards, are there more items?"""
   hasNextPage: Boolean
 
-  # When paginating backwards, are there more items?
+  """When paginating backwards, are there more items?"""
   hasPreviousPage: Boolean
 }
 
@@ -638,70 +654,70 @@ type Query {
   userById(_id: MongoID!): User
   userByIds(_ids: [MongoID]!, limit: Int = 1000, sort: SortFindByIdsUserInput): [User]
   userOne(
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterFindOneUserInput
     skip: Int
     sort: SortFindOneUserInput
   ): User
   userMany(
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterFindManyUserInput
     skip: Int
     limit: Int = 1000
     sort: SortFindManyUserInput
   ): [User]
   userTotal(
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterUserInput
   ): Int
   userConnection(
-    # Forward pagination argument for returning at most first edges
+    """Forward pagination argument for returning at most first edges"""
     first: Int
 
-    # Forward pagination argument for returning at most first edges
+    """Forward pagination argument for returning at most first edges"""
     after: String
 
-    # Backward pagination argument for returning at most last edges
+    """Backward pagination argument for returning at most last edges"""
     last: Int
 
-    # Backward pagination argument for returning at most last edges
+    """Backward pagination argument for returning at most last edges"""
     before: String
 
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterFindManyUserInput
 
-    # Sort argument for data ordering
+    """Sort argument for data ordering"""
     sort: SortConnectionUserEnum = _ID_DESC
   ): UserConnection
   userPagination(
-    # Page number for displaying
+    """Page number for displaying"""
     page: Int
     perPage: Int = 20
 
-    # Filter by fields
+    """Filter by fields"""
     filter: FilterFindManyUserInput
     sort: SortFindManyUserInput
   ): UserPagination
 }
 
 type RemoveByIdUserPayload {
-  # Removed document ID
+  """Removed document ID"""
   recordId: MongoID
 
-  # Removed document
+  """Removed document"""
   record: User
 }
 
 type RemoveManyUserPayload {
-  # Affected documents number
+  """Affected documents number"""
   numAffected: Int
 }
 
 type RemoveOneUserPayload {
-  # Removed document ID
+  """Removed document ID"""
   recordId: MongoID
 
-  # Removed document
+  """Removed document"""
   record: User
 }
 
@@ -791,58 +807,58 @@ enum SortUpdateOneUserInput {
 input UpdateByIdUserInput {
   name: String
   age: Float
-  languages: [UserUserLanguagesInput]
+  languages: [UserLanguagesInput]
   contacts: UserContactsInput
   gender: EnumUserGender
   address: UserAddressInput
 
-  # Some dynamic data
+  """Some dynamic data"""
   someMixed: JSON
   _id: MongoID!
 }
 
 type UpdateByIdUserPayload {
-  # Updated document ID
+  """Updated document ID"""
   recordId: MongoID
 
-  # Updated document
+  """Updated document"""
   record: User
 }
 
 input UpdateManyUserInput {
   name: String
   age: Float
-  languages: [UserUserLanguagesInput]
+  languages: [UserLanguagesInput]
   contacts: UserContactsInput
   gender: EnumUserGender
   address: UserAddressInput
 
-  # Some dynamic data
+  """Some dynamic data"""
   someMixed: JSON
 }
 
 type UpdateManyUserPayload {
-  # Affected documents number
+  """Affected documents number"""
   numAffected: Int
 }
 
 input UpdateOneUserInput {
   name: String
   age: Float
-  languages: [UserUserLanguagesInput]
+  languages: [UserLanguagesInput]
   contacts: UserContactsInput
   gender: EnumUserGender
   address: UserAddressInput
 
-  # Some dynamic data
+  """Some dynamic data"""
   someMixed: JSON
 }
 
 type UpdateOneUserPayload {
-  # Updated document ID
+  """Updated document ID"""
   recordId: MongoID
 
-  # Updated document
+  """Updated document"""
   record: User
 }
 
@@ -854,9 +870,10 @@ type User {
   gender: EnumUserGender
   address: UserAddress
 
-  # Some dynamic data
+  """Some dynamic data"""
   someMixed: JSON
   _id: MongoID!
+  virtualField(lang: String): String
 }
 
 type UserAddress {
@@ -871,15 +888,15 @@ input UserAddressInput {
   _id: MongoID
 }
 
-# A connection to a list of items.
+"""A connection to a list of items."""
 type UserConnection {
-  # Total object count.
+  """Total object count."""
   count: Int!
 
-  # Information to aid in pagination.
+  """Information to aid in pagination."""
   pageInfo: PageInfo!
 
-  # Information to aid in pagination.
+  """Information to aid in pagination."""
   edges: [UserEdge!]!
 }
 
@@ -893,12 +910,12 @@ input UserContactsInput {
   phones: [String]
 }
 
-# An edge in a connection.
+"""An edge in a connection."""
 type UserEdge {
-  # The item at the end of the edge
+  """The item at the end of the edge"""
   node: User!
 
-  # A cursor for use in pagination
+  """A cursor for use in pagination"""
   cursor: String!
 }
 
@@ -907,19 +924,19 @@ type UserLanguages {
   skill: EnumUserLanguagesSkill
 }
 
-# List of items with pagination.
-type UserPagination {
-  # Total object count.
-  count: Int
-
-  # Array of objects.
-  items: [User]
-
-  # Information to aid in pagination.
-  pageInfo: PaginationInfo!
-}
-
-input UserUserLanguagesInput {
+input UserLanguagesInput {
   language: String
   skill: EnumUserLanguagesSkill
+}
+
+"""List of items with pagination."""
+type UserPagination {
+  """Total object count."""
+  count: Int
+
+  """Array of objects."""
+  items: [User]
+
+  """Information to aid in pagination."""
+  pageInfo: PaginationInfo!
 }
