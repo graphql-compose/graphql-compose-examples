@@ -953,6 +953,11 @@ type Mutation {
 
   # Remove one document: 1) Retrieve one document and remove with hooks via findByIdAndRemove. 2) Return removed document.
   removeOrder(input: RelayRemoveByIdOrderInput!): RemoveByIdOrderPayload
+
+  # Update one document: 1) Retrieve one document by findById. 2) Apply updates to
+  # mongoose document. 3) Mongoose applies defaults, setters, hooks and
+  # validation. 4) And save it.
+  updateEmployee(input: RelayUpdateByIdEmployeeInput!): UpdateByIdEmployeePayload
 }
 
 input NameOperatorsFilterFindManyCategoryInput {
@@ -1494,6 +1499,14 @@ input RelayRemoveByIdProductInput {
   clientMutationId: String
 }
 
+input RelayUpdateByIdEmployeeInput {
+  record: UpdateByIdEmployeeInput!
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+}
+
 input RelayUpdateByIdOrderInput {
   record: UpdateByIdOrderInput!
 
@@ -1952,6 +1965,42 @@ input UnitPriceOperatorsFilterFindOneProductInput {
   ne: Float
   in: [Float]
   nin: [Float]
+}
+
+input UpdateByIdEmployeeInput {
+  # Category unique ID
+  employeeID: Float
+  lastName: String
+  firstName: String
+  title: String
+  titleOfCourtesy: String
+  birthDate: Date
+  hireDate: Date
+  address: CustomerAddressInput
+  notes: String
+
+  # ID of chief
+  reportsTo: Float
+
+  # Attached territory ID from region collection
+  territoryIDs: [Float]
+  _id: MongoID!
+}
+
+type UpdateByIdEmployeePayload {
+  # Updated document ID
+  recordId: MongoID
+
+  # Updated document
+  record: Employee
+
+  # The globally unique ID among all types
+  nodeId: ID
+
+  # The client mutation ID used by clients like Relay to track the mutation. If
+  # given, returned in the response payload of the mutation.
+  clientMutationId: String
+  query: Query
 }
 
 input UpdateByIdOrderInput {

@@ -72,6 +72,8 @@ schemaComposer.Mutation.addFields({
       createOrder: OrderTC.getResolver('createOne'),
       updateOrder: OrderTC.getResolver('updateById'),
       removeOrder: OrderTC.getResolver('removeById'),
+
+      updateEmployee: EmployeeTC.getResolver('updateById'),
     }),
   }),
 });
