@@ -24,7 +24,7 @@ export const CategorySchema: Schema<any> = new Schema(
 
 export const Category = model('Category', CategorySchema);
 
-export const CategoryTC = composeWithRelay(composeWithMongoose<any>(Category));
+export const CategoryTC = composeWithRelay<any>(composeWithMongoose<any>(Category));
 
 CategoryTC.addRelation('productConnection', {
   resolver: () => ProductTC.getResolver('connection'),

@@ -21,7 +21,7 @@ export const ShipperSchema: Schema<any> = new Schema(
 
 export const Shipper = model('Shipper', ShipperSchema);
 
-export const ShipperTC = composeWithRelay(composeWithMongoose<any>(Shipper));
+export const ShipperTC = composeWithRelay<any>(composeWithMongoose<any>(Shipper));
 
 ShipperTC.addRelation('orderConnection', {
   resolver: () => OrderTC.getResolver('connection'),

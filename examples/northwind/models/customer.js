@@ -28,7 +28,7 @@ export const CustomerSchema: Schema<any> = new Schema(
 
 export const Customer = model('Customer', CustomerSchema);
 
-export const CustomerTC = composeWithRelay(composeWithMongoose<any>(Customer));
+export const CustomerTC = composeWithRelay<any>(composeWithMongoose<any>(Customer));
 
 CustomerTC.addRelation('orderConnection', {
   resolver: () => OrderTC.getResolver('connection'),

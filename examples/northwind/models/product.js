@@ -35,7 +35,7 @@ ProductSchema.index({ name: 1, supplierID: 1 }, { unique: true });
 
 export const Product = model('Product', ProductSchema);
 
-export const ProductTC = composeWithRelay(composeWithMongoose<any>(Product));
+export const ProductTC = composeWithRelay<any>(composeWithMongoose<any>(Product));
 
 const extendedResolver = ProductTC.getResolver('findMany').addFilterArg({
   name: 'nameRegexp',

@@ -70,4 +70,4 @@ UserSchema.loadClass(UserDoc);
 
 export const User = model('UserRelay', UserSchema);
 
-export const UserTC = composeWithRelay(composeWithMongoose<UserDoc>(User));
+export const UserTC = composeWithRelay<any>(composeWithMongoose<UserDoc>(User));

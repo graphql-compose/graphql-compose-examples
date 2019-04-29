@@ -33,7 +33,7 @@ export const RegionSchema: Schema<any> = new Schema(
 
 export const Region = model('Region', RegionSchema);
 
-export const RegionTC = composeWithRelay(composeWithMongoose<any>(Region));
+export const RegionTC = composeWithRelay<any>(composeWithMongoose<any>(Region));
 
 RegionTC.addRelation('employees', {
   resolver: () => EmployeeTC.getResolver('findMany'),

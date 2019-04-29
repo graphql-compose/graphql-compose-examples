@@ -49,7 +49,7 @@ export const OrderSchema: Schema<any> = new Schema(
 
 export const Order = model('Order', OrderSchema);
 
-export const OrderTC = composeWithRelay(composeWithMongoose<any>(Order));
+export const OrderTC = composeWithRelay<any>(composeWithMongoose<any>(Order));
 
 OrderTC.addRelation('customer', {
   resolver: () => CustomerTC.getResolver('findOne'),
@@ -81,7 +81,7 @@ OrderTC.addRelation('shipper', {
   projection: { shipVia: true },
 });
 
-const OrderDetailsTC = OrderTC.get('details');
+const OrderDetailsTC = OrderTC.getFieldOTC('details');
 OrderDetailsTC.addRelation('product', {
   resolver: () => ProductTC.getResolver('findOne'),
   prepareArgs: {
