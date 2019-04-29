@@ -39,7 +39,7 @@ function addExample(example, uri) {
     graphqlHTTP(() => ({
       schema: example.schema,
       graphiql: true,
-      formatError: error => ({
+      customFormatErrorFn: error => ({
         message: error.message,
         stack: !error.message.match(/for security reason/i) ? error.stack.split('\n') : null,
       }),
