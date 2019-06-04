@@ -1,3 +1,6 @@
+# Provides default value for input field.
+directive @default(value: JSON!) on INPUT_FIELD_DEFINITION
+
 input _idOperatorsFilterFindManyUserRelayInput {
   gt: MongoID
   gte: MongoID
@@ -304,6 +307,9 @@ input FilterUserRelayInput {
   AND: [FilterUserRelayInput!]
 }
 
+# The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+scalar JSON
+
 # The `ID` scalar type represents a unique MongoDB identifier in collection.
 # MongoDB by default use 12-byte ObjectId value
 # (https://docs.mongodb.com/manual/reference/bson-types/#objectid). But MongoDB
@@ -405,24 +411,12 @@ type PageInfo {
   endCursor: String
 }
 
-# Information about pagination.
 type PaginationInfo {
-  # Current page number
   currentPage: Int!
-
-  # Number of items per page
   perPage: Int!
-
-  # Total number of pages
   pageCount: Int
-
-  # Total number of items
   itemCount: Int
-
-  # When paginating forwards, are there more items?
   hasNextPage: Boolean
-
-  # When paginating backwards, are there more items?
   hasPreviousPage: Boolean
 }
 

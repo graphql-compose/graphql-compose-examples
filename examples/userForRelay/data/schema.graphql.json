@@ -314,11 +314,7 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UserRelayConnection",
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "UserRelay",
-                  "ofType": null
-                }
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -371,11 +367,7 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UserRelayPagination",
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "UserRelay",
-                  "ofType": null
-                }
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -764,7 +756,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindOneUserRelayInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -970,7 +962,7 @@
           "inputFields": [
             {
               "name": "age",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterFindOneUserRelayInput",
@@ -980,7 +972,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindOneUserRelayInput",
@@ -1209,7 +1201,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindManyUserRelayInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -1349,7 +1341,7 @@
           "inputFields": [
             {
               "name": "age",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterFindManyUserRelayInput",
@@ -1359,7 +1351,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindManyUserRelayInput",
@@ -1588,7 +1580,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterUserRelayInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -1728,7 +1720,7 @@
           "inputFields": [
             {
               "name": "age",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterUserRelayInput",
@@ -1738,7 +1730,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterUserRelayInput",
@@ -2005,11 +1997,7 @@
                     "ofType": {
                       "kind": "OBJECT",
                       "name": "UserRelayEdge",
-                      "ofType": {
-                        "kind": "OBJECT",
-                        "name": "UserRelay",
-                        "ofType": null
-                      }
+                      "ofType": null
                     }
                   }
                 }
@@ -2201,11 +2189,11 @@
         {
           "kind": "OBJECT",
           "name": "PaginationInfo",
-          "description": "Information about pagination.",
+          "description": null,
           "fields": [
             {
               "name": "currentPage",
-              "description": "Current page number",
+              "description": null,
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -2221,7 +2209,7 @@
             },
             {
               "name": "perPage",
-              "description": "Number of items per page",
+              "description": null,
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -2237,7 +2225,7 @@
             },
             {
               "name": "pageCount",
-              "description": "Total number of pages",
+              "description": null,
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -2249,7 +2237,7 @@
             },
             {
               "name": "itemCount",
-              "description": "Total number of items",
+              "description": null,
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -2261,7 +2249,7 @@
             },
             {
               "name": "hasNextPage",
-              "description": "When paginating forwards, are there more items?",
+              "description": null,
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -2273,7 +2261,7 @@
             },
             {
               "name": "hasPreviousPage",
-              "description": "When paginating backwards, are there more items?",
+              "description": null,
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -2554,7 +2542,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "CreateOneUserRelayInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -2721,7 +2709,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "CreateManyUserRelayInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -2912,7 +2900,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "UpdateByIdUserRelayInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -3115,7 +3103,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "UpdateOneUserRelayInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -3180,7 +3168,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterUpdateOneUserRelayInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -3320,7 +3308,7 @@
           "inputFields": [
             {
               "name": "age",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterUpdateOneUserRelayInput",
@@ -3330,7 +3318,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterUpdateOneUserRelayInput",
@@ -3693,7 +3681,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "UpdateManyUserRelayInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -3758,7 +3746,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterUpdateManyUserRelayInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -3898,7 +3886,7 @@
           "inputFields": [
             {
               "name": "age",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterUpdateManyUserRelayInput",
@@ -3908,7 +3896,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterUpdateManyUserRelayInput",
@@ -4319,7 +4307,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterRemoveOneUserRelayInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -4459,7 +4447,7 @@
           "inputFields": [
             {
               "name": "age",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterRemoveOneUserRelayInput",
@@ -4469,7 +4457,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterRemoveOneUserRelayInput",
@@ -4792,7 +4780,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterRemoveManyUserRelayInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -4932,7 +4920,7 @@
           "inputFields": [
             {
               "name": "age",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterRemoveManyUserRelayInput",
@@ -4942,7 +4930,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterRemoveManyUserRelayInput",
@@ -5975,6 +5963,16 @@
             }
           ],
           "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "JSON",
+          "description": "The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
         }
       ],
       "directives": [
@@ -6045,6 +6043,29 @@
                 "ofType": null
               },
               "defaultValue": "\"No longer supported\""
+            }
+          ]
+        },
+        {
+          "name": "default",
+          "description": "Provides default value for input field.",
+          "locations": [
+            "INPUT_FIELD_DEFINITION"
+          ],
+          "args": [
+            {
+              "name": "value",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "JSON",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
             }
           ]
         }

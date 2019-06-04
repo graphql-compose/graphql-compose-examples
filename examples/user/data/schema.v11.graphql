@@ -1,3 +1,6 @@
+# Provides default value for input field.
+directive @default(value: JSON!) on INPUT_FIELD_DEFINITION
+
 input _idOperatorsFilterFindManyUserInput {
   gt: MongoID
   gte: MongoID
@@ -609,24 +612,12 @@ type PageInfo {
   endCursor: String
 }
 
-# Information about pagination.
 type PaginationInfo {
-  # Current page number
   currentPage: Int!
-
-  # Number of items per page
   perPage: Int!
-
-  # Total number of pages
   pageCount: Int
-
-  # Total number of items
   itemCount: Int
-
-  # When paginating forwards, are there more items?
   hasNextPage: Boolean
-
-  # When paginating backwards, are there more items?
   hasPreviousPage: Boolean
 }
 

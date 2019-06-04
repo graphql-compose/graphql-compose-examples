@@ -287,11 +287,7 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UserConnection",
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "User",
-                  "ofType": null
-                }
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -344,11 +340,7 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "UserPagination",
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "User",
-                  "ofType": null
-                }
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -804,7 +796,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindOneUserInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -1075,7 +1067,7 @@
           "inputFields": [
             {
               "name": "name",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "NameOperatorsFilterFindOneUserInput",
@@ -1085,7 +1077,7 @@
             },
             {
               "name": "age",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterFindOneUserInput",
@@ -1095,7 +1087,7 @@
             },
             {
               "name": "gender",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "GenderOperatorsFilterFindOneUserInput",
@@ -1105,7 +1097,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindOneUserInput",
@@ -1548,7 +1540,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindManyUserInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -1718,7 +1710,7 @@
           "inputFields": [
             {
               "name": "name",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "NameOperatorsFilterFindManyUserInput",
@@ -1728,7 +1720,7 @@
             },
             {
               "name": "age",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterFindManyUserInput",
@@ -1738,7 +1730,7 @@
             },
             {
               "name": "gender",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "GenderOperatorsFilterFindManyUserInput",
@@ -1748,7 +1740,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindManyUserInput",
@@ -2244,7 +2236,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterUserInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -2404,7 +2396,7 @@
           "inputFields": [
             {
               "name": "name",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "NameOperatorsFilterUserInput",
@@ -2414,7 +2406,7 @@
             },
             {
               "name": "age",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterUserInput",
@@ -2424,7 +2416,7 @@
             },
             {
               "name": "gender",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "GenderOperatorsFilterUserInput",
@@ -2434,7 +2426,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterUserInput",
@@ -2879,11 +2871,7 @@
                     "ofType": {
                       "kind": "OBJECT",
                       "name": "UserEdge",
-                      "ofType": {
-                        "kind": "OBJECT",
-                        "name": "User",
-                        "ofType": null
-                      }
+                      "ofType": null
                     }
                   }
                 }
@@ -3075,11 +3063,11 @@
         {
           "kind": "OBJECT",
           "name": "PaginationInfo",
-          "description": "Information about pagination.",
+          "description": null,
           "fields": [
             {
               "name": "currentPage",
-              "description": "Current page number",
+              "description": null,
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -3095,7 +3083,7 @@
             },
             {
               "name": "perPage",
-              "description": "Number of items per page",
+              "description": null,
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -3111,7 +3099,7 @@
             },
             {
               "name": "pageCount",
-              "description": "Total number of pages",
+              "description": null,
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -3123,7 +3111,7 @@
             },
             {
               "name": "itemCount",
-              "description": "Total number of items",
+              "description": null,
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -3135,7 +3123,7 @@
             },
             {
               "name": "hasNextPage",
-              "description": "When paginating forwards, are there more items?",
+              "description": null,
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -3147,7 +3135,7 @@
             },
             {
               "name": "hasPreviousPage",
-              "description": "When paginating backwards, are there more items?",
+              "description": null,
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -3477,7 +3465,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "CreateOneUserInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -3597,7 +3585,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "CreateManyUserInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -3749,7 +3737,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "UpdateByIdUserInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -3883,7 +3871,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "UpdateOneUserInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -3968,7 +3956,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterUpdateOneUserInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -4128,7 +4116,7 @@
           "inputFields": [
             {
               "name": "name",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "NameOperatorsFilterUpdateOneUserInput",
@@ -4138,7 +4126,7 @@
             },
             {
               "name": "age",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterUpdateOneUserInput",
@@ -4148,7 +4136,7 @@
             },
             {
               "name": "gender",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "GenderOperatorsFilterUpdateOneUserInput",
@@ -4158,7 +4146,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterUpdateOneUserInput",
@@ -4636,7 +4624,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "UpdateManyUserInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -4721,7 +4709,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterUpdateManyUserInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -4881,7 +4869,7 @@
           "inputFields": [
             {
               "name": "name",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "NameOperatorsFilterUpdateManyUserInput",
@@ -4891,7 +4879,7 @@
             },
             {
               "name": "age",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterUpdateManyUserInput",
@@ -4901,7 +4889,7 @@
             },
             {
               "name": "gender",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "GenderOperatorsFilterUpdateManyUserInput",
@@ -4911,7 +4899,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterUpdateManyUserInput",
@@ -5412,7 +5400,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterRemoveOneUserInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -5572,7 +5560,7 @@
           "inputFields": [
             {
               "name": "name",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "NameOperatorsFilterRemoveOneUserInput",
@@ -5582,7 +5570,7 @@
             },
             {
               "name": "age",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterRemoveOneUserInput",
@@ -5592,7 +5580,7 @@
             },
             {
               "name": "gender",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "GenderOperatorsFilterRemoveOneUserInput",
@@ -5602,7 +5590,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterRemoveOneUserInput",
@@ -6080,7 +6068,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterRemoveManyUserInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -6240,7 +6228,7 @@
           "inputFields": [
             {
               "name": "name",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "NameOperatorsFilterRemoveManyUserInput",
@@ -6250,7 +6238,7 @@
             },
             {
               "name": "age",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "AgeOperatorsFilterRemoveManyUserInput",
@@ -6260,7 +6248,7 @@
             },
             {
               "name": "gender",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "GenderOperatorsFilterRemoveManyUserInput",
@@ -6270,7 +6258,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterRemoveManyUserInput",
@@ -7527,6 +7515,29 @@
                 "ofType": null
               },
               "defaultValue": "\"No longer supported\""
+            }
+          ]
+        },
+        {
+          "name": "default",
+          "description": "Provides default value for input field.",
+          "locations": [
+            "INPUT_FIELD_DEFINITION"
+          ],
+          "args": [
+            {
+              "name": "value",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "JSON",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
             }
           ]
         }

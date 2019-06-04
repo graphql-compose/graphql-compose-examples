@@ -275,12 +275,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindManyCharacterInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
               "name": "type",
-              "description": null,
+              "description": "Character type Droid or Person",
               "type": {
                 "kind": "ENUM",
                 "name": "EnumDKeyCharacterType",
@@ -468,7 +468,7 @@
           "inputFields": [
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindManyCharacterInput",
@@ -626,7 +626,7 @@
             },
             {
               "name": "type",
-              "description": null,
+              "description": "Character type Droid or Person",
               "args": [],
               "type": {
                 "kind": "ENUM",
@@ -713,7 +713,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindManyDroidInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -1010,7 +1010,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindManyPersonInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -1421,12 +1421,12 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "CreateOneCharacterInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
               "name": "type",
-              "description": null,
+              "description": "Character type Droid or Person",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1525,7 +1525,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "CreateOneDroidInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -1639,7 +1639,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "CreateOnePersonInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -2569,7 +2569,7 @@
         {
           "kind": "OBJECT",
           "name": "Character",
-          "description": null,
+          "description": "",
           "fields": [
             {
               "name": "_id",
@@ -2589,7 +2589,7 @@
             },
             {
               "name": "type",
-              "description": null,
+              "description": "Character type Droid or Person",
               "args": [],
               "type": {
                 "kind": "ENUM",
@@ -2662,6 +2662,16 @@
           ],
           "enumValues": null,
           "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "JSON",
+          "description": "The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
         }
       ],
       "directives": [
@@ -2732,6 +2742,29 @@
                 "ofType": null
               },
               "defaultValue": "\"No longer supported\""
+            }
+          ]
+        },
+        {
+          "name": "default",
+          "description": "Provides default value for input field.",
+          "locations": [
+            "INPUT_FIELD_DEFINITION"
+          ],
+          "args": [
+            {
+              "name": "value",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "JSON",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
             }
           ]
         }

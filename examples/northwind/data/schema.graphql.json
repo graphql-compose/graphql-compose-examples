@@ -333,11 +333,7 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "CustomerPagination",
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Customer",
-                  "ofType": null
-                }
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -410,11 +406,7 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "CustomerConnection",
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Customer",
-                  "ofType": null
-                }
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -567,11 +559,7 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "EmployeePagination",
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Employee",
-                  "ofType": null
-                }
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -667,11 +655,7 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "OrderPagination",
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Order",
-                  "ofType": null
-                }
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -744,11 +728,7 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "OrderConnection",
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Order",
-                  "ofType": null
-                }
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -901,11 +881,7 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "ProductPagination",
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Product",
-                  "ofType": null
-                }
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -978,11 +954,7 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "ProductConnection",
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Product",
-                  "ofType": null
-                }
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -1298,11 +1270,7 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "SupplierConnection",
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Supplier",
-                  "ofType": null
-                }
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -1316,7 +1284,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindOneCategoryInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -1462,7 +1430,7 @@
           "inputFields": [
             {
               "name": "categoryID",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "CategoryIDOperatorsFilterFindOneCategoryInput",
@@ -1472,7 +1440,7 @@
             },
             {
               "name": "name",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "NameOperatorsFilterFindOneCategoryInput",
@@ -1482,7 +1450,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindOneCategoryInput",
@@ -1894,7 +1862,7 @@
             },
             {
               "name": "productConnection",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "first",
@@ -1950,18 +1918,14 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "ProductConnection",
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Product",
-                  "ofType": null
-                }
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "productList",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "skip",
@@ -2118,11 +2082,7 @@
                     "ofType": {
                       "kind": "OBJECT",
                       "name": "ProductEdge",
-                      "ofType": {
-                        "kind": "OBJECT",
-                        "name": "Product",
-                        "ofType": null
-                      }
+                      "ofType": null
                     }
                   }
                 }
@@ -2415,7 +2375,7 @@
             },
             {
               "name": "orderConnection",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "first",
@@ -2471,18 +2431,14 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "OrderConnection",
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Order",
-                  "ofType": null
-                }
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "orderList",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "skip",
@@ -2529,7 +2485,7 @@
             },
             {
               "name": "supplier",
-              "description": null,
+              "description": "",
               "args": [],
               "type": {
                 "kind": "OBJECT",
@@ -2541,7 +2497,7 @@
             },
             {
               "name": "category",
-              "description": null,
+              "description": "",
               "args": [],
               "type": {
                 "kind": "OBJECT",
@@ -2651,11 +2607,7 @@
                     "ofType": {
                       "kind": "OBJECT",
                       "name": "OrderEdge",
-                      "ofType": {
-                        "kind": "OBJECT",
-                        "name": "Order",
-                        "ofType": null
-                      }
+                      "ofType": null
                     }
                   }
                 }
@@ -2887,7 +2839,7 @@
             },
             {
               "name": "customer",
-              "description": null,
+              "description": "",
               "args": [],
               "type": {
                 "kind": "OBJECT",
@@ -2899,7 +2851,7 @@
             },
             {
               "name": "employee",
-              "description": null,
+              "description": "",
               "args": [],
               "type": {
                 "kind": "OBJECT",
@@ -2911,7 +2863,7 @@
             },
             {
               "name": "shipper",
-              "description": null,
+              "description": "",
               "args": [],
               "type": {
                 "kind": "OBJECT",
@@ -3081,7 +3033,7 @@
             },
             {
               "name": "product",
-              "description": null,
+              "description": "",
               "args": [],
               "type": {
                 "kind": "OBJECT",
@@ -3196,7 +3148,7 @@
             },
             {
               "name": "orderConnection",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "first",
@@ -3252,18 +3204,14 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "OrderConnection",
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Order",
-                  "ofType": null
-                }
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
               "name": "orderList",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "skip",
@@ -3542,7 +3490,7 @@
             },
             {
               "name": "chief",
-              "description": null,
+              "description": "",
               "args": [],
               "type": {
                 "kind": "OBJECT",
@@ -3554,7 +3502,7 @@
             },
             {
               "name": "subordinates",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "skip",
@@ -3601,7 +3549,7 @@
             },
             {
               "name": "orderConnection",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "first",
@@ -3657,11 +3605,7 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "OrderConnection",
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Order",
-                  "ofType": null
-                }
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -3824,7 +3768,7 @@
             },
             {
               "name": "orderConnection",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "first",
@@ -3880,11 +3824,7 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "OrderConnection",
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Order",
-                  "ofType": null
-                }
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -4000,7 +3940,7 @@
             },
             {
               "name": "productConnection",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "first",
@@ -4056,11 +3996,7 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "ProductConnection",
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Product",
-                  "ofType": null
-                }
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -4151,7 +4087,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindManyCategoryInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -4267,7 +4203,7 @@
           "inputFields": [
             {
               "name": "categoryID",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "CategoryIDOperatorsFilterFindManyCategoryInput",
@@ -4277,7 +4213,7 @@
             },
             {
               "name": "name",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "NameOperatorsFilterFindManyCategoryInput",
@@ -4287,7 +4223,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindManyCategoryInput",
@@ -4617,7 +4553,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindOneCustomerInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -4824,7 +4760,7 @@
           "inputFields": [
             {
               "name": "customerID",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "CustomerIDOperatorsFilterFindOneCustomerInput",
@@ -4834,7 +4770,7 @@
             },
             {
               "name": "companyName",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "CompanyNameOperatorsFilterFindOneCustomerInput",
@@ -4844,7 +4780,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindOneCustomerInput",
@@ -5174,7 +5110,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindManyCustomerInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -5310,7 +5246,7 @@
           "inputFields": [
             {
               "name": "customerID",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "CustomerIDOperatorsFilterFindManyCustomerInput",
@@ -5320,7 +5256,7 @@
             },
             {
               "name": "companyName",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "CompanyNameOperatorsFilterFindManyCustomerInput",
@@ -5330,7 +5266,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindManyCustomerInput",
@@ -5715,11 +5651,11 @@
         {
           "kind": "OBJECT",
           "name": "PaginationInfo",
-          "description": "Information about pagination.",
+          "description": null,
           "fields": [
             {
               "name": "currentPage",
-              "description": "Current page number",
+              "description": null,
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -5735,7 +5671,7 @@
             },
             {
               "name": "perPage",
-              "description": "Number of items per page",
+              "description": null,
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -5751,7 +5687,7 @@
             },
             {
               "name": "pageCount",
-              "description": "Total number of pages",
+              "description": null,
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -5763,7 +5699,7 @@
             },
             {
               "name": "itemCount",
-              "description": "Total number of items",
+              "description": null,
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -5775,7 +5711,7 @@
             },
             {
               "name": "hasNextPage",
-              "description": "When paginating forwards, are there more items?",
+              "description": null,
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -5787,7 +5723,7 @@
             },
             {
               "name": "hasPreviousPage",
-              "description": "When paginating backwards, are there more items?",
+              "description": null,
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -5903,11 +5839,7 @@
                     "ofType": {
                       "kind": "OBJECT",
                       "name": "CustomerEdge",
-                      "ofType": {
-                        "kind": "OBJECT",
-                        "name": "Customer",
-                        "ofType": null
-                      }
+                      "ofType": null
                     }
                   }
                 }
@@ -5967,7 +5899,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindOneEmployeeInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -6167,7 +6099,7 @@
           "inputFields": [
             {
               "name": "employeeID",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "EmployeeIDOperatorsFilterFindOneEmployeeInput",
@@ -6177,7 +6109,7 @@
             },
             {
               "name": "lastName",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "LastNameOperatorsFilterFindOneEmployeeInput",
@@ -6187,7 +6119,7 @@
             },
             {
               "name": "territoryIDs",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "TerritoryIDsOperatorsFilterFindOneEmployeeInput",
@@ -6197,7 +6129,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindOneEmployeeInput",
@@ -6640,7 +6572,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindManyEmployeeInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -6850,7 +6782,7 @@
           "inputFields": [
             {
               "name": "employeeID",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "EmployeeIDOperatorsFilterFindManyEmployeeInput",
@@ -6860,7 +6792,7 @@
             },
             {
               "name": "lastName",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "LastNameOperatorsFilterFindManyEmployeeInput",
@@ -6870,7 +6802,7 @@
             },
             {
               "name": "territoryIDs",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "TerritoryIDsOperatorsFilterFindManyEmployeeInput",
@@ -6880,7 +6812,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindManyEmployeeInput",
@@ -7307,7 +7239,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindOneOrderInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -7558,7 +7490,7 @@
           "inputFields": [
             {
               "name": "orderID",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OrderIDOperatorsFilterFindOneOrderInput",
@@ -7568,7 +7500,7 @@
             },
             {
               "name": "details",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "DetailsOperatorsFilterFindOneOrderInput",
@@ -7578,7 +7510,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindOneOrderInput",
@@ -7908,7 +7840,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindManyOrderInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -8108,7 +8040,7 @@
           "inputFields": [
             {
               "name": "orderID",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "OrderIDOperatorsFilterFindManyOrderInput",
@@ -8118,7 +8050,7 @@
             },
             {
               "name": "details",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "DetailsOperatorsFilterFindManyOrderInput",
@@ -8128,7 +8060,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindManyOrderInput",
@@ -8466,7 +8398,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindOneProductInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -8652,7 +8584,7 @@
           "inputFields": [
             {
               "name": "productID",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "ProductIDOperatorsFilterFindOneProductInput",
@@ -8662,7 +8594,7 @@
             },
             {
               "name": "name",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "NameOperatorsFilterFindOneProductInput",
@@ -8672,7 +8604,7 @@
             },
             {
               "name": "unitPrice",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "UnitPriceOperatorsFilterFindOneProductInput",
@@ -8682,7 +8614,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindOneProductInput",
@@ -9125,7 +9057,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindManyProductInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -9321,7 +9253,7 @@
           "inputFields": [
             {
               "name": "productID",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "ProductIDOperatorsFilterFindManyProductInput",
@@ -9331,7 +9263,7 @@
             },
             {
               "name": "name",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "NameOperatorsFilterFindManyProductInput",
@@ -9341,7 +9273,7 @@
             },
             {
               "name": "unitPrice",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "UnitPriceOperatorsFilterFindManyProductInput",
@@ -9351,7 +9283,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindManyProductInput",
@@ -9778,7 +9710,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindOneRegionInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -9929,7 +9861,7 @@
           "inputFields": [
             {
               "name": "regionID",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "RegionIDOperatorsFilterFindOneRegionInput",
@@ -9939,7 +9871,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindOneRegionInput",
@@ -10244,7 +10176,7 @@
             },
             {
               "name": "employees",
-              "description": null,
+              "description": "",
               "args": [
                 {
                   "name": "skip",
@@ -10339,7 +10271,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindManyRegionInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -10459,7 +10391,7 @@
           "inputFields": [
             {
               "name": "regionID",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "RegionIDOperatorsFilterFindManyRegionInput",
@@ -10469,7 +10401,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindManyRegionInput",
@@ -10698,7 +10630,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindOneShipperInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -10814,7 +10746,7 @@
           "inputFields": [
             {
               "name": "shipperID",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "ShipperIDOperatorsFilterFindOneShipperInput",
@@ -10824,7 +10756,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindOneShipperInput",
@@ -11053,7 +10985,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindManyShipperInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -11169,7 +11101,7 @@
           "inputFields": [
             {
               "name": "shipperID",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "ShipperIDOperatorsFilterFindManyShipperInput",
@@ -11179,7 +11111,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindManyShipperInput",
@@ -11408,7 +11340,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindOneSupplierInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -11544,7 +11476,7 @@
           "inputFields": [
             {
               "name": "supplierID",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "SupplierIDOperatorsFilterFindOneSupplierInput",
@@ -11554,7 +11486,7 @@
             },
             {
               "name": "companyName",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "CompanyNameOperatorsFilterFindOneSupplierInput",
@@ -11564,7 +11496,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindOneSupplierInput",
@@ -11894,7 +11826,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "FilterFindManySupplierInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -12030,7 +11962,7 @@
           "inputFields": [
             {
               "name": "supplierID",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "SupplierIDOperatorsFilterFindManySupplierInput",
@@ -12040,7 +11972,7 @@
             },
             {
               "name": "companyName",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "CompanyNameOperatorsFilterFindManySupplierInput",
@@ -12050,7 +11982,7 @@
             },
             {
               "name": "_id",
-              "description": "",
+              "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "_idOperatorsFilterFindManySupplierInput",
@@ -12430,11 +12362,7 @@
                     "ofType": {
                       "kind": "OBJECT",
                       "name": "SupplierEdge",
-                      "ofType": {
-                        "kind": "OBJECT",
-                        "name": "Supplier",
-                        "ofType": null
-                      }
+                      "ofType": null
                     }
                   }
                 }
@@ -12729,7 +12657,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "CreateOneProductInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -12946,7 +12874,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "UpdateByIdProductInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -13283,7 +13211,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "CreateOneOrderInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -13514,7 +13442,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "UpdateByIdOrderInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -13865,7 +13793,7 @@
         {
           "kind": "INPUT_OBJECT",
           "name": "UpdateByIdEmployeeInput",
-          "description": null,
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -14867,6 +14795,16 @@
             }
           ],
           "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "JSON",
+          "description": "The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
         }
       ],
       "directives": [
@@ -14937,6 +14875,29 @@
                 "ofType": null
               },
               "defaultValue": "\"No longer supported\""
+            }
+          ]
+        },
+        {
+          "name": "default",
+          "description": "Provides default value for input field.",
+          "locations": [
+            "INPUT_FIELD_DEFINITION"
+          ],
+          "args": [
+            {
+              "name": "value",
+              "description": null,
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "JSON",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
             }
           ]
         }

@@ -1,5 +1,5 @@
-// flow-typed signature: 1ef85ef3e416afc005321386e6ac9a46
-// flow-typed version: f3c7f173dd/mongoose_v5.x.x/flow_>=v0.50.x
+// flow-typed signature: 47e06e4e6ceb04a6cfb4c6112f9ddcf2
+// flow-typed version: aeb7115aaa/mongoose_v5.x.x/flow_>=v0.50.x
 
 /*** FIX broken globals import 'bson' (((( ***/
 // import 'bson';
@@ -65,7 +65,8 @@ type SchemaOpts<Doc> = {
   read?: string,
   safe?: boolean,
   shardKey?: boolean,
-  strict?: boolean,
+  strict?: boolean | 'throw',
+  strictQuery?: boolean | 'throw',
   toJSON?: ToObjectOpts<Doc>,
   toObject?: ToObjectOpts<Doc>,
   typeKey?: string,
@@ -215,7 +216,7 @@ type UpdateResult = {
   ok?: boolean
 };
 
-// list of Model methods http://mongoosejs.com/docs/api.html#Model
+// A list of Model static methods: http://mongoosejs.com/docs/api.html#Model
 declare class Mongoose$Document {
   static aggregate(pipeline: Object[]): Aggregate$Query;
   static bulkWrite(opts: Object[]): Promise<any>;
@@ -224,7 +225,7 @@ declare class Mongoose$Document {
   static create(doc: $Shape<this> | Array<$Shape<this>>): Promise<this>;
   static deleteMany(criteria: Object): Promise<any>;
   static deleteOne(criteria: Object): Promise<any>;
-  static discriminator<Doc>(name: string, schema: Mongoose$Schema<Doc>): Class<Doc>;
+  static discriminator(name: string, schema: Mongoose$Schema<any>): Class<this>;
   static distinct(field: string, criteria?: Object): Promise<any>;
   static ensureIndexes(opts?: Object): Promise<any>;
   static estimatedDocumentCount(opts?: Object): Promise<number>;
@@ -268,20 +269,29 @@ declare class Mongoose$Document {
     data: Object,
     options?: Object
   ): Mongoose$Query<?this, this>;
-  static geoSearch(conditions: Object, opts: {
-    near: [number, number],
-    maxDistance: number,
-    limit?: number,
-    lean?: boolean,
-  }): Promise<Array<this>>;
+  static geoSearch(
+    conditions: Object,
+    opts: {
+      near: [number, number],
+      maxDistance: number,
+      limit?: number,
+      lean?: boolean
+    }
+  ): Promise<Array<this>>;
   static hydrate(data: Object): Mongoose$Document;
   static init(): Promise<Object>;
   static insertMany(docs: Object | Object[], opts?: Object): Promise<any>;
   static listIndexes(): Promise<Array<any>>;
   static mapReduce(o: Object): Promise<any>;
-  static populate(doc: Mongoose$Document | Array<Mongoose$Document>, options: Object): Promise<Mongoose$Document | Array<Mongoose$Document>>;
+  static populate(
+    doc: Mongoose$Document | Array<Mongoose$Document>,
+    options: Object
+  ): Promise<Mongoose$Document | Array<Mongoose$Document>>;
   static remove(criteria: Object): Promise<mixed>;
-  static replaceOne(conditions: Object, doc: Mongoose$Document): Mongoose$Query<?this, this>;
+  static replaceOne(
+    conditions: Object,
+    doc: Mongoose$Document
+  ): Mongoose$Query<?this, this>;
   static startSession(opts?: Object): Promise<MongoDBClientSession>;
   static syncIndexes(opts?: Object): Promise<any>;
   static update(
@@ -468,8 +478,8 @@ declare class Aggregate$Query extends Promise<any> {
   collation(opts?: Object): Aggregate$Query;
   count(str: string): Promise<number>;
   cursor(opts?: Object): Mongoose$QueryCursor<Object>;
-  exec(cb?:Function): Promise<any>;
-  explain(cb?:Function): Aggregate$Query;
+  exec(cb?: Function): Promise<any>;
+  explain(cb?: Function): Aggregate$Query;
   facet(opts?: Object): Aggregate$Query;
   graphLookup(opts?: Object): Aggregate$Query;
   group(opts?: Object): Aggregate$Query;
@@ -537,7 +547,7 @@ type ConnectionEventTypes = "error" | "open" | "disconnected" | string;
 declare class Mongoose$Connection {
   constructor(): this;
   close(): Promise<any>;
-  connect(uri: string, opts?: ConnectionConnectOpts): void;
+  connect(uri: string, opts?: ConnectionConnectOpts, fn?: (error: any) => void): Promise<Mongoose$Connection>;
   openUri(uri: string, opts?: ConnectionConnectOpts): void;
   model<Doc>(
     name: string | Doc,
@@ -588,7 +598,7 @@ declare module "mongoose" {
     model: $PropertyType<Mongoose$Connection, "model">,
     createConnection(uri?: string, options?: Object): Mongoose$Connection,
     set: (key: string, value: string | Function | boolean) => void,
-    connect: (uri: string, options?: Object) => void,
+    connect: (uri: string, options?: ConnectionConnectOpts, fn?: (error: any) => void) => Promise<Mongoose$Connection>,
     connection: Mongoose$Connection,
     connections: Mongoose$Connection[],
     Query: typeof Mongoose$Query,
