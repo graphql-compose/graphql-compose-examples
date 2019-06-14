@@ -34,7 +34,7 @@
     "@babel/plugin-transform-flow-strip-types": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-flow": "^7.0.0",
-    "aws-sdk": "^2.467.0",
+    "aws-sdk": "^2.475.0",
     "cors": "^2.8.5",
     "elasticsearch": "^16.1.1",
     "express": "^4.17.1",
@@ -48,7 +48,7 @@
     "graphql-compose-pagination": "^6.0.3",
     "graphql-compose-relay": "^5.0.2",
     "graphql-playground-middleware-express": "^1.7.12",
-    "mongoose": "^5.5.4"
+    "mongoose": "^5.5.15"
   },
   "devDependencies": {
     "babel-core": "^7.0.0-bridge.0",
@@ -59,11 +59,11 @@
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-prettier": "^3.1.0",
-    "flow-bin": "0.100.0",
+    "flow-bin": "0.101.0",
     "jest": "^24.8.0",
-    "mongodb-memory-server": "^5.1.2",
+    "mongodb-memory-server": "^5.1.4",
     "nodemon": "^1.19.1",
-    "prettier": "^1.17.1",
+    "prettier": "^1.18.2",
     "request": "^2.88.0"
   },
   "scripts": {
