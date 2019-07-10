@@ -55,6 +55,10 @@ export const UserSchema: Schema<UserDoc> = new Schema(
       type: Schema.Types.Mixed,
       description: 'Some dynamic data',
     },
+    salary: {
+      type: Schema.Types.Decimal128,
+      index: true,
+    },
   },
   {
     collection: 'user_users',

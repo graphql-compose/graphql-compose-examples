@@ -23,7 +23,8 @@
     },
     "address": {
       "geo": [76.957987, 43.415239]
-    }
+    },
+    "salary": "100000000000000000000000.01"
   },
   {
     "_id": "57bb44dd21d2befb7ca3f002",
@@ -40,7 +41,8 @@
     "gender": "ladyboy",
     "address": {
       "geo": [76.932581, 43.241298]
-    }
+    },
+    "salary": "100000000000000000000000.02"
   },
   {
     "_id": "57bb44dd21d2befb7ca3f003",
@@ -53,7 +55,8 @@
       "email": "user3@example.com",
       "phones": ["333-444-666"]
     },
-    "gender": "female"
+    "gender": "female",
+    "salary": "100000000000000000000000.03"
   },
   {
     "_id": "57bb44dd21d2befb7ca3f004",
@@ -66,7 +69,8 @@
       "email": "user4@example.com",
       "phones": ["444-444-666"]
     },
-    "gender": "male"
+    "gender": "male",
+    "salary": "100000000000000000000000.04"
   },
   {
     "_id": "57bb44dd21d2befb7ca3f005",
@@ -79,7 +83,8 @@
       "email": "user5@example.com",
       "phones": ["555-555-666"]
     },
-    "gender": "female"
+    "gender": "female",
+    "salary": "100000000000000000000000.05"
   },
   {
     "_id": "57bb44dd21d2befb7ca3f006",
@@ -93,7 +98,8 @@
       "email": "user6@example.com",
       "phones": ["666-555-333"]
     },
-    "gender": "female"
+    "gender": "female",
+    "salary": "100000000000000000000000.06"
   },
   {
     "_id": "57bb44dd21d2befb7ca3f007",
@@ -107,7 +113,8 @@
       "email": "user7@example.com",
       "phones": ["777-555-333"]
     },
-    "gender": "male"
+    "gender": "male",
+    "salary": "100000000000000000000000.07"
   },
   {
     "_id": "57bb44dd21d2befb7ca3f008",
@@ -120,7 +127,8 @@
       "email": "user8@example.com",
       "phones": ["888-555-333"]
     },
-    "gender": "female"
+    "gender": "female",
+    "salary": "100000000000000000000000.08"
   },
   {
     "_id": "57bb44dd21d2befb7ca3f009",
@@ -133,7 +141,8 @@
       "email": "user9@example.com",
       "phones": ["999-555-333"]
     },
-    "gender": "male"
+    "gender": "male",
+    "salary": "100000000000000000000000.09"
   },
   {
     "_id": "57bb44dd21d2befb7ca3f010",
@@ -146,6 +155,7 @@
       "email": "user10@example.com",
       "phones": ["000-555-333"]
     },
-    "gender": "female"
+    "gender": "female",
+    "salary": "100000000000000000000000.10"
   }
 ]

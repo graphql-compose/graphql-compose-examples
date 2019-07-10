@@ -455,6 +455,18 @@
               "deprecationReason": null
             },
             {
+              "name": "salary",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "_id",
               "description": null,
               "args": [],
@@ -512,7 +524,7 @@
         {
           "kind": "SCALAR",
           "name": "Float",
-          "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point). ",
+          "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point).",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -714,8 +726,18 @@
         },
         {
           "kind": "SCALAR",
+          "name": "BSONDecimal",
+          "description": "The `Decimal` scalar type uses the IEEE 754 decimal128 decimal-based floating-point numbering format. Supports 34 decimal digits of precision, a max value of approximately 10^6145, and min value of approximately -10^6145",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
           "name": "Int",
-          "description": "The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. ",
+          "description": "The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -762,6 +784,18 @@
             },
             {
               "name": "AGE_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SALARY_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SALARY_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -869,6 +903,16 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "JSON",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "salary",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
                 "ofType": null
               },
               "defaultValue": null
@@ -1091,6 +1135,16 @@
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "GenderOperatorsFilterFindOneUserInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "salary",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SalaryOperatorsFilterFindOneUserInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1379,6 +1433,95 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "SalaryOperatorsFilterFindOneUserInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "BSONDecimal",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "BSONDecimal",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "_idOperatorsFilterFindOneUserInput",
           "description": null,
           "fields": null,
@@ -1511,6 +1654,18 @@
               "deprecationReason": null
             },
             {
+              "name": "SALARY_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SALARY_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "GENDER_ASC",
               "description": null,
               "isDeprecated": false,
@@ -1613,6 +1768,16 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "JSON",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "salary",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
                 "ofType": null
               },
               "defaultValue": null
@@ -1734,6 +1899,16 @@
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "GenderOperatorsFilterFindManyUserInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "salary",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SalaryOperatorsFilterFindManyUserInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2022,6 +2197,95 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "SalaryOperatorsFilterFindManyUserInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "BSONDecimal",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "BSONDecimal",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "_idOperatorsFilterFindManyUserInput",
           "description": null,
           "fields": null,
@@ -2207,6 +2471,18 @@
               "deprecationReason": null
             },
             {
+              "name": "SALARY_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SALARY_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "GENDER_ASC",
               "description": null,
               "isDeprecated": false,
@@ -2309,6 +2585,16 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "JSON",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "salary",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
                 "ofType": null
               },
               "defaultValue": null
@@ -2420,6 +2706,16 @@
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "GenderOperatorsFilterUserInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "salary",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SalaryOperatorsFilterUserInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2696,6 +2992,95 @@
                 "ofType": {
                   "kind": "ENUM",
                   "name": "EnumUserGender",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SalaryOperatorsFilterUserInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "BSONDecimal",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "BSONDecimal",
                   "ofType": null
                 }
               },
@@ -3541,6 +3926,16 @@
                 "ofType": null
               },
               "defaultValue": null
+            },
+            {
+              "name": "salary",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -3658,6 +4053,16 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "JSON",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "salary",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
                 "ofType": null
               },
               "defaultValue": null
@@ -3815,6 +4220,16 @@
               "defaultValue": null
             },
             {
+              "name": "salary",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_id",
               "description": null,
               "type": {
@@ -3947,6 +4362,16 @@
                 "ofType": null
               },
               "defaultValue": null
+            },
+            {
+              "name": "salary",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -4029,6 +4454,16 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "JSON",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "salary",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
                 "ofType": null
               },
               "defaultValue": null
@@ -4140,6 +4575,16 @@
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "GenderOperatorsFilterUpdateOneUserInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "salary",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SalaryOperatorsFilterUpdateOneUserInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -4428,6 +4873,95 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "SalaryOperatorsFilterUpdateOneUserInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "BSONDecimal",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "BSONDecimal",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "_idOperatorsFilterUpdateOneUserInput",
           "description": null,
           "fields": null,
@@ -4555,6 +5089,18 @@
             },
             {
               "name": "AGE_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SALARY_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SALARY_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -4700,6 +5246,16 @@
                 "ofType": null
               },
               "defaultValue": null
+            },
+            {
+              "name": "salary",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -4782,6 +5338,16 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "JSON",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "salary",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
                 "ofType": null
               },
               "defaultValue": null
@@ -4893,6 +5459,16 @@
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "GenderOperatorsFilterUpdateManyUserInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "salary",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SalaryOperatorsFilterUpdateManyUserInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -5181,6 +5757,95 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "SalaryOperatorsFilterUpdateManyUserInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "BSONDecimal",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "BSONDecimal",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "_idOperatorsFilterUpdateManyUserInput",
           "description": null,
           "fields": null,
@@ -5308,6 +5973,18 @@
             },
             {
               "name": "AGE_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SALARY_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SALARY_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -5478,6 +6155,16 @@
               "defaultValue": null
             },
             {
+              "name": "salary",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_id",
               "description": null,
               "type": {
@@ -5584,6 +6271,16 @@
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "GenderOperatorsFilterRemoveOneUserInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "salary",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SalaryOperatorsFilterRemoveOneUserInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -5872,6 +6569,95 @@
         },
         {
           "kind": "INPUT_OBJECT",
+          "name": "SalaryOperatorsFilterRemoveOneUserInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "BSONDecimal",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "BSONDecimal",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
           "name": "_idOperatorsFilterRemoveOneUserInput",
           "description": null,
           "fields": null,
@@ -5999,6 +6785,18 @@
             },
             {
               "name": "AGE_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SALARY_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SALARY_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6146,6 +6944,16 @@
               "defaultValue": null
             },
             {
+              "name": "salary",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "_id",
               "description": null,
               "type": {
@@ -6252,6 +7060,16 @@
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "GenderOperatorsFilterRemoveManyUserInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "salary",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "SalaryOperatorsFilterRemoveManyUserInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -6528,6 +7346,95 @@
                 "ofType": {
                   "kind": "ENUM",
                   "name": "EnumUserGender",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "SalaryOperatorsFilterRemoveManyUserInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "BSONDecimal",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "BSONDecimal",
                   "ofType": null
                 }
               },

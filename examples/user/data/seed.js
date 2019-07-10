@@ -1,7 +1,7 @@
 /* @flow */
 
 import fs from 'fs';
-import { ObjectID } from 'mongodb';
+import { ObjectID, Decimal128 } from 'mongodb';
 
 const collectionPrefix = 'user_';
 
@@ -17,6 +17,7 @@ export default async function seed(db: any) {
         const data = JSON.parse(fs.readFileSync(`${__dirname}/${file}.json`, 'utf8'));
         data.forEach((d, i) => {
           data[i]._id = ObjectID.createFromHexString(data[i]._id);
+          data[i].salary = Decimal128.fromString(data[i].salary);
         });
         if (collectionNames.indexOf(colName) > -1) {
           console.log(`  '${colName}' dropped`);
