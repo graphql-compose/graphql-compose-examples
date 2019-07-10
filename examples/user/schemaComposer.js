@@ -14,7 +14,7 @@ import { SchemaComposer, ObjectTypeComposer } from 'graphql-compose';
 import {
   composeWithMongoose as _composeWithMongoose,
   convertSchemaToGraphQL as _convertSchemaToGraphQL,
-} from 'graphql-compose-mongoose/node8';
+} from 'graphql-compose-mongoose';
 
 type TContext = {
   ip: string,
