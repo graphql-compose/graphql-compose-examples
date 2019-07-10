@@ -12,6 +12,7 @@ Object {
   },
   "gender": "ladyboy",
   "name": "My Name",
+  "salaryDecimal": "33333333333333333.33333333333333333",
   "someMixed": Object {
     "a": 1,
     "b": 2,
@@ -35,6 +36,7 @@ Object {
     "userById": Object {
       "_id": "57bb44dd21d2befb7ca3f001",
       "name": "User 1",
+      "salaryDecimal": "100000000000000000000000.01",
       "someMixed": Object {
         "a": 123,
         "b": Array [
@@ -74,6 +76,7 @@ Object {
         },
       ],
       "name": "User 10",
+      "salaryDecimal": "100000000000000000000000.10",
     },
   },
 }
@@ -100,6 +103,7 @@ Object {
           },
         ],
         "name": "User 1",
+        "salaryDecimal": "100000000000000000000000.01",
       },
       Object {
         "age": 18,
@@ -114,6 +118,7 @@ Object {
           },
         ],
         "name": "User 4",
+        "salaryDecimal": "100000000000000000000000.04",
       },
       Object {
         "age": 32,
@@ -132,6 +137,7 @@ Object {
           },
         ],
         "name": "User 7",
+        "salaryDecimal": "100000000000000000000000.07",
       },
       Object {
         "age": 21,
@@ -146,6 +152,7 @@ Object {
           },
         ],
         "name": "User 9",
+        "salaryDecimal": "100000000000000000000000.09",
       },
     ],
   },
@@ -168,6 +175,7 @@ Object {
         },
       ],
       "name": "User 4",
+      "salaryDecimal": "100000000000000000000000.04",
     },
   },
 }
@@ -196,6 +204,7 @@ Object {
             },
           ],
           "name": "User 7",
+          "salaryDecimal": "100000000000000000000000.07",
         },
         Object {
           "age": 21,
@@ -210,6 +219,7 @@ Object {
             },
           ],
           "name": "User 9",
+          "salaryDecimal": "100000000000000000000000.09",
         },
       ],
       "pageInfo": Object {

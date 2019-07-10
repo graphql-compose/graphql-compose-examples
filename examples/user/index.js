@@ -26,6 +26,7 @@ export default {
     }
     gender
     age
+    salaryDecimal
   }
 }
       `,
@@ -45,6 +46,7 @@ export default {
     }
     gender
     age
+    salaryDecimal
   }
 }
       `,
@@ -64,6 +66,7 @@ export default {
     }
     gender
     age
+    salaryDecimal
   }
 }
       `,
@@ -83,6 +86,7 @@ export default {
     address {
       geo
     }
+    salaryDecimal
   }
 
   distance_100_km: userMany(filter: {
@@ -96,6 +100,7 @@ export default {
     address {
       geo
     }
+    salaryDecimal
   }
 }
       `,
@@ -108,6 +113,7 @@ export default {
     _id
     name
     someMixed
+    salaryDecimal
   }
 }
       `,
@@ -131,7 +137,8 @@ mutation {
       a: 1,
       b: 2,
       c: [ 1, 2, 3, true, false, { sub: 1 }]
-    }
+    },
+    salaryDecimal: "33333333333333333.33333333333333333"
   }) {
     recordId
     record {
@@ -143,6 +150,7 @@ mutation {
         phones
       }
       someMixed
+      salaryDecimal
     }
   }
 }
@@ -164,6 +172,7 @@ mutation {
       }
       gender
       age
+      salaryDecimal
     }
     count
     pageInfo {
