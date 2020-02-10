@@ -16,10 +16,10 @@ export default async function seed(db: any) {
     'suppliers',
   ];
 
-  const collectionNames = (await db.listCollections().toArray()).map(o => o.name);
+  const collectionNames = (await db.listCollections().toArray()).map((o) => o.name);
 
   return Promise.all(
-    files.map(file => {
+    files.map((file) => {
       return (async function() {
         const colName = `${collectionPrefix || ''}${file}`;
         const data = JSON.parse(fs.readFileSync(`${__dirname}/json/${file}.json`, 'utf8'));

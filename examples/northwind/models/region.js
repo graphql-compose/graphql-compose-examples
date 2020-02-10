@@ -38,10 +38,10 @@ export const RegionTC = composeWithRelay<any>(composeWithMongoose<any>(Region));
 RegionTC.addRelation('employees', {
   resolver: () => EmployeeTC.getResolver('findMany'),
   prepareArgs: {
-    filter: source => ({
+    filter: (source) => ({
       _operators: {
         territoryIDs: {
-          in: source.territories.map(t => t.territoryID) || [],
+          in: source.territories.map((t) => t.territoryID) || [],
         },
       },
     }),

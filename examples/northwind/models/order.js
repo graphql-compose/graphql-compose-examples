@@ -54,7 +54,7 @@ export const OrderTC = composeWithRelay<any>(composeWithMongoose<any>(Order));
 OrderTC.addRelation('customer', {
   resolver: () => CustomerTC.getResolver('findOne'),
   prepareArgs: {
-    filter: source => ({ customerID: source.customerID }),
+    filter: (source) => ({ customerID: source.customerID }),
     skip: null,
     sort: null,
   },
@@ -64,7 +64,7 @@ OrderTC.addRelation('customer', {
 OrderTC.addRelation('employee', {
   resolver: () => EmployeeTC.getResolver('findOne'),
   prepareArgs: {
-    filter: source => ({ employeeID: source.employeeID }),
+    filter: (source) => ({ employeeID: source.employeeID }),
     skip: null,
     sort: null,
   },
@@ -74,7 +74,7 @@ OrderTC.addRelation('employee', {
 OrderTC.addRelation('shipper', {
   resolver: () => ShipperTC.getResolver('findOne'),
   prepareArgs: {
-    filter: source => ({ shipperID: source.shipVia }),
+    filter: (source) => ({ shipperID: source.shipVia }),
     skip: null,
     sort: null,
   },
@@ -85,7 +85,7 @@ const OrderDetailsTC = OrderTC.getFieldOTC('details');
 OrderDetailsTC.addRelation('product', {
   resolver: () => ProductTC.getResolver('findOne'),
   prepareArgs: {
-    filter: source => ({ productID: source.productID }),
+    filter: (source) => ({ productID: source.productID }),
     skip: null,
     sort: null,
   },

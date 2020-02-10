@@ -24,7 +24,7 @@ beforeAll(async () => {
   db = con.db('northwind');
   await seed(db);
   // take time to mongo create indexes if needed
-  await new Promise(resolve => setTimeout(resolve, 3000));
+  await new Promise((resolve) => setTimeout(resolve, 3000));
 });
 
 afterAll(async () => {
@@ -34,7 +34,7 @@ afterAll(async () => {
 });
 
 it('check seed', async () => {
-  expect((await db.listCollections().toArray()).map(o => o.name)).toEqual(
+  expect((await db.listCollections().toArray()).map((o) => o.name)).toEqual(
     expect.arrayContaining([
       'northwind_customers',
       'northwind_products',

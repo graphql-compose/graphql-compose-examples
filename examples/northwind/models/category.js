@@ -29,7 +29,7 @@ export const CategoryTC = composeWithRelay<any>(composeWithMongoose<any>(Categor
 CategoryTC.addRelation('productConnection', {
   resolver: () => ProductTC.getResolver('connection'),
   prepareArgs: {
-    filter: source => ({ categoryID: source.categoryID }),
+    filter: (source) => ({ categoryID: source.categoryID }),
   },
   projection: { categoryID: true },
 });
@@ -37,7 +37,7 @@ CategoryTC.addRelation('productConnection', {
 CategoryTC.addRelation('productList', {
   resolver: () => ProductTC.getResolver('findMany'),
   prepareArgs: {
-    filter: source => ({ categoryID: source.categoryID }),
+    filter: (source) => ({ categoryID: source.categoryID }),
   },
   projection: { categoryID: true },
 });

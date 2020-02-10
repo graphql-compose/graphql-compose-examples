@@ -21,7 +21,7 @@ beforeAll(async () => {
   db = con.db('userForRelay');
   await seed(db);
   // take time to mongo create indexes if needed
-  await new Promise(resolve => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 });
 
 afterAll(async () => {
@@ -31,13 +31,13 @@ afterAll(async () => {
 });
 
 it('check seed', async () => {
-  expect((await db.listCollections().toArray()).map(o => o.name)).toEqual(
+  expect((await db.listCollections().toArray()).map((o) => o.name)).toEqual(
     expect.arrayContaining(['userForRelay_users'])
   );
 });
 
 function findQueryByTitle(str) {
-  const queryConfig = meta.queries.find(o => o.title === str);
+  const queryConfig = meta.queries.find((o) => o.title === str);
   if (queryConfig && queryConfig.query) {
     return queryConfig.query;
   }
@@ -46,7 +46,7 @@ function findQueryByTitle(str) {
 
 describe('userForRelay > queries', () => {
   const alwaysSameResultTitles = ['Relay node', 'Relay Connection'];
-  alwaysSameResultTitles.forEach(title => {
+  alwaysSameResultTitles.forEach((title) => {
     it(title, async () => {
       const result = await graphql({
         schema: meta.schema,

@@ -21,7 +21,7 @@ beforeAll(async () => {
   db = con.db('user');
   await seed(db);
   // take time to mongo create indexes if needed
-  await new Promise(resolve => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 });
 
 afterAll(async () => {
@@ -31,13 +31,13 @@ afterAll(async () => {
 });
 
 it('check seed', async () => {
-  expect((await db.listCollections().toArray()).map(o => o.name)).toEqual(
+  expect((await db.listCollections().toArray()).map((o) => o.name)).toEqual(
     expect.arrayContaining(['user_users'])
   );
 });
 
 function findQueryByTitle(str) {
-  const queryConfig = meta.queries.find(o => o.title === str);
+  const queryConfig = meta.queries.find((o) => o.title === str);
   if (queryConfig && queryConfig.query) {
     return queryConfig.query;
   }
@@ -52,7 +52,7 @@ describe('user > queries', () => {
     'Find User with field of MIXED type',
     'Pagination',
   ];
-  alwaysSameResultTitles.forEach(title => {
+  alwaysSameResultTitles.forEach((title) => {
     it(title, async () => {
       const result = await graphql(meta.schema, findQueryByTitle(title));
       expect(result).toMatchSnapshot();

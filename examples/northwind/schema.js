@@ -79,7 +79,7 @@ schemaComposer.Mutation.addFields({
 });
 
 function addQueryToPayload(resolvers: { [name: string]: Resolver<any, any, any> }) {
-  Object.keys(resolvers).forEach(k => {
+  Object.keys(resolvers).forEach((k) => {
     resolvers[k].getOTC().setField('query', {
       type: 'Query',
       resolve: () => ({}),

@@ -6,8 +6,8 @@ export default function allowOnlyForLocalhost(resolvers: {
   [name: string]: Resolver<any, any, any>,
 }) {
   const secureResolvers = {};
-  Object.keys(resolvers).forEach(k => {
-    secureResolvers[k] = resolvers[k].wrapResolve(next => rp => {
+  Object.keys(resolvers).forEach((k) => {
+    secureResolvers[k] = resolvers[k].wrapResolve((next) => (rp) => {
       if (
         rp.context.ip === '127.0.0.1' ||
         rp.context.ip === '0:0:0:0:0:0:0:1' ||

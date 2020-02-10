@@ -26,7 +26,7 @@ export const ShipperTC = composeWithRelay<any>(composeWithMongoose<any>(Shipper)
 ShipperTC.addRelation('orderConnection', {
   resolver: () => OrderTC.getResolver('connection'),
   prepareArgs: {
-    filter: source => ({ shipVia: source.shipperID }),
+    filter: (source) => ({ shipVia: source.shipperID }),
   },
   projection: { shipperID: true },
 });

@@ -33,7 +33,7 @@ export const CustomerTC = composeWithRelay<any>(composeWithMongoose<any>(Custome
 CustomerTC.addRelation('orderConnection', {
   resolver: () => OrderTC.getResolver('connection'),
   prepareArgs: {
-    filter: source => ({ customerID: source.customerID }),
+    filter: (source) => ({ customerID: source.customerID }),
   },
   projection: { customerID: true },
 });
@@ -41,7 +41,7 @@ CustomerTC.addRelation('orderConnection', {
 CustomerTC.addRelation('orderList', {
   resolver: () => OrderTC.getResolver('findMany'),
   prepareArgs: {
-    filter: source => ({ customerID: source.customerID }),
+    filter: (source) => ({ customerID: source.customerID }),
   },
   projection: { customerID: true },
 });

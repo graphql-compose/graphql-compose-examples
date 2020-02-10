@@ -32,7 +32,7 @@ export const SupplierTC = composeWithRelay<any>(composeWithMongoose<any>(Supplie
 SupplierTC.addRelation('productConnection', {
   resolver: () => ProductTC.getResolver('connection'),
   prepareArgs: {
-    filter: source => ({ supplierID: source.supplierID }),
+    filter: (source) => ({ supplierID: source.supplierID }),
   },
   projection: { supplierID: true },
 });

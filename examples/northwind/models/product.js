@@ -51,7 +51,7 @@ ProductTC.addResolver(extendedResolver);
 ProductTC.addRelation('orderConnection', {
   resolver: () => OrderTC.getResolver('connection'),
   prepareArgs: {
-    filter: source => ({ details: { productID: source.productID } }),
+    filter: (source) => ({ details: { productID: source.productID } }),
   },
   projection: { productID: true },
 });
@@ -59,7 +59,7 @@ ProductTC.addRelation('orderConnection', {
 ProductTC.addRelation('orderList', {
   resolver: () => OrderTC.getResolver('findMany'),
   prepareArgs: {
-    filter: source => ({ details: { productID: source.productID } }),
+    filter: (source) => ({ details: { productID: source.productID } }),
   },
   projection: { productID: true },
 });
@@ -67,7 +67,7 @@ ProductTC.addRelation('orderList', {
 ProductTC.addRelation('supplier', {
   resolver: () => SupplierTC.getResolver('findOne'),
   prepareArgs: {
-    filter: source => ({ supplierID: source.supplierID }),
+    filter: (source) => ({ supplierID: source.supplierID }),
     skip: null,
     sort: null,
   },
@@ -77,7 +77,7 @@ ProductTC.addRelation('supplier', {
 ProductTC.addRelation('category', {
   resolver: () => CategoryTC.getResolver('findOne'),
   prepareArgs: {
-    filter: source => ({ categoryID: source.categoryID }),
+    filter: (source) => ({ categoryID: source.categoryID }),
     skip: null,
     sort: null,
   },
