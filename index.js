@@ -9,7 +9,7 @@ import { expressPort, getExampleNames, resolveExamplePath } from './config';
 import './mongooseConnection';
 
 const server = express();
-server.use(cors());
+server.use(cors({ origin: true }));
 
 // scan `examples` directory and add
 // - graphql endpoint by uri /exampleDirName
