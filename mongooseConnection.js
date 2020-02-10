@@ -10,12 +10,14 @@ const opts = {
   reconnectTries: Number.MAX_VALUE,
   reconnectInterval: 1000,
   useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
 };
 
 mongoose.connect(mongoUri, opts);
 
 export const { connection } = mongoose;
-connection.on('error', e => {
+connection.on('error', (e) => {
   if (e.message.code === 'ETIMEDOUT') {
     console.log(e);
     mongoose.connect(mongoUri, opts);
