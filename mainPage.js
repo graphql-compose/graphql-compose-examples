@@ -9,14 +9,12 @@ export function addToMainPage(example: any) {
 }
 
 function renderExamplesLinks() {
-  const examplesHtml = examplesMeta.map(meta => {
+  const examplesHtml = examplesMeta.map((meta) => {
     const titleHtml = `<h4>
       ${meta.title}
       ${
         meta.github
-          ? `<small><a href="${
-              meta.github
-            }" target="_blank">GitHub <span class="glyphicon glyphicon-new-window"></span></a></small>`
+          ? `<small><a href="${meta.github}" target="_blank">GitHub <span class="glyphicon glyphicon-new-window"></span></a></small>`
           : ''
       }
     </h4>`;
@@ -26,15 +24,16 @@ function renderExamplesLinks() {
       descriptionHtml = `<p>${meta.description}</p>`;
     }
 
-    const queries = meta.queries.map(queryData => {
+    const queries = meta.queries.map((queryData) => {
       return `<b><a href="${meta.uri}/?query=${qs.escape(queryData.query)}" target="_blank">${
         queryData.title
       }</a></b>`;
     });
     queries.push(
-      `<b><a href="${
-        meta.uri
-      }-playground" target="_blank">GraphQL Playground</a> (improved GraphiQL IDE)</b>`
+      `<b><a href="${meta.uri}-playground" target="_blank">GraphQL Playground</a> (improved GraphiQL IDE)</b>`
+    );
+    queries.push(
+      `<b><a href="${meta.uri}-altair" target="_blank">Altair</a> (improved GraphiQL IDE)</b>`
     );
     const queriesHtml = `<ul><li>${queries.join('</li><li>')}</li></ul>`;
 
