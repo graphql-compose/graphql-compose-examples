@@ -36,5 +36,3 @@ export function convertSchemaToGraphQL(
 ): ObjectTypeComposer<any, TContext> {
   return _convertSchemaToGraphQL(ms, typeName, schemaComposer);
 }
-
-export { composeWithRelay } from 'graphql-compose-relay';

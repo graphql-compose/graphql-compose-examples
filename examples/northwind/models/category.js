@@ -1,7 +1,7 @@
 /* @flow */
 
 import { Schema, model } from 'mongoose';
-import { composeWithMongoose, composeWithRelay } from '../schemaComposer';
+import { composeWithMongoose } from '../schemaComposer';
 import { ProductTC } from './product';
 
 export const CategorySchema: Schema<any> = new Schema(
@@ -24,7 +24,7 @@ export const CategorySchema: Schema<any> = new Schema(
 
 export const Category = model('Category', CategorySchema);
 
-export const CategoryTC = composeWithRelay<any>(composeWithMongoose<any>(Category));
+export const CategoryTC = composeWithMongoose<any>(Category);
 
 CategoryTC.addRelation('productConnection', {
   resolver: () => ProductTC.getResolver('connection'),

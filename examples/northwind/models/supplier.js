@@ -1,7 +1,7 @@
 /* @flow */
 
 import { Schema, model } from 'mongoose';
-import { composeWithMongoose, composeWithRelay } from '../schemaComposer';
+import { composeWithMongoose } from '../schemaComposer';
 import { AddressSchema } from './addressSchema';
 import { ProductTC } from './product';
 
@@ -27,7 +27,7 @@ export const SupplierSchema: Schema<any> = new Schema(
 
 export const Supplier = model('Supplier', SupplierSchema);
 
-export const SupplierTC = composeWithRelay<any>(composeWithMongoose<any>(Supplier));
+export const SupplierTC = composeWithMongoose<any>(Supplier);
 
 SupplierTC.addRelation('productConnection', {
   resolver: () => ProductTC.getResolver('connection'),

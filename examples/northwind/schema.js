@@ -7,7 +7,7 @@
 // import { SchemaComposer } from 'graphql-compose';
 // const schemaComposer = new SchemaComposer();
 
-import { schemaComposer, composeWithRelay } from './schemaComposer';
+import { schemaComposer } from './schemaComposer';
 import { CategoryTC } from './models/category';
 import { CustomerTC } from './models/customer';
 import { EmployeeTC } from './models/employee';
@@ -19,9 +19,7 @@ import { SupplierTC } from './models/supplier';
 // import { allowOnlyForLocalhost } from './wrappers/allowOnlyForLocalhost';
 import { addQueryToPayload } from './wrappers/addQueryToPayload';
 import { autoResetDataIn30min } from './wrappers/autoResetDataIn30min';
-import seed from './data/seed';
-
-composeWithRelay(schemaComposer.Query);
+import { seedByName } from '../../scripts/seedHelpers';
 
 const ViewerTC = schemaComposer.getOrCreateOTC('Viewer');
 schemaComposer.Query.addFields({
@@ -71,11 +69,11 @@ schemaComposer.Mutation.addFields({
     ...addQueryToPayload({
       createProduct: ProductTC.getResolver('createOne'),
       updateProduct: ProductTC.getResolver('updateById'),
-      removeProduct: ProductTC.getResolver('removeById'),
+      removeProduct: ProductTC.getResolver('removeOne'),
 
       createOrder: OrderTC.getResolver('createOne'),
       updateOrder: OrderTC.getResolver('updateById'),
-      removeOrder: OrderTC.getResolver('removeById'),
+      removeOrder: OrderTC.getResolver('removeOne'),
 
       updateEmployee: EmployeeTC.getResolver('updateById'),
     }),
@@ -85,7 +83,7 @@ schemaComposer.Mutation.addFields({
     description:
       'Remove all data and seed DB from scratch. Anyway data automatically reloaded every 30 minutes.',
     resolve: async () => {
-      await seed();
+      await seedByName('northwind');
       return 'Success';
     },
   },

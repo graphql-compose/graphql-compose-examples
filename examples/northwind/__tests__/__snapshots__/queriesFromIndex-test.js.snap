@@ -12,14 +12,7 @@ Object {
           "title": "Inside Sales Coordinator",
         },
       ],
-      "phraseSearch": Array [
-        Object {
-          "firstName": "Anne",
-          "lastName": "Dodsworth",
-          "notes": "Anne has a BA degree in English from St. Lawrence College.  She is fluent in French and German.",
-          "title": "Sales Representative",
-        },
-      ],
+      "phraseSearch": Array [],
       "wordSearch": Array [
         Object {
           "firstName": "Andrew",
@@ -81,14 +74,15 @@ Object {
 }
 `;
 
-exports[`nortwind > queries Mutation example (✋ 🛑 For security reason this operation is allowed only on localhost). 1`] = `
+exports[`nortwind > queries Mutation example (removeOrder) 1`] = `
 Object {
   "data": Object {
-    "removeProduct": null,
+    "removeOrder": Object {
+      "record": Object {
+        "orderID": 10266,
+      },
+    },
   },
-  "errors": Array [
-    [GraphQLError: Cannot read property 'ip' of undefined],
-  ],
 }
 `;
 

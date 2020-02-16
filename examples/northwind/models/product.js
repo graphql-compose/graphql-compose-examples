@@ -1,7 +1,7 @@
 /* @flow */
 
 import { Schema, model } from 'mongoose';
-import { composeWithMongoose, composeWithRelay } from '../schemaComposer';
+import { composeWithMongoose } from '../schemaComposer';
 import { OrderTC } from './order';
 import { SupplierTC } from './supplier';
 import { CategoryTC } from './category';
@@ -35,7 +35,7 @@ ProductSchema.index({ name: 1, supplierID: 1 }, { unique: true });
 
 export const Product = model('Product', ProductSchema);
 
-export const ProductTC = composeWithRelay<any>(composeWithMongoose<any>(Product));
+export const ProductTC = composeWithMongoose<any>(Product);
 
 const extendedResolver = ProductTC.getResolver('findMany').addFilterArg({
   name: 'nameRegexp',

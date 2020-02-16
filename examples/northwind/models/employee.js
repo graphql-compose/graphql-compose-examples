@@ -1,7 +1,7 @@
 /* @flow */
 
 import { Schema, model } from 'mongoose';
-import { composeWithMongoose, composeWithRelay } from '../schemaComposer';
+import { composeWithMongoose } from '../schemaComposer';
 import { AddressSchema } from './addressSchema';
 import { OrderTC } from './order';
 
@@ -63,7 +63,7 @@ EmployeeSchema.index(
 
 export const Employee = model('Employee', EmployeeSchema);
 
-export const EmployeeTC = composeWithRelay<any>(composeWithMongoose<any>(Employee));
+export const EmployeeTC = composeWithMongoose<any>(Employee);
 
 const findManyResolver = EmployeeTC.getResolver('findMany').addFilterArg({
   name: 'fullTextSearch',
