@@ -2,9 +2,7 @@
 
 import type { Resolver } from 'graphql-compose';
 
-export default function allowOnlyForLocalhost(resolvers: {
-  [name: string]: Resolver<any, any, any>,
-}) {
+export function allowOnlyForLocalhost(resolvers: { [name: string]: Resolver<any, any, any> }) {
   const secureResolvers = {};
   Object.keys(resolvers).forEach((k) => {
     secureResolvers[k] = resolvers[k].wrapResolve((next) => (rp) => {

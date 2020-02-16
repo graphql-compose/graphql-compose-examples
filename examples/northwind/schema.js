@@ -7,7 +7,7 @@
 // import { SchemaComposer } from 'graphql-compose';
 // const schemaComposer = new SchemaComposer();
 
-import { schemaComposer, composeWithRelay, Resolver } from './schemaComposer';
+import { schemaComposer, composeWithRelay } from './schemaComposer';
 import { CategoryTC } from './models/category';
 import { CustomerTC } from './models/customer';
 import { EmployeeTC } from './models/employee';
@@ -16,7 +16,10 @@ import { ProductTC } from './models/product';
 import { RegionTC } from './models/region';
 import { ShipperTC } from './models/shipper';
 import { SupplierTC } from './models/supplier';
-import allowOnlyForLocalhost from './auth/allowOnlyForLocalhost';
+// import { allowOnlyForLocalhost } from './wrappers/allowOnlyForLocalhost';
+import { addQueryToPayload } from './wrappers/addQueryToPayload';
+import { autoResetDataIn30min } from './wrappers/autoResetDataIn30min';
+import seed from './data/seed';
 
 composeWithRelay(schemaComposer.Query);
 
@@ -63,7 +66,8 @@ const fields = {
 ViewerTC.addFields(fields);
 
 schemaComposer.Mutation.addFields({
-  ...allowOnlyForLocalhost({
+  // ...allowOnlyForLocalhost({
+  ...autoResetDataIn30min({
     ...addQueryToPayload({
       createProduct: ProductTC.getResolver('createOne'),
       updateProduct: ProductTC.getResolver('updateById'),
@@ -76,16 +80,15 @@ schemaComposer.Mutation.addFields({
       updateEmployee: EmployeeTC.getResolver('updateById'),
     }),
   }),
+  resetData: {
+    type: 'String',
+    description:
+      'Remove all data and seed DB from scratch. Anyway data automatically reloaded every 30 minutes.',
+    resolve: async () => {
+      await seed();
+      return 'Success';
+    },
+  },
 });
-
-function addQueryToPayload(resolvers: { [name: string]: Resolver<any, any, any> }) {
-  Object.keys(resolvers).forEach((k) => {
-    resolvers[k].getOTC().setField('query', {
-      type: 'Query',
-      resolve: () => ({}),
-    });
-  });
-  return resolvers;
-}
 
 export default schemaComposer.buildSchema();
