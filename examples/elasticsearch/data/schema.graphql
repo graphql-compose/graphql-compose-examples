@@ -1,6 +1,3 @@
-"""Provides default value for input field."""
-directive @default(value: JSON!) on INPUT_FIELD_DEFINITION
-
 type Elastic17 {
   cat: Elastic17_Cat
   cluster: Elastic17_Cluster
@@ -11,7 +8,7 @@ type Elastic17 {
   tasks: Elastic17_Tasks
 
   """
-  Perform a [search](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-search.html) request
+  Perform a [search](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-search.html) request
   """
   search(
     body: JSON
@@ -170,7 +167,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [bulk](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-bulk.html) request
+  Perform a [bulk](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-bulk.html) request
   """
   bulk(
     body: JSON!
@@ -223,12 +220,12 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [clearScroll](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-request-scroll.html) request
+  Perform a [clearScroll](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-request-body.html#_clear_scroll_api) request
   """
   clearScroll: JSON
 
   """
-  Perform a [count](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-count.html) request
+  Perform a [count](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-count.html) request
   """
   count(
     body: JSON
@@ -293,7 +290,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [create](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-index_.html) request
+  Perform a [create](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-index_.html) request
   """
   create(
     body: JSON!
@@ -336,7 +333,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-delete.html) request
+  Perform a [delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-delete.html) request
   """
   delete(
     """
@@ -384,7 +381,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [deleteByQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-delete-by-query.html) request
+  Perform a [deleteByQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-delete-by-query.html) request
   """
   deleteByQuery(
     body: JSON!
@@ -446,8 +443,11 @@ type Elastic17 {
     """Explicit timeout for each search request. Defaults to no timeout."""
     searchTimeout: String
 
-    """Number of hits to return (default: 10)"""
+    """Deprecated, please use `max_docs` instead"""
     size: Float
+
+    """Maximum number of documents to process (default: all documents)"""
+    maxDocs: Float
 
     """A comma-separated list of <field>:<direction> pairs"""
     sort: JSON
@@ -509,7 +509,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [deleteByQueryRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-delete-by-query.html) request
+  Perform a [deleteByQueryRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-delete-by-query.html) request
   """
   deleteByQueryRethrottle(
     body: JSON
@@ -524,7 +524,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [deleteScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-scripting.html) request
+  Perform a [deleteScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-scripting.html) request
   """
   deleteScript(
     """Explicit operation timeout"""
@@ -538,7 +538,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [exists](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-get.html) request
+  Perform a [exists](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-get.html) request
   """
   exists(
     """A comma-separated list of stored fields to return in the response"""
@@ -585,7 +585,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [existsSource](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-get.html) request
+  Perform a [existsSource](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-get.html) request
   """
   existsSource(
     """
@@ -629,7 +629,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [explain](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-explain.html) request
+  Perform a [explain](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-explain.html) request
   """
   explain(
     body: JSON
@@ -684,7 +684,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [fieldCaps](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-field-caps.html) request
+  Perform a [fieldCaps](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-field-caps.html) request
   """
   fieldCaps(
     body: JSON
@@ -714,7 +714,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [get](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-get.html) request
+  Perform a [get](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-get.html) request
   """
   get(
     """A comma-separated list of stored fields to return in the response"""
@@ -761,7 +761,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [getScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-scripting.html) request
+  Perform a [getScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-scripting.html) request
   """
   getScript(
     """Specify timeout for connection to master"""
@@ -772,7 +772,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [getSource](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-get.html) request
+  Perform a [getSource](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-get.html) request
   """
   getSource(
     """
@@ -816,7 +816,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [index](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-index_.html) request
+  Perform a [index](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-index_.html) request
   """
   index(
     body: JSON!
@@ -869,11 +869,13 @@ type Elastic17 {
     id: String
   ): JSON
 
-  """Perform a [info](http://www.elastic.co/guide/) request"""
+  """
+  Perform a [info](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/index.html) request
+  """
   info: JSON
 
   """
-  Perform a [mget](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-multi-get.html) request
+  Perform a [mget](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-multi-get.html) request
   """
   mget(
     body: JSON!
@@ -913,7 +915,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [msearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-multi-search.html) request
+  Perform a [msearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-multi-search.html) request
   """
   msearch(
     body: JSON!
@@ -944,7 +946,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [msearchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-multi-search.html) request
+  Perform a [msearchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-multi-search.html) request
   """
   msearchTemplate(
     body: JSON!
@@ -973,7 +975,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [mtermvectors](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-multi-termvectors.html) request
+  Perform a [mtermvectors](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-multi-termvectors.html) request
   """
   mtermvectors(
     body: JSON
@@ -1027,11 +1029,13 @@ type Elastic17 {
     index: String
   ): JSON
 
-  """Perform a [ping](http://www.elastic.co/guide/) request"""
+  """
+  Perform a [ping](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/index.html) request
+  """
   ping: JSON
 
   """
-  Perform a [putScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-scripting.html) request
+  Perform a [putScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-scripting.html) request
   """
   putScript(
     body: JSON!
@@ -1050,7 +1054,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [rankEval](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-rank-eval.html) request
+  Perform a [rankEval](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-rank-eval.html) request
   """
   rankEval(
     body: JSON!
@@ -1074,7 +1078,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [reindex](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-reindex.html) request
+  Perform a [reindex](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-reindex.html) request
   """
   reindex(
     body: JSON!
@@ -1098,10 +1102,13 @@ type Elastic17 {
     requestsPerSecond: Float
     scroll: String = "5m"
     slices: Float = 1
+
+    """Maximum number of documents to process (default: all documents)"""
+    maxDocs: Float
   ): JSON
 
   """
-  Perform a [reindexRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-reindex.html) request
+  Perform a [reindexRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-reindex.html) request
   """
   reindexRethrottle(
     body: JSON
@@ -1116,7 +1123,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [renderSearchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-template.html) request
+  Perform a [renderSearchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-template.html#_validating_templates) request
   """
   renderSearchTemplate(
     body: JSON
@@ -1125,19 +1132,13 @@ type Elastic17 {
     id: String
   ): JSON
 
-  """Perform a [scriptsPainlessContext]() request"""
-  scriptsPainlessContext(
-    """Select a specific context to retrieve API information about"""
-    context: String
-  ): JSON
-
   """
-  Perform a [scriptsPainlessExecute](https://www.elastic.co/guide/en/elasticsearch/painless/7.2/painless-execute-api.html) request
+  Perform a [scriptsPainlessExecute](https://www.elastic.co/guide/en/elasticsearch/painless/7.5/painless-execute-api.html) request
   """
   scriptsPainlessExecute(body: JSON): JSON
 
   """
-  Perform a [scroll](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-request-scroll.html) request
+  Perform a [scroll](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-request-body.html#request-body-search-scroll) request
   """
   scroll(
     body: JSON
@@ -1157,7 +1158,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [searchShards](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-shards.html) request
+  Perform a [searchShards](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-shards.html) request
   """
   searchShards(
     body: JSON
@@ -1194,7 +1195,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [searchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-template.html) request
+  Perform a [searchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-template.html) request
   """
   searchTemplate(
     body: JSON!
@@ -1258,7 +1259,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [termvectors](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-termvectors.html) request
+  Perform a [termvectors](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-termvectors.html) request
   """
   termvectors(
     body: JSON
@@ -1304,7 +1305,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [update](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-update.html) request
+  Perform a [update](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-update.html) request
   """
   update(
     body: JSON!
@@ -1367,7 +1368,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [updateByQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-update-by-query.html) request
+  Perform a [updateByQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-update-by-query.html) request
   """
   updateByQuery(
     body: JSON
@@ -1434,8 +1435,11 @@ type Elastic17 {
     """Explicit timeout for each search request. Defaults to no timeout."""
     searchTimeout: String
 
-    """Number of hits to return (default: 10)"""
+    """Deprecated, please use `max_docs` instead"""
     size: Float
+
+    """Maximum number of documents to process (default: all documents)"""
+    maxDocs: Float
 
     """A comma-separated list of <field>:<direction> pairs"""
     sort: JSON
@@ -1502,7 +1506,7 @@ type Elastic17 {
   ): JSON
 
   """
-  Perform a [updateByQueryRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-update-by-query.html) request
+  Perform a [updateByQueryRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-update-by-query.html) request
   """
   updateByQueryRethrottle(
     body: JSON
@@ -1519,7 +1523,7 @@ type Elastic17 {
 
 type Elastic17_Cat {
   """
-  Perform a [cat.aliases](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat.html) request
+  Perform a [cat.aliases](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat.html) request
   """
   aliases(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -1550,7 +1554,7 @@ type Elastic17_Cat {
   ): JSON
 
   """
-  Perform a [cat.allocation](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-allocation.html) request
+  Perform a [cat.allocation](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-allocation.html) request
   """
   allocation(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -1586,7 +1590,7 @@ type Elastic17_Cat {
   ): JSON
 
   """
-  Perform a [cat.count](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-count.html) request
+  Perform a [cat.count](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-count.html) request
   """
   count(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -1619,7 +1623,7 @@ type Elastic17_Cat {
   ): JSON
 
   """
-  Perform a [cat.fielddata](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-fielddata.html) request
+  Perform a [cat.fielddata](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-fielddata.html) request
   """
   fielddata(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -1653,7 +1657,7 @@ type Elastic17_Cat {
   ): JSON
 
   """
-  Perform a [cat.health](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-health.html) request
+  Perform a [cat.health](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-health.html) request
   """
   health(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -1682,7 +1686,7 @@ type Elastic17_Cat {
   ): JSON
 
   """
-  Perform a [cat.help](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat.html) request
+  Perform a [cat.help](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat.html) request
   """
   help(
     """Return help information"""
@@ -1693,7 +1697,7 @@ type Elastic17_Cat {
   ): JSON
 
   """
-  Perform a [cat.indices](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-indices.html) request
+  Perform a [cat.indices](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-indices.html) request
   """
   indices(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -1742,7 +1746,7 @@ type Elastic17_Cat {
   ): JSON
 
   """
-  Perform a [cat.master](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-master.html) request
+  Perform a [cat.master](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-master.html) request
   """
   master(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -1770,7 +1774,7 @@ type Elastic17_Cat {
   ): JSON
 
   """
-  Perform a [cat.nodeattrs](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-nodeattrs.html) request
+  Perform a [cat.nodeattrs](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-nodeattrs.html) request
   """
   nodeattrs(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -1798,7 +1802,7 @@ type Elastic17_Cat {
   ): JSON
 
   """
-  Perform a [cat.nodes](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-nodes.html) request
+  Perform a [cat.nodes](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-nodes.html) request
   """
   nodes(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -1831,7 +1835,7 @@ type Elastic17_Cat {
   ): JSON
 
   """
-  Perform a [cat.pendingTasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-pending-tasks.html) request
+  Perform a [cat.pendingTasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-pending-tasks.html) request
   """
   pendingTasks(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -1859,7 +1863,7 @@ type Elastic17_Cat {
   ): JSON
 
   """
-  Perform a [cat.plugins](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-plugins.html) request
+  Perform a [cat.plugins](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-plugins.html) request
   """
   plugins(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -1887,7 +1891,7 @@ type Elastic17_Cat {
   ): JSON
 
   """
-  Perform a [cat.recovery](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-recovery.html) request
+  Perform a [cat.recovery](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-recovery.html) request
   """
   recovery(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -1918,7 +1922,7 @@ type Elastic17_Cat {
   ): JSON
 
   """
-  Perform a [cat.repositories](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-repositories.html) request
+  Perform a [cat.repositories](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-repositories.html) request
   """
   repositories(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -1944,7 +1948,7 @@ type Elastic17_Cat {
   ): JSON
 
   """
-  Perform a [cat.segments](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-segments.html) request
+  Perform a [cat.segments](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-segments.html) request
   """
   segments(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -1972,7 +1976,7 @@ type Elastic17_Cat {
   ): JSON
 
   """
-  Perform a [cat.shards](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-shards.html) request
+  Perform a [cat.shards](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-shards.html) request
   """
   shards(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -2008,7 +2012,7 @@ type Elastic17_Cat {
   ): JSON
 
   """
-  Perform a [cat.snapshots](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-snapshots.html) request
+  Perform a [cat.snapshots](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-snapshots.html) request
   """
   snapshots(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -2037,7 +2041,7 @@ type Elastic17_Cat {
   ): JSON
 
   """
-  Perform a [cat.tasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/tasks.html) request
+  Perform a [cat.tasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/tasks.html) request
   """
   tasks(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -2075,7 +2079,7 @@ type Elastic17_Cat {
   ): JSON
 
   """
-  Perform a [cat.templates](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-templates.html) request
+  Perform a [cat.templates](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-templates.html) request
   """
   templates(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -2106,7 +2110,7 @@ type Elastic17_Cat {
   ): JSON
 
   """
-  Perform a [cat.threadPool](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-thread-pool.html) request
+  Perform a [cat.threadPool](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-thread-pool.html) request
   """
   threadPool(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -2144,7 +2148,7 @@ type Elastic17_Cat {
 
 type Elastic17_Cluster {
   """
-  Perform a [cluster.allocationExplain](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-allocation-explain.html) request
+  Perform a [cluster.allocationExplain](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-allocation-explain.html) request
   """
   allocationExplain(
     body: JSON
@@ -2157,7 +2161,7 @@ type Elastic17_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.getSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-update-settings.html) request
+  Perform a [cluster.getSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-update-settings.html) request
   """
   getSettings(
     """Return settings in flat format (default: false)"""
@@ -2174,7 +2178,7 @@ type Elastic17_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.health](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-health.html) request
+  Perform a [cluster.health](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-health.html) request
   """
   health(
     expandWildcards: Elastic17Enum_ExpandWildcards = all
@@ -2216,7 +2220,7 @@ type Elastic17_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.pendingTasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-pending.html) request
+  Perform a [cluster.pendingTasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-pending.html) request
   """
   pendingTasks(
     """
@@ -2229,7 +2233,7 @@ type Elastic17_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.putSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-update-settings.html) request
+  Perform a [cluster.putSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-update-settings.html) request
   """
   putSettings(
     body: JSON!
@@ -2245,12 +2249,12 @@ type Elastic17_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.remoteInfo](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-remote-info.html) request
+  Perform a [cluster.remoteInfo](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-remote-info.html) request
   """
   remoteInfo: JSON
 
   """
-  Perform a [cluster.reroute](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-reroute.html) request
+  Perform a [cluster.reroute](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-reroute.html) request
   """
   reroute(
     body: JSON
@@ -2279,7 +2283,7 @@ type Elastic17_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.state](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-state.html) request
+  Perform a [cluster.state](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-state.html) request
   """
   state(
     """
@@ -2325,7 +2329,7 @@ type Elastic17_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-stats.html) request
+  Perform a [cluster.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-stats.html) request
   """
   stats(
     """Return settings in flat format (default: false)"""
@@ -2345,7 +2349,7 @@ type Elastic17_Cluster {
 
 type Elastic17_Indices {
   """
-  Perform a [indices.analyze](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-analyze.html) request
+  Perform a [indices.analyze](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-analyze.html) request
   """
   analyze(
     body: JSON
@@ -2355,7 +2359,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.clearCache](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-clearcache.html) request
+  Perform a [indices.clearCache](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-clearcache.html) request
   """
   clearCache(
     body: JSON
@@ -2391,7 +2395,31 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.close](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-open-close.html) request
+  Perform a [indices.clone](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-clone-index.html) request
+  """
+  clone(
+    body: JSON
+
+    """Explicit operation timeout"""
+    timeout: String
+
+    """Specify timeout for connection to master"""
+    masterTimeout: String
+
+    """
+    Set the number of active shards to wait for on the cloned index before the operation returns.
+    """
+    waitForActiveShards: String
+
+    """The name of the source index to clone"""
+    index: String
+
+    """The name of the target index to clone into"""
+    target: String
+  ): JSON
+
+  """
+  Perform a [indices.close](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-open-close.html) request
   """
   close(
     body: JSON
@@ -2424,7 +2452,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.create](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-create-index.html) request
+  Perform a [indices.create](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-create-index.html) request
   """
   create(
     body: JSON
@@ -2448,7 +2476,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-delete-index.html) request
+  Perform a [indices.delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-delete-index.html) request
   """
   delete(
     """Explicit operation timeout"""
@@ -2473,7 +2501,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.deleteAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-aliases.html) request
+  Perform a [indices.deleteAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-aliases.html) request
   """
   deleteAlias(
     """Explicit timestamp for the document"""
@@ -2495,7 +2523,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.deleteTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-templates.html) request
+  Perform a [indices.deleteTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-templates.html) request
   """
   deleteTemplate(
     """Explicit operation timeout"""
@@ -2509,7 +2537,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.exists](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-exists.html) request
+  Perform a [indices.exists](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-exists.html) request
   """
   exists(
     """
@@ -2537,7 +2565,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.existsAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-aliases.html) request
+  Perform a [indices.existsAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-aliases.html) request
   """
   existsAlias(
     """
@@ -2565,7 +2593,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.existsTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-templates.html) request
+  Perform a [indices.existsTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-templates.html) request
   """
   existsTemplate(
     """Return settings in flat format (default: false)"""
@@ -2584,7 +2612,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.existsType](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-types-exists.html) request
+  Perform a [indices.existsType](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-types-exists.html) request
   """
   existsType(
     """
@@ -2614,7 +2642,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.flush](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-flush.html) request
+  Perform a [indices.flush](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-flush.html) request
   """
   flush(
     body: JSON
@@ -2654,7 +2682,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.flushSynced](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-synced-flush.html) request
+  Perform a [indices.flushSynced](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-flush.html#synced-flush-api) request
   """
   flushSynced(
     body: JSON
@@ -2678,7 +2706,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.forcemerge](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-forcemerge.html) request
+  Perform a [indices.forcemerge](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-forcemerge.html) request
   """
   forcemerge(
     body: JSON
@@ -2715,7 +2743,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-get-index.html) request
+  Perform a [indices.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-get-index.html) request
   """
   get(
     """Whether to add the type name to the response (default: false)"""
@@ -2749,7 +2777,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.getAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-aliases.html) request
+  Perform a [indices.getAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-aliases.html) request
   """
   getAlias(
     """
@@ -2777,7 +2805,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.getFieldMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-get-field-mapping.html) request
+  Perform a [indices.getFieldMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-get-field-mapping.html) request
   """
   getFieldMapping(
     """Whether a type should be returned in the body of the mappings."""
@@ -2811,7 +2839,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.getMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-get-mapping.html) request
+  Perform a [indices.getMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-get-mapping.html) request
   """
   getMapping(
     """Whether to add the type name to the response (default: false)"""
@@ -2842,7 +2870,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.getSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-get-settings.html) request
+  Perform a [indices.getSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-get-settings.html) request
   """
   getSettings(
     """Specify timeout for connection to master"""
@@ -2881,7 +2909,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.getTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-templates.html) request
+  Perform a [indices.getTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-templates.html) request
   """
   getTemplate(
     """Whether a type should be returned in the body of the mappings."""
@@ -2903,7 +2931,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.getUpgrade](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-upgrade.html) request
+  Perform a [indices.getUpgrade](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-upgrade.html) request
   """
   getUpgrade(
     """
@@ -2925,7 +2953,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.open](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-open-close.html) request
+  Perform a [indices.open](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-open-close.html) request
   """
   open(
     body: JSON
@@ -2958,7 +2986,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.putAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-aliases.html) request
+  Perform a [indices.putAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-aliases.html) request
   """
   putAlias(
     body: JSON
@@ -2980,7 +3008,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.putMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-put-mapping.html) request
+  Perform a [indices.putMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-put-mapping.html) request
   """
   putMapping(
     body: JSON!
@@ -3014,7 +3042,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.putSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-update-settings.html) request
+  Perform a [indices.putSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-update-settings.html) request
   """
   putSettings(
     body: JSON!
@@ -3053,7 +3081,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.putTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-templates.html) request
+  Perform a [indices.putTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-templates.html) request
   """
   putTemplate(
     body: JSON!
@@ -3086,7 +3114,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.recovery](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-recovery.html) request
+  Perform a [indices.recovery](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-recovery.html) request
   """
   recovery(
     """Whether to display detailed information about shard recovery"""
@@ -3102,7 +3130,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.refresh](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-refresh.html) request
+  Perform a [indices.refresh](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-refresh.html) request
   """
   refresh(
     body: JSON
@@ -3126,7 +3154,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.rollover](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-rollover-index.html) request
+  Perform a [indices.rollover](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-rollover-index.html) request
   """
   rollover(
     body: JSON
@@ -3159,7 +3187,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.segments](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-segments.html) request
+  Perform a [indices.segments](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-segments.html) request
   """
   segments(
     """
@@ -3184,7 +3212,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.shardStores](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-shards-stores.html) request
+  Perform a [indices.shardStores](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-shards-stores.html) request
   """
   shardStores(
     """
@@ -3211,7 +3239,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.shrink](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-shrink-index.html) request
+  Perform a [indices.shrink](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-shrink-index.html) request
   """
   shrink(
     body: JSON
@@ -3240,7 +3268,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.split](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-split-index.html) request
+  Perform a [indices.split](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-split-index.html) request
   """
   split(
     body: JSON
@@ -3269,7 +3297,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-stats.html) request
+  Perform a [indices.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-stats.html) request
   """
   stats(
     """
@@ -3319,7 +3347,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.updateAliases](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-aliases.html) request
+  Perform a [indices.updateAliases](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-aliases.html) request
   """
   updateAliases(
     body: JSON!
@@ -3332,7 +3360,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.upgrade](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-upgrade.html) request
+  Perform a [indices.upgrade](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-upgrade.html) request
   """
   upgrade(
     body: JSON
@@ -3366,7 +3394,7 @@ type Elastic17_Indices {
   ): JSON
 
   """
-  Perform a [indices.validateQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-validate.html) request
+  Perform a [indices.validateQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-validate.html) request
   """
   validateQuery(
     body: JSON
@@ -3426,7 +3454,7 @@ type Elastic17_Indices {
 
 type Elastic17_Ingest {
   """
-  Perform a [ingest.deletePipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/delete-pipeline-api.html) request
+  Perform a [ingest.deletePipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/delete-pipeline-api.html) request
   """
   deletePipeline(
     """Explicit operation timeout for connection to master node"""
@@ -3440,7 +3468,7 @@ type Elastic17_Ingest {
   ): JSON
 
   """
-  Perform a [ingest.getPipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/get-pipeline-api.html) request
+  Perform a [ingest.getPipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/get-pipeline-api.html) request
   """
   getPipeline(
     """Explicit operation timeout for connection to master node"""
@@ -3451,12 +3479,12 @@ type Elastic17_Ingest {
   ): JSON
 
   """
-  Perform a [ingest.processorGrok](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/grok-processor.html#grok-processor-rest-get) request
+  Perform a [ingest.processorGrok](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/grok-processor.html#grok-processor-rest-get) request
   """
   processorGrok: JSON
 
   """
-  Perform a [ingest.putPipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/put-pipeline-api.html) request
+  Perform a [ingest.putPipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/put-pipeline-api.html) request
   """
   putPipeline(
     body: JSON!
@@ -3472,7 +3500,7 @@ type Elastic17_Ingest {
   ): JSON
 
   """
-  Perform a [ingest.simulate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/simulate-pipeline-api.html) request
+  Perform a [ingest.simulate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/simulate-pipeline-api.html) request
   """
   simulate(
     body: JSON!
@@ -3489,7 +3517,7 @@ type Elastic17_Ingest {
 
 type Elastic17_Nodes {
   """
-  Perform a [nodes.hotThreads](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-nodes-hot-threads.html) request
+  Perform a [nodes.hotThreads](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-nodes-hot-threads.html) request
   """
   hotThreads(
     """The interval for the second sampling of threads"""
@@ -3515,7 +3543,7 @@ type Elastic17_Nodes {
   ): JSON
 
   """
-  Perform a [nodes.info](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-nodes-info.html) request
+  Perform a [nodes.info](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-nodes-info.html) request
   """
   info(
     """Return settings in flat format (default: false)"""
@@ -3538,7 +3566,7 @@ type Elastic17_Nodes {
   ): JSON
 
   """
-  Perform a [nodes.reloadSecureSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/secure-settings.html#reloadable-secure-settings) request
+  Perform a [nodes.reloadSecureSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/secure-settings.html#reloadable-secure-settings) request
   """
   reloadSecureSettings(
     body: JSON
@@ -3554,7 +3582,7 @@ type Elastic17_Nodes {
   ): JSON
 
   """
-  Perform a [nodes.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-nodes-stats.html) request
+  Perform a [nodes.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-nodes-stats.html) request
   """
   stats(
     """
@@ -3608,7 +3636,7 @@ type Elastic17_Nodes {
   ): JSON
 
   """
-  Perform a [nodes.usage](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-nodes-usage.html) request
+  Perform a [nodes.usage](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-nodes-usage.html) request
   """
   usage(
     """Explicit operation timeout"""
@@ -3628,7 +3656,7 @@ type Elastic17_Nodes {
 
 type Elastic17_Snapshot {
   """
-  Perform a [snapshot.create](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.create](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   create(
     body: JSON
@@ -3649,7 +3677,7 @@ type Elastic17_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.createRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.createRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   createRepository(
     body: JSON!
@@ -3668,7 +3696,7 @@ type Elastic17_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   delete(
     """Explicit operation timeout for connection to master node"""
@@ -3682,7 +3710,7 @@ type Elastic17_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.deleteRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.deleteRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   deleteRepository(
     """Explicit operation timeout for connection to master node"""
@@ -3696,7 +3724,7 @@ type Elastic17_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   get(
     """Explicit operation timeout for connection to master node"""
@@ -3720,7 +3748,7 @@ type Elastic17_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.getRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.getRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   getRepository(
     """Explicit operation timeout for connection to master node"""
@@ -3736,7 +3764,7 @@ type Elastic17_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.restore](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.restore](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   restore(
     body: JSON
@@ -3757,7 +3785,7 @@ type Elastic17_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.status](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.status](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   status(
     """Explicit operation timeout for connection to master node"""
@@ -3776,7 +3804,7 @@ type Elastic17_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.verifyRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.verifyRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   verifyRepository(
     body: JSON
@@ -3794,7 +3822,7 @@ type Elastic17_Snapshot {
 
 type Elastic17_Tasks {
   """
-  Perform a [tasks.cancel](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/tasks.html) request
+  Perform a [tasks.cancel](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/tasks.html) request
   """
   cancel(
     body: JSON
@@ -3821,7 +3849,7 @@ type Elastic17_Tasks {
   ): JSON
 
   """
-  Perform a [tasks.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/tasks.html) request
+  Perform a [tasks.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/tasks.html) request
   """
   get(
     """Wait for the matching tasks to complete (default: false)"""
@@ -3835,7 +3863,7 @@ type Elastic17_Tasks {
   ): JSON
 
   """
-  Perform a [tasks.list](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/tasks.html) request
+  Perform a [tasks.list](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/tasks.html) request
   """
   list(
     """
@@ -4006,7 +4034,7 @@ type Elastic24 {
   tasks: Elastic24_Tasks
 
   """
-  Perform a [search](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-search.html) request
+  Perform a [search](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-search.html) request
   """
   search(
     body: JSON
@@ -4165,7 +4193,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [bulk](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-bulk.html) request
+  Perform a [bulk](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-bulk.html) request
   """
   bulk(
     body: JSON!
@@ -4218,12 +4246,12 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [clearScroll](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-request-scroll.html) request
+  Perform a [clearScroll](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-request-body.html#_clear_scroll_api) request
   """
   clearScroll: JSON
 
   """
-  Perform a [count](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-count.html) request
+  Perform a [count](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-count.html) request
   """
   count(
     body: JSON
@@ -4288,7 +4316,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [create](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-index_.html) request
+  Perform a [create](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-index_.html) request
   """
   create(
     body: JSON!
@@ -4331,7 +4359,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-delete.html) request
+  Perform a [delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-delete.html) request
   """
   delete(
     """
@@ -4379,7 +4407,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [deleteByQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-delete-by-query.html) request
+  Perform a [deleteByQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-delete-by-query.html) request
   """
   deleteByQuery(
     body: JSON!
@@ -4441,8 +4469,11 @@ type Elastic24 {
     """Explicit timeout for each search request. Defaults to no timeout."""
     searchTimeout: String
 
-    """Number of hits to return (default: 10)"""
+    """Deprecated, please use `max_docs` instead"""
     size: Float
+
+    """Maximum number of documents to process (default: all documents)"""
+    maxDocs: Float
 
     """A comma-separated list of <field>:<direction> pairs"""
     sort: JSON
@@ -4504,7 +4535,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [deleteByQueryRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-delete-by-query.html) request
+  Perform a [deleteByQueryRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-delete-by-query.html) request
   """
   deleteByQueryRethrottle(
     body: JSON
@@ -4519,7 +4550,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [deleteScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-scripting.html) request
+  Perform a [deleteScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-scripting.html) request
   """
   deleteScript(
     """Explicit operation timeout"""
@@ -4533,7 +4564,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [exists](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-get.html) request
+  Perform a [exists](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-get.html) request
   """
   exists(
     """A comma-separated list of stored fields to return in the response"""
@@ -4580,7 +4611,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [existsSource](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-get.html) request
+  Perform a [existsSource](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-get.html) request
   """
   existsSource(
     """
@@ -4624,7 +4655,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [explain](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-explain.html) request
+  Perform a [explain](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-explain.html) request
   """
   explain(
     body: JSON
@@ -4679,7 +4710,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [fieldCaps](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-field-caps.html) request
+  Perform a [fieldCaps](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-field-caps.html) request
   """
   fieldCaps(
     body: JSON
@@ -4709,7 +4740,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [get](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-get.html) request
+  Perform a [get](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-get.html) request
   """
   get(
     """A comma-separated list of stored fields to return in the response"""
@@ -4756,7 +4787,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [getScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-scripting.html) request
+  Perform a [getScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-scripting.html) request
   """
   getScript(
     """Specify timeout for connection to master"""
@@ -4767,7 +4798,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [getSource](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-get.html) request
+  Perform a [getSource](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-get.html) request
   """
   getSource(
     """
@@ -4811,7 +4842,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [index](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-index_.html) request
+  Perform a [index](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-index_.html) request
   """
   index(
     body: JSON!
@@ -4864,11 +4895,13 @@ type Elastic24 {
     id: String
   ): JSON
 
-  """Perform a [info](http://www.elastic.co/guide/) request"""
+  """
+  Perform a [info](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/index.html) request
+  """
   info: JSON
 
   """
-  Perform a [mget](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-multi-get.html) request
+  Perform a [mget](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-multi-get.html) request
   """
   mget(
     body: JSON!
@@ -4908,7 +4941,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [msearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-multi-search.html) request
+  Perform a [msearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-multi-search.html) request
   """
   msearch(
     body: JSON!
@@ -4939,7 +4972,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [msearchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-multi-search.html) request
+  Perform a [msearchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-multi-search.html) request
   """
   msearchTemplate(
     body: JSON!
@@ -4968,7 +5001,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [mtermvectors](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-multi-termvectors.html) request
+  Perform a [mtermvectors](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-multi-termvectors.html) request
   """
   mtermvectors(
     body: JSON
@@ -5022,11 +5055,13 @@ type Elastic24 {
     index: String
   ): JSON
 
-  """Perform a [ping](http://www.elastic.co/guide/) request"""
+  """
+  Perform a [ping](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/index.html) request
+  """
   ping: JSON
 
   """
-  Perform a [putScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-scripting.html) request
+  Perform a [putScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-scripting.html) request
   """
   putScript(
     body: JSON!
@@ -5045,7 +5080,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [rankEval](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-rank-eval.html) request
+  Perform a [rankEval](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-rank-eval.html) request
   """
   rankEval(
     body: JSON!
@@ -5069,7 +5104,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [reindex](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-reindex.html) request
+  Perform a [reindex](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-reindex.html) request
   """
   reindex(
     body: JSON!
@@ -5093,10 +5128,13 @@ type Elastic24 {
     requestsPerSecond: Float
     scroll: String = "5m"
     slices: Float = 1
+
+    """Maximum number of documents to process (default: all documents)"""
+    maxDocs: Float
   ): JSON
 
   """
-  Perform a [reindexRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-reindex.html) request
+  Perform a [reindexRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-reindex.html) request
   """
   reindexRethrottle(
     body: JSON
@@ -5111,7 +5149,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [renderSearchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-template.html) request
+  Perform a [renderSearchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-template.html#_validating_templates) request
   """
   renderSearchTemplate(
     body: JSON
@@ -5120,19 +5158,13 @@ type Elastic24 {
     id: String
   ): JSON
 
-  """Perform a [scriptsPainlessContext]() request"""
-  scriptsPainlessContext(
-    """Select a specific context to retrieve API information about"""
-    context: String
-  ): JSON
-
   """
-  Perform a [scriptsPainlessExecute](https://www.elastic.co/guide/en/elasticsearch/painless/7.2/painless-execute-api.html) request
+  Perform a [scriptsPainlessExecute](https://www.elastic.co/guide/en/elasticsearch/painless/7.5/painless-execute-api.html) request
   """
   scriptsPainlessExecute(body: JSON): JSON
 
   """
-  Perform a [scroll](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-request-scroll.html) request
+  Perform a [scroll](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-request-body.html#request-body-search-scroll) request
   """
   scroll(
     body: JSON
@@ -5152,7 +5184,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [searchShards](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-shards.html) request
+  Perform a [searchShards](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-shards.html) request
   """
   searchShards(
     body: JSON
@@ -5189,7 +5221,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [searchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-template.html) request
+  Perform a [searchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-template.html) request
   """
   searchTemplate(
     body: JSON!
@@ -5253,7 +5285,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [termvectors](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-termvectors.html) request
+  Perform a [termvectors](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-termvectors.html) request
   """
   termvectors(
     body: JSON
@@ -5299,7 +5331,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [update](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-update.html) request
+  Perform a [update](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-update.html) request
   """
   update(
     body: JSON!
@@ -5362,7 +5394,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [updateByQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-update-by-query.html) request
+  Perform a [updateByQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-update-by-query.html) request
   """
   updateByQuery(
     body: JSON
@@ -5429,8 +5461,11 @@ type Elastic24 {
     """Explicit timeout for each search request. Defaults to no timeout."""
     searchTimeout: String
 
-    """Number of hits to return (default: 10)"""
+    """Deprecated, please use `max_docs` instead"""
     size: Float
+
+    """Maximum number of documents to process (default: all documents)"""
+    maxDocs: Float
 
     """A comma-separated list of <field>:<direction> pairs"""
     sort: JSON
@@ -5497,7 +5532,7 @@ type Elastic24 {
   ): JSON
 
   """
-  Perform a [updateByQueryRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-update-by-query.html) request
+  Perform a [updateByQueryRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-update-by-query.html) request
   """
   updateByQueryRethrottle(
     body: JSON
@@ -5514,7 +5549,7 @@ type Elastic24 {
 
 type Elastic24_Cat {
   """
-  Perform a [cat.aliases](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat.html) request
+  Perform a [cat.aliases](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat.html) request
   """
   aliases(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -5545,7 +5580,7 @@ type Elastic24_Cat {
   ): JSON
 
   """
-  Perform a [cat.allocation](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-allocation.html) request
+  Perform a [cat.allocation](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-allocation.html) request
   """
   allocation(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -5581,7 +5616,7 @@ type Elastic24_Cat {
   ): JSON
 
   """
-  Perform a [cat.count](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-count.html) request
+  Perform a [cat.count](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-count.html) request
   """
   count(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -5614,7 +5649,7 @@ type Elastic24_Cat {
   ): JSON
 
   """
-  Perform a [cat.fielddata](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-fielddata.html) request
+  Perform a [cat.fielddata](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-fielddata.html) request
   """
   fielddata(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -5648,7 +5683,7 @@ type Elastic24_Cat {
   ): JSON
 
   """
-  Perform a [cat.health](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-health.html) request
+  Perform a [cat.health](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-health.html) request
   """
   health(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -5677,7 +5712,7 @@ type Elastic24_Cat {
   ): JSON
 
   """
-  Perform a [cat.help](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat.html) request
+  Perform a [cat.help](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat.html) request
   """
   help(
     """Return help information"""
@@ -5688,7 +5723,7 @@ type Elastic24_Cat {
   ): JSON
 
   """
-  Perform a [cat.indices](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-indices.html) request
+  Perform a [cat.indices](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-indices.html) request
   """
   indices(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -5737,7 +5772,7 @@ type Elastic24_Cat {
   ): JSON
 
   """
-  Perform a [cat.master](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-master.html) request
+  Perform a [cat.master](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-master.html) request
   """
   master(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -5765,7 +5800,7 @@ type Elastic24_Cat {
   ): JSON
 
   """
-  Perform a [cat.nodeattrs](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-nodeattrs.html) request
+  Perform a [cat.nodeattrs](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-nodeattrs.html) request
   """
   nodeattrs(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -5793,7 +5828,7 @@ type Elastic24_Cat {
   ): JSON
 
   """
-  Perform a [cat.nodes](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-nodes.html) request
+  Perform a [cat.nodes](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-nodes.html) request
   """
   nodes(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -5826,7 +5861,7 @@ type Elastic24_Cat {
   ): JSON
 
   """
-  Perform a [cat.pendingTasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-pending-tasks.html) request
+  Perform a [cat.pendingTasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-pending-tasks.html) request
   """
   pendingTasks(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -5854,7 +5889,7 @@ type Elastic24_Cat {
   ): JSON
 
   """
-  Perform a [cat.plugins](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-plugins.html) request
+  Perform a [cat.plugins](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-plugins.html) request
   """
   plugins(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -5882,7 +5917,7 @@ type Elastic24_Cat {
   ): JSON
 
   """
-  Perform a [cat.recovery](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-recovery.html) request
+  Perform a [cat.recovery](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-recovery.html) request
   """
   recovery(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -5913,7 +5948,7 @@ type Elastic24_Cat {
   ): JSON
 
   """
-  Perform a [cat.repositories](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-repositories.html) request
+  Perform a [cat.repositories](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-repositories.html) request
   """
   repositories(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -5939,7 +5974,7 @@ type Elastic24_Cat {
   ): JSON
 
   """
-  Perform a [cat.segments](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-segments.html) request
+  Perform a [cat.segments](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-segments.html) request
   """
   segments(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -5967,7 +6002,7 @@ type Elastic24_Cat {
   ): JSON
 
   """
-  Perform a [cat.shards](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-shards.html) request
+  Perform a [cat.shards](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-shards.html) request
   """
   shards(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -6003,7 +6038,7 @@ type Elastic24_Cat {
   ): JSON
 
   """
-  Perform a [cat.snapshots](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-snapshots.html) request
+  Perform a [cat.snapshots](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-snapshots.html) request
   """
   snapshots(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -6032,7 +6067,7 @@ type Elastic24_Cat {
   ): JSON
 
   """
-  Perform a [cat.tasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/tasks.html) request
+  Perform a [cat.tasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/tasks.html) request
   """
   tasks(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -6070,7 +6105,7 @@ type Elastic24_Cat {
   ): JSON
 
   """
-  Perform a [cat.templates](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-templates.html) request
+  Perform a [cat.templates](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-templates.html) request
   """
   templates(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -6101,7 +6136,7 @@ type Elastic24_Cat {
   ): JSON
 
   """
-  Perform a [cat.threadPool](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-thread-pool.html) request
+  Perform a [cat.threadPool](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-thread-pool.html) request
   """
   threadPool(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -6139,7 +6174,7 @@ type Elastic24_Cat {
 
 type Elastic24_Cluster {
   """
-  Perform a [cluster.allocationExplain](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-allocation-explain.html) request
+  Perform a [cluster.allocationExplain](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-allocation-explain.html) request
   """
   allocationExplain(
     body: JSON
@@ -6152,7 +6187,7 @@ type Elastic24_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.getSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-update-settings.html) request
+  Perform a [cluster.getSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-update-settings.html) request
   """
   getSettings(
     """Return settings in flat format (default: false)"""
@@ -6169,7 +6204,7 @@ type Elastic24_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.health](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-health.html) request
+  Perform a [cluster.health](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-health.html) request
   """
   health(
     expandWildcards: Elastic24Enum_ExpandWildcards = all
@@ -6211,7 +6246,7 @@ type Elastic24_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.pendingTasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-pending.html) request
+  Perform a [cluster.pendingTasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-pending.html) request
   """
   pendingTasks(
     """
@@ -6224,7 +6259,7 @@ type Elastic24_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.putSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-update-settings.html) request
+  Perform a [cluster.putSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-update-settings.html) request
   """
   putSettings(
     body: JSON!
@@ -6240,12 +6275,12 @@ type Elastic24_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.remoteInfo](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-remote-info.html) request
+  Perform a [cluster.remoteInfo](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-remote-info.html) request
   """
   remoteInfo: JSON
 
   """
-  Perform a [cluster.reroute](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-reroute.html) request
+  Perform a [cluster.reroute](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-reroute.html) request
   """
   reroute(
     body: JSON
@@ -6274,7 +6309,7 @@ type Elastic24_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.state](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-state.html) request
+  Perform a [cluster.state](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-state.html) request
   """
   state(
     """
@@ -6320,7 +6355,7 @@ type Elastic24_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-stats.html) request
+  Perform a [cluster.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-stats.html) request
   """
   stats(
     """Return settings in flat format (default: false)"""
@@ -6340,7 +6375,7 @@ type Elastic24_Cluster {
 
 type Elastic24_Indices {
   """
-  Perform a [indices.analyze](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-analyze.html) request
+  Perform a [indices.analyze](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-analyze.html) request
   """
   analyze(
     body: JSON
@@ -6350,7 +6385,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.clearCache](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-clearcache.html) request
+  Perform a [indices.clearCache](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-clearcache.html) request
   """
   clearCache(
     body: JSON
@@ -6386,7 +6421,31 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.close](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-open-close.html) request
+  Perform a [indices.clone](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-clone-index.html) request
+  """
+  clone(
+    body: JSON
+
+    """Explicit operation timeout"""
+    timeout: String
+
+    """Specify timeout for connection to master"""
+    masterTimeout: String
+
+    """
+    Set the number of active shards to wait for on the cloned index before the operation returns.
+    """
+    waitForActiveShards: String
+
+    """The name of the source index to clone"""
+    index: String
+
+    """The name of the target index to clone into"""
+    target: String
+  ): JSON
+
+  """
+  Perform a [indices.close](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-open-close.html) request
   """
   close(
     body: JSON
@@ -6419,7 +6478,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.create](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-create-index.html) request
+  Perform a [indices.create](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-create-index.html) request
   """
   create(
     body: JSON
@@ -6443,7 +6502,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-delete-index.html) request
+  Perform a [indices.delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-delete-index.html) request
   """
   delete(
     """Explicit operation timeout"""
@@ -6468,7 +6527,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.deleteAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-aliases.html) request
+  Perform a [indices.deleteAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-aliases.html) request
   """
   deleteAlias(
     """Explicit timestamp for the document"""
@@ -6490,7 +6549,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.deleteTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-templates.html) request
+  Perform a [indices.deleteTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-templates.html) request
   """
   deleteTemplate(
     """Explicit operation timeout"""
@@ -6504,7 +6563,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.exists](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-exists.html) request
+  Perform a [indices.exists](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-exists.html) request
   """
   exists(
     """
@@ -6532,7 +6591,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.existsAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-aliases.html) request
+  Perform a [indices.existsAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-aliases.html) request
   """
   existsAlias(
     """
@@ -6560,7 +6619,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.existsTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-templates.html) request
+  Perform a [indices.existsTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-templates.html) request
   """
   existsTemplate(
     """Return settings in flat format (default: false)"""
@@ -6579,7 +6638,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.existsType](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-types-exists.html) request
+  Perform a [indices.existsType](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-types-exists.html) request
   """
   existsType(
     """
@@ -6609,7 +6668,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.flush](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-flush.html) request
+  Perform a [indices.flush](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-flush.html) request
   """
   flush(
     body: JSON
@@ -6649,7 +6708,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.flushSynced](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-synced-flush.html) request
+  Perform a [indices.flushSynced](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-flush.html#synced-flush-api) request
   """
   flushSynced(
     body: JSON
@@ -6673,7 +6732,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.forcemerge](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-forcemerge.html) request
+  Perform a [indices.forcemerge](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-forcemerge.html) request
   """
   forcemerge(
     body: JSON
@@ -6710,7 +6769,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-get-index.html) request
+  Perform a [indices.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-get-index.html) request
   """
   get(
     """Whether to add the type name to the response (default: false)"""
@@ -6744,7 +6803,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.getAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-aliases.html) request
+  Perform a [indices.getAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-aliases.html) request
   """
   getAlias(
     """
@@ -6772,7 +6831,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.getFieldMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-get-field-mapping.html) request
+  Perform a [indices.getFieldMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-get-field-mapping.html) request
   """
   getFieldMapping(
     """Whether a type should be returned in the body of the mappings."""
@@ -6806,7 +6865,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.getMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-get-mapping.html) request
+  Perform a [indices.getMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-get-mapping.html) request
   """
   getMapping(
     """Whether to add the type name to the response (default: false)"""
@@ -6837,7 +6896,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.getSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-get-settings.html) request
+  Perform a [indices.getSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-get-settings.html) request
   """
   getSettings(
     """Specify timeout for connection to master"""
@@ -6876,7 +6935,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.getTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-templates.html) request
+  Perform a [indices.getTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-templates.html) request
   """
   getTemplate(
     """Whether a type should be returned in the body of the mappings."""
@@ -6898,7 +6957,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.getUpgrade](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-upgrade.html) request
+  Perform a [indices.getUpgrade](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-upgrade.html) request
   """
   getUpgrade(
     """
@@ -6920,7 +6979,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.open](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-open-close.html) request
+  Perform a [indices.open](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-open-close.html) request
   """
   open(
     body: JSON
@@ -6953,7 +7012,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.putAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-aliases.html) request
+  Perform a [indices.putAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-aliases.html) request
   """
   putAlias(
     body: JSON
@@ -6975,7 +7034,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.putMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-put-mapping.html) request
+  Perform a [indices.putMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-put-mapping.html) request
   """
   putMapping(
     body: JSON!
@@ -7009,7 +7068,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.putSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-update-settings.html) request
+  Perform a [indices.putSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-update-settings.html) request
   """
   putSettings(
     body: JSON!
@@ -7048,7 +7107,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.putTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-templates.html) request
+  Perform a [indices.putTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-templates.html) request
   """
   putTemplate(
     body: JSON!
@@ -7081,7 +7140,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.recovery](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-recovery.html) request
+  Perform a [indices.recovery](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-recovery.html) request
   """
   recovery(
     """Whether to display detailed information about shard recovery"""
@@ -7097,7 +7156,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.refresh](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-refresh.html) request
+  Perform a [indices.refresh](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-refresh.html) request
   """
   refresh(
     body: JSON
@@ -7121,7 +7180,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.rollover](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-rollover-index.html) request
+  Perform a [indices.rollover](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-rollover-index.html) request
   """
   rollover(
     body: JSON
@@ -7154,7 +7213,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.segments](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-segments.html) request
+  Perform a [indices.segments](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-segments.html) request
   """
   segments(
     """
@@ -7179,7 +7238,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.shardStores](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-shards-stores.html) request
+  Perform a [indices.shardStores](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-shards-stores.html) request
   """
   shardStores(
     """
@@ -7206,7 +7265,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.shrink](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-shrink-index.html) request
+  Perform a [indices.shrink](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-shrink-index.html) request
   """
   shrink(
     body: JSON
@@ -7235,7 +7294,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.split](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-split-index.html) request
+  Perform a [indices.split](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-split-index.html) request
   """
   split(
     body: JSON
@@ -7264,7 +7323,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-stats.html) request
+  Perform a [indices.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-stats.html) request
   """
   stats(
     """
@@ -7314,7 +7373,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.updateAliases](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-aliases.html) request
+  Perform a [indices.updateAliases](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-aliases.html) request
   """
   updateAliases(
     body: JSON!
@@ -7327,7 +7386,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.upgrade](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-upgrade.html) request
+  Perform a [indices.upgrade](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-upgrade.html) request
   """
   upgrade(
     body: JSON
@@ -7361,7 +7420,7 @@ type Elastic24_Indices {
   ): JSON
 
   """
-  Perform a [indices.validateQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-validate.html) request
+  Perform a [indices.validateQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-validate.html) request
   """
   validateQuery(
     body: JSON
@@ -7421,7 +7480,7 @@ type Elastic24_Indices {
 
 type Elastic24_Ingest {
   """
-  Perform a [ingest.deletePipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/delete-pipeline-api.html) request
+  Perform a [ingest.deletePipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/delete-pipeline-api.html) request
   """
   deletePipeline(
     """Explicit operation timeout for connection to master node"""
@@ -7435,7 +7494,7 @@ type Elastic24_Ingest {
   ): JSON
 
   """
-  Perform a [ingest.getPipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/get-pipeline-api.html) request
+  Perform a [ingest.getPipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/get-pipeline-api.html) request
   """
   getPipeline(
     """Explicit operation timeout for connection to master node"""
@@ -7446,12 +7505,12 @@ type Elastic24_Ingest {
   ): JSON
 
   """
-  Perform a [ingest.processorGrok](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/grok-processor.html#grok-processor-rest-get) request
+  Perform a [ingest.processorGrok](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/grok-processor.html#grok-processor-rest-get) request
   """
   processorGrok: JSON
 
   """
-  Perform a [ingest.putPipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/put-pipeline-api.html) request
+  Perform a [ingest.putPipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/put-pipeline-api.html) request
   """
   putPipeline(
     body: JSON!
@@ -7467,7 +7526,7 @@ type Elastic24_Ingest {
   ): JSON
 
   """
-  Perform a [ingest.simulate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/simulate-pipeline-api.html) request
+  Perform a [ingest.simulate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/simulate-pipeline-api.html) request
   """
   simulate(
     body: JSON!
@@ -7484,7 +7543,7 @@ type Elastic24_Ingest {
 
 type Elastic24_Nodes {
   """
-  Perform a [nodes.hotThreads](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-nodes-hot-threads.html) request
+  Perform a [nodes.hotThreads](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-nodes-hot-threads.html) request
   """
   hotThreads(
     """The interval for the second sampling of threads"""
@@ -7510,7 +7569,7 @@ type Elastic24_Nodes {
   ): JSON
 
   """
-  Perform a [nodes.info](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-nodes-info.html) request
+  Perform a [nodes.info](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-nodes-info.html) request
   """
   info(
     """Return settings in flat format (default: false)"""
@@ -7533,7 +7592,7 @@ type Elastic24_Nodes {
   ): JSON
 
   """
-  Perform a [nodes.reloadSecureSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/secure-settings.html#reloadable-secure-settings) request
+  Perform a [nodes.reloadSecureSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/secure-settings.html#reloadable-secure-settings) request
   """
   reloadSecureSettings(
     body: JSON
@@ -7549,7 +7608,7 @@ type Elastic24_Nodes {
   ): JSON
 
   """
-  Perform a [nodes.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-nodes-stats.html) request
+  Perform a [nodes.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-nodes-stats.html) request
   """
   stats(
     """
@@ -7603,7 +7662,7 @@ type Elastic24_Nodes {
   ): JSON
 
   """
-  Perform a [nodes.usage](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-nodes-usage.html) request
+  Perform a [nodes.usage](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-nodes-usage.html) request
   """
   usage(
     """Explicit operation timeout"""
@@ -7623,7 +7682,7 @@ type Elastic24_Nodes {
 
 type Elastic24_Snapshot {
   """
-  Perform a [snapshot.create](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.create](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   create(
     body: JSON
@@ -7644,7 +7703,7 @@ type Elastic24_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.createRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.createRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   createRepository(
     body: JSON!
@@ -7663,7 +7722,7 @@ type Elastic24_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   delete(
     """Explicit operation timeout for connection to master node"""
@@ -7677,7 +7736,7 @@ type Elastic24_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.deleteRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.deleteRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   deleteRepository(
     """Explicit operation timeout for connection to master node"""
@@ -7691,7 +7750,7 @@ type Elastic24_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   get(
     """Explicit operation timeout for connection to master node"""
@@ -7715,7 +7774,7 @@ type Elastic24_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.getRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.getRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   getRepository(
     """Explicit operation timeout for connection to master node"""
@@ -7731,7 +7790,7 @@ type Elastic24_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.restore](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.restore](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   restore(
     body: JSON
@@ -7752,7 +7811,7 @@ type Elastic24_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.status](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.status](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   status(
     """Explicit operation timeout for connection to master node"""
@@ -7771,7 +7830,7 @@ type Elastic24_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.verifyRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.verifyRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   verifyRepository(
     body: JSON
@@ -7789,7 +7848,7 @@ type Elastic24_Snapshot {
 
 type Elastic24_Tasks {
   """
-  Perform a [tasks.cancel](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/tasks.html) request
+  Perform a [tasks.cancel](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/tasks.html) request
   """
   cancel(
     body: JSON
@@ -7816,7 +7875,7 @@ type Elastic24_Tasks {
   ): JSON
 
   """
-  Perform a [tasks.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/tasks.html) request
+  Perform a [tasks.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/tasks.html) request
   """
   get(
     """Wait for the matching tasks to complete (default: false)"""
@@ -7830,7 +7889,7 @@ type Elastic24_Tasks {
   ): JSON
 
   """
-  Perform a [tasks.list](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/tasks.html) request
+  Perform a [tasks.list](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/tasks.html) request
   """
   list(
     """
@@ -8001,7 +8060,7 @@ type Elastic50 {
   tasks: Elastic50_Tasks
 
   """
-  Perform a [search](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-search.html) request
+  Perform a [search](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-search.html) request
   """
   search(
     body: JSON
@@ -8160,7 +8219,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [bulk](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-bulk.html) request
+  Perform a [bulk](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-bulk.html) request
   """
   bulk(
     body: JSON!
@@ -8213,12 +8272,12 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [clearScroll](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-request-scroll.html) request
+  Perform a [clearScroll](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-request-body.html#_clear_scroll_api) request
   """
   clearScroll: JSON
 
   """
-  Perform a [count](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-count.html) request
+  Perform a [count](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-count.html) request
   """
   count(
     body: JSON
@@ -8283,7 +8342,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [create](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-index_.html) request
+  Perform a [create](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-index_.html) request
   """
   create(
     body: JSON!
@@ -8326,7 +8385,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-delete.html) request
+  Perform a [delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-delete.html) request
   """
   delete(
     """
@@ -8374,7 +8433,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [deleteByQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-delete-by-query.html) request
+  Perform a [deleteByQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-delete-by-query.html) request
   """
   deleteByQuery(
     body: JSON!
@@ -8436,8 +8495,11 @@ type Elastic50 {
     """Explicit timeout for each search request. Defaults to no timeout."""
     searchTimeout: String
 
-    """Number of hits to return (default: 10)"""
+    """Deprecated, please use `max_docs` instead"""
     size: Float
+
+    """Maximum number of documents to process (default: all documents)"""
+    maxDocs: Float
 
     """A comma-separated list of <field>:<direction> pairs"""
     sort: JSON
@@ -8499,7 +8561,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [deleteByQueryRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-delete-by-query.html) request
+  Perform a [deleteByQueryRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-delete-by-query.html) request
   """
   deleteByQueryRethrottle(
     body: JSON
@@ -8514,7 +8576,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [deleteScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-scripting.html) request
+  Perform a [deleteScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-scripting.html) request
   """
   deleteScript(
     """Explicit operation timeout"""
@@ -8528,7 +8590,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [exists](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-get.html) request
+  Perform a [exists](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-get.html) request
   """
   exists(
     """A comma-separated list of stored fields to return in the response"""
@@ -8575,7 +8637,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [existsSource](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-get.html) request
+  Perform a [existsSource](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-get.html) request
   """
   existsSource(
     """
@@ -8619,7 +8681,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [explain](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-explain.html) request
+  Perform a [explain](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-explain.html) request
   """
   explain(
     body: JSON
@@ -8674,7 +8736,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [fieldCaps](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-field-caps.html) request
+  Perform a [fieldCaps](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-field-caps.html) request
   """
   fieldCaps(
     body: JSON
@@ -8704,7 +8766,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [get](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-get.html) request
+  Perform a [get](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-get.html) request
   """
   get(
     """A comma-separated list of stored fields to return in the response"""
@@ -8751,7 +8813,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [getScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-scripting.html) request
+  Perform a [getScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-scripting.html) request
   """
   getScript(
     """Specify timeout for connection to master"""
@@ -8762,7 +8824,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [getSource](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-get.html) request
+  Perform a [getSource](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-get.html) request
   """
   getSource(
     """
@@ -8806,7 +8868,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [index](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-index_.html) request
+  Perform a [index](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-index_.html) request
   """
   index(
     body: JSON!
@@ -8859,11 +8921,13 @@ type Elastic50 {
     id: String
   ): JSON
 
-  """Perform a [info](http://www.elastic.co/guide/) request"""
+  """
+  Perform a [info](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/index.html) request
+  """
   info: JSON
 
   """
-  Perform a [mget](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-multi-get.html) request
+  Perform a [mget](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-multi-get.html) request
   """
   mget(
     body: JSON!
@@ -8903,7 +8967,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [msearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-multi-search.html) request
+  Perform a [msearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-multi-search.html) request
   """
   msearch(
     body: JSON!
@@ -8934,7 +8998,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [msearchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-multi-search.html) request
+  Perform a [msearchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-multi-search.html) request
   """
   msearchTemplate(
     body: JSON!
@@ -8963,7 +9027,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [mtermvectors](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-multi-termvectors.html) request
+  Perform a [mtermvectors](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-multi-termvectors.html) request
   """
   mtermvectors(
     body: JSON
@@ -9017,11 +9081,13 @@ type Elastic50 {
     index: String
   ): JSON
 
-  """Perform a [ping](http://www.elastic.co/guide/) request"""
+  """
+  Perform a [ping](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/index.html) request
+  """
   ping: JSON
 
   """
-  Perform a [putScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-scripting.html) request
+  Perform a [putScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-scripting.html) request
   """
   putScript(
     body: JSON!
@@ -9040,7 +9106,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [rankEval](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-rank-eval.html) request
+  Perform a [rankEval](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-rank-eval.html) request
   """
   rankEval(
     body: JSON!
@@ -9064,7 +9130,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [reindex](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-reindex.html) request
+  Perform a [reindex](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-reindex.html) request
   """
   reindex(
     body: JSON!
@@ -9088,10 +9154,13 @@ type Elastic50 {
     requestsPerSecond: Float
     scroll: String = "5m"
     slices: Float = 1
+
+    """Maximum number of documents to process (default: all documents)"""
+    maxDocs: Float
   ): JSON
 
   """
-  Perform a [reindexRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-reindex.html) request
+  Perform a [reindexRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-reindex.html) request
   """
   reindexRethrottle(
     body: JSON
@@ -9106,7 +9175,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [renderSearchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-template.html) request
+  Perform a [renderSearchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-template.html#_validating_templates) request
   """
   renderSearchTemplate(
     body: JSON
@@ -9115,19 +9184,13 @@ type Elastic50 {
     id: String
   ): JSON
 
-  """Perform a [scriptsPainlessContext]() request"""
-  scriptsPainlessContext(
-    """Select a specific context to retrieve API information about"""
-    context: String
-  ): JSON
-
   """
-  Perform a [scriptsPainlessExecute](https://www.elastic.co/guide/en/elasticsearch/painless/7.2/painless-execute-api.html) request
+  Perform a [scriptsPainlessExecute](https://www.elastic.co/guide/en/elasticsearch/painless/7.5/painless-execute-api.html) request
   """
   scriptsPainlessExecute(body: JSON): JSON
 
   """
-  Perform a [scroll](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-request-scroll.html) request
+  Perform a [scroll](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-request-body.html#request-body-search-scroll) request
   """
   scroll(
     body: JSON
@@ -9147,7 +9210,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [searchShards](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-shards.html) request
+  Perform a [searchShards](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-shards.html) request
   """
   searchShards(
     body: JSON
@@ -9184,7 +9247,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [searchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-template.html) request
+  Perform a [searchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-template.html) request
   """
   searchTemplate(
     body: JSON!
@@ -9248,7 +9311,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [termvectors](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-termvectors.html) request
+  Perform a [termvectors](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-termvectors.html) request
   """
   termvectors(
     body: JSON
@@ -9294,7 +9357,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [update](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-update.html) request
+  Perform a [update](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-update.html) request
   """
   update(
     body: JSON!
@@ -9357,7 +9420,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [updateByQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-update-by-query.html) request
+  Perform a [updateByQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-update-by-query.html) request
   """
   updateByQuery(
     body: JSON
@@ -9424,8 +9487,11 @@ type Elastic50 {
     """Explicit timeout for each search request. Defaults to no timeout."""
     searchTimeout: String
 
-    """Number of hits to return (default: 10)"""
+    """Deprecated, please use `max_docs` instead"""
     size: Float
+
+    """Maximum number of documents to process (default: all documents)"""
+    maxDocs: Float
 
     """A comma-separated list of <field>:<direction> pairs"""
     sort: JSON
@@ -9492,7 +9558,7 @@ type Elastic50 {
   ): JSON
 
   """
-  Perform a [updateByQueryRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-update-by-query.html) request
+  Perform a [updateByQueryRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-update-by-query.html) request
   """
   updateByQueryRethrottle(
     body: JSON
@@ -9509,7 +9575,7 @@ type Elastic50 {
 
 type Elastic50_Cat {
   """
-  Perform a [cat.aliases](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat.html) request
+  Perform a [cat.aliases](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat.html) request
   """
   aliases(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -9540,7 +9606,7 @@ type Elastic50_Cat {
   ): JSON
 
   """
-  Perform a [cat.allocation](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-allocation.html) request
+  Perform a [cat.allocation](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-allocation.html) request
   """
   allocation(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -9576,7 +9642,7 @@ type Elastic50_Cat {
   ): JSON
 
   """
-  Perform a [cat.count](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-count.html) request
+  Perform a [cat.count](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-count.html) request
   """
   count(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -9609,7 +9675,7 @@ type Elastic50_Cat {
   ): JSON
 
   """
-  Perform a [cat.fielddata](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-fielddata.html) request
+  Perform a [cat.fielddata](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-fielddata.html) request
   """
   fielddata(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -9643,7 +9709,7 @@ type Elastic50_Cat {
   ): JSON
 
   """
-  Perform a [cat.health](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-health.html) request
+  Perform a [cat.health](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-health.html) request
   """
   health(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -9672,7 +9738,7 @@ type Elastic50_Cat {
   ): JSON
 
   """
-  Perform a [cat.help](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat.html) request
+  Perform a [cat.help](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat.html) request
   """
   help(
     """Return help information"""
@@ -9683,7 +9749,7 @@ type Elastic50_Cat {
   ): JSON
 
   """
-  Perform a [cat.indices](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-indices.html) request
+  Perform a [cat.indices](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-indices.html) request
   """
   indices(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -9732,7 +9798,7 @@ type Elastic50_Cat {
   ): JSON
 
   """
-  Perform a [cat.master](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-master.html) request
+  Perform a [cat.master](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-master.html) request
   """
   master(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -9760,7 +9826,7 @@ type Elastic50_Cat {
   ): JSON
 
   """
-  Perform a [cat.nodeattrs](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-nodeattrs.html) request
+  Perform a [cat.nodeattrs](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-nodeattrs.html) request
   """
   nodeattrs(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -9788,7 +9854,7 @@ type Elastic50_Cat {
   ): JSON
 
   """
-  Perform a [cat.nodes](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-nodes.html) request
+  Perform a [cat.nodes](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-nodes.html) request
   """
   nodes(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -9821,7 +9887,7 @@ type Elastic50_Cat {
   ): JSON
 
   """
-  Perform a [cat.pendingTasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-pending-tasks.html) request
+  Perform a [cat.pendingTasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-pending-tasks.html) request
   """
   pendingTasks(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -9849,7 +9915,7 @@ type Elastic50_Cat {
   ): JSON
 
   """
-  Perform a [cat.plugins](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-plugins.html) request
+  Perform a [cat.plugins](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-plugins.html) request
   """
   plugins(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -9877,7 +9943,7 @@ type Elastic50_Cat {
   ): JSON
 
   """
-  Perform a [cat.recovery](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-recovery.html) request
+  Perform a [cat.recovery](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-recovery.html) request
   """
   recovery(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -9908,7 +9974,7 @@ type Elastic50_Cat {
   ): JSON
 
   """
-  Perform a [cat.repositories](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-repositories.html) request
+  Perform a [cat.repositories](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-repositories.html) request
   """
   repositories(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -9934,7 +10000,7 @@ type Elastic50_Cat {
   ): JSON
 
   """
-  Perform a [cat.segments](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-segments.html) request
+  Perform a [cat.segments](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-segments.html) request
   """
   segments(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -9962,7 +10028,7 @@ type Elastic50_Cat {
   ): JSON
 
   """
-  Perform a [cat.shards](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-shards.html) request
+  Perform a [cat.shards](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-shards.html) request
   """
   shards(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -9998,7 +10064,7 @@ type Elastic50_Cat {
   ): JSON
 
   """
-  Perform a [cat.snapshots](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-snapshots.html) request
+  Perform a [cat.snapshots](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-snapshots.html) request
   """
   snapshots(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -10027,7 +10093,7 @@ type Elastic50_Cat {
   ): JSON
 
   """
-  Perform a [cat.tasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/tasks.html) request
+  Perform a [cat.tasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/tasks.html) request
   """
   tasks(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -10065,7 +10131,7 @@ type Elastic50_Cat {
   ): JSON
 
   """
-  Perform a [cat.templates](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-templates.html) request
+  Perform a [cat.templates](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-templates.html) request
   """
   templates(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -10096,7 +10162,7 @@ type Elastic50_Cat {
   ): JSON
 
   """
-  Perform a [cat.threadPool](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-thread-pool.html) request
+  Perform a [cat.threadPool](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-thread-pool.html) request
   """
   threadPool(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -10134,7 +10200,7 @@ type Elastic50_Cat {
 
 type Elastic50_Cluster {
   """
-  Perform a [cluster.allocationExplain](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-allocation-explain.html) request
+  Perform a [cluster.allocationExplain](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-allocation-explain.html) request
   """
   allocationExplain(
     body: JSON
@@ -10147,7 +10213,7 @@ type Elastic50_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.getSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-update-settings.html) request
+  Perform a [cluster.getSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-update-settings.html) request
   """
   getSettings(
     """Return settings in flat format (default: false)"""
@@ -10164,7 +10230,7 @@ type Elastic50_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.health](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-health.html) request
+  Perform a [cluster.health](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-health.html) request
   """
   health(
     expandWildcards: Elastic50Enum_ExpandWildcards = all
@@ -10206,7 +10272,7 @@ type Elastic50_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.pendingTasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-pending.html) request
+  Perform a [cluster.pendingTasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-pending.html) request
   """
   pendingTasks(
     """
@@ -10219,7 +10285,7 @@ type Elastic50_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.putSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-update-settings.html) request
+  Perform a [cluster.putSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-update-settings.html) request
   """
   putSettings(
     body: JSON!
@@ -10235,12 +10301,12 @@ type Elastic50_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.remoteInfo](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-remote-info.html) request
+  Perform a [cluster.remoteInfo](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-remote-info.html) request
   """
   remoteInfo: JSON
 
   """
-  Perform a [cluster.reroute](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-reroute.html) request
+  Perform a [cluster.reroute](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-reroute.html) request
   """
   reroute(
     body: JSON
@@ -10269,7 +10335,7 @@ type Elastic50_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.state](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-state.html) request
+  Perform a [cluster.state](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-state.html) request
   """
   state(
     """
@@ -10315,7 +10381,7 @@ type Elastic50_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-stats.html) request
+  Perform a [cluster.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-stats.html) request
   """
   stats(
     """Return settings in flat format (default: false)"""
@@ -10335,7 +10401,7 @@ type Elastic50_Cluster {
 
 type Elastic50_Indices {
   """
-  Perform a [indices.analyze](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-analyze.html) request
+  Perform a [indices.analyze](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-analyze.html) request
   """
   analyze(
     body: JSON
@@ -10345,7 +10411,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.clearCache](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-clearcache.html) request
+  Perform a [indices.clearCache](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-clearcache.html) request
   """
   clearCache(
     body: JSON
@@ -10381,7 +10447,31 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.close](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-open-close.html) request
+  Perform a [indices.clone](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-clone-index.html) request
+  """
+  clone(
+    body: JSON
+
+    """Explicit operation timeout"""
+    timeout: String
+
+    """Specify timeout for connection to master"""
+    masterTimeout: String
+
+    """
+    Set the number of active shards to wait for on the cloned index before the operation returns.
+    """
+    waitForActiveShards: String
+
+    """The name of the source index to clone"""
+    index: String
+
+    """The name of the target index to clone into"""
+    target: String
+  ): JSON
+
+  """
+  Perform a [indices.close](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-open-close.html) request
   """
   close(
     body: JSON
@@ -10414,7 +10504,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.create](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-create-index.html) request
+  Perform a [indices.create](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-create-index.html) request
   """
   create(
     body: JSON
@@ -10438,7 +10528,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-delete-index.html) request
+  Perform a [indices.delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-delete-index.html) request
   """
   delete(
     """Explicit operation timeout"""
@@ -10463,7 +10553,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.deleteAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-aliases.html) request
+  Perform a [indices.deleteAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-aliases.html) request
   """
   deleteAlias(
     """Explicit timestamp for the document"""
@@ -10485,7 +10575,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.deleteTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-templates.html) request
+  Perform a [indices.deleteTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-templates.html) request
   """
   deleteTemplate(
     """Explicit operation timeout"""
@@ -10499,7 +10589,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.exists](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-exists.html) request
+  Perform a [indices.exists](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-exists.html) request
   """
   exists(
     """
@@ -10527,7 +10617,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.existsAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-aliases.html) request
+  Perform a [indices.existsAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-aliases.html) request
   """
   existsAlias(
     """
@@ -10555,7 +10645,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.existsTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-templates.html) request
+  Perform a [indices.existsTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-templates.html) request
   """
   existsTemplate(
     """Return settings in flat format (default: false)"""
@@ -10574,7 +10664,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.existsType](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-types-exists.html) request
+  Perform a [indices.existsType](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-types-exists.html) request
   """
   existsType(
     """
@@ -10604,7 +10694,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.flush](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-flush.html) request
+  Perform a [indices.flush](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-flush.html) request
   """
   flush(
     body: JSON
@@ -10644,7 +10734,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.flushSynced](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-synced-flush.html) request
+  Perform a [indices.flushSynced](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-flush.html#synced-flush-api) request
   """
   flushSynced(
     body: JSON
@@ -10668,7 +10758,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.forcemerge](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-forcemerge.html) request
+  Perform a [indices.forcemerge](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-forcemerge.html) request
   """
   forcemerge(
     body: JSON
@@ -10705,7 +10795,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-get-index.html) request
+  Perform a [indices.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-get-index.html) request
   """
   get(
     """Whether to add the type name to the response (default: false)"""
@@ -10739,7 +10829,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.getAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-aliases.html) request
+  Perform a [indices.getAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-aliases.html) request
   """
   getAlias(
     """
@@ -10767,7 +10857,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.getFieldMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-get-field-mapping.html) request
+  Perform a [indices.getFieldMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-get-field-mapping.html) request
   """
   getFieldMapping(
     """Whether a type should be returned in the body of the mappings."""
@@ -10801,7 +10891,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.getMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-get-mapping.html) request
+  Perform a [indices.getMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-get-mapping.html) request
   """
   getMapping(
     """Whether to add the type name to the response (default: false)"""
@@ -10832,7 +10922,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.getSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-get-settings.html) request
+  Perform a [indices.getSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-get-settings.html) request
   """
   getSettings(
     """Specify timeout for connection to master"""
@@ -10871,7 +10961,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.getTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-templates.html) request
+  Perform a [indices.getTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-templates.html) request
   """
   getTemplate(
     """Whether a type should be returned in the body of the mappings."""
@@ -10893,7 +10983,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.getUpgrade](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-upgrade.html) request
+  Perform a [indices.getUpgrade](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-upgrade.html) request
   """
   getUpgrade(
     """
@@ -10915,7 +11005,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.open](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-open-close.html) request
+  Perform a [indices.open](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-open-close.html) request
   """
   open(
     body: JSON
@@ -10948,7 +11038,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.putAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-aliases.html) request
+  Perform a [indices.putAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-aliases.html) request
   """
   putAlias(
     body: JSON
@@ -10970,7 +11060,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.putMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-put-mapping.html) request
+  Perform a [indices.putMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-put-mapping.html) request
   """
   putMapping(
     body: JSON!
@@ -11004,7 +11094,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.putSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-update-settings.html) request
+  Perform a [indices.putSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-update-settings.html) request
   """
   putSettings(
     body: JSON!
@@ -11043,7 +11133,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.putTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-templates.html) request
+  Perform a [indices.putTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-templates.html) request
   """
   putTemplate(
     body: JSON!
@@ -11076,7 +11166,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.recovery](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-recovery.html) request
+  Perform a [indices.recovery](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-recovery.html) request
   """
   recovery(
     """Whether to display detailed information about shard recovery"""
@@ -11092,7 +11182,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.refresh](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-refresh.html) request
+  Perform a [indices.refresh](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-refresh.html) request
   """
   refresh(
     body: JSON
@@ -11116,7 +11206,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.rollover](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-rollover-index.html) request
+  Perform a [indices.rollover](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-rollover-index.html) request
   """
   rollover(
     body: JSON
@@ -11149,7 +11239,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.segments](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-segments.html) request
+  Perform a [indices.segments](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-segments.html) request
   """
   segments(
     """
@@ -11174,7 +11264,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.shardStores](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-shards-stores.html) request
+  Perform a [indices.shardStores](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-shards-stores.html) request
   """
   shardStores(
     """
@@ -11201,7 +11291,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.shrink](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-shrink-index.html) request
+  Perform a [indices.shrink](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-shrink-index.html) request
   """
   shrink(
     body: JSON
@@ -11230,7 +11320,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.split](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-split-index.html) request
+  Perform a [indices.split](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-split-index.html) request
   """
   split(
     body: JSON
@@ -11259,7 +11349,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-stats.html) request
+  Perform a [indices.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-stats.html) request
   """
   stats(
     """
@@ -11309,7 +11399,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.updateAliases](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-aliases.html) request
+  Perform a [indices.updateAliases](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-aliases.html) request
   """
   updateAliases(
     body: JSON!
@@ -11322,7 +11412,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.upgrade](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-upgrade.html) request
+  Perform a [indices.upgrade](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-upgrade.html) request
   """
   upgrade(
     body: JSON
@@ -11356,7 +11446,7 @@ type Elastic50_Indices {
   ): JSON
 
   """
-  Perform a [indices.validateQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-validate.html) request
+  Perform a [indices.validateQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-validate.html) request
   """
   validateQuery(
     body: JSON
@@ -11416,7 +11506,7 @@ type Elastic50_Indices {
 
 type Elastic50_Ingest {
   """
-  Perform a [ingest.deletePipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/delete-pipeline-api.html) request
+  Perform a [ingest.deletePipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/delete-pipeline-api.html) request
   """
   deletePipeline(
     """Explicit operation timeout for connection to master node"""
@@ -11430,7 +11520,7 @@ type Elastic50_Ingest {
   ): JSON
 
   """
-  Perform a [ingest.getPipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/get-pipeline-api.html) request
+  Perform a [ingest.getPipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/get-pipeline-api.html) request
   """
   getPipeline(
     """Explicit operation timeout for connection to master node"""
@@ -11441,12 +11531,12 @@ type Elastic50_Ingest {
   ): JSON
 
   """
-  Perform a [ingest.processorGrok](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/grok-processor.html#grok-processor-rest-get) request
+  Perform a [ingest.processorGrok](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/grok-processor.html#grok-processor-rest-get) request
   """
   processorGrok: JSON
 
   """
-  Perform a [ingest.putPipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/put-pipeline-api.html) request
+  Perform a [ingest.putPipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/put-pipeline-api.html) request
   """
   putPipeline(
     body: JSON!
@@ -11462,7 +11552,7 @@ type Elastic50_Ingest {
   ): JSON
 
   """
-  Perform a [ingest.simulate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/simulate-pipeline-api.html) request
+  Perform a [ingest.simulate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/simulate-pipeline-api.html) request
   """
   simulate(
     body: JSON!
@@ -11479,7 +11569,7 @@ type Elastic50_Ingest {
 
 type Elastic50_Nodes {
   """
-  Perform a [nodes.hotThreads](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-nodes-hot-threads.html) request
+  Perform a [nodes.hotThreads](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-nodes-hot-threads.html) request
   """
   hotThreads(
     """The interval for the second sampling of threads"""
@@ -11505,7 +11595,7 @@ type Elastic50_Nodes {
   ): JSON
 
   """
-  Perform a [nodes.info](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-nodes-info.html) request
+  Perform a [nodes.info](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-nodes-info.html) request
   """
   info(
     """Return settings in flat format (default: false)"""
@@ -11528,7 +11618,7 @@ type Elastic50_Nodes {
   ): JSON
 
   """
-  Perform a [nodes.reloadSecureSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/secure-settings.html#reloadable-secure-settings) request
+  Perform a [nodes.reloadSecureSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/secure-settings.html#reloadable-secure-settings) request
   """
   reloadSecureSettings(
     body: JSON
@@ -11544,7 +11634,7 @@ type Elastic50_Nodes {
   ): JSON
 
   """
-  Perform a [nodes.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-nodes-stats.html) request
+  Perform a [nodes.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-nodes-stats.html) request
   """
   stats(
     """
@@ -11598,7 +11688,7 @@ type Elastic50_Nodes {
   ): JSON
 
   """
-  Perform a [nodes.usage](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-nodes-usage.html) request
+  Perform a [nodes.usage](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-nodes-usage.html) request
   """
   usage(
     """Explicit operation timeout"""
@@ -11618,7 +11708,7 @@ type Elastic50_Nodes {
 
 type Elastic50_Snapshot {
   """
-  Perform a [snapshot.create](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.create](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   create(
     body: JSON
@@ -11639,7 +11729,7 @@ type Elastic50_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.createRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.createRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   createRepository(
     body: JSON!
@@ -11658,7 +11748,7 @@ type Elastic50_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   delete(
     """Explicit operation timeout for connection to master node"""
@@ -11672,7 +11762,7 @@ type Elastic50_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.deleteRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.deleteRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   deleteRepository(
     """Explicit operation timeout for connection to master node"""
@@ -11686,7 +11776,7 @@ type Elastic50_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   get(
     """Explicit operation timeout for connection to master node"""
@@ -11710,7 +11800,7 @@ type Elastic50_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.getRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.getRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   getRepository(
     """Explicit operation timeout for connection to master node"""
@@ -11726,7 +11816,7 @@ type Elastic50_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.restore](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.restore](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   restore(
     body: JSON
@@ -11747,7 +11837,7 @@ type Elastic50_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.status](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.status](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   status(
     """Explicit operation timeout for connection to master node"""
@@ -11766,7 +11856,7 @@ type Elastic50_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.verifyRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.verifyRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   verifyRepository(
     body: JSON
@@ -11784,7 +11874,7 @@ type Elastic50_Snapshot {
 
 type Elastic50_Tasks {
   """
-  Perform a [tasks.cancel](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/tasks.html) request
+  Perform a [tasks.cancel](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/tasks.html) request
   """
   cancel(
     body: JSON
@@ -11811,7 +11901,7 @@ type Elastic50_Tasks {
   ): JSON
 
   """
-  Perform a [tasks.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/tasks.html) request
+  Perform a [tasks.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/tasks.html) request
   """
   get(
     """Wait for the matching tasks to complete (default: false)"""
@@ -11825,7 +11915,7 @@ type Elastic50_Tasks {
   ): JSON
 
   """
-  Perform a [tasks.list](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/tasks.html) request
+  Perform a [tasks.list](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/tasks.html) request
   """
   list(
     """
@@ -11996,7 +12086,7 @@ type Elastic60 {
   tasks: Elastic60_Tasks
 
   """
-  Perform a [search](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-search.html) request
+  Perform a [search](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-search.html) request
   """
   search(
     body: JSON
@@ -12155,7 +12245,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [bulk](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-bulk.html) request
+  Perform a [bulk](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-bulk.html) request
   """
   bulk(
     body: JSON!
@@ -12208,12 +12298,12 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [clearScroll](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-request-scroll.html) request
+  Perform a [clearScroll](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-request-body.html#_clear_scroll_api) request
   """
   clearScroll: JSON
 
   """
-  Perform a [count](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-count.html) request
+  Perform a [count](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-count.html) request
   """
   count(
     body: JSON
@@ -12278,7 +12368,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [create](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-index_.html) request
+  Perform a [create](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-index_.html) request
   """
   create(
     body: JSON!
@@ -12321,7 +12411,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-delete.html) request
+  Perform a [delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-delete.html) request
   """
   delete(
     """
@@ -12369,7 +12459,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [deleteByQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-delete-by-query.html) request
+  Perform a [deleteByQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-delete-by-query.html) request
   """
   deleteByQuery(
     body: JSON!
@@ -12431,8 +12521,11 @@ type Elastic60 {
     """Explicit timeout for each search request. Defaults to no timeout."""
     searchTimeout: String
 
-    """Number of hits to return (default: 10)"""
+    """Deprecated, please use `max_docs` instead"""
     size: Float
+
+    """Maximum number of documents to process (default: all documents)"""
+    maxDocs: Float
 
     """A comma-separated list of <field>:<direction> pairs"""
     sort: JSON
@@ -12494,7 +12587,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [deleteByQueryRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-delete-by-query.html) request
+  Perform a [deleteByQueryRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-delete-by-query.html) request
   """
   deleteByQueryRethrottle(
     body: JSON
@@ -12509,7 +12602,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [deleteScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-scripting.html) request
+  Perform a [deleteScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-scripting.html) request
   """
   deleteScript(
     """Explicit operation timeout"""
@@ -12523,7 +12616,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [exists](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-get.html) request
+  Perform a [exists](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-get.html) request
   """
   exists(
     """A comma-separated list of stored fields to return in the response"""
@@ -12570,7 +12663,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [existsSource](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-get.html) request
+  Perform a [existsSource](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-get.html) request
   """
   existsSource(
     """
@@ -12614,7 +12707,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [explain](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-explain.html) request
+  Perform a [explain](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-explain.html) request
   """
   explain(
     body: JSON
@@ -12669,7 +12762,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [fieldCaps](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-field-caps.html) request
+  Perform a [fieldCaps](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-field-caps.html) request
   """
   fieldCaps(
     body: JSON
@@ -12699,7 +12792,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [get](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-get.html) request
+  Perform a [get](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-get.html) request
   """
   get(
     """A comma-separated list of stored fields to return in the response"""
@@ -12746,7 +12839,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [getScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-scripting.html) request
+  Perform a [getScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-scripting.html) request
   """
   getScript(
     """Specify timeout for connection to master"""
@@ -12757,7 +12850,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [getSource](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-get.html) request
+  Perform a [getSource](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-get.html) request
   """
   getSource(
     """
@@ -12801,7 +12894,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [index](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-index_.html) request
+  Perform a [index](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-index_.html) request
   """
   index(
     body: JSON!
@@ -12854,11 +12947,13 @@ type Elastic60 {
     id: String
   ): JSON
 
-  """Perform a [info](http://www.elastic.co/guide/) request"""
+  """
+  Perform a [info](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/index.html) request
+  """
   info: JSON
 
   """
-  Perform a [mget](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-multi-get.html) request
+  Perform a [mget](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-multi-get.html) request
   """
   mget(
     body: JSON!
@@ -12898,7 +12993,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [msearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-multi-search.html) request
+  Perform a [msearch](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-multi-search.html) request
   """
   msearch(
     body: JSON!
@@ -12929,7 +13024,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [msearchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-multi-search.html) request
+  Perform a [msearchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-multi-search.html) request
   """
   msearchTemplate(
     body: JSON!
@@ -12958,7 +13053,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [mtermvectors](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-multi-termvectors.html) request
+  Perform a [mtermvectors](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-multi-termvectors.html) request
   """
   mtermvectors(
     body: JSON
@@ -13012,11 +13107,13 @@ type Elastic60 {
     index: String
   ): JSON
 
-  """Perform a [ping](http://www.elastic.co/guide/) request"""
+  """
+  Perform a [ping](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/index.html) request
+  """
   ping: JSON
 
   """
-  Perform a [putScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-scripting.html) request
+  Perform a [putScript](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-scripting.html) request
   """
   putScript(
     body: JSON!
@@ -13035,7 +13132,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [rankEval](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-rank-eval.html) request
+  Perform a [rankEval](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-rank-eval.html) request
   """
   rankEval(
     body: JSON!
@@ -13059,7 +13156,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [reindex](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-reindex.html) request
+  Perform a [reindex](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-reindex.html) request
   """
   reindex(
     body: JSON!
@@ -13083,10 +13180,13 @@ type Elastic60 {
     requestsPerSecond: Float
     scroll: String = "5m"
     slices: Float = 1
+
+    """Maximum number of documents to process (default: all documents)"""
+    maxDocs: Float
   ): JSON
 
   """
-  Perform a [reindexRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-reindex.html) request
+  Perform a [reindexRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-reindex.html) request
   """
   reindexRethrottle(
     body: JSON
@@ -13101,7 +13201,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [renderSearchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-template.html) request
+  Perform a [renderSearchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-template.html#_validating_templates) request
   """
   renderSearchTemplate(
     body: JSON
@@ -13110,19 +13210,13 @@ type Elastic60 {
     id: String
   ): JSON
 
-  """Perform a [scriptsPainlessContext]() request"""
-  scriptsPainlessContext(
-    """Select a specific context to retrieve API information about"""
-    context: String
-  ): JSON
-
   """
-  Perform a [scriptsPainlessExecute](https://www.elastic.co/guide/en/elasticsearch/painless/7.2/painless-execute-api.html) request
+  Perform a [scriptsPainlessExecute](https://www.elastic.co/guide/en/elasticsearch/painless/7.5/painless-execute-api.html) request
   """
   scriptsPainlessExecute(body: JSON): JSON
 
   """
-  Perform a [scroll](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-request-scroll.html) request
+  Perform a [scroll](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-request-body.html#request-body-search-scroll) request
   """
   scroll(
     body: JSON
@@ -13142,7 +13236,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [searchShards](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-shards.html) request
+  Perform a [searchShards](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-shards.html) request
   """
   searchShards(
     body: JSON
@@ -13179,7 +13273,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [searchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-template.html) request
+  Perform a [searchTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-template.html) request
   """
   searchTemplate(
     body: JSON!
@@ -13243,7 +13337,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [termvectors](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-termvectors.html) request
+  Perform a [termvectors](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-termvectors.html) request
   """
   termvectors(
     body: JSON
@@ -13289,7 +13383,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [update](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-update.html) request
+  Perform a [update](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-update.html) request
   """
   update(
     body: JSON!
@@ -13352,7 +13446,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [updateByQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-update-by-query.html) request
+  Perform a [updateByQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-update-by-query.html) request
   """
   updateByQuery(
     body: JSON
@@ -13419,8 +13513,11 @@ type Elastic60 {
     """Explicit timeout for each search request. Defaults to no timeout."""
     searchTimeout: String
 
-    """Number of hits to return (default: 10)"""
+    """Deprecated, please use `max_docs` instead"""
     size: Float
+
+    """Maximum number of documents to process (default: all documents)"""
+    maxDocs: Float
 
     """A comma-separated list of <field>:<direction> pairs"""
     sort: JSON
@@ -13487,7 +13584,7 @@ type Elastic60 {
   ): JSON
 
   """
-  Perform a [updateByQueryRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/docs-update-by-query.html) request
+  Perform a [updateByQueryRethrottle](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docs-update-by-query.html) request
   """
   updateByQueryRethrottle(
     body: JSON
@@ -13504,7 +13601,7 @@ type Elastic60 {
 
 type Elastic60_Cat {
   """
-  Perform a [cat.aliases](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat.html) request
+  Perform a [cat.aliases](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat.html) request
   """
   aliases(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -13535,7 +13632,7 @@ type Elastic60_Cat {
   ): JSON
 
   """
-  Perform a [cat.allocation](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-allocation.html) request
+  Perform a [cat.allocation](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-allocation.html) request
   """
   allocation(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -13571,7 +13668,7 @@ type Elastic60_Cat {
   ): JSON
 
   """
-  Perform a [cat.count](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-count.html) request
+  Perform a [cat.count](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-count.html) request
   """
   count(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -13604,7 +13701,7 @@ type Elastic60_Cat {
   ): JSON
 
   """
-  Perform a [cat.fielddata](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-fielddata.html) request
+  Perform a [cat.fielddata](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-fielddata.html) request
   """
   fielddata(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -13638,7 +13735,7 @@ type Elastic60_Cat {
   ): JSON
 
   """
-  Perform a [cat.health](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-health.html) request
+  Perform a [cat.health](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-health.html) request
   """
   health(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -13667,7 +13764,7 @@ type Elastic60_Cat {
   ): JSON
 
   """
-  Perform a [cat.help](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat.html) request
+  Perform a [cat.help](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat.html) request
   """
   help(
     """Return help information"""
@@ -13678,7 +13775,7 @@ type Elastic60_Cat {
   ): JSON
 
   """
-  Perform a [cat.indices](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-indices.html) request
+  Perform a [cat.indices](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-indices.html) request
   """
   indices(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -13727,7 +13824,7 @@ type Elastic60_Cat {
   ): JSON
 
   """
-  Perform a [cat.master](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-master.html) request
+  Perform a [cat.master](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-master.html) request
   """
   master(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -13755,7 +13852,7 @@ type Elastic60_Cat {
   ): JSON
 
   """
-  Perform a [cat.nodeattrs](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-nodeattrs.html) request
+  Perform a [cat.nodeattrs](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-nodeattrs.html) request
   """
   nodeattrs(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -13783,7 +13880,7 @@ type Elastic60_Cat {
   ): JSON
 
   """
-  Perform a [cat.nodes](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-nodes.html) request
+  Perform a [cat.nodes](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-nodes.html) request
   """
   nodes(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -13816,7 +13913,7 @@ type Elastic60_Cat {
   ): JSON
 
   """
-  Perform a [cat.pendingTasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-pending-tasks.html) request
+  Perform a [cat.pendingTasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-pending-tasks.html) request
   """
   pendingTasks(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -13844,7 +13941,7 @@ type Elastic60_Cat {
   ): JSON
 
   """
-  Perform a [cat.plugins](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-plugins.html) request
+  Perform a [cat.plugins](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-plugins.html) request
   """
   plugins(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -13872,7 +13969,7 @@ type Elastic60_Cat {
   ): JSON
 
   """
-  Perform a [cat.recovery](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-recovery.html) request
+  Perform a [cat.recovery](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-recovery.html) request
   """
   recovery(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -13903,7 +14000,7 @@ type Elastic60_Cat {
   ): JSON
 
   """
-  Perform a [cat.repositories](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-repositories.html) request
+  Perform a [cat.repositories](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-repositories.html) request
   """
   repositories(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -13929,7 +14026,7 @@ type Elastic60_Cat {
   ): JSON
 
   """
-  Perform a [cat.segments](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-segments.html) request
+  Perform a [cat.segments](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-segments.html) request
   """
   segments(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -13957,7 +14054,7 @@ type Elastic60_Cat {
   ): JSON
 
   """
-  Perform a [cat.shards](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-shards.html) request
+  Perform a [cat.shards](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-shards.html) request
   """
   shards(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -13993,7 +14090,7 @@ type Elastic60_Cat {
   ): JSON
 
   """
-  Perform a [cat.snapshots](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-snapshots.html) request
+  Perform a [cat.snapshots](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-snapshots.html) request
   """
   snapshots(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -14022,7 +14119,7 @@ type Elastic60_Cat {
   ): JSON
 
   """
-  Perform a [cat.tasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/tasks.html) request
+  Perform a [cat.tasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/tasks.html) request
   """
   tasks(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -14060,7 +14157,7 @@ type Elastic60_Cat {
   ): JSON
 
   """
-  Perform a [cat.templates](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-templates.html) request
+  Perform a [cat.templates](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-templates.html) request
   """
   templates(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -14091,7 +14188,7 @@ type Elastic60_Cat {
   ): JSON
 
   """
-  Perform a [cat.threadPool](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cat-thread-pool.html) request
+  Perform a [cat.threadPool](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cat-thread-pool.html) request
   """
   threadPool(
     """a short version of the Accept header, e.g. json, yaml"""
@@ -14129,7 +14226,7 @@ type Elastic60_Cat {
 
 type Elastic60_Cluster {
   """
-  Perform a [cluster.allocationExplain](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-allocation-explain.html) request
+  Perform a [cluster.allocationExplain](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-allocation-explain.html) request
   """
   allocationExplain(
     body: JSON
@@ -14142,7 +14239,7 @@ type Elastic60_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.getSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-update-settings.html) request
+  Perform a [cluster.getSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-update-settings.html) request
   """
   getSettings(
     """Return settings in flat format (default: false)"""
@@ -14159,7 +14256,7 @@ type Elastic60_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.health](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-health.html) request
+  Perform a [cluster.health](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-health.html) request
   """
   health(
     expandWildcards: Elastic60Enum_ExpandWildcards = all
@@ -14201,7 +14298,7 @@ type Elastic60_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.pendingTasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-pending.html) request
+  Perform a [cluster.pendingTasks](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-pending.html) request
   """
   pendingTasks(
     """
@@ -14214,7 +14311,7 @@ type Elastic60_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.putSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-update-settings.html) request
+  Perform a [cluster.putSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-update-settings.html) request
   """
   putSettings(
     body: JSON!
@@ -14230,12 +14327,12 @@ type Elastic60_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.remoteInfo](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-remote-info.html) request
+  Perform a [cluster.remoteInfo](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-remote-info.html) request
   """
   remoteInfo: JSON
 
   """
-  Perform a [cluster.reroute](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-reroute.html) request
+  Perform a [cluster.reroute](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-reroute.html) request
   """
   reroute(
     body: JSON
@@ -14264,7 +14361,7 @@ type Elastic60_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.state](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-state.html) request
+  Perform a [cluster.state](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-state.html) request
   """
   state(
     """
@@ -14310,7 +14407,7 @@ type Elastic60_Cluster {
   ): JSON
 
   """
-  Perform a [cluster.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-stats.html) request
+  Perform a [cluster.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-stats.html) request
   """
   stats(
     """Return settings in flat format (default: false)"""
@@ -14330,7 +14427,7 @@ type Elastic60_Cluster {
 
 type Elastic60_Indices {
   """
-  Perform a [indices.analyze](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-analyze.html) request
+  Perform a [indices.analyze](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-analyze.html) request
   """
   analyze(
     body: JSON
@@ -14340,7 +14437,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.clearCache](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-clearcache.html) request
+  Perform a [indices.clearCache](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-clearcache.html) request
   """
   clearCache(
     body: JSON
@@ -14376,7 +14473,31 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.close](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-open-close.html) request
+  Perform a [indices.clone](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-clone-index.html) request
+  """
+  clone(
+    body: JSON
+
+    """Explicit operation timeout"""
+    timeout: String
+
+    """Specify timeout for connection to master"""
+    masterTimeout: String
+
+    """
+    Set the number of active shards to wait for on the cloned index before the operation returns.
+    """
+    waitForActiveShards: String
+
+    """The name of the source index to clone"""
+    index: String
+
+    """The name of the target index to clone into"""
+    target: String
+  ): JSON
+
+  """
+  Perform a [indices.close](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-open-close.html) request
   """
   close(
     body: JSON
@@ -14409,7 +14530,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.create](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-create-index.html) request
+  Perform a [indices.create](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-create-index.html) request
   """
   create(
     body: JSON
@@ -14433,7 +14554,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-delete-index.html) request
+  Perform a [indices.delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-delete-index.html) request
   """
   delete(
     """Explicit operation timeout"""
@@ -14458,7 +14579,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.deleteAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-aliases.html) request
+  Perform a [indices.deleteAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-aliases.html) request
   """
   deleteAlias(
     """Explicit timestamp for the document"""
@@ -14480,7 +14601,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.deleteTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-templates.html) request
+  Perform a [indices.deleteTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-templates.html) request
   """
   deleteTemplate(
     """Explicit operation timeout"""
@@ -14494,7 +14615,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.exists](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-exists.html) request
+  Perform a [indices.exists](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-exists.html) request
   """
   exists(
     """
@@ -14522,7 +14643,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.existsAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-aliases.html) request
+  Perform a [indices.existsAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-aliases.html) request
   """
   existsAlias(
     """
@@ -14550,7 +14671,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.existsTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-templates.html) request
+  Perform a [indices.existsTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-templates.html) request
   """
   existsTemplate(
     """Return settings in flat format (default: false)"""
@@ -14569,7 +14690,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.existsType](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-types-exists.html) request
+  Perform a [indices.existsType](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-types-exists.html) request
   """
   existsType(
     """
@@ -14599,7 +14720,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.flush](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-flush.html) request
+  Perform a [indices.flush](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-flush.html) request
   """
   flush(
     body: JSON
@@ -14639,7 +14760,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.flushSynced](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-synced-flush.html) request
+  Perform a [indices.flushSynced](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-flush.html#synced-flush-api) request
   """
   flushSynced(
     body: JSON
@@ -14663,7 +14784,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.forcemerge](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-forcemerge.html) request
+  Perform a [indices.forcemerge](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-forcemerge.html) request
   """
   forcemerge(
     body: JSON
@@ -14700,7 +14821,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-get-index.html) request
+  Perform a [indices.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-get-index.html) request
   """
   get(
     """Whether to add the type name to the response (default: false)"""
@@ -14734,7 +14855,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.getAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-aliases.html) request
+  Perform a [indices.getAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-aliases.html) request
   """
   getAlias(
     """
@@ -14762,7 +14883,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.getFieldMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-get-field-mapping.html) request
+  Perform a [indices.getFieldMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-get-field-mapping.html) request
   """
   getFieldMapping(
     """Whether a type should be returned in the body of the mappings."""
@@ -14796,7 +14917,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.getMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-get-mapping.html) request
+  Perform a [indices.getMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-get-mapping.html) request
   """
   getMapping(
     """Whether to add the type name to the response (default: false)"""
@@ -14827,7 +14948,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.getSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-get-settings.html) request
+  Perform a [indices.getSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-get-settings.html) request
   """
   getSettings(
     """Specify timeout for connection to master"""
@@ -14866,7 +14987,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.getTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-templates.html) request
+  Perform a [indices.getTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-templates.html) request
   """
   getTemplate(
     """Whether a type should be returned in the body of the mappings."""
@@ -14888,7 +15009,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.getUpgrade](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-upgrade.html) request
+  Perform a [indices.getUpgrade](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-upgrade.html) request
   """
   getUpgrade(
     """
@@ -14910,7 +15031,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.open](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-open-close.html) request
+  Perform a [indices.open](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-open-close.html) request
   """
   open(
     body: JSON
@@ -14943,7 +15064,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.putAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-aliases.html) request
+  Perform a [indices.putAlias](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-aliases.html) request
   """
   putAlias(
     body: JSON
@@ -14965,7 +15086,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.putMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-put-mapping.html) request
+  Perform a [indices.putMapping](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-put-mapping.html) request
   """
   putMapping(
     body: JSON!
@@ -14999,7 +15120,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.putSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-update-settings.html) request
+  Perform a [indices.putSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-update-settings.html) request
   """
   putSettings(
     body: JSON!
@@ -15038,7 +15159,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.putTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-templates.html) request
+  Perform a [indices.putTemplate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-templates.html) request
   """
   putTemplate(
     body: JSON!
@@ -15071,7 +15192,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.recovery](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-recovery.html) request
+  Perform a [indices.recovery](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-recovery.html) request
   """
   recovery(
     """Whether to display detailed information about shard recovery"""
@@ -15087,7 +15208,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.refresh](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-refresh.html) request
+  Perform a [indices.refresh](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-refresh.html) request
   """
   refresh(
     body: JSON
@@ -15111,7 +15232,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.rollover](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-rollover-index.html) request
+  Perform a [indices.rollover](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-rollover-index.html) request
   """
   rollover(
     body: JSON
@@ -15144,7 +15265,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.segments](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-segments.html) request
+  Perform a [indices.segments](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-segments.html) request
   """
   segments(
     """
@@ -15169,7 +15290,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.shardStores](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-shards-stores.html) request
+  Perform a [indices.shardStores](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-shards-stores.html) request
   """
   shardStores(
     """
@@ -15196,7 +15317,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.shrink](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-shrink-index.html) request
+  Perform a [indices.shrink](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-shrink-index.html) request
   """
   shrink(
     body: JSON
@@ -15225,7 +15346,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.split](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-split-index.html) request
+  Perform a [indices.split](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-split-index.html) request
   """
   split(
     body: JSON
@@ -15254,7 +15375,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-stats.html) request
+  Perform a [indices.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-stats.html) request
   """
   stats(
     """
@@ -15304,7 +15425,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.updateAliases](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-aliases.html) request
+  Perform a [indices.updateAliases](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-aliases.html) request
   """
   updateAliases(
     body: JSON!
@@ -15317,7 +15438,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.upgrade](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/indices-upgrade.html) request
+  Perform a [indices.upgrade](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/indices-upgrade.html) request
   """
   upgrade(
     body: JSON
@@ -15351,7 +15472,7 @@ type Elastic60_Indices {
   ): JSON
 
   """
-  Perform a [indices.validateQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/search-validate.html) request
+  Perform a [indices.validateQuery](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/search-validate.html) request
   """
   validateQuery(
     body: JSON
@@ -15411,7 +15532,7 @@ type Elastic60_Indices {
 
 type Elastic60_Ingest {
   """
-  Perform a [ingest.deletePipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/delete-pipeline-api.html) request
+  Perform a [ingest.deletePipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/delete-pipeline-api.html) request
   """
   deletePipeline(
     """Explicit operation timeout for connection to master node"""
@@ -15425,7 +15546,7 @@ type Elastic60_Ingest {
   ): JSON
 
   """
-  Perform a [ingest.getPipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/get-pipeline-api.html) request
+  Perform a [ingest.getPipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/get-pipeline-api.html) request
   """
   getPipeline(
     """Explicit operation timeout for connection to master node"""
@@ -15436,12 +15557,12 @@ type Elastic60_Ingest {
   ): JSON
 
   """
-  Perform a [ingest.processorGrok](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/grok-processor.html#grok-processor-rest-get) request
+  Perform a [ingest.processorGrok](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/grok-processor.html#grok-processor-rest-get) request
   """
   processorGrok: JSON
 
   """
-  Perform a [ingest.putPipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/put-pipeline-api.html) request
+  Perform a [ingest.putPipeline](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/put-pipeline-api.html) request
   """
   putPipeline(
     body: JSON!
@@ -15457,7 +15578,7 @@ type Elastic60_Ingest {
   ): JSON
 
   """
-  Perform a [ingest.simulate](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/simulate-pipeline-api.html) request
+  Perform a [ingest.simulate](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/simulate-pipeline-api.html) request
   """
   simulate(
     body: JSON!
@@ -15474,7 +15595,7 @@ type Elastic60_Ingest {
 
 type Elastic60_Nodes {
   """
-  Perform a [nodes.hotThreads](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-nodes-hot-threads.html) request
+  Perform a [nodes.hotThreads](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-nodes-hot-threads.html) request
   """
   hotThreads(
     """The interval for the second sampling of threads"""
@@ -15500,7 +15621,7 @@ type Elastic60_Nodes {
   ): JSON
 
   """
-  Perform a [nodes.info](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-nodes-info.html) request
+  Perform a [nodes.info](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-nodes-info.html) request
   """
   info(
     """Return settings in flat format (default: false)"""
@@ -15523,7 +15644,7 @@ type Elastic60_Nodes {
   ): JSON
 
   """
-  Perform a [nodes.reloadSecureSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/secure-settings.html#reloadable-secure-settings) request
+  Perform a [nodes.reloadSecureSettings](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/secure-settings.html#reloadable-secure-settings) request
   """
   reloadSecureSettings(
     body: JSON
@@ -15539,7 +15660,7 @@ type Elastic60_Nodes {
   ): JSON
 
   """
-  Perform a [nodes.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-nodes-stats.html) request
+  Perform a [nodes.stats](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-nodes-stats.html) request
   """
   stats(
     """
@@ -15593,7 +15714,7 @@ type Elastic60_Nodes {
   ): JSON
 
   """
-  Perform a [nodes.usage](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/cluster-nodes-usage.html) request
+  Perform a [nodes.usage](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/cluster-nodes-usage.html) request
   """
   usage(
     """Explicit operation timeout"""
@@ -15613,7 +15734,7 @@ type Elastic60_Nodes {
 
 type Elastic60_Snapshot {
   """
-  Perform a [snapshot.create](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.create](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   create(
     body: JSON
@@ -15634,7 +15755,7 @@ type Elastic60_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.createRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.createRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   createRepository(
     body: JSON!
@@ -15653,7 +15774,7 @@ type Elastic60_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.delete](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   delete(
     """Explicit operation timeout for connection to master node"""
@@ -15667,7 +15788,7 @@ type Elastic60_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.deleteRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.deleteRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   deleteRepository(
     """Explicit operation timeout for connection to master node"""
@@ -15681,7 +15802,7 @@ type Elastic60_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   get(
     """Explicit operation timeout for connection to master node"""
@@ -15705,7 +15826,7 @@ type Elastic60_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.getRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.getRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   getRepository(
     """Explicit operation timeout for connection to master node"""
@@ -15721,7 +15842,7 @@ type Elastic60_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.restore](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.restore](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   restore(
     body: JSON
@@ -15742,7 +15863,7 @@ type Elastic60_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.status](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.status](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   status(
     """Explicit operation timeout for connection to master node"""
@@ -15761,7 +15882,7 @@ type Elastic60_Snapshot {
   ): JSON
 
   """
-  Perform a [snapshot.verifyRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/modules-snapshots.html) request
+  Perform a [snapshot.verifyRepository](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/modules-snapshots.html) request
   """
   verifyRepository(
     body: JSON
@@ -15779,7 +15900,7 @@ type Elastic60_Snapshot {
 
 type Elastic60_Tasks {
   """
-  Perform a [tasks.cancel](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/tasks.html) request
+  Perform a [tasks.cancel](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/tasks.html) request
   """
   cancel(
     body: JSON
@@ -15806,7 +15927,7 @@ type Elastic60_Tasks {
   ): JSON
 
   """
-  Perform a [tasks.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/tasks.html) request
+  Perform a [tasks.get](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/tasks.html) request
   """
   get(
     """Wait for the matching tasks to complete (default: false)"""
@@ -15820,7 +15941,7 @@ type Elastic60_Tasks {
   ): JSON
 
   """
-  Perform a [tasks.list](https://www.elastic.co/guide/en/elasticsearch/reference/7.2/tasks.html) request
+  Perform a [tasks.list](https://www.elastic.co/guide/en/elasticsearch/reference/7.5/tasks.html) request
   """
   list(
     """

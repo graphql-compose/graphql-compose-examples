@@ -1,6 +1,3 @@
-# Provides default value for input field.
-directive @default(value: JSON!) on INPUT_FIELD_DEFINITION
-
 input _idOperatorsFilterFindManyCategoryInput {
   gt: MongoID
   gte: MongoID
@@ -161,15 +158,32 @@ input _idOperatorsFilterFindOneSupplierInput {
   nin: [MongoID]
 }
 
-type Category implements Node {
+input _idOperatorsFilterRemoveOneOrderInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+input _idOperatorsFilterRemoveOneProductInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
+type Category {
   # Category unique ID
   categoryID: Float
   name: String
   description: String
   _id: MongoID!
-
-  # The globally unique ID among all types
-  id: ID!
   productConnection(
     # Forward pagination argument for returning at most first edges
     first: Int
@@ -298,13 +312,6 @@ type CreateOneOrderPayload {
 
   # Created document
   record: Order
-
-  # The globally unique ID among all types
-  nodeId: ID
-
-  # The client mutation ID used by clients like Relay to track the mutation. If
-  # given, returned in the response payload of the mutation.
-  clientMutationId: String
   query: Query
 }
 
@@ -328,17 +335,10 @@ type CreateOneProductPayload {
 
   # Created document
   record: Product
-
-  # The globally unique ID among all types
-  nodeId: ID
-
-  # The client mutation ID used by clients like Relay to track the mutation. If
-  # given, returned in the response payload of the mutation.
-  clientMutationId: String
   query: Query
 }
 
-type Customer implements Node {
+type Customer {
   # Customer unique ID
   customerID: String
   companyName: String
@@ -346,9 +346,6 @@ type Customer implements Node {
   contactTitle: String
   address: CustomerAddress
   _id: MongoID!
-
-  # The globally unique ID among all types
-  id: ID!
   orderConnection(
     # Forward pagination argument for returning at most first edges
     first: Int
@@ -513,7 +510,30 @@ input DetailsOperatorsFilterFindOneOrderInput {
   nin: [OrderDetailsInput]
 }
 
-type Employee implements Node {
+input DetailsOperatorsFilterRemoveOneOrderInput {
+  # List of ordered products
+  gt: OrderDetailsInput
+
+  # List of ordered products
+  gte: OrderDetailsInput
+
+  # List of ordered products
+  lt: OrderDetailsInput
+
+  # List of ordered products
+  lte: OrderDetailsInput
+
+  # List of ordered products
+  ne: OrderDetailsInput
+
+  # List of ordered products
+  in: [OrderDetailsInput]
+
+  # List of ordered products
+  nin: [OrderDetailsInput]
+}
+
+type Employee {
   # Category unique ID
   employeeID: Float
   lastName: String
@@ -531,9 +551,6 @@ type Employee implements Node {
   # Attached territory ID from region collection
   territoryIDs: [Float]
   _id: MongoID!
-
-  # The globally unique ID among all types
-  id: ID!
   chief: Employee
   subordinates(skip: Int, limit: Int = 1000, sort: SortFindManyEmployeeInput): [Employee]
   orderConnection(
@@ -908,8 +925,50 @@ input FilterFindOneSupplierInput {
   AND: [FilterFindOneSupplierInput!]
 }
 
-# The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
-scalar JSON
+input FilterRemoveOneOrderInput {
+  # Order unique ID
+  orderID: Float
+  customerID: String
+  employeeID: Float
+  orderDate: Date
+  requiredDate: Date
+  shippedDate: Date
+  shipVia: Float
+  freight: Float
+  shipName: String
+  shipAddress: CustomerAddressInput
+
+  # List of ordered products
+  details: [OrderDetailsInput]
+  _id: MongoID
+  _ids: [MongoID]
+
+  # List of *indexed* fields that can be filtered via operators.
+  _operators: OperatorsFilterRemoveOneOrderInput
+  OR: [FilterRemoveOneOrderInput!]
+  AND: [FilterRemoveOneOrderInput!]
+}
+
+input FilterRemoveOneProductInput {
+  # Unique product id
+  productID: Float
+  name: String
+  supplierID: Float
+  categoryID: Float
+  quantityPerUnit: String
+  unitPrice: Float
+  unitsInStock: Float
+  unitsOnOrder: Float
+  reorderLevel: Float
+  discontinued: Boolean
+  _id: MongoID
+  _ids: [MongoID]
+
+  # List of *indexed* fields that can be filtered via operators.
+  _operators: OperatorsFilterRemoveOneProductInput
+  OR: [FilterRemoveOneProductInput!]
+  AND: [FilterRemoveOneProductInput!]
+}
 
 input LastNameOperatorsFilterFindManyEmployeeInput {
   gt: String
@@ -939,31 +998,42 @@ scalar MongoID
 
 type Mutation {
   # Create one document with mongoose defaults, setters, hooks and validation
-  createProduct(input: RelayCreateOneProductInput!): CreateOneProductPayload
+  createProduct(record: CreateOneProductInput!): CreateOneProductPayload
 
   # Update one document: 1) Retrieve one document by findById. 2) Apply updates to
   # mongoose document. 3) Mongoose applies defaults, setters, hooks and
   # validation. 4) And save it.
-  updateProduct(input: RelayUpdateByIdProductInput!): UpdateByIdProductPayload
+  updateProduct(record: UpdateByIdProductInput!): UpdateByIdProductPayload
 
-  # Remove one document: 1) Retrieve one document and remove with hooks via findByIdAndRemove. 2) Return removed document.
-  removeProduct(input: RelayRemoveByIdProductInput!): RemoveByIdProductPayload
+  # Remove one document: 1) Remove with hooks via findOneAndRemove. 2) Return removed document.
+  removeProduct(
+    # Filter by fields
+    filter: FilterRemoveOneProductInput
+    sort: SortRemoveOneProductInput
+  ): RemoveOneProductPayload
 
   # Create one document with mongoose defaults, setters, hooks and validation
-  createOrder(input: RelayCreateOneOrderInput!): CreateOneOrderPayload
+  createOrder(record: CreateOneOrderInput!): CreateOneOrderPayload
 
   # Update one document: 1) Retrieve one document by findById. 2) Apply updates to
   # mongoose document. 3) Mongoose applies defaults, setters, hooks and
   # validation. 4) And save it.
-  updateOrder(input: RelayUpdateByIdOrderInput!): UpdateByIdOrderPayload
+  updateOrder(record: UpdateByIdOrderInput!): UpdateByIdOrderPayload
 
-  # Remove one document: 1) Retrieve one document and remove with hooks via findByIdAndRemove. 2) Return removed document.
-  removeOrder(input: RelayRemoveByIdOrderInput!): RemoveByIdOrderPayload
+  # Remove one document: 1) Remove with hooks via findOneAndRemove. 2) Return removed document.
+  removeOrder(
+    # Filter by fields
+    filter: FilterRemoveOneOrderInput
+    sort: SortRemoveOneOrderInput
+  ): RemoveOneOrderPayload
 
   # Update one document: 1) Retrieve one document by findById. 2) Apply updates to
   # mongoose document. 3) Mongoose applies defaults, setters, hooks and
   # validation. 4) And save it.
-  updateEmployee(input: RelayUpdateByIdEmployeeInput!): UpdateByIdEmployeePayload
+  updateEmployee(record: UpdateByIdEmployeeInput!): UpdateByIdEmployeePayload
+
+  # Remove all data and seed DB from scratch. Anyway data automatically reloaded every 30 minutes.
+  resetData: String
 }
 
 input NameOperatorsFilterFindManyCategoryInput {
@@ -1006,10 +1076,14 @@ input NameOperatorsFilterFindOneProductInput {
   nin: [String]
 }
 
-# An object, that can be fetched by the globally unique ID among all types.
-interface Node {
-  # The globally unique ID among all types.
-  id: ID!
+input NameOperatorsFilterRemoveOneProductInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
 }
 
 # For performance reason this type contains only *indexed* fields.
@@ -1124,7 +1198,22 @@ input OperatorsFilterFindOneSupplierInput {
   _id: _idOperatorsFilterFindOneSupplierInput
 }
 
-type Order implements Node {
+# For performance reason this type contains only *indexed* fields.
+input OperatorsFilterRemoveOneOrderInput {
+  orderID: OrderIDOperatorsFilterRemoveOneOrderInput
+  details: DetailsOperatorsFilterRemoveOneOrderInput
+  _id: _idOperatorsFilterRemoveOneOrderInput
+}
+
+# For performance reason this type contains only *indexed* fields.
+input OperatorsFilterRemoveOneProductInput {
+  productID: ProductIDOperatorsFilterRemoveOneProductInput
+  name: NameOperatorsFilterRemoveOneProductInput
+  unitPrice: UnitPriceOperatorsFilterRemoveOneProductInput
+  _id: _idOperatorsFilterRemoveOneProductInput
+}
+
+type Order {
   # Order unique ID
   orderID: Float
   customerID: String
@@ -1140,9 +1229,6 @@ type Order implements Node {
   # List of ordered products
   details: [OrderDetails]
   _id: MongoID!
-
-  # The globally unique ID among all types
-  id: ID!
   customer: Customer
   employee: Employee
   shipper: Shipper
@@ -1230,6 +1316,29 @@ input OrderIDOperatorsFilterFindOneOrderInput {
   nin: [Float]
 }
 
+input OrderIDOperatorsFilterRemoveOneOrderInput {
+  # Order unique ID
+  gt: Float
+
+  # Order unique ID
+  gte: Float
+
+  # Order unique ID
+  lt: Float
+
+  # Order unique ID
+  lte: Float
+
+  # Order unique ID
+  ne: Float
+
+  # Order unique ID
+  in: [Float]
+
+  # Order unique ID
+  nin: [Float]
+}
+
 # List of items with pagination.
 type OrderPagination {
   # Total object count.
@@ -1266,7 +1375,7 @@ type PaginationInfo {
   hasPreviousPage: Boolean
 }
 
-type Product implements Node {
+type Product {
   # Unique product id
   productID: Float
   name: String
@@ -1279,9 +1388,6 @@ type Product implements Node {
   reorderLevel: Float
   discontinued: Boolean
   _id: MongoID!
-
-  # The globally unique ID among all types
-  id: ID!
   orderConnection(
     # Forward pagination argument for returning at most first edges
     first: Int
@@ -1370,6 +1476,29 @@ input ProductIDOperatorsFilterFindOneProductInput {
   nin: [Float]
 }
 
+input ProductIDOperatorsFilterRemoveOneProductInput {
+  # Unique product id
+  gt: Float
+
+  # Unique product id
+  gte: Float
+
+  # Unique product id
+  lt: Float
+
+  # Unique product id
+  lte: Float
+
+  # Unique product id
+  ne: Float
+
+  # Unique product id
+  in: [Float]
+
+  # Unique product id
+  nin: [Float]
+}
+
 # List of items with pagination.
 type ProductPagination {
   # Total object count.
@@ -1383,25 +1512,16 @@ type ProductPagination {
 }
 
 type Query {
-  # Fetches an object that has globally unique ID among all types
-  node(
-    # The globally unique ID among all types
-    id: ID!
-  ): Node
-
   # Data under client context
   viewer: Viewer
 }
 
-type Region implements Node {
+type Region {
   # Region unique ID
   regionID: Float
   name: String
   territories: [RegionTerritories]
   _id: MongoID!
-
-  # The globally unique ID among all types
-  id: ID!
   employees(skip: Int, limit: Int = 1000, sort: SortFindManyEmployeeInput): [Employee]
 }
 
@@ -1461,103 +1581,30 @@ input RegionTerritoriesInput {
   name: String
 }
 
-input RelayCreateOneOrderInput {
-  record: CreateOneOrderInput!
-
-  # The client mutation ID used by clients like Relay to track the mutation. If
-  # given, returned in the response payload of the mutation.
-  clientMutationId: String
-}
-
-input RelayCreateOneProductInput {
-  record: CreateOneProductInput!
-
-  # The client mutation ID used by clients like Relay to track the mutation. If
-  # given, returned in the response payload of the mutation.
-  clientMutationId: String
-}
-
-input RelayRemoveByIdOrderInput {
-  _id: MongoID!
-
-  # The client mutation ID used by clients like Relay to track the mutation. If
-  # given, returned in the response payload of the mutation.
-  clientMutationId: String
-}
-
-input RelayRemoveByIdProductInput {
-  _id: MongoID!
-
-  # The client mutation ID used by clients like Relay to track the mutation. If
-  # given, returned in the response payload of the mutation.
-  clientMutationId: String
-}
-
-input RelayUpdateByIdEmployeeInput {
-  record: UpdateByIdEmployeeInput!
-
-  # The client mutation ID used by clients like Relay to track the mutation. If
-  # given, returned in the response payload of the mutation.
-  clientMutationId: String
-}
-
-input RelayUpdateByIdOrderInput {
-  record: UpdateByIdOrderInput!
-
-  # The client mutation ID used by clients like Relay to track the mutation. If
-  # given, returned in the response payload of the mutation.
-  clientMutationId: String
-}
-
-input RelayUpdateByIdProductInput {
-  record: UpdateByIdProductInput!
-
-  # The client mutation ID used by clients like Relay to track the mutation. If
-  # given, returned in the response payload of the mutation.
-  clientMutationId: String
-}
-
-type RemoveByIdOrderPayload {
+type RemoveOneOrderPayload {
   # Removed document ID
   recordId: MongoID
 
   # Removed document
   record: Order
-
-  # The globally unique ID among all types
-  nodeId: ID
-
-  # The client mutation ID used by clients like Relay to track the mutation. If
-  # given, returned in the response payload of the mutation.
-  clientMutationId: String
   query: Query
 }
 
-type RemoveByIdProductPayload {
+type RemoveOneProductPayload {
   # Removed document ID
   recordId: MongoID
 
   # Removed document
   record: Product
-
-  # The globally unique ID among all types
-  nodeId: ID
-
-  # The client mutation ID used by clients like Relay to track the mutation. If
-  # given, returned in the response payload of the mutation.
-  clientMutationId: String
   query: Query
 }
 
-type Shipper implements Node {
+type Shipper {
   # Shipper unique ID
   shipperID: Float
   companyName: String
   phone: String
   _id: MongoID!
-
-  # The globally unique ID among all types
-  id: ID!
   orderConnection(
     # Forward pagination argument for returning at most first edges
     first: Int
@@ -1799,7 +1846,29 @@ enum SortFindOneSupplierInput {
   COMPANYNAME_DESC
 }
 
-type Supplier implements Node {
+enum SortRemoveOneOrderInput {
+  _ID_ASC
+  _ID_DESC
+  ORDERID_ASC
+  ORDERID_DESC
+  DETAILS_ASC
+  DETAILS_DESC
+}
+
+enum SortRemoveOneProductInput {
+  _ID_ASC
+  _ID_DESC
+  PRODUCTID_ASC
+  PRODUCTID_DESC
+  UNITPRICE_ASC
+  UNITPRICE_DESC
+  NAME_ASC
+  NAME_DESC
+  NAME__SUPPLIERID_ASC
+  NAME__SUPPLIERID_DESC
+}
+
+type Supplier {
   # Supplier unique ID
   supplierID: Float
   companyName: String
@@ -1807,9 +1876,6 @@ type Supplier implements Node {
   contactTitle: String
   address: CustomerAddress
   _id: MongoID!
-
-  # The globally unique ID among all types
-  id: ID!
   productConnection(
     # Forward pagination argument for returning at most first edges
     first: Int
@@ -1961,6 +2027,16 @@ input UnitPriceOperatorsFilterFindOneProductInput {
   nin: [Float]
 }
 
+input UnitPriceOperatorsFilterRemoveOneProductInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+}
+
 input UpdateByIdEmployeeInput {
   # Category unique ID
   employeeID: Float
@@ -1987,13 +2063,6 @@ type UpdateByIdEmployeePayload {
 
   # Updated document
   record: Employee
-
-  # The globally unique ID among all types
-  nodeId: ID
-
-  # The client mutation ID used by clients like Relay to track the mutation. If
-  # given, returned in the response payload of the mutation.
-  clientMutationId: String
   query: Query
 }
 
@@ -2021,13 +2090,6 @@ type UpdateByIdOrderPayload {
 
   # Updated document
   record: Order
-
-  # The globally unique ID among all types
-  nodeId: ID
-
-  # The client mutation ID used by clients like Relay to track the mutation. If
-  # given, returned in the response payload of the mutation.
-  clientMutationId: String
   query: Query
 }
 
@@ -2052,13 +2114,6 @@ type UpdateByIdProductPayload {
 
   # Updated document
   record: Product
-
-  # The globally unique ID among all types
-  nodeId: ID
-
-  # The client mutation ID used by clients like Relay to track the mutation. If
-  # given, returned in the response payload of the mutation.
-  clientMutationId: String
   query: Query
 }
 

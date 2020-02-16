@@ -15,33 +15,6 @@
           "description": null,
           "fields": [
             {
-              "name": "node",
-              "description": "Fetches an object that has globally unique ID among all types",
-              "args": [
-                {
-                  "name": "id",
-                  "description": "The globally unique ID among all types",
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "ID",
-                      "ofType": null
-                    }
-                  },
-                  "defaultValue": null
-                }
-              ],
-              "type": {
-                "kind": "INTERFACE",
-                "name": "Node",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "viewer",
               "description": "Data under client context",
               "args": [],
@@ -58,84 +31,6 @@
           "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
-        },
-        {
-          "kind": "SCALAR",
-          "name": "ID",
-          "description": "The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"4\"`) or integer (such as `4`) input value will be accepted as an ID.",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INTERFACE",
-          "name": "Node",
-          "description": "An object, that can be fetched by the globally unique ID among all types.",
-          "fields": [
-            {
-              "name": "id",
-              "description": "The globally unique ID among all types.",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": [
-            {
-              "kind": "OBJECT",
-              "name": "Category",
-              "ofType": null
-            },
-            {
-              "kind": "OBJECT",
-              "name": "Product",
-              "ofType": null
-            },
-            {
-              "kind": "OBJECT",
-              "name": "Order",
-              "ofType": null
-            },
-            {
-              "kind": "OBJECT",
-              "name": "Customer",
-              "ofType": null
-            },
-            {
-              "kind": "OBJECT",
-              "name": "Employee",
-              "ofType": null
-            },
-            {
-              "kind": "OBJECT",
-              "name": "Shipper",
-              "ofType": null
-            },
-            {
-              "kind": "OBJECT",
-              "name": "Supplier",
-              "ofType": null
-            },
-            {
-              "kind": "OBJECT",
-              "name": "Region",
-              "ofType": null
-            }
-          ]
         },
         {
           "kind": "OBJECT",
@@ -1845,22 +1740,6 @@
               "deprecationReason": null
             },
             {
-              "name": "id",
-              "description": "The globally unique ID among all types",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "productConnection",
               "description": "",
               "args": [
@@ -1972,13 +1851,7 @@
             }
           ],
           "inputFields": null,
-          "interfaces": [
-            {
-              "kind": "INTERFACE",
-              "name": "Node",
-              "ofType": null
-            }
-          ],
+          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -2358,22 +2231,6 @@
               "deprecationReason": null
             },
             {
-              "name": "id",
-              "description": "The globally unique ID among all types",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "orderConnection",
               "description": "",
               "args": [
@@ -2509,13 +2366,7 @@
             }
           ],
           "inputFields": null,
-          "interfaces": [
-            {
-              "kind": "INTERFACE",
-              "name": "Node",
-              "ofType": null
-            }
-          ],
+          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -2822,22 +2673,6 @@
               "deprecationReason": null
             },
             {
-              "name": "id",
-              "description": "The globally unique ID among all types",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "customer",
               "description": "",
               "args": [],
@@ -2875,13 +2710,7 @@
             }
           ],
           "inputFields": null,
-          "interfaces": [
-            {
-              "kind": "INTERFACE",
-              "name": "Node",
-              "ofType": null
-            }
-          ],
+          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -3131,22 +2960,6 @@
               "deprecationReason": null
             },
             {
-              "name": "id",
-              "description": "The globally unique ID among all types",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "orderConnection",
               "description": "",
               "args": [
@@ -3258,13 +3071,7 @@
             }
           ],
           "inputFields": null,
-          "interfaces": [
-            {
-              "kind": "INTERFACE",
-              "name": "Node",
-              "ofType": null
-            }
-          ],
+          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -3473,22 +3280,6 @@
               "deprecationReason": null
             },
             {
-              "name": "id",
-              "description": "The globally unique ID among all types",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "chief",
               "description": "",
               "args": [],
@@ -3612,13 +3403,7 @@
             }
           ],
           "inputFields": null,
-          "interfaces": [
-            {
-              "kind": "INTERFACE",
-              "name": "Node",
-              "ofType": null
-            }
-          ],
+          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -3751,22 +3536,6 @@
               "deprecationReason": null
             },
             {
-              "name": "id",
-              "description": "The globally unique ID among all types",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "orderConnection",
               "description": "",
               "args": [
@@ -3831,13 +3600,7 @@
             }
           ],
           "inputFields": null,
-          "interfaces": [
-            {
-              "kind": "INTERFACE",
-              "name": "Node",
-              "ofType": null
-            }
-          ],
+          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -3923,22 +3686,6 @@
               "deprecationReason": null
             },
             {
-              "name": "id",
-              "description": "The globally unique ID among all types",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "productConnection",
               "description": "",
               "args": [
@@ -4003,13 +3750,7 @@
             }
           ],
           "inputFields": null,
-          "interfaces": [
-            {
-              "kind": "INTERFACE",
-              "name": "Node",
-              "ofType": null
-            }
-          ],
+          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -10159,22 +9900,6 @@
               "deprecationReason": null
             },
             {
-              "name": "id",
-              "description": "The globally unique ID among all types",
-              "args": [],
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "ID",
-                  "ofType": null
-                }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "employees",
               "description": "",
               "args": [
@@ -10223,13 +9948,7 @@
             }
           ],
           "inputFields": null,
-          "interfaces": [
-            {
-              "kind": "INTERFACE",
-              "name": "Node",
-              "ofType": null
-            }
-          ],
+          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -12429,14 +12148,14 @@
               "description": "Create one document with mongoose defaults, setters, hooks and validation",
               "args": [
                 {
-                  "name": "input",
+                  "name": "record",
                   "description": null,
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "RelayCreateOneProductInput",
+                      "name": "CreateOneProductInput",
                       "ofType": null
                     }
                   },
@@ -12456,14 +12175,14 @@
               "description": "Update one document: 1) Retrieve one document by findById. 2) Apply updates to mongoose document. 3) Mongoose applies defaults, setters, hooks and validation. 4) And save it.",
               "args": [
                 {
-                  "name": "input",
+                  "name": "record",
                   "description": null,
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "RelayUpdateByIdProductInput",
+                      "name": "UpdateByIdProductInput",
                       "ofType": null
                     }
                   },
@@ -12480,26 +12199,32 @@
             },
             {
               "name": "removeProduct",
-              "description": "Remove one document: 1) Retrieve one document and remove with hooks via findByIdAndRemove. 2) Return removed document.",
+              "description": "Remove one document: 1) Remove with hooks via findOneAndRemove. 2) Return removed document.",
               "args": [
                 {
-                  "name": "input",
+                  "name": "filter",
+                  "description": "Filter by fields",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterRemoveOneProductInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "sort",
                   "description": null,
                   "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "RelayRemoveByIdProductInput",
-                      "ofType": null
-                    }
+                    "kind": "ENUM",
+                    "name": "SortRemoveOneProductInput",
+                    "ofType": null
                   },
                   "defaultValue": null
                 }
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "RemoveByIdProductPayload",
+                "name": "RemoveOneProductPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -12510,14 +12235,14 @@
               "description": "Create one document with mongoose defaults, setters, hooks and validation",
               "args": [
                 {
-                  "name": "input",
+                  "name": "record",
                   "description": null,
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "RelayCreateOneOrderInput",
+                      "name": "CreateOneOrderInput",
                       "ofType": null
                     }
                   },
@@ -12537,14 +12262,14 @@
               "description": "Update one document: 1) Retrieve one document by findById. 2) Apply updates to mongoose document. 3) Mongoose applies defaults, setters, hooks and validation. 4) And save it.",
               "args": [
                 {
-                  "name": "input",
+                  "name": "record",
                   "description": null,
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "RelayUpdateByIdOrderInput",
+                      "name": "UpdateByIdOrderInput",
                       "ofType": null
                     }
                   },
@@ -12561,26 +12286,32 @@
             },
             {
               "name": "removeOrder",
-              "description": "Remove one document: 1) Retrieve one document and remove with hooks via findByIdAndRemove. 2) Return removed document.",
+              "description": "Remove one document: 1) Remove with hooks via findOneAndRemove. 2) Return removed document.",
               "args": [
                 {
-                  "name": "input",
+                  "name": "filter",
+                  "description": "Filter by fields",
+                  "type": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterRemoveOneOrderInput",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "sort",
                   "description": null,
                   "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "RelayRemoveByIdOrderInput",
-                      "ofType": null
-                    }
+                    "kind": "ENUM",
+                    "name": "SortRemoveOneOrderInput",
+                    "ofType": null
                   },
                   "defaultValue": null
                 }
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "RemoveByIdOrderPayload",
+                "name": "RemoveOneOrderPayload",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -12591,14 +12322,14 @@
               "description": "Update one document: 1) Retrieve one document by findById. 2) Apply updates to mongoose document. 3) Mongoose applies defaults, setters, hooks and validation. 4) And save it.",
               "args": [
                 {
-                  "name": "input",
+                  "name": "record",
                   "description": null,
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
                     "ofType": {
                       "kind": "INPUT_OBJECT",
-                      "name": "RelayUpdateByIdEmployeeInput",
+                      "name": "UpdateByIdEmployeeInput",
                       "ofType": null
                     }
                   },
@@ -12612,45 +12343,22 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "RelayCreateOneProductInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "record",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "CreateOneProductInput",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
             },
             {
-              "name": "clientMutationId",
-              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
+              "name": "resetData",
+              "description": "Remove all data and seed DB from scratch. Anyway data automatically reloaded every 30 minutes.",
+              "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
                 "ofType": null
               },
-              "defaultValue": null
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
-          "interfaces": null,
+          "inputFields": null,
+          "interfaces": [],
           "enumValues": null,
           "possibleTypes": null
         },
@@ -12795,30 +12503,6 @@
               "deprecationReason": null
             },
             {
-              "name": "nodeId",
-              "description": "The globally unique ID among all types",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "clientMutationId",
-              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "query",
               "description": null,
               "args": [],
@@ -12833,41 +12517,6 @@
           ],
           "inputFields": null,
           "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "RelayUpdateByIdProductInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "record",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "UpdateByIdProductInput",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "clientMutationId",
-              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
@@ -13026,30 +12675,6 @@
               "deprecationReason": null
             },
             {
-              "name": "nodeId",
-              "description": "The globally unique ID among all types",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "clientMutationId",
-              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "query",
               "description": null,
               "args": [],
@@ -13069,15 +12694,125 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "RelayRemoveByIdProductInput",
-          "description": null,
+          "name": "FilterRemoveOneProductInput",
+          "description": "",
           "fields": null,
           "inputFields": [
+            {
+              "name": "productID",
+              "description": "Unique product id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "name",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "supplierID",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "categoryID",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "quantityPerUnit",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "unitPrice",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "unitsInStock",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "unitsOnOrder",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "reorderLevel",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "discontinued",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
             {
               "name": "_id",
               "description": null,
               "type": {
-                "kind": "NON_NULL",
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
@@ -13088,11 +12823,98 @@
               "defaultValue": null
             },
             {
-              "name": "clientMutationId",
-              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
+              "name": "_operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
-                "kind": "SCALAR",
-                "name": "String",
+                "kind": "INPUT_OBJECT",
+                "name": "OperatorsFilterRemoveOneProductInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterRemoveOneProductInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterRemoveOneProductInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "OperatorsFilterRemoveOneProductInput",
+          "description": "For performance reason this type contains only *indexed* fields.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "productID",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "ProductIDOperatorsFilterRemoveOneProductInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "name",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "NameOperatorsFilterRemoveOneProductInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "unitPrice",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "UnitPriceOperatorsFilterRemoveOneProductInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_id",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "_idOperatorsFilterRemoveOneProductInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -13103,8 +12925,435 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "ProductIDOperatorsFilterRemoveOneProductInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": "Unique product id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": "Unique product id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": "Unique product id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": "Unique product id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": "Unique product id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": "Unique product id",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": "Unique product id",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "NameOperatorsFilterRemoveOneProductInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UnitPriceOperatorsFilterRemoveOneProductInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "_idOperatorsFilterRemoveOneProductInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "SortRemoveOneProductInput",
+          "description": null,
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "_ID_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "_ID_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PRODUCTID_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "PRODUCTID_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNITPRICE_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNITPRICE_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NAME_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NAME_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NAME__SUPPLIERID_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NAME__SUPPLIERID_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
-          "name": "RemoveByIdProductPayload",
+          "name": "RemoveOneProductPayload",
           "description": null,
           "fields": [
             {
@@ -13132,30 +13381,6 @@
               "deprecationReason": null
             },
             {
-              "name": "nodeId",
-              "description": "The globally unique ID among all types",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "clientMutationId",
-              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "query",
               "description": null,
               "args": [],
@@ -13170,41 +13395,6 @@
           ],
           "inputFields": null,
           "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "RelayCreateOneOrderInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "record",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "CreateOneOrderInput",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "clientMutationId",
-              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
@@ -13363,30 +13553,6 @@
               "deprecationReason": null
             },
             {
-              "name": "nodeId",
-              "description": "The globally unique ID among all types",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "clientMutationId",
-              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "query",
               "description": null,
               "args": [],
@@ -13401,41 +13567,6 @@
           ],
           "inputFields": null,
           "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "RelayUpdateByIdOrderInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "record",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "UpdateByIdOrderInput",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "clientMutationId",
-              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
@@ -13608,30 +13739,6 @@
               "deprecationReason": null
             },
             {
-              "name": "nodeId",
-              "description": "The globally unique ID among all types",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "clientMutationId",
-              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "query",
               "description": null,
               "args": [],
@@ -13651,15 +13758,139 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "RelayRemoveByIdOrderInput",
-          "description": null,
+          "name": "FilterRemoveOneOrderInput",
+          "description": "",
           "fields": null,
           "inputFields": [
+            {
+              "name": "orderID",
+              "description": "Order unique ID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "customerID",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "employeeID",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "orderDate",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Date",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "requiredDate",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Date",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shippedDate",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Date",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shipVia",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "freight",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shipName",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "shipAddress",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "CustomerAddressInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "details",
+              "description": "List of ordered products",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "OrderDetailsInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
             {
               "name": "_id",
               "description": null,
               "type": {
-                "kind": "NON_NULL",
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_ids",
+              "description": null,
+              "type": {
+                "kind": "LIST",
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
@@ -13670,11 +13901,88 @@
               "defaultValue": null
             },
             {
-              "name": "clientMutationId",
-              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
+              "name": "_operators",
+              "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
-                "kind": "SCALAR",
-                "name": "String",
+                "kind": "INPUT_OBJECT",
+                "name": "OperatorsFilterRemoveOneOrderInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "OR",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterRemoveOneOrderInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "AND",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "FilterRemoveOneOrderInput",
+                    "ofType": null
+                  }
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "OperatorsFilterRemoveOneOrderInput",
+          "description": "For performance reason this type contains only *indexed* fields.",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "orderID",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "OrderIDOperatorsFilterRemoveOneOrderInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "details",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "DetailsOperatorsFilterRemoveOneOrderInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_id",
+              "description": null,
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "_idOperatorsFilterRemoveOneOrderInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -13685,8 +13993,322 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "OrderIDOperatorsFilterRemoveOneOrderInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": "Order unique ID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": "Order unique ID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": "Order unique ID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": "Order unique ID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": "Order unique ID",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": "Order unique ID",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": "Order unique ID",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "DetailsOperatorsFilterRemoveOneOrderInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": "List of ordered products",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "OrderDetailsInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": "List of ordered products",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "OrderDetailsInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": "List of ordered products",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "OrderDetailsInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": "List of ordered products",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "OrderDetailsInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": "List of ordered products",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "OrderDetailsInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": "List of ordered products",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "OrderDetailsInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": "List of ordered products",
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "OrderDetailsInput",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "_idOperatorsFilterRemoveOneOrderInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "gt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "gte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lt",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "lte",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "ne",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "in",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "nin",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "MongoID",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "SortRemoveOneOrderInput",
+          "description": null,
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "_ID_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "_ID_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ORDERID_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ORDERID_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "DETAILS_ASC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "DETAILS_DESC",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
-          "name": "RemoveByIdOrderPayload",
+          "name": "RemoveOneOrderPayload",
           "description": null,
           "fields": [
             {
@@ -13714,30 +14336,6 @@
               "deprecationReason": null
             },
             {
-              "name": "nodeId",
-              "description": "The globally unique ID among all types",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "clientMutationId",
-              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "query",
               "description": null,
               "args": [],
@@ -13752,41 +14350,6 @@
           ],
           "inputFields": null,
           "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "RelayUpdateByIdEmployeeInput",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "record",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "INPUT_OBJECT",
-                  "name": "UpdateByIdEmployeeInput",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "clientMutationId",
-              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "defaultValue": null
-            }
-          ],
-          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
@@ -13953,30 +14516,6 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "Employee",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "nodeId",
-              "description": "The globally unique ID among all types",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "clientMutationId",
-              "description": "The client mutation ID used by clients like Relay to track the mutation. If given, returned in the response payload of the mutation.",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -14795,16 +15334,6 @@
             }
           ],
           "possibleTypes": null
-        },
-        {
-          "kind": "SCALAR",
-          "name": "JSON",
-          "description": "The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
         }
       ],
       "directives": [
@@ -14875,29 +15404,6 @@
                 "ofType": null
               },
               "defaultValue": "\"No longer supported\""
-            }
-          ]
-        },
-        {
-          "name": "default",
-          "description": "Provides default value for input field.",
-          "locations": [
-            "INPUT_FIELD_DEFINITION"
-          ],
-          "args": [
-            {
-              "name": "value",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "JSON",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
             }
           ]
         }

@@ -1,6 +1,3 @@
-"""Provides default value for input field."""
-directive @default(value: JSON!) on INPUT_FIELD_DEFINITION
-
 input _idOperatorsFilterFindManyCharacterInput {
   gt: MongoID
   gte: MongoID
@@ -149,11 +146,6 @@ input FilterFindManyPersonInput {
   OR: [FilterFindManyCharacterInput!]
   AND: [FilterFindManyCharacterInput!]
 }
-
-"""
-The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
-"""
-scalar JSON
 
 """
 The `ID` scalar type represents a unique MongoDB identifier in collection.

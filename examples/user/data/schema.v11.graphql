@@ -1,6 +1,3 @@
-# Provides default value for input field.
-directive @default(value: JSON!) on INPUT_FIELD_DEFINITION
-
 input _idOperatorsFilterFindManyUserInput {
   gt: MongoID
   gte: MongoID
@@ -156,7 +153,7 @@ input CreateManyUserInput {
 
   # Some dynamic data
   someMixed: JSON
-  salary: BSONDecimal
+  salaryDecimal: BSONDecimal
 }
 
 type CreateManyUserPayload {
@@ -180,7 +177,7 @@ input CreateOneUserInput {
 
   # Some dynamic data
   someMixed: JSON
-  salary: BSONDecimal
+  salaryDecimal: BSONDecimal
 }
 
 type CreateOneUserPayload {
@@ -213,7 +210,7 @@ input FilterFindManyUserInput {
 
   # Some dynamic data
   someMixed: JSON
-  salary: BSONDecimal
+  salaryDecimal: BSONDecimal
   _id: MongoID
   _ids: [MongoID]
 
@@ -236,7 +233,7 @@ input FilterFindOneUserInput {
 
   # Some dynamic data
   someMixed: JSON
-  salary: BSONDecimal
+  salaryDecimal: BSONDecimal
   _id: MongoID
   _ids: [MongoID]
 
@@ -256,7 +253,7 @@ input FilterRemoveManyUserInput {
 
   # Some dynamic data
   someMixed: JSON
-  salary: BSONDecimal
+  salaryDecimal: BSONDecimal
   _id: MongoID
   _ids: [MongoID]
 
@@ -276,7 +273,7 @@ input FilterRemoveOneUserInput {
 
   # Some dynamic data
   someMixed: JSON
-  salary: BSONDecimal
+  salaryDecimal: BSONDecimal
   _id: MongoID
   _ids: [MongoID]
 
@@ -296,7 +293,7 @@ input FilterUpdateManyUserInput {
 
   # Some dynamic data
   someMixed: JSON
-  salary: BSONDecimal
+  salaryDecimal: BSONDecimal
   _id: MongoID
   _ids: [MongoID]
 
@@ -316,7 +313,7 @@ input FilterUpdateOneUserInput {
 
   # Some dynamic data
   someMixed: JSON
-  salary: BSONDecimal
+  salaryDecimal: BSONDecimal
   _id: MongoID
   _ids: [MongoID]
 
@@ -336,7 +333,7 @@ input FilterUserInput {
 
   # Some dynamic data
   someMixed: JSON
-  salary: BSONDecimal
+  salaryDecimal: BSONDecimal
   _id: MongoID
   _ids: [MongoID]
 
@@ -560,7 +557,7 @@ input OperatorsFilterFindManyUserInput {
   name: NameOperatorsFilterFindManyUserInput
   age: AgeOperatorsFilterFindManyUserInput
   gender: GenderOperatorsFilterFindManyUserInput
-  salary: SalaryOperatorsFilterFindManyUserInput
+  salaryDecimal: SalaryDecimalOperatorsFilterFindManyUserInput
   _id: _idOperatorsFilterFindManyUserInput
 }
 
@@ -569,7 +566,7 @@ input OperatorsFilterFindOneUserInput {
   name: NameOperatorsFilterFindOneUserInput
   age: AgeOperatorsFilterFindOneUserInput
   gender: GenderOperatorsFilterFindOneUserInput
-  salary: SalaryOperatorsFilterFindOneUserInput
+  salaryDecimal: SalaryDecimalOperatorsFilterFindOneUserInput
   _id: _idOperatorsFilterFindOneUserInput
 }
 
@@ -578,7 +575,7 @@ input OperatorsFilterRemoveManyUserInput {
   name: NameOperatorsFilterRemoveManyUserInput
   age: AgeOperatorsFilterRemoveManyUserInput
   gender: GenderOperatorsFilterRemoveManyUserInput
-  salary: SalaryOperatorsFilterRemoveManyUserInput
+  salaryDecimal: SalaryDecimalOperatorsFilterRemoveManyUserInput
   _id: _idOperatorsFilterRemoveManyUserInput
 }
 
@@ -587,7 +584,7 @@ input OperatorsFilterRemoveOneUserInput {
   name: NameOperatorsFilterRemoveOneUserInput
   age: AgeOperatorsFilterRemoveOneUserInput
   gender: GenderOperatorsFilterRemoveOneUserInput
-  salary: SalaryOperatorsFilterRemoveOneUserInput
+  salaryDecimal: SalaryDecimalOperatorsFilterRemoveOneUserInput
   _id: _idOperatorsFilterRemoveOneUserInput
 }
 
@@ -596,7 +593,7 @@ input OperatorsFilterUpdateManyUserInput {
   name: NameOperatorsFilterUpdateManyUserInput
   age: AgeOperatorsFilterUpdateManyUserInput
   gender: GenderOperatorsFilterUpdateManyUserInput
-  salary: SalaryOperatorsFilterUpdateManyUserInput
+  salaryDecimal: SalaryDecimalOperatorsFilterUpdateManyUserInput
   _id: _idOperatorsFilterUpdateManyUserInput
 }
 
@@ -605,7 +602,7 @@ input OperatorsFilterUpdateOneUserInput {
   name: NameOperatorsFilterUpdateOneUserInput
   age: AgeOperatorsFilterUpdateOneUserInput
   gender: GenderOperatorsFilterUpdateOneUserInput
-  salary: SalaryOperatorsFilterUpdateOneUserInput
+  salaryDecimal: SalaryDecimalOperatorsFilterUpdateOneUserInput
   _id: _idOperatorsFilterUpdateOneUserInput
 }
 
@@ -614,7 +611,7 @@ input OperatorsFilterUserInput {
   name: NameOperatorsFilterUserInput
   age: AgeOperatorsFilterUserInput
   gender: GenderOperatorsFilterUserInput
-  salary: SalaryOperatorsFilterUserInput
+  salaryDecimal: SalaryDecimalOperatorsFilterUserInput
   _id: _idOperatorsFilterUserInput
 }
 
@@ -713,7 +710,7 @@ type RemoveOneUserPayload {
   record: User
 }
 
-input SalaryOperatorsFilterFindManyUserInput {
+input SalaryDecimalOperatorsFilterFindManyUserInput {
   gt: BSONDecimal
   gte: BSONDecimal
   lt: BSONDecimal
@@ -723,7 +720,7 @@ input SalaryOperatorsFilterFindManyUserInput {
   nin: [BSONDecimal]
 }
 
-input SalaryOperatorsFilterFindOneUserInput {
+input SalaryDecimalOperatorsFilterFindOneUserInput {
   gt: BSONDecimal
   gte: BSONDecimal
   lt: BSONDecimal
@@ -733,7 +730,7 @@ input SalaryOperatorsFilterFindOneUserInput {
   nin: [BSONDecimal]
 }
 
-input SalaryOperatorsFilterRemoveManyUserInput {
+input SalaryDecimalOperatorsFilterRemoveManyUserInput {
   gt: BSONDecimal
   gte: BSONDecimal
   lt: BSONDecimal
@@ -743,7 +740,7 @@ input SalaryOperatorsFilterRemoveManyUserInput {
   nin: [BSONDecimal]
 }
 
-input SalaryOperatorsFilterRemoveOneUserInput {
+input SalaryDecimalOperatorsFilterRemoveOneUserInput {
   gt: BSONDecimal
   gte: BSONDecimal
   lt: BSONDecimal
@@ -753,7 +750,7 @@ input SalaryOperatorsFilterRemoveOneUserInput {
   nin: [BSONDecimal]
 }
 
-input SalaryOperatorsFilterUpdateManyUserInput {
+input SalaryDecimalOperatorsFilterUpdateManyUserInput {
   gt: BSONDecimal
   gte: BSONDecimal
   lt: BSONDecimal
@@ -763,7 +760,7 @@ input SalaryOperatorsFilterUpdateManyUserInput {
   nin: [BSONDecimal]
 }
 
-input SalaryOperatorsFilterUpdateOneUserInput {
+input SalaryDecimalOperatorsFilterUpdateOneUserInput {
   gt: BSONDecimal
   gte: BSONDecimal
   lt: BSONDecimal
@@ -773,7 +770,7 @@ input SalaryOperatorsFilterUpdateOneUserInput {
   nin: [BSONDecimal]
 }
 
-input SalaryOperatorsFilterUserInput {
+input SalaryDecimalOperatorsFilterUserInput {
   gt: BSONDecimal
   gte: BSONDecimal
   lt: BSONDecimal
@@ -795,8 +792,8 @@ enum SortFindByIdsUserInput {
   NAME_DESC
   AGE_ASC
   AGE_DESC
-  SALARY_ASC
-  SALARY_DESC
+  SALARYDECIMAL_ASC
+  SALARYDECIMAL_DESC
   GENDER_ASC
   GENDER_DESC
   GENDER__AGE_ASC
@@ -810,8 +807,8 @@ enum SortFindManyUserInput {
   NAME_DESC
   AGE_ASC
   AGE_DESC
-  SALARY_ASC
-  SALARY_DESC
+  SALARYDECIMAL_ASC
+  SALARYDECIMAL_DESC
   GENDER_ASC
   GENDER_DESC
   GENDER__AGE_ASC
@@ -825,8 +822,8 @@ enum SortFindOneUserInput {
   NAME_DESC
   AGE_ASC
   AGE_DESC
-  SALARY_ASC
-  SALARY_DESC
+  SALARYDECIMAL_ASC
+  SALARYDECIMAL_DESC
   GENDER_ASC
   GENDER_DESC
   GENDER__AGE_ASC
@@ -840,8 +837,8 @@ enum SortRemoveOneUserInput {
   NAME_DESC
   AGE_ASC
   AGE_DESC
-  SALARY_ASC
-  SALARY_DESC
+  SALARYDECIMAL_ASC
+  SALARYDECIMAL_DESC
   GENDER_ASC
   GENDER_DESC
   GENDER__AGE_ASC
@@ -855,8 +852,8 @@ enum SortUpdateManyUserInput {
   NAME_DESC
   AGE_ASC
   AGE_DESC
-  SALARY_ASC
-  SALARY_DESC
+  SALARYDECIMAL_ASC
+  SALARYDECIMAL_DESC
   GENDER_ASC
   GENDER_DESC
   GENDER__AGE_ASC
@@ -870,8 +867,8 @@ enum SortUpdateOneUserInput {
   NAME_DESC
   AGE_ASC
   AGE_DESC
-  SALARY_ASC
-  SALARY_DESC
+  SALARYDECIMAL_ASC
+  SALARYDECIMAL_DESC
   GENDER_ASC
   GENDER_DESC
   GENDER__AGE_ASC
@@ -888,7 +885,7 @@ input UpdateByIdUserInput {
 
   # Some dynamic data
   someMixed: JSON
-  salary: BSONDecimal
+  salaryDecimal: BSONDecimal
   _id: MongoID!
 }
 
@@ -910,7 +907,7 @@ input UpdateManyUserInput {
 
   # Some dynamic data
   someMixed: JSON
-  salary: BSONDecimal
+  salaryDecimal: BSONDecimal
 }
 
 type UpdateManyUserPayload {
@@ -928,7 +925,7 @@ input UpdateOneUserInput {
 
   # Some dynamic data
   someMixed: JSON
-  salary: BSONDecimal
+  salaryDecimal: BSONDecimal
 }
 
 type UpdateOneUserPayload {
@@ -949,7 +946,7 @@ type User {
 
   # Some dynamic data
   someMixed: JSON
-  salary: BSONDecimal
+  salaryDecimal: BSONDecimal
   _id: MongoID!
   virtualField(lang: String): String
 }

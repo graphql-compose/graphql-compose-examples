@@ -2662,16 +2662,6 @@
           ],
           "enumValues": null,
           "possibleTypes": null
-        },
-        {
-          "kind": "SCALAR",
-          "name": "JSON",
-          "description": "The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
         }
       ],
       "directives": [
@@ -2742,29 +2732,6 @@
                 "ofType": null
               },
               "defaultValue": "\"No longer supported\""
-            }
-          ]
-        },
-        {
-          "name": "default",
-          "description": "Provides default value for input field.",
-          "locations": [
-            "INPUT_FIELD_DEFINITION"
-          ],
-          "args": [
-            {
-              "name": "value",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "JSON",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
             }
           ]
         }

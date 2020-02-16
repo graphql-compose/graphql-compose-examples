@@ -455,7 +455,7 @@
               "deprecationReason": null
             },
             {
-              "name": "salary",
+              "name": "salaryDecimal",
               "description": null,
               "args": [],
               "type": {
@@ -789,13 +789,13 @@
               "deprecationReason": null
             },
             {
-              "name": "SALARY_ASC",
+              "name": "SALARYDECIMAL_ASC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "SALARY_DESC",
+              "name": "SALARYDECIMAL_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -908,7 +908,7 @@
               "defaultValue": null
             },
             {
-              "name": "salary",
+              "name": "salaryDecimal",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -1140,11 +1140,11 @@
               "defaultValue": null
             },
             {
-              "name": "salary",
+              "name": "salaryDecimal",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "SalaryOperatorsFilterFindOneUserInput",
+                "name": "SalaryDecimalOperatorsFilterFindOneUserInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1433,7 +1433,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "SalaryOperatorsFilterFindOneUserInput",
+          "name": "SalaryDecimalOperatorsFilterFindOneUserInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -1654,13 +1654,13 @@
               "deprecationReason": null
             },
             {
-              "name": "SALARY_ASC",
+              "name": "SALARYDECIMAL_ASC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "SALARY_DESC",
+              "name": "SALARYDECIMAL_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -1773,7 +1773,7 @@
               "defaultValue": null
             },
             {
-              "name": "salary",
+              "name": "salaryDecimal",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -1904,11 +1904,11 @@
               "defaultValue": null
             },
             {
-              "name": "salary",
+              "name": "salaryDecimal",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "SalaryOperatorsFilterFindManyUserInput",
+                "name": "SalaryDecimalOperatorsFilterFindManyUserInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2197,7 +2197,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "SalaryOperatorsFilterFindManyUserInput",
+          "name": "SalaryDecimalOperatorsFilterFindManyUserInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -2471,13 +2471,13 @@
               "deprecationReason": null
             },
             {
-              "name": "SALARY_ASC",
+              "name": "SALARYDECIMAL_ASC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "SALARY_DESC",
+              "name": "SALARYDECIMAL_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -2590,7 +2590,7 @@
               "defaultValue": null
             },
             {
-              "name": "salary",
+              "name": "salaryDecimal",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -2711,11 +2711,11 @@
               "defaultValue": null
             },
             {
-              "name": "salary",
+              "name": "salaryDecimal",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "SalaryOperatorsFilterUserInput",
+                "name": "SalaryDecimalOperatorsFilterUserInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -3004,7 +3004,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "SalaryOperatorsFilterUserInput",
+          "name": "SalaryDecimalOperatorsFilterUserInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -3928,7 +3928,7 @@
               "defaultValue": null
             },
             {
-              "name": "salary",
+              "name": "salaryDecimal",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -4058,7 +4058,7 @@
               "defaultValue": null
             },
             {
-              "name": "salary",
+              "name": "salaryDecimal",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -4220,7 +4220,7 @@
               "defaultValue": null
             },
             {
-              "name": "salary",
+              "name": "salaryDecimal",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -4364,7 +4364,7 @@
               "defaultValue": null
             },
             {
-              "name": "salary",
+              "name": "salaryDecimal",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -4459,7 +4459,7 @@
               "defaultValue": null
             },
             {
-              "name": "salary",
+              "name": "salaryDecimal",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -4580,11 +4580,11 @@
               "defaultValue": null
             },
             {
-              "name": "salary",
+              "name": "salaryDecimal",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "SalaryOperatorsFilterUpdateOneUserInput",
+                "name": "SalaryDecimalOperatorsFilterUpdateOneUserInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -4873,7 +4873,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "SalaryOperatorsFilterUpdateOneUserInput",
+          "name": "SalaryDecimalOperatorsFilterUpdateOneUserInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -5094,13 +5094,13 @@
               "deprecationReason": null
             },
             {
-              "name": "SALARY_ASC",
+              "name": "SALARYDECIMAL_ASC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "SALARY_DESC",
+              "name": "SALARYDECIMAL_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -5248,7 +5248,7 @@
               "defaultValue": null
             },
             {
-              "name": "salary",
+              "name": "salaryDecimal",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -5343,7 +5343,7 @@
               "defaultValue": null
             },
             {
-              "name": "salary",
+              "name": "salaryDecimal",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -5464,11 +5464,11 @@
               "defaultValue": null
             },
             {
-              "name": "salary",
+              "name": "salaryDecimal",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "SalaryOperatorsFilterUpdateManyUserInput",
+                "name": "SalaryDecimalOperatorsFilterUpdateManyUserInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -5757,7 +5757,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "SalaryOperatorsFilterUpdateManyUserInput",
+          "name": "SalaryDecimalOperatorsFilterUpdateManyUserInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -5978,13 +5978,13 @@
               "deprecationReason": null
             },
             {
-              "name": "SALARY_ASC",
+              "name": "SALARYDECIMAL_ASC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "SALARY_DESC",
+              "name": "SALARYDECIMAL_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6155,7 +6155,7 @@
               "defaultValue": null
             },
             {
-              "name": "salary",
+              "name": "salaryDecimal",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -6276,11 +6276,11 @@
               "defaultValue": null
             },
             {
-              "name": "salary",
+              "name": "salaryDecimal",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "SalaryOperatorsFilterRemoveOneUserInput",
+                "name": "SalaryDecimalOperatorsFilterRemoveOneUserInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -6569,7 +6569,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "SalaryOperatorsFilterRemoveOneUserInput",
+          "name": "SalaryDecimalOperatorsFilterRemoveOneUserInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -6790,13 +6790,13 @@
               "deprecationReason": null
             },
             {
-              "name": "SALARY_ASC",
+              "name": "SALARYDECIMAL_ASC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "SALARY_DESC",
+              "name": "SALARYDECIMAL_DESC",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -6944,7 +6944,7 @@
               "defaultValue": null
             },
             {
-              "name": "salary",
+              "name": "salaryDecimal",
               "description": null,
               "type": {
                 "kind": "SCALAR",
@@ -7065,11 +7065,11 @@
               "defaultValue": null
             },
             {
-              "name": "salary",
+              "name": "salaryDecimal",
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "SalaryOperatorsFilterRemoveManyUserInput",
+                "name": "SalaryDecimalOperatorsFilterRemoveManyUserInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -7358,7 +7358,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "SalaryOperatorsFilterRemoveManyUserInput",
+          "name": "SalaryDecimalOperatorsFilterRemoveManyUserInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -8422,29 +8422,6 @@
                 "ofType": null
               },
               "defaultValue": "\"No longer supported\""
-            }
-          ]
-        },
-        {
-          "name": "default",
-          "description": "Provides default value for input field.",
-          "locations": [
-            "INPUT_FIELD_DEFINITION"
-          ],
-          "args": [
-            {
-              "name": "value",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "JSON",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
             }
           ]
         }
