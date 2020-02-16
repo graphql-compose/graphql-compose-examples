@@ -1560,10 +1560,10 @@ atob@^2.0.0:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-aws-sdk@2.614.0:
-  version "2.614.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.614.0.tgz#e954824c1b9e566691a24ed8491ebf1d68350d37"
-  integrity sha512-o7utaxDMo9ri1VyPKw8Kcmpy5uZOqMeok2cgur70iZ94zsLIRnHKrBv1wMBbyRGuUbfJRq76HGAS9QxdiSqQHw==
+aws-sdk@2.619.0:
+  version "2.619.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.619.0.tgz#daacd97fb8d948c10278071129c12908039ab542"
+  integrity sha512-qujQf27p3mrGZGCL+C+vXCEB08AMm6gS1572fgHrVLBXfy6SjhV4dzEYtt+ZptQm+8z0zuHsDqghJuBCcdpxqQ==
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
@@ -3082,10 +3082,10 @@ flatted@^2.0.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-2.0.0.tgz#55122b6536ea496b4b44893ee2608141d10d9916"
   integrity sha512-R+H8IZclI8AAkSBRQJLVOsxwAoHd6WC40b4QTNWIjzAa6BXOBfQcM587MXDTVPeYaopFNWHUFLx7eNmHDSxMWg==
 
-flow-bin@0.102.0:
-  version "0.102.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.102.0.tgz#3d5de44bcc26d26585e932b3201988b766f9b380"
-  integrity sha512-mYon6noeLO0Q5SbiWULLQeM1L96iuXnRtYMd47j3bEWXAwUW9EnwNWcn+cZg/jC/Dg4Wj/jnkdTDEuFtbeu1ww==
+flow-bin@0.118.0:
+  version "0.118.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.118.0.tgz#fb706364a58c682d67a2ca7df39396467dc397d1"
+  integrity sha512-jlbUu0XkbpXeXhan5xyTqVK1jmEKNxE8hpzznI3TThHTr76GiFwK0iRzhDo4KNy+S9h/KxHaqVhTP86vA6wHCg==
 
 for-in@^1.0.2:
   version "1.0.2"
@@ -3331,26 +3331,26 @@ graphql-compose-aws@4.0.1:
   resolved "https://registry.yarnpkg.com/graphql-compose-aws/-/graphql-compose-aws-4.0.1.tgz#274097538c01d355e20be081bdf8451ed7a00e3c"
   integrity sha512-kf9U7ux+xg0lL55PQxkgcAoJXUQuRLQd2y6Tu7TUnSE/D3wm2s6uKodY+CwDnZ9V9B2ggTcTXs/w/C/PV95+CA==
 
-graphql-compose-connection@6.0.3, graphql-compose-connection@^6.0.3:
-  version "6.0.3"
-  resolved "https://registry.yarnpkg.com/graphql-compose-connection/-/graphql-compose-connection-6.0.3.tgz#f01e0bcdb93383c3fc1d5e3115ce6d4f825a95b1"
-  integrity sha512-vGoh+4ewZxRDcaINPupJD/d3Ie6X/Mrc4+ctHF6bgI1WIh0RHTJWCEysrKGvh+yAO+rGrES1JpfAkY4iidDddA==
+graphql-compose-connection@6.0.4:
+  version "6.0.4"
+  resolved "https://registry.yarnpkg.com/graphql-compose-connection/-/graphql-compose-connection-6.0.4.tgz#857356e5fc4e7335bc6da62bd3bbfe9a257f00db"
+  integrity sha512-LSIdv3pqFbf+71xD3fAMRZq4GFtqHAYkLFE3RDdWWgsDaOWLuw/+5Dcva0+Di82VI0z9J98il9192bH5L4GNdw==
 
-graphql-compose-elasticsearch@4.0.7:
-  version "4.0.7"
-  resolved "https://registry.yarnpkg.com/graphql-compose-elasticsearch/-/graphql-compose-elasticsearch-4.0.7.tgz#f6157983052931100700f9b8cb9669f49ce1c7fa"
-  integrity sha512-jbQ77JsjOL+QR7P6GWkCniMYGOp4tQBQGLxitVc35RYG9jgSQPE4QM539yksVRSsOq7eHA7M3v0BE1wcjWXVHw==
+graphql-compose-elasticsearch@4.0.8:
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/graphql-compose-elasticsearch/-/graphql-compose-elasticsearch-4.0.8.tgz#4758ebffc0d56acb435e9f80dd5280df44552050"
+  integrity sha512-aAXE9greOYTt7L15JEkou5IqRMkVcVRZrUyLZS0wipVC1qM/qf0wxGn/Ej+kJm97LQnk1dyb9tO8wHbm9PkuGg==
   dependencies:
     dox "^0.9.0"
 
-graphql-compose-mongoose@7.3.3:
-  version "7.3.3"
-  resolved "https://registry.yarnpkg.com/graphql-compose-mongoose/-/graphql-compose-mongoose-7.3.3.tgz#acbd6b4140555d30ad22f7b506ef24630f2f565a"
-  integrity sha512-Rkt3irKuunznxvKp2XLNSm+fKzOuvzJ8K8S68Qfiq5RwJaviYn3V/WWmzk70YJQxqaMpK3elXFFCEaqF15UPxQ==
+graphql-compose-mongoose@7.3.4:
+  version "7.3.4"
+  resolved "https://registry.yarnpkg.com/graphql-compose-mongoose/-/graphql-compose-mongoose-7.3.4.tgz#52b7bb15730bf7151cd4a9b987402f7773410638"
+  integrity sha512-l/rnKRo3+esDOTdn10ilujvWpdmZnIH/q/lwcHjlvBfLOIAQxpi1MIL/6OMXp3cjFAFpgZxmCHDcCgJVsSn5nA==
   dependencies:
     object-path "^0.11.4"
   optionalDependencies:
-    graphql-compose-connection "^6.0.3"
+    graphql-compose-connection "6.0.4"
     graphql-compose-pagination "^6.0.3"
 
 graphql-compose-pagination@6.0.3, graphql-compose-pagination@^6.0.3:
@@ -3363,10 +3363,10 @@ graphql-compose-relay@5.0.3:
   resolved "https://registry.yarnpkg.com/graphql-compose-relay/-/graphql-compose-relay-5.0.3.tgz#5db94d47289f802c89dbdfdf5c95c8e5c2b14497"
   integrity sha512-g/4TOelWAPlw3Ib2krLmmHBdqqaEHBp71/oFk/wDllK9MS5ukXVn//ffqggIVoohx453gd+UIUYCVOKukvErDA==
 
-graphql-compose@7.11.0:
-  version "7.11.0"
-  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-7.11.0.tgz#77e7435918f7f9a186ae9e939fa2c92c3bb85cdd"
-  integrity sha512-vmAaNA4BUM7PBe1PpujLRIsAlx1qjaoAsol1IvGQKBIi8TwdrLnFZEza0O7+AalqbmcP2eqZ5On/pALP/88ZiA==
+graphql-compose@7.12.0:
+  version "7.12.0"
+  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-7.12.0.tgz#223e3c811c18e18e153be2c77c632afa3015477a"
+  integrity sha512-AbuQl2LfHYWtgVNJd8De2m8+KtJnkIXII8QkuSt2NMsniFc7DUuIp3MBaNPS9pRCA6l1OTGk2labuWRSyXZVlw==
   dependencies:
     graphql-type-json "^0.3.1"
     object-path "^0.11.4"
@@ -4841,12 +4841,14 @@ mongodb-memory-server@6.2.4:
   dependencies:
     mongodb-memory-server-core "6.2.4"
 
-mongodb@3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.4.1.tgz#0d15e57e0ea0fc85b7a4fb9291b374c2e71652dc"
-  integrity sha512-juqt5/Z42J4DcE7tG7UdVaTKmUC6zinF4yioPfpeOSNBieWSK6qCY+0tfGQcHLKrauWPDdMZVROHJOa8q2pWsA==
+mongodb@3.5.3:
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.5.3.tgz#f2c7ce9b5fc9a13da116ff1b6e816f6256010a86"
+  integrity sha512-II7P7A3XUdPiXRgcN96qIoRa1oesM6qLNZkzfPluNZjVkgQk3jnQwOT6/uDk4USRDTTLjNFw2vwfmbRGTA7msg==
   dependencies:
+    bl "^2.2.0"
     bson "^1.1.1"
+    denque "^1.4.1"
     require_optional "^1.0.1"
     safe-buffer "^5.1.2"
   optionalDependencies:
@@ -4869,14 +4871,14 @@ mongoose-legacy-pluralize@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/mongoose-legacy-pluralize/-/mongoose-legacy-pluralize-1.0.2.tgz#3ba9f91fa507b5186d399fb40854bff18fb563e4"
 
-mongoose@5.8.11:
-  version "5.8.11"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.8.11.tgz#4b3813e55d33928dcc4a2c5cf4b8a76041192861"
-  integrity sha512-Yz0leNEJsAtNtMTxTDEadacLWt58gaVeBVL3c1Z3vaBoc159aJqlf+T8jaL9mAdBxKndF5YWhh6Q719xac7cjA==
+mongoose@5.9.1:
+  version "5.9.1"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.9.1.tgz#48a5fafe6bc7b57d6b41b12ebf55fa5f609518d6"
+  integrity sha512-qgS31/nZ63vpr8yBg6w8vaV8ITxwrF2ioNW5AakXmqvVBaOsI0xpDd5QBowESy2InDTk+iDaN5SNgSxGG6GntQ==
   dependencies:
     bson "~1.1.1"
     kareem "2.3.1"
-    mongodb "3.4.1"
+    mongodb "3.5.3"
     mongoose-legacy-pluralize "1.0.2"
     mpath "0.6.0"
     mquery "3.2.2"
@@ -5791,7 +5793,7 @@ request-promise-native@^1.0.7:
     stealthy-require "^1.1.1"
     tough-cookie "^2.3.3"
 
-request@2.88.0, request@^2.88.0:
+request@^2.88.0:
   version "2.88.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.88.0.tgz#9c2fca4f7d35b592efe57c7f0a55e81052124fef"
   integrity sha512-NAqBSrijGLZdM0WZNsInLJpkJokL72XYjUpnB0iwsRgxh7dB6COrHnTBNwN0E+lHDAJzu7kLAkDeY08z2/A0hg==
