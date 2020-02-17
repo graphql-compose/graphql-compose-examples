@@ -10,7 +10,10 @@ export function autoResetDataIn30min(resolvers: { [name: string]: Resolver<any, 
   Object.keys(resolvers).forEach((k) => {
     secureResolvers[k] = resolvers[k].wrapResolve((next) => (rp) => {
       if (!clearDataTimeoutId) {
-        clearDataTimeoutId = setTimeout(seed, 1000 * 30 * 60);
+        clearDataTimeoutId = setTimeout(() => {
+          clearDataTimeoutId = null;
+          seed();
+        }, 60000 * 30); // in 30 minutes
       }
       return next(rp);
     });

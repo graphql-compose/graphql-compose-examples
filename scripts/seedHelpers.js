@@ -17,7 +17,7 @@ let db;
 
 async function mongoConnect() {
   if (!db) {
-    con = await await MongoClient.connect(mongoUri, { useNewUrlParser: true });
+    con = await MongoClient.connect(mongoUri, { useNewUrlParser: true });
     db = con.db(getDBName(mongoUri));
   }
   return db;
@@ -25,9 +25,10 @@ async function mongoConnect() {
 
 async function mongoDisconnect() {
   if (con) {
-    await con.close();
+    const oldCon = con;
     con = undefined;
     db = undefined;
+    await oldCon.close();
   }
 }
 
