@@ -7,6 +7,7 @@
 // import { SchemaComposer } from 'graphql-compose';
 // const schemaComposer = new SchemaComposer();
 
+import { PubSub } from 'apollo-server-express';
 import { schemaComposer } from './schemaComposer';
 import { CategoryTC } from './models/category';
 import { CustomerTC } from './models/customer';
@@ -20,7 +21,6 @@ import { SupplierTC } from './models/supplier';
 import { addQueryToPayload } from './wrappers/addQueryToPayload';
 import { autoResetDataIn30min } from './wrappers/autoResetDataIn30min';
 import { seedByName } from '../../scripts/seedHelpers';
-import { PubSub } from 'apollo-server-express';
 
 const pubsub = new PubSub();
 
