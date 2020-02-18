@@ -12,7 +12,7 @@ import { schemaComposer } from './schemaComposer';
 import { CategoryTC } from './models/category';
 import { CustomerTC } from './models/customer';
 import { EmployeeTC } from './models/employee';
-import { OrderTC } from './models/order';
+import { OrderTC, Order } from './models/order';
 import { ProductTC } from './models/product';
 import { RegionTC } from './models/region';
 import { ShipperTC } from './models/shipper';
@@ -21,6 +21,7 @@ import { SupplierTC } from './models/supplier';
 import { addQueryToPayload } from './wrappers/addQueryToPayload';
 import { autoResetDataIn30min } from './wrappers/autoResetDataIn30min';
 import { seedByName } from '../../scripts/seedHelpers';
+import { FunctifiedAsync } from './FunctifiedAsync';
 
 const pubsub = new PubSub();
 
@@ -77,21 +78,23 @@ schemaComposer.Mutation.addFields({
       createOrder: OrderTC.getResolver('createOne', [
         async (next, s, a, c, i) => {
           const res = await next(s, a, c, i);
-          pubsub.publish('ORDER_CREATED', res.record);
+          const _id = res?.record?._id;
+          if (_id) pubsub.publish('ORDER_CREATED', _id);
           return res;
         },
       ]),
       updateOrder: OrderTC.getResolver('updateById', [
         async (next, s, a, c, i) => {
           const res = await next(s, a, c, i);
-          pubsub.publish('ORDER_UPDATED', res.record);
+          const _id = res?.record?._id;
+          if (_id) pubsub.publish('ORDER_UPDATED', _id);
           return res;
         },
       ]),
       removeOrder: OrderTC.getResolver('removeOne', [
         async (next, s, a, c, i) => {
           const res = await next(s, a, c, i);
-          pubsub.publish('ORDER_REMOVED', res.record);
+          if (res?._id) pubsub.publish('ORDER_REMOVED', res?._id);
           return res;
         },
       ]),
@@ -118,17 +121,22 @@ schemaComposer.Mutation.addFields({
 schemaComposer.Subscription.addFields({
   orderCreated: {
     type: OrderTC,
-    resolve: (record) => record,
+    // way 1: load Order in resolver
+    resolve: (_id) => Order.findById(_id),
     subscribe: () => pubsub.asyncIterator(['ORDER_CREATED']),
   },
   orderUpdated: {
     type: OrderTC,
-    resolve: (record) => record,
-    subscribe: () => pubsub.asyncIterator(['ORDER_UPDATED']),
+    // way 2: load Order in AsyncIterator
+    resolve: (order) => order,
+    subscribe: () =>
+      FunctifiedAsync.map(pubsub.asyncIterator(['ORDER_UPDATED']), (_id) => {
+        return Order.findById(_id);
+      }),
   },
   orderRemoved: {
     type: 'MongoID',
-    resolve: (record) => record,
+    resolve: (_id) => _id,
     subscribe: () => pubsub.asyncIterator(['ORDER_REMOVED']),
   },
 });
