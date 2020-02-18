@@ -10,7 +10,7 @@ import http from 'http';
 import { SubscriptionServer } from 'subscriptions-transport-ws';
 import { execute, subscribe } from 'graphql';
 import { mainPage, addToMainPage } from './mainPage';
-import { expressPort, getExampleNames, resolveExamplePath } from './config';
+import { PORT, getExampleNames, resolveExamplePath } from './config';
 import './mongooseConnection';
 
 const app = express();
@@ -34,8 +34,8 @@ app.get('/', (req, res) => {
   res.send(mainPage());
 });
 
-httpServer.listen(expressPort, () => {
-  console.log(`🚀🚀🚀 The server is running at http://localhost:${expressPort}/`);
+httpServer.listen(PORT, () => {
+  console.log(`🚀🚀🚀 The server is running at http://localhost:${PORT}/`);
 
   // https://www.apollographql.com/docs/graphql-subscriptions/setup/
   SubscriptionServer.create(
@@ -52,7 +52,7 @@ httpServer.listen(expressPort, () => {
     },
     {
       server: httpServer,
-      path: '/northwind',
+      path: process.env.NORTHWIND_WS_URL || `ws://localhost:${PORT}/northwind`,
     }
   );
 });

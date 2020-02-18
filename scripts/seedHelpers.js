@@ -4,7 +4,7 @@
 
 import { MongoClient } from 'mongodb';
 import fs from 'fs';
-import { getExampleNames, resolveExamplePath, mongoUri } from '../config';
+import { getExampleNames, resolveExamplePath, MONGODB_URI } from '../config';
 
 function getDBName(uri: string) {
   const m = uri.match(/\d{5}\/([a-z0-9_-]{1,})/i);
@@ -17,8 +17,8 @@ let db;
 
 async function mongoConnect() {
   if (!db) {
-    con = await MongoClient.connect(mongoUri, { useNewUrlParser: true });
-    db = con.db(getDBName(mongoUri));
+    con = await MongoClient.connect(MONGODB_URI, { useNewUrlParser: true });
+    db = con.db(getDBName(MONGODB_URI));
   }
   return db;
 }

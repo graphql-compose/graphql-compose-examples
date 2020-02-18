@@ -1,7 +1,7 @@
 /* @flow */
 
 import mongoose from 'mongoose';
-import { mongoUri } from './config';
+import { MONGODB_URI } from './config';
 
 mongoose.Promise = Promise;
 
@@ -14,18 +14,18 @@ const opts = {
   useFindAndModify: false,
 };
 
-mongoose.connect(mongoUri, opts);
+mongoose.connect(MONGODB_URI, opts);
 
 export const { connection } = mongoose;
 connection.on('error', (e) => {
   if (e.message.code === 'ETIMEDOUT') {
     console.log(e);
-    mongoose.connect(mongoUri, opts);
+    mongoose.connect(MONGODB_URI, opts);
   }
   console.log(e);
 });
 connection.on('connected', () => {
-  console.log(`MongoDB successfully connected to ${mongoUri}`);
+  console.log(`MongoDB successfully connected to ${MONGODB_URI}`);
 });
 connection.on('reconnected', () => {
   console.log('MongoDB reconnected!');
