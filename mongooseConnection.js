@@ -24,6 +24,15 @@ connection.on('error', (e) => {
   }
   console.log(e);
 });
-connection.once('open', () => {
+connection.on('connected', () => {
   console.log(`MongoDB successfully connected to ${mongoUri}`);
+});
+connection.on('reconnected', () => {
+  console.log('MongoDB reconnected!');
+});
+
+process.on('SIGINT', async () => {
+  await connection.close();
+  console.log('Force to close the MongoDB conection');
+  process.exit(0);
 });

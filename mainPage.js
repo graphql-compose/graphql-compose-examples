@@ -35,6 +35,9 @@ function renderExamplesLinks() {
     queries.push(
       `<b><a href="${meta.uri}-altair" target="_blank">Altair</a> (improved GraphiQL IDE)</b>`
     );
+    queries.push(
+      `<b><a href="${meta.uri}-voyager" target="_blank">Voyager</a> (visual inspection tool)</b>`
+    );
     const queriesHtml = `<ul><li>${queries.join('</li><li>')}</li></ul>`;
 
     return `${titleHtml}${descriptionHtml}${queriesHtml}`;

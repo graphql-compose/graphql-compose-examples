@@ -11,7 +11,7 @@ export const examplesPath = './examples';
 export function getDirectories(srcPath: string): string[] {
   return fs
     .readdirSync(srcPath)
-    .filter(file => fs.statSync(path.join(srcPath, file)).isDirectory());
+    .filter((file) => fs.statSync(path.join(srcPath, file)).isDirectory());
 }
 
 export function resolveExamplePath(...args: any) {
@@ -23,14 +23,14 @@ export function getExampleNames() {
   const dirs = getDirectories(examplesPath);
 
   const result = [];
-  preferableOrder.forEach(name => {
+  preferableOrder.forEach((name) => {
     const idx = dirs.indexOf(name);
     if (idx !== -1) {
       result.push(name);
       dirs.splice(idx, 1);
     }
   });
-  dirs.forEach(name => {
+  dirs.forEach((name) => {
     result.push(name);
   });
 
