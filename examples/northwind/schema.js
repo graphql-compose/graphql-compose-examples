@@ -23,6 +23,7 @@ import { autoResetDataIn30min } from './wrappers/autoResetDataIn30min';
 import { seedByName } from '../../scripts/seedHelpers';
 import { FunctifiedAsync } from './FunctifiedAsync';
 
+// see more PubSubs here https://www.apollographql.com/docs/apollo-server/data/subscriptions/#pubsub-implementations
 const pubsub = new PubSub();
 
 const ViewerTC = schemaComposer.getOrCreateOTC('Viewer');
@@ -128,6 +129,8 @@ schemaComposer.Subscription.addFields({
   orderUpdated: {
     type: OrderTC,
     // way 2: load Order in AsyncIterator
+    // in same manner you may use `withFilter` helper:
+    // https://www.apollographql.com/docs/apollo-server/data/subscriptions/#subscription-filters
     resolve: (order) => order,
     subscribe: () =>
       FunctifiedAsync.map(pubsub.asyncIterator(['ORDER_UPDATED']), (_id) => {
