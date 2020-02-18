@@ -58,10 +58,11 @@ httpServer.listen(expressPort, () => {
 });
 
 function addExample(example, uri) {
-  example.uri = `/${uri}`; // eslint-disable-line
+  example.uri = `/${uri}`;
 
   const server = new ApolloServer({
     schema: example.schema,
+    introspection: true,
     playground: {
       subscriptionEndpoint: example.uri,
     },
