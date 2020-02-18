@@ -20,6 +20,9 @@ import { SupplierTC } from './models/supplier';
 import { addQueryToPayload } from './wrappers/addQueryToPayload';
 import { autoResetDataIn30min } from './wrappers/autoResetDataIn30min';
 import { seedByName } from '../../scripts/seedHelpers';
+import { PubSub } from 'apollo-server-express';
+
+const pubsub = new PubSub();
 
 const ViewerTC = schemaComposer.getOrCreateOTC('Viewer');
 schemaComposer.Query.addFields({
@@ -71,9 +74,27 @@ schemaComposer.Mutation.addFields({
       updateProduct: ProductTC.getResolver('updateById'),
       removeProduct: ProductTC.getResolver('removeOne'),
 
-      createOrder: OrderTC.getResolver('createOne'),
-      updateOrder: OrderTC.getResolver('updateById'),
-      removeOrder: OrderTC.getResolver('removeOne'),
+      createOrder: OrderTC.getResolver('createOne', [
+        async (next, s, a, c, i) => {
+          const res = await next(s, a, c, i);
+          pubsub.publish('ORDER_CREATED', res.record);
+          return res;
+        },
+      ]),
+      updateOrder: OrderTC.getResolver('updateById', [
+        async (next, s, a, c, i) => {
+          const res = await next(s, a, c, i);
+          pubsub.publish('ORDER_UPDATED', res.record);
+          return res;
+        },
+      ]),
+      removeOrder: OrderTC.getResolver('removeOne', [
+        async (next, s, a, c, i) => {
+          const res = await next(s, a, c, i);
+          pubsub.publish('ORDER_REMOVED', res.record);
+          return res;
+        },
+      ]),
 
       updateEmployee: EmployeeTC.getResolver('updateById'),
     }),
@@ -86,6 +107,29 @@ schemaComposer.Mutation.addFields({
       await seedByName('northwind');
       return 'Success';
     },
+  },
+});
+
+// About subscriptions you can reead here:
+// - https://www.apollographql.com/docs/apollo-server/data/subscriptions/
+// - https://github.com/apollographql/subscriptions-transport-ws
+// - https://github.com/apollographql/apollo-server/blob/master/packages/apollo-server-core/src/ApolloServer.ts
+// - https://github.com/graphql/graphql-js/blob/master/src/subscription/__tests__/subscribe-test.js
+schemaComposer.Subscription.addFields({
+  orderCreated: {
+    type: OrderTC,
+    resolve: (record) => record,
+    subscribe: () => pubsub.asyncIterator(['ORDER_CREATED']),
+  },
+  orderUpdated: {
+    type: OrderTC,
+    resolve: (record) => record,
+    subscribe: () => pubsub.asyncIterator(['ORDER_UPDATED']),
+  },
+  orderRemoved: {
+    type: 'MongoID',
+    resolve: (record) => record,
+    subscribe: () => pubsub.asyncIterator(['ORDER_REMOVED']),
   },
 });
 

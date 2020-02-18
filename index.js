@@ -1,16 +1,21 @@
+/* eslint-disable no-new */
 /* @flow */
 
 import express from 'express';
 import cors from 'cors';
-import graphqlHTTP from 'express-graphql';
-import expressPlayground from 'graphql-playground-middleware-express';
+import { ApolloServer } from 'apollo-server-express';
 import { altairExpress } from 'altair-express-middleware';
+import { express as voyagerMiddleware } from 'graphql-voyager/middleware';
+import http from 'http';
+import { SubscriptionServer } from 'subscriptions-transport-ws';
+import { execute, subscribe } from 'graphql';
 import { mainPage, addToMainPage } from './mainPage';
 import { expressPort, getExampleNames, resolveExamplePath } from './config';
 import './mongooseConnection';
 
-const server = express();
-server.use(cors({ origin: true, credentials: true }));
+const app = express();
+const httpServer = http.createServer(app);
+app.use(cors({ origin: true, credentials: true }));
 
 // scan `examples` directory and add
 // - graphql endpoint by uri /exampleDirName
@@ -25,28 +30,48 @@ for (const name of exampleNames) {
 }
 
 // $FlowFixMe
-server.get('/', (req, res) => {
+app.get('/', (req, res) => {
   res.send(mainPage());
 });
 
-server.listen(expressPort, () => {
+httpServer.listen(expressPort, () => {
   console.log(`🚀🚀🚀 The server is running at http://localhost:${expressPort}/`);
+
+  // https://www.apollographql.com/docs/graphql-subscriptions/setup/
+  SubscriptionServer.create(
+    {
+      schema: require('./examples/northwind/schema').default,
+      execute,
+      subscribe,
+      onConnect: (connectionParams, ws, context) => {
+        console.log(`WS[connect][${context.request.connection.remoteAddress}]`, connectionParams);
+      },
+      onDisconnect: (ws, context) => {
+        console.log(`WS[disconn][${context.request.connection.remoteAddress}]`);
+      },
+    },
+    {
+      server: httpServer,
+      path: '/northwind',
+    }
+  );
 });
 
 function addExample(example, uri) {
   example.uri = `/${uri}`; // eslint-disable-line
-  server.use(
-    example.uri,
-    (graphqlHTTP(() => ({
-      schema: example.schema,
-      graphiql: true,
-      customFormatErrorFn: (error) => ({
-        message: error.message,
-        stack: !error.message.match(/for security reason/i) ? error.stack.split('\n') : null,
-      }),
-    })): any)
+
+  const server = new ApolloServer({
+    schema: example.schema,
+    playground: {
+      subscriptionEndpoint: example.uri,
+    },
+  });
+  server.applyMiddleware({ app, path: example.uri });
+
+  app.use(
+    `${example.uri}-altair`,
+    altairExpress({ endpointURL: example.uri, subscriptionsEndpoint: example.uri })
   );
-  server.get(`${example.uri}-playground`, expressPlayground({ endpoint: example.uri }));
-  server.use(`${example.uri}-altair`, altairExpress({ endpointURL: example.uri }));
+  app.use(`${example.uri}-voyager`, voyagerMiddleware({ endpointUrl: example.uri }));
   addToMainPage(example);
 }
