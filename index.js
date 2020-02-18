@@ -52,7 +52,7 @@ httpServer.listen(PORT, () => {
     },
     {
       server: httpServer,
-      path: process.env.NORTHWIND_WS_URL || `ws://localhost:${PORT}/northwind`,
+      path: '/northwind',
     }
   );
 });
@@ -64,14 +64,18 @@ function addExample(example, uri) {
     schema: example.schema,
     introspection: true,
     playground: {
-      subscriptionEndpoint: example.uri,
+      subscriptionEndpoint: process.env.SUBSCRIPTION_ENDPOINT || `ws://localhost:${PORT}/northwind`,
     },
   });
   server.applyMiddleware({ app, path: example.uri });
 
   app.use(
     `${example.uri}-altair`,
-    altairExpress({ endpointURL: example.uri, subscriptionsEndpoint: example.uri })
+    altairExpress({
+      endpointURL: example.uri,
+      subscriptionsEndpoint:
+        process.env.SUBSCRIPTION_ENDPOINT || `ws://localhost:${PORT}/northwind`,
+    })
   );
   app.use(`${example.uri}-voyager`, voyagerMiddleware({ endpointUrl: example.uri }));
   addToMainPage(example);
