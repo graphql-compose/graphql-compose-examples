@@ -1868,6 +1868,12 @@ enum SortRemoveOneProductInput {
   NAME__SUPPLIERID_DESC
 }
 
+type Subscription {
+  orderCreated: Order
+  orderUpdated: Order
+  orderRemoved: MongoID
+}
+
 type Supplier {
   # Supplier unique ID
   supplierID: Float
