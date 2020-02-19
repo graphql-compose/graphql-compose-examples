@@ -14,8 +14,8 @@ import { PORT, getExampleNames, resolveExamplePath } from './config';
 import './mongooseConnection';
 
 const app = express();
-const httpServer = http.createServer(app);
 app.use(cors({ origin: true, credentials: true }));
+const httpServer = http.createServer(app);
 
 // scan `examples` directory and add
 // - graphql endpoint by uri /exampleDirName
