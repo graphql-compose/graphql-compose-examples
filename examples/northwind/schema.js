@@ -95,7 +95,7 @@ schemaComposer.Mutation.addFields({
       removeOrder: OrderTC.getResolver('removeOne', [
         async (next, s, a, c, i) => {
           const res = await next(s, a, c, i);
-          if (res?._id) pubsub.publish('ORDER_REMOVED', res?._id);
+          if (res?.recordId) pubsub.publish('ORDER_REMOVED', res?.recordId);
           return res;
         },
       ]),
