@@ -29,6 +29,16 @@ export const Supplier = model('Supplier', SupplierSchema);
 
 export const SupplierTC = composeWithMongoose<any>(Supplier);
 
+SupplierTC.getResolver('connection').extensions = {
+  complexity: ({ args, childComplexity }) => childComplexity * (args.first || args.last || 20),
+};
+SupplierTC.getResolver('pagination').extensions = {
+  complexity: ({ args, childComplexity }) => childComplexity * (args.perPage || 20),
+};
+SupplierTC.getResolver('findMany').extensions = {
+  complexity: ({ args, childComplexity }) => childComplexity * (args.limit || 1000),
+};
+
 SupplierTC.addRelation('productConnection', {
   resolver: () => ProductTC.getResolver('connection'),
   prepareArgs: {

@@ -66,6 +66,7 @@ function addExample(example, uri) {
     playground: {
       subscriptionEndpoint: process.env.SUBSCRIPTION_ENDPOINT || `ws://localhost:${PORT}/northwind`,
     },
+    plugins: example.plugins,
   });
   server.applyMiddleware({ app, path: example.uri });
 

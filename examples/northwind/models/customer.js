@@ -30,6 +30,16 @@ export const Customer = model('Customer', CustomerSchema);
 
 export const CustomerTC = composeWithMongoose<any>(Customer);
 
+CustomerTC.getResolver('connection').extensions = {
+  complexity: ({ args, childComplexity }) => childComplexity * (args.first || args.last || 20),
+};
+CustomerTC.getResolver('pagination').extensions = {
+  complexity: ({ args, childComplexity }) => childComplexity * (args.perPage || 20),
+};
+CustomerTC.getResolver('findMany').extensions = {
+  complexity: ({ args, childComplexity }) => childComplexity * (args.limit || 1000),
+};
+
 CustomerTC.addRelation('orderConnection', {
   resolver: () => OrderTC.getResolver('connection'),
   prepareArgs: {

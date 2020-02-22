@@ -26,6 +26,16 @@ export const Category = model('Category', CategorySchema);
 
 export const CategoryTC = composeWithMongoose<any>(Category);
 
+CategoryTC.getResolver('connection').extensions = {
+  complexity: ({ args, childComplexity }) => childComplexity * (args.first || args.last || 20),
+};
+CategoryTC.getResolver('pagination').extensions = {
+  complexity: ({ args, childComplexity }) => childComplexity * (args.perPage || 20),
+};
+CategoryTC.getResolver('findMany').extensions = {
+  complexity: ({ args, childComplexity }) => childComplexity * (args.limit || 1000),
+};
+
 CategoryTC.addRelation('productConnection', {
   resolver: () => ProductTC.getResolver('connection'),
   prepareArgs: {

@@ -37,6 +37,16 @@ export const Product = model('Product', ProductSchema);
 
 export const ProductTC = composeWithMongoose<any>(Product);
 
+ProductTC.getResolver('connection').extensions = {
+  complexity: ({ args, childComplexity }) => childComplexity * (args.first || args.last || 20),
+};
+ProductTC.getResolver('pagination').extensions = {
+  complexity: ({ args, childComplexity }) => childComplexity * (args.perPage || 20),
+};
+ProductTC.getResolver('findMany').extensions = {
+  complexity: ({ args, childComplexity }) => childComplexity * (args.limit || 1000),
+};
+
 const extendedResolver = ProductTC.getResolver('findMany').addFilterArg({
   name: 'nameRegexp',
   type: 'String',

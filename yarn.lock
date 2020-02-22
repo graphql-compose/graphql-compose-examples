@@ -2113,10 +2113,10 @@ atob@^2.0.0:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-aws-sdk@2.619.0:
-  version "2.619.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.619.0.tgz#daacd97fb8d948c10278071129c12908039ab542"
-  integrity sha512-qujQf27p3mrGZGCL+C+vXCEB08AMm6gS1572fgHrVLBXfy6SjhV4dzEYtt+ZptQm+8z0zuHsDqghJuBCcdpxqQ==
+aws-sdk@2.624.0:
+  version "2.624.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.624.0.tgz#c30d7ab8a3c81aa21630bd73e9bac71e16347cc5"
+  integrity sha512-6MhbdND7A5lEBiNSZ/HLwhKgrysmwTy6C47H7vfuVnY25hDkIND3C0PLqeRyskUqxv0RqsiAB4kqiMtpE08IGA==
   dependencies:
     buffer "4.9.1"
     events "1.1.1"
@@ -4013,10 +4013,10 @@ graphql-compose-connection@6.0.4:
   resolved "https://registry.yarnpkg.com/graphql-compose-connection/-/graphql-compose-connection-6.0.4.tgz#857356e5fc4e7335bc6da62bd3bbfe9a257f00db"
   integrity sha512-LSIdv3pqFbf+71xD3fAMRZq4GFtqHAYkLFE3RDdWWgsDaOWLuw/+5Dcva0+Di82VI0z9J98il9192bH5L4GNdw==
 
-graphql-compose-elasticsearch@4.0.8:
-  version "4.0.8"
-  resolved "https://registry.yarnpkg.com/graphql-compose-elasticsearch/-/graphql-compose-elasticsearch-4.0.8.tgz#4758ebffc0d56acb435e9f80dd5280df44552050"
-  integrity sha512-aAXE9greOYTt7L15JEkou5IqRMkVcVRZrUyLZS0wipVC1qM/qf0wxGn/Ej+kJm97LQnk1dyb9tO8wHbm9PkuGg==
+graphql-compose-elasticsearch@4.0.9:
+  version "4.0.9"
+  resolved "https://registry.yarnpkg.com/graphql-compose-elasticsearch/-/graphql-compose-elasticsearch-4.0.9.tgz#1c2e7a316b9acbc3580491708eac1c5d46af5d3a"
+  integrity sha512-5UR5ylfoDLhbfU3cp1xHIODRe1y6mWyC26+IUD8/sZB3KiN5cdKE4CuiVf/rfvvobrUShsvsdKZdkSvQ1opcHg==
   dependencies:
     dox "^0.9.0"
 
@@ -4040,10 +4040,10 @@ graphql-compose-relay@5.0.3:
   resolved "https://registry.yarnpkg.com/graphql-compose-relay/-/graphql-compose-relay-5.0.3.tgz#5db94d47289f802c89dbdfdf5c95c8e5c2b14497"
   integrity sha512-g/4TOelWAPlw3Ib2krLmmHBdqqaEHBp71/oFk/wDllK9MS5ukXVn//ffqggIVoohx453gd+UIUYCVOKukvErDA==
 
-graphql-compose@7.12.0:
-  version "7.12.0"
-  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-7.12.0.tgz#223e3c811c18e18e153be2c77c632afa3015477a"
-  integrity sha512-AbuQl2LfHYWtgVNJd8De2m8+KtJnkIXII8QkuSt2NMsniFc7DUuIp3MBaNPS9pRCA6l1OTGk2labuWRSyXZVlw==
+graphql-compose@7.12.3:
+  version "7.12.3"
+  resolved "https://registry.yarnpkg.com/graphql-compose/-/graphql-compose-7.12.3.tgz#70197b288667770a92b9f0046d13105da1aaa1a9"
+  integrity sha512-fgsVhL5eePcwIgQra70jYQErxQ+z3LBz9WIKhcn05XN/FNF5vbIZ/hj8UAWYu8UShsM5434u0wDONuGClsxg+A==
   dependencies:
     graphql-type-json "^0.3.1"
     object-path "^0.11.4"
@@ -4056,6 +4056,13 @@ graphql-extensions@^0.10.10:
     "@apollographql/apollo-tools" "^0.4.3"
     apollo-server-env "^2.4.3"
     apollo-server-types "^0.2.10"
+
+graphql-query-complexity@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/graphql-query-complexity/-/graphql-query-complexity-0.4.1.tgz#06ad49de617da0d74c8196fb4a641349f104552d"
+  integrity sha512-Uo87hNlnJ5jwoWBkVYITbJpTrlCVwgfG5Wrfel0K1/42G+3xvud31CpsprAwiSpFIP+gCqttAx7OVmw4eTqLQQ==
+  dependencies:
+    lodash.get "^4.4.2"
 
 graphql-subscriptions@^1.0.0:
   version "1.1.0"
@@ -5383,6 +5390,11 @@ lockfile@^1.0.4:
   dependencies:
     signal-exit "^3.0.2"
 
+lodash.get@^4.4.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
+  integrity sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
+
 lodash.sortby@^4.7.0:
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
@@ -5699,10 +5711,10 @@ mongoose-legacy-pluralize@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/mongoose-legacy-pluralize/-/mongoose-legacy-pluralize-1.0.2.tgz#3ba9f91fa507b5186d399fb40854bff18fb563e4"
 
-mongoose@5.9.1:
-  version "5.9.1"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.9.1.tgz#48a5fafe6bc7b57d6b41b12ebf55fa5f609518d6"
-  integrity sha512-qgS31/nZ63vpr8yBg6w8vaV8ITxwrF2ioNW5AakXmqvVBaOsI0xpDd5QBowESy2InDTk+iDaN5SNgSxGG6GntQ==
+mongoose@5.9.2:
+  version "5.9.2"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-5.9.2.tgz#57ebad26784c1002f31bcdb4ecec69c9ab7a9a63"
+  integrity sha512-Sa1qfqBvUfAgsrXpZjbBoIx8PEDUJSKF5Ous8gnBFI7TPiueSgJjg6GRA7A0teU8AB/vd0h8rl1rD5RQNfWhIw==
   dependencies:
     bson "~1.1.1"
     kareem "2.3.1"

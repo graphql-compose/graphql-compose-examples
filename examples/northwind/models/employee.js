@@ -65,6 +65,16 @@ export const Employee = model('Employee', EmployeeSchema);
 
 export const EmployeeTC = composeWithMongoose<any>(Employee);
 
+EmployeeTC.getResolver('connection').extensions = {
+  complexity: ({ args, childComplexity }) => childComplexity * (args.first || args.last || 20),
+};
+EmployeeTC.getResolver('pagination').extensions = {
+  complexity: ({ args, childComplexity }) => childComplexity * (args.perPage || 20),
+};
+EmployeeTC.getResolver('findMany').extensions = {
+  complexity: ({ args, childComplexity }) => childComplexity * (args.limit || 1000),
+};
+
 const findManyResolver = EmployeeTC.getResolver('findMany').addFilterArg({
   name: 'fullTextSearch',
   type: 'String',

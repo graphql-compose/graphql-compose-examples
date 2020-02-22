@@ -35,6 +35,16 @@ export const Region = model('Region', RegionSchema);
 
 export const RegionTC = composeWithMongoose<any>(Region);
 
+RegionTC.getResolver('connection').extensions = {
+  complexity: ({ args, childComplexity }) => childComplexity * (args.first || args.last || 20),
+};
+RegionTC.getResolver('pagination').extensions = {
+  complexity: ({ args, childComplexity }) => childComplexity * (args.perPage || 20),
+};
+RegionTC.getResolver('findMany').extensions = {
+  complexity: ({ args, childComplexity }) => childComplexity * (args.limit || 1000),
+};
+
 RegionTC.addRelation('employees', {
   resolver: () => EmployeeTC.getResolver('findMany'),
   prepareArgs: {
