@@ -72,7 +72,7 @@ EmployeeTC.getResolver('pagination').extensions = {
   complexity: ({ args, childComplexity }) => childComplexity * (args.perPage || 20),
 };
 EmployeeTC.getResolver('findMany').extensions = {
-  complexity: ({ args, childComplexity }) => childComplexity * (args.limit || 1000),
+  complexity: ({ args, childComplexity }) => childComplexity * 100,
 };
 
 const findManyResolver = EmployeeTC.getResolver('findMany').addFilterArg({
@@ -101,6 +101,9 @@ EmployeeTC.addRelation('chief', {
     sort: null,
   },
   projection: { reportsTo: true },
+  extensions: {
+    complexity: 1,
+  },
 });
 
 EmployeeTC.addRelation('subordinates', {
@@ -109,6 +112,9 @@ EmployeeTC.addRelation('subordinates', {
     filter: (source) => ({ reportsTo: source.employeeID }),
   },
   projection: { employeeID: true },
+  extensions: {
+    complexity: 1,
+  },
 });
 
 EmployeeTC.addRelation('orderConnection', {
