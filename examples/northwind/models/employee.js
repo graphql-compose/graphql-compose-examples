@@ -72,7 +72,7 @@ EmployeeTC.getResolver('pagination').extensions = {
   complexity: ({ args, childComplexity }) => childComplexity * (args.perPage || 20),
 };
 EmployeeTC.getResolver('findMany').extensions = {
-  complexity: ({ args, childComplexity }) => childComplexity * 100,
+  complexity: ({ childComplexity }) => childComplexity * 100,
 };
 
 const findManyResolver = EmployeeTC.getResolver('findMany').addFilterArg({
