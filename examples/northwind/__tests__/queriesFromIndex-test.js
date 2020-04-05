@@ -15,7 +15,6 @@ let db;
 beforeAll(async () => {
   mongoServer = new MongodbMemoryServer({ instance: { dbName: 'northwind' } });
   const mongoUri = await mongoServer.getConnectionString();
-  mongoose.set('useCreateIndex', true);
   const opts = { useNewUrlParser: true, useUnifiedTopology: true };
   mongoose.connect(mongoUri, opts);
   mongoose.connection.once('disconnected', () => {
@@ -25,7 +24,7 @@ beforeAll(async () => {
   db = con.db('northwind');
   await seed(db);
   // take time to mongo create indexes if needed
-  await new Promise((resolve) => setTimeout(resolve, 10000));
+  await new Promise((resolve) => setTimeout(resolve, 3000));
 });
 
 afterAll(async () => {
