@@ -17,7 +17,7 @@ export class FunctifiedAsync {
 
   map(callback) {
     const iterable = this.iterable;
-    return FunctifiedAsync.fromGenerator(async function*() {
+    return FunctifiedAsync.fromGenerator(async function* () {
       for await (const value of iterable) {
         yield callback(value);
       }
@@ -26,7 +26,7 @@ export class FunctifiedAsync {
 
   skipWhile(predicate) {
     const iterable = this.iterable;
-    return FunctifiedAsync.fromGenerator(async function*() {
+    return FunctifiedAsync.fromGenerator(async function* () {
       let skip = true;
       for await (const value of iterable) {
         if (!predicate(value)) {
@@ -41,7 +41,7 @@ export class FunctifiedAsync {
 
   flatten() {
     const iterable = this.iterable;
-    return FunctifiedAsync.fromGenerator(async function*() {
+    return FunctifiedAsync.fromGenerator(async function* () {
       for await (const value of iterable) {
         if (value[Symbol.iterator] || value[Symbol.asyncIterator]) {
           yield* new FunctifiedAsync(value);
@@ -55,7 +55,7 @@ export class FunctifiedAsync {
   takeUntil(predicate) {
     const iterator = this.iterable[Symbol.asyncIterator]();
     const self = this;
-    return FunctifiedAsync.fromGenerator(async function*() {
+    return FunctifiedAsync.fromGenerator(async function* () {
       if (self.hasOwnProperty('startValue')) {
         yield self.startValue;
       }

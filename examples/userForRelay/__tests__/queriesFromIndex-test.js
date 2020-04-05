@@ -59,14 +59,12 @@ describe('userForRelay > queries', () => {
   {
     const title = 'Create user mutation';
     it(title, async () => {
-      const result = await graphql({
+      const result: any = await graphql({
         schema: meta.schema,
         source: findQueryByTitle(title),
       });
-      // $FlowFixMe
-      expect(result.data.userCreate.record).toMatchSnapshot();
-      // $FlowFixMe
-      expect(result.data.userCreate.clientMutationId).toMatchSnapshot();
+      expect(result?.data?.userCreate?.record).toMatchSnapshot();
+      expect(result?.data?.userCreate?.clientMutationId).toMatchSnapshot();
     });
   }
 });

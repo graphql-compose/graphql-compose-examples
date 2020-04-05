@@ -62,9 +62,8 @@ describe('user > queries', () => {
   {
     const title = 'Create user mutation (with arg of MIXED type)';
     it(title, async () => {
-      const result = await graphql(meta.schema, findQueryByTitle(title));
-      // $FlowFixMe
-      expect(result.data.userCreate.record).toMatchSnapshot();
+      const result: any = await graphql(meta.schema, findQueryByTitle(title));
+      expect(result?.data?.userCreate?.record).toMatchSnapshot();
     });
   }
 });

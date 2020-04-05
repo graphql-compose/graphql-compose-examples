@@ -12,7 +12,7 @@ export default async function seed(db: any) {
 
   return Promise.all(
     files.map((file) => {
-      return (async function() {
+      return (async function () {
         const colName = `${collectionPrefix || ''}${file}`;
         const data = JSON.parse(fs.readFileSync(`${__dirname}/${file}.json`, 'utf8'));
         data.forEach((d, i) => {

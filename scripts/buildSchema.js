@@ -3,13 +3,13 @@
 import fs from 'fs';
 import path from 'path';
 import { graphql } from 'graphql';
-import { introspectionQuery, printSchema } from 'graphql/utilities';
+import { getIntrospectionQuery, printSchema } from 'graphql/utilities';
 import { getExampleNames, resolveExamplePath } from '../config';
 
 async function buildSchema(schemaPath) {
   // $FlowFixMe
   const Schema = require(`${schemaPath}/schema`).default; // eslint-disable-line
-  const result = await graphql(Schema, introspectionQuery);
+  const result = await graphql(Schema, getIntrospectionQuery());
   if (result.errors) {
     console.error('ERROR introspecting schema: ', JSON.stringify(result.errors, null, 2));
   } else {
@@ -38,7 +38,7 @@ async function run() {
   console.log('Building schemas competed!');
 }
 
-run().catch(e => {
+run().catch((e) => {
   console.log(e);
   process.exit(0);
 });

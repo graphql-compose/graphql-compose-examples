@@ -17,7 +17,10 @@ let db;
 
 async function mongoConnect() {
   if (!db) {
-    con = await MongoClient.connect(MONGODB_URI, { useNewUrlParser: true });
+    con = await MongoClient.connect(MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     db = con.db(getDBName(MONGODB_URI));
   }
   return db;
