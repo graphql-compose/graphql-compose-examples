@@ -15,7 +15,8 @@ let db;
 beforeAll(async () => {
   mongoServer = new MongodbMemoryServer({ instance: { dbName: 'northwind' } });
   const mongoUri = await mongoServer.getConnectionString();
-  const opts = { useNewUrlParser: true };
+  mongoose.set('useCreateIndex', true);
+  const opts = { useNewUrlParser: true, useUnifiedTopology: true };
   mongoose.connect(mongoUri, opts);
   mongoose.connection.once('disconnected', () => {
     console.log('MongoDB disconnected!');
