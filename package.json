@@ -35,7 +35,7 @@
     "@babel/preset-env": "7.9.0",
     "@babel/preset-flow": "7.9.0",
     "altair-express-middleware": "2.4.6",
-    "apollo-server-express": "2.11.0",
+    "apollo-server-express": "2.14.2",
     "aws-sdk": "2.653.0",
     "cors": "2.8.5",
     "dedent": "^0.7.0",
