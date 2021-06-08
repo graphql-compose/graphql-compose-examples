@@ -4,9 +4,9 @@
 
 Live example on Heroku: [https://graphql-compose.herokuapp.com/](https://graphql-compose.herokuapp.com/)
 
-```
-npm install
-npm run seed && npm run start:watch
+```bash
+yarn install
+yarn seed && yarn dev
 open http://localhost:3000
 ```
 

@@ -1,2 +1,4 @@
-coverage
 flow-typed
+lib
+mjs
+esm
