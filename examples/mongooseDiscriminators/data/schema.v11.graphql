@@ -1,13 +1,4 @@
-input _idOperatorsFilterFindManyCharacterInput {
-  gt: MongoID
-  gte: MongoID
-  lt: MongoID
-  lte: MongoID
-  ne: MongoID
-  in: [MongoID]
-  nin: [MongoID]
-}
-
+#
 type Character implements CharacterInterface {
   _id: MongoID!
 
@@ -30,56 +21,12 @@ interface CharacterInterface {
   films: [String]
 }
 
-input CreateOneCharacterInput {
-  # Character type Droid or Person
-  type: EnumDKeyCharacterType!
-  name: String
-  height: Float
-  mass: Float
-  films: [String]
-}
+# The `ID` scalar type represents a unique MongoDB identifier in collection. MongoDB by default use 12-byte ObjectId value (https://docs.mongodb.com/manual/reference/bson-types/#objectid). But MongoDB also may accepts string or integer as correct values for _id field.
+scalar MongoID
 
-type CreateOneCharacterPayload {
-  # Created document ID
-  recordId: MongoID
-
-  # Created document
-  record: CharacterInterface
-}
-
-input CreateOneDroidInput {
-  name: String
-  height: Float
-  mass: Float
-  films: [String]
-  makeDate: String
-  primaryFunction: [String]
-}
-
-type CreateOneDroidPayload {
-  # Created document ID
-  recordId: MongoID
-
-  # Created document
-  record: Droid
-}
-
-input CreateOnePersonInput {
-  name: String
-  height: Float
-  mass: Float
-  films: [String]
-  gender: String
-  hairColor: String
-  starships: [String]
-}
-
-type CreateOnePersonPayload {
-  # Created document ID
-  recordId: MongoID
-
-  # Created document
-  record: Person
+enum EnumDKeyCharacterType {
+  Droid
+  Person
 }
 
 type Droid implements CharacterInterface {
@@ -91,82 +38,6 @@ type Droid implements CharacterInterface {
   films: [String]
   makeDate: String
   primaryFunction: [String]
-}
-
-enum EnumDKeyCharacterType {
-  Droid
-  Person
-}
-
-input FilterFindManyCharacterInput {
-  # Character type Droid or Person
-  type: EnumDKeyCharacterType
-  name: String
-  height: Float
-  mass: Float
-  films: [String]
-  _id: MongoID
-  _ids: [MongoID]
-
-  # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterFindManyCharacterInput
-  OR: [FilterFindManyCharacterInput!]
-  AND: [FilterFindManyCharacterInput!]
-}
-
-input FilterFindManyDroidInput {
-  _id: MongoID
-  name: String
-  height: Float
-  mass: Float
-  films: [String]
-  makeDate: String
-  primaryFunction: [String]
-  _ids: [MongoID]
-
-  # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterFindManyCharacterInput
-  OR: [FilterFindManyCharacterInput!]
-  AND: [FilterFindManyCharacterInput!]
-}
-
-input FilterFindManyPersonInput {
-  _id: MongoID
-  name: String
-  height: Float
-  mass: Float
-  films: [String]
-  gender: String
-  hairColor: String
-  starships: [String]
-  _ids: [MongoID]
-
-  # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterFindManyCharacterInput
-  OR: [FilterFindManyCharacterInput!]
-  AND: [FilterFindManyCharacterInput!]
-}
-
-# The `ID` scalar type represents a unique MongoDB identifier in collection.
-# MongoDB by default use 12-byte ObjectId value
-# (https://docs.mongodb.com/manual/reference/bson-types/#objectid). But MongoDB
-# also may accepts string or integer as correct values for _id field.
-scalar MongoID
-
-type Mutation {
-  # Create one document with mongoose defaults, setters, hooks and validation
-  characterCreate(record: CreateOneCharacterInput!): CreateOneCharacterPayload
-
-  # Create one document with mongoose defaults, setters, hooks and validation
-  droidCreate(record: CreateOneDroidInput!): CreateOneDroidPayload
-
-  # Create one document with mongoose defaults, setters, hooks and validation
-  personCreate(record: CreateOnePersonInput!): CreateOnePersonPayload
-}
-
-# For performance reason this type contains only *indexed* fields.
-input OperatorsFilterFindManyCharacterInput {
-  _id: _idOperatorsFilterFindManyCharacterInput
 }
 
 type Person implements CharacterInterface {
@@ -208,9 +79,58 @@ type Query {
   personById(_id: MongoID!): Person
 }
 
+#
+input FilterFindManyCharacterInput {
+  # Character type Droid or Person
+  type: EnumDKeyCharacterType
+  name: String
+  height: Float
+  mass: Float
+  films: [String]
+  _id: MongoID
+  _ids: [MongoID]
+
+  # List of *indexed* fields that can be filtered via operators.
+  _operators: OperatorsFilterFindManyCharacterInput
+  OR: [FilterFindManyCharacterInput!]
+  AND: [FilterFindManyCharacterInput!]
+}
+
+# For performance reason this type contains only *indexed* fields.
+input OperatorsFilterFindManyCharacterInput {
+  _id: _idOperatorsFilterFindManyCharacterInput
+}
+
+input _idOperatorsFilterFindManyCharacterInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+}
+
 enum SortFindManyCharacterInput {
   _ID_ASC
   _ID_DESC
+}
+
+#
+input FilterFindManyDroidInput {
+  _id: MongoID
+  name: String
+  height: Float
+  mass: Float
+  films: [String]
+  makeDate: String
+  primaryFunction: [String]
+  _ids: [MongoID]
+
+  # List of *indexed* fields that can be filtered via operators.
+  _operators: OperatorsFilterFindManyCharacterInput
+  OR: [FilterFindManyCharacterInput!]
+  AND: [FilterFindManyCharacterInput!]
 }
 
 enum SortFindManyDroidInput {
@@ -218,7 +138,91 @@ enum SortFindManyDroidInput {
   _ID_DESC
 }
 
+#
+input FilterFindManyPersonInput {
+  _id: MongoID
+  name: String
+  height: Float
+  mass: Float
+  films: [String]
+  gender: String
+  hairColor: String
+  starships: [String]
+  _ids: [MongoID]
+
+  # List of *indexed* fields that can be filtered via operators.
+  _operators: OperatorsFilterFindManyCharacterInput
+  OR: [FilterFindManyCharacterInput!]
+  AND: [FilterFindManyCharacterInput!]
+}
+
 enum SortFindManyPersonInput {
   _ID_ASC
   _ID_DESC
+}
+
+type Mutation {
+  # Create one document with mongoose defaults, setters, hooks and validation
+  characterCreate(record: CreateOneCharacterInput!): CreateOneCharacterPayload
+
+  # Create one document with mongoose defaults, setters, hooks and validation
+  droidCreate(record: CreateOneDroidInput!): CreateOneDroidPayload
+
+  # Create one document with mongoose defaults, setters, hooks and validation
+  personCreate(record: CreateOnePersonInput!): CreateOnePersonPayload
+}
+
+type CreateOneCharacterPayload {
+  # Created document ID
+  recordId: MongoID
+
+  # Created document
+  record: CharacterInterface
+}
+
+#
+input CreateOneCharacterInput {
+  # Character type Droid or Person
+  type: EnumDKeyCharacterType!
+  name: String
+  height: Float
+  mass: Float
+  films: [String]
+}
+
+type CreateOneDroidPayload {
+  # Created document ID
+  recordId: MongoID
+
+  # Created document
+  record: Droid
+}
+
+#
+input CreateOneDroidInput {
+  name: String
+  height: Float
+  mass: Float
+  films: [String]
+  makeDate: String
+  primaryFunction: [String]
+}
+
+type CreateOnePersonPayload {
+  # Created document ID
+  recordId: MongoID
+
+  # Created document
+  record: Person
+}
+
+#
+input CreateOnePersonInput {
+  name: String
+  height: Float
+  mass: Float
+  films: [String]
+  gender: String
+  hairColor: String
+  starships: [String]
 }
