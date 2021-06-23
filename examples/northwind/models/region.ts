@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 import { composeMongoose } from 'graphql-compose-mongoose';
-import { EmployeeTC } from './employee';
+import { employeeFindManyResolver } from './employee';
 
 export const TerritorySchema: Schema<any> = new Schema(
   {
@@ -33,18 +33,8 @@ export const Region = model<any>('Region', RegionSchema);
 
 export const RegionTC = composeMongoose(Region);
 
-RegionTC.getResolver('connection').extensions = {
-  complexity: ({ args, childComplexity }) => childComplexity * (args.first || args.last || 20),
-};
-RegionTC.getResolver('pagination').extensions = {
-  complexity: ({ args, childComplexity }) => childComplexity * (args.perPage || 20),
-};
-RegionTC.getResolver('findMany').extensions = {
-  complexity: ({ args, childComplexity }) => childComplexity * (args.limit || 1000),
-};
-
 RegionTC.addRelation('employees', {
-  resolver: () => EmployeeTC.getResolver('findMany'),
+  resolver: () => employeeFindManyResolver,
   prepareArgs: {
     filter: (source) => ({
       _operators: {
@@ -56,3 +46,20 @@ RegionTC.addRelation('employees', {
   },
   projection: { territories: { territoryID: true } },
 });
+
+export const regionConnectionResolver = RegionTC.mongooseResolvers.connection();
+regionConnectionResolver.setExtensions({
+  complexity: ({ args, childComplexity }) => childComplexity * (args.first || args.last || 20),
+});
+
+export const regionPaginationResolver = RegionTC.mongooseResolvers.pagination();
+regionPaginationResolver.setExtensions({
+  complexity: ({ args, childComplexity }) => childComplexity * (args.perPage || 20),
+});
+
+export const regionFindManyResolver = RegionTC.mongooseResolvers.findMany();
+regionFindManyResolver.setExtensions({
+  complexity: ({ args, childComplexity }) => childComplexity * (args.limit || 1000),
+});
+
+export const regionFindOneResolver = RegionTC.mongooseResolvers.findOne();

@@ -1,8 +1,8 @@
 import { Schema, model } from 'mongoose';
 import { composeMongoose } from 'graphql-compose-mongoose';
-import { OrderTC } from './order';
-import { SupplierTC } from './supplier';
-import { CategoryTC } from './category';
+import { orderConnectionResolver, orderFindManyResolver } from './order';
+import { supplierFindOneResolver } from './supplier';
+import { categoryFindOneResolver } from './category';
 
 export const ProductSchema: Schema<any> = new Schema(
   {
@@ -35,29 +35,8 @@ export const Product = model<any>('Product', ProductSchema);
 
 export const ProductTC = composeMongoose(Product);
 
-ProductTC.getResolver('connection').extensions = {
-  complexity: ({ args, childComplexity }) => childComplexity * (args.first || args.last || 20),
-};
-ProductTC.getResolver('pagination').extensions = {
-  complexity: ({ args, childComplexity }) => childComplexity * (args.perPage || 20),
-};
-ProductTC.getResolver('findMany').extensions = {
-  complexity: ({ args, childComplexity }) => childComplexity * (args.limit || 1000),
-};
-
-const extendedResolver = ProductTC.getResolver('findMany').addFilterArg({
-  name: 'nameRegexp',
-  type: 'String',
-  description: 'Search by regExp',
-  query: (query, value) => {
-    query.name = new RegExp(value, 'i'); // eslint-disable-line
-  },
-});
-extendedResolver.name = 'findMany';
-ProductTC.addResolver(extendedResolver);
-
 ProductTC.addRelation('orderConnection', {
-  resolver: () => OrderTC.getResolver('connection'),
+  resolver: () => orderConnectionResolver,
   prepareArgs: {
     filter: (source) => ({ details: { productID: source.productID } }),
   },
@@ -65,7 +44,7 @@ ProductTC.addRelation('orderConnection', {
 });
 
 ProductTC.addRelation('orderList', {
-  resolver: () => OrderTC.getResolver('findMany'),
+  resolver: () => orderFindManyResolver,
   prepareArgs: {
     filter: (source) => ({ details: { productID: source.productID } }),
   },
@@ -73,7 +52,7 @@ ProductTC.addRelation('orderList', {
 });
 
 ProductTC.addRelation('supplier', {
-  resolver: () => SupplierTC.getResolver('findOne'),
+  resolver: () => supplierFindOneResolver,
   prepareArgs: {
     filter: (source) => ({ supplierID: source.supplierID }),
     skip: null,
@@ -83,7 +62,7 @@ ProductTC.addRelation('supplier', {
 });
 
 ProductTC.addRelation('category', {
-  resolver: () => CategoryTC.getResolver('findOne'),
+  resolver: () => categoryFindOneResolver,
   prepareArgs: {
     filter: (source) => ({ categoryID: source.categoryID }),
     skip: null,
@@ -91,3 +70,31 @@ ProductTC.addRelation('category', {
   },
   projection: { categoryID: true },
 });
+
+export const productConnectionResolver = ProductTC.mongooseResolvers.connection();
+productConnectionResolver.setExtensions({
+  complexity: ({ args, childComplexity }) => childComplexity * (args.first || args.last || 20),
+});
+
+export const productPaginationResolver = ProductTC.mongooseResolvers.pagination();
+productPaginationResolver.setExtensions({
+  complexity: ({ args, childComplexity }) => childComplexity * (args.perPage || 20),
+});
+
+export const productFindManyResolver = ProductTC.mongooseResolvers.findMany().addFilterArg({
+  name: 'nameRegexp',
+  type: 'String',
+  description: 'Search by regExp',
+  query: (query, value) => {
+    query.name = new RegExp(value, 'i');
+  },
+});
+productFindManyResolver.setExtensions({
+  complexity: ({ args, childComplexity }) => childComplexity * (args.limit || 1000),
+});
+
+export const productFindOneResolver = ProductTC.mongooseResolvers.findOne();
+
+export const productCreateOneResolver = ProductTC.mongooseResolvers.createOne();
+export const productUpdateByIdResolver = ProductTC.mongooseResolvers.updateById();
+export const productRemoveOneResolver = ProductTC.mongooseResolvers.removeOne();

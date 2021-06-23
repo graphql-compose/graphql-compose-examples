@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose';
 import { composeMongoose } from 'graphql-compose-mongoose';
 import { AddressSchema } from './addressSchema';
-import { OrderTC } from './order';
+import { orderConnectionResolver } from './order';
 
 export const EmployeeSchema: Schema<any> = new Schema(
   {
@@ -63,33 +63,9 @@ export const Employee = model<any>('Employee', EmployeeSchema);
 
 export const EmployeeTC = composeMongoose(Employee);
 
-EmployeeTC.getResolver('connection').extensions = {
-  complexity: ({ args, childComplexity }) => childComplexity * (args.first || args.last || 20),
-};
-EmployeeTC.getResolver('pagination').extensions = {
-  complexity: ({ args, childComplexity }) => childComplexity * (args.perPage || 20),
-};
-EmployeeTC.getResolver('findMany').extensions = {
-  complexity: ({ childComplexity }) => childComplexity * 100,
-};
-
-const findManyResolver = EmployeeTC.getResolver('findMany').addFilterArg({
-  name: 'fullTextSearch',
-  type: 'String',
-  description: 'Fulltext search with mongodb stemming and weights',
-  query: (query, value, resolveParams) => {
-    resolveParams.args.sort = {
-      score: { $meta: 'textScore' },
-    };
-    query.$text = { $search: value, $language: 'ru' };
-    resolveParams.projection.score = { $meta: 'textScore' };
-  },
-});
-EmployeeTC.setResolver('findMany', findManyResolver);
-
 EmployeeTC.addRelation('chief', {
   resolver: () =>
-    EmployeeTC.getResolver('findOne').wrapResolve((next) => (resolveParams) => {
+    employeeFindOneResolver.wrapResolve((next) => (resolveParams) => {
       // if `reportsTo` is empty, then return null, otherwise proceed relation
       return resolveParams.source.reportsTo ? next(resolveParams) : null;
     }),
@@ -105,7 +81,7 @@ EmployeeTC.addRelation('chief', {
 });
 
 EmployeeTC.addRelation('subordinates', {
-  resolver: () => EmployeeTC.getResolver('findMany'),
+  resolver: () => employeeFindManyResolver,
   prepareArgs: {
     filter: (source) => ({ reportsTo: source.employeeID }),
   },
@@ -116,9 +92,39 @@ EmployeeTC.addRelation('subordinates', {
 });
 
 EmployeeTC.addRelation('orderConnection', {
-  resolver: () => OrderTC.getResolver('connection'),
+  resolver: () => orderConnectionResolver,
   prepareArgs: {
     filter: (source) => ({ employeeID: source.employeeID }),
   },
   projection: { employeeID: true },
 });
+
+export const employeeConnectionResolver = EmployeeTC.mongooseResolvers.connection();
+employeeConnectionResolver.setExtensions({
+  complexity: ({ args, childComplexity }) => childComplexity * (args.first || args.last || 20),
+});
+
+export const employeePaginationResolver = EmployeeTC.mongooseResolvers.pagination();
+employeePaginationResolver.setExtensions({
+  complexity: ({ args, childComplexity }) => childComplexity * (args.perPage || 20),
+});
+
+export const employeeFindManyResolver = EmployeeTC.mongooseResolvers.findMany().addFilterArg({
+  name: 'fullTextSearch',
+  type: 'String',
+  description: 'Fulltext search with mongodb stemming and weights',
+  query: (query, value, resolveParams) => {
+    resolveParams.args.sort = {
+      score: { $meta: 'textScore' },
+    };
+    query.$text = { $search: value, $language: 'ru' };
+    resolveParams.projection.score = { $meta: 'textScore' };
+  },
+});
+employeeFindManyResolver.setExtensions({
+  complexity: ({ childComplexity }) => childComplexity * 100,
+});
+
+export const employeeFindOneResolver = EmployeeTC.mongooseResolvers.findOne();
+
+export const employeeUpdateByIdResolver = EmployeeTC.mongooseResolvers.updateById();
