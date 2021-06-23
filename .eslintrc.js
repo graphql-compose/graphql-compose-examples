@@ -38,6 +38,7 @@ module.exports = {
     '@typescript-eslint/no-empty-function': 0,
     '@typescript-eslint/camelcase': 0,
     '@typescript-eslint/ban-ts-comment': 0,
+    '@typescript-eslint/explicit-module-boundary-types': 0,
   },
   env: {
     jasmine: true,

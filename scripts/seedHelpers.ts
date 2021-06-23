@@ -1,7 +1,7 @@
 /* eslint-disable no-await-in-loop */
 // This script scans `examples` folder for `data/seed.js` files and run them for seeding DB.
 
-import { MongoClient } from 'mongodb';
+import { MongoClient, Db } from 'mongodb';
 import fs from 'fs';
 import { getExampleNames, resolveExamplePath, MONGODB_URI } from '../config';
 
@@ -11,26 +11,22 @@ function getDBName(uri: string) {
   return 'graphql-compose-mongoose';
 }
 
-let con;
-let db;
-
-async function mongoConnect() {
+export async function mongoConnect(): Promise<Db & { con?: MongoClient }> {
+  let db: Db & { con?: MongoClient };
   if (!db) {
-    con = await MongoClient.connect(MONGODB_URI, {
+    const con = await MongoClient.connect(MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
     db = con.db(getDBName(MONGODB_URI));
+    db.con = con;
   }
   return db;
 }
 
-async function mongoDisconnect() {
-  if (con) {
-    const oldCon = con;
-    con = undefined;
-    db = undefined;
-    await oldCon.close();
+export async function mongoDisconnect(db: Db & { con?: MongoClient }) {
+  if (db?.con) {
+    await db?.con.close();
   }
 }
 
@@ -56,9 +52,9 @@ export async function seedByName(name: string) {
 
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const seedFn = require(seedFile).default;
-    await mongoConnect();
+    const db = await mongoConnect();
     await seedFn(db);
-    await mongoDisconnect();
+    await mongoDisconnect(db);
   } catch (e) {
     if (e.code === 'MODULE_NOT_FOUND' || e.code === 'ENOENT') {
       console.log(`  file '${seedFile}' not found. Skipping...`);
