@@ -105,36 +105,3 @@ UserTC.addFields({
     },
   },
 });
-
-UserTC.setResolver(
-  'findMany',
-  UserTC.getResolver('findMany').addFilterArg({
-    name: 'geoDistance',
-    type: `input GeoDistance {
-      lng: Float!
-      lat: Float!
-      # Distance in meters
-      distance: Float!
-    }`,
-    description: 'Search by distance in meters',
-    query: (rawQuery, value) => {
-      if (!value.lng || !value.lat || !value.distance) return;
-      // read more https://docs.mongodb.com/manual/tutorial/query-a-2dsphere-index/
-      rawQuery['address.geo'] = {
-        $near: {
-          $geometry: {
-            type: 'Point',
-            coordinates: [value.lng, value.lat],
-          },
-          $maxDistance: value.distance, // <distance in meters>
-        },
-      };
-    },
-  })
-  // /* FOR DEBUG */
-  //   .debug()
-  // /* OR MORE PRECISELY */
-  //   .debugParams()
-  //   .debugPayload()
-  //   .debugExecTime()
-);
