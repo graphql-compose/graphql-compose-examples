@@ -13,7 +13,7 @@ module.exports = {
     '^.+\\.(ts|js)$': 'ts-jest',
   },
   roots: ['<rootDir>'],
-  testPathIgnorePatterns: ['/node_modules/', '/lib/'],
+  testPathIgnorePatterns: ['/node_modules/', '/lib/', '/tmp/'],
   reporters: [
     'default',
     [
