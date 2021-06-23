@@ -5,7 +5,7 @@ Object {
   "age": 24,
   "contacts": Object {
     "email": "mail@example.com",
-    "phones": Array [
+    "phones": CoreMongooseArray [
       "111-222-333-444",
       "444-555-666-777",
     ],
@@ -69,7 +69,7 @@ Object {
         "email": "user10@example.com",
       },
       "gender": "female",
-      "languages": Array [
+      "languages": CoreDocumentArray [
         Object {
           "language": "en",
           "skill": "fluent",
@@ -92,7 +92,7 @@ Object {
           "email": "user1@example.com",
         },
         "gender": "male",
-        "languages": Array [
+        "languages": CoreDocumentArray [
           Object {
             "language": "en",
             "skill": "fluent",
@@ -111,7 +111,7 @@ Object {
           "email": "user4@example.com",
         },
         "gender": "male",
-        "languages": Array [
+        "languages": CoreDocumentArray [
           Object {
             "language": "ru",
             "skill": "fluent",
@@ -126,7 +126,7 @@ Object {
           "email": "user7@example.com",
         },
         "gender": "male",
-        "languages": Array [
+        "languages": CoreDocumentArray [
           Object {
             "language": "fr",
             "skill": "basic",
@@ -145,7 +145,7 @@ Object {
           "email": "user9@example.com",
         },
         "gender": "male",
-        "languages": Array [
+        "languages": CoreDocumentArray [
           Object {
             "language": "es",
             "skill": "fluent",
@@ -168,7 +168,7 @@ Object {
         "email": "user4@example.com",
       },
       "gender": "male",
-      "languages": Array [
+      "languages": CoreDocumentArray [
         Object {
           "language": "ru",
           "skill": "fluent",
@@ -193,7 +193,7 @@ Object {
             "email": "user7@example.com",
           },
           "gender": "male",
-          "languages": Array [
+          "languages": CoreDocumentArray [
             Object {
               "language": "fr",
               "skill": "basic",
@@ -212,7 +212,7 @@ Object {
             "email": "user9@example.com",
           },
           "gender": "male",
-          "languages": Array [
+          "languages": CoreDocumentArray [
             Object {
               "language": "es",
               "skill": "fluent",
