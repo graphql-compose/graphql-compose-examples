@@ -5,8 +5,6 @@ import { MongoMemoryServer } from 'mongodb-memory-server';
 import seed from '../data/seed';
 import meta from '../index';
 
-jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000;
-
 let mongoServer;
 let con;
 let db;
