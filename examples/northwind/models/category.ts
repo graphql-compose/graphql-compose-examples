@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 import { composeMongoose } from 'graphql-compose-mongoose';
-import { ProductTC } from './product';
+import { productConnectionResolver, productFindManyResolver } from './product';
 
 export const CategorySchema: Schema<any> = new Schema(
   {
@@ -24,19 +24,8 @@ export const Category = model<any>('Category', CategorySchema);
 
 export const CategoryTC = composeMongoose(Category);
 
-// TODO refactor
-CategoryTC.getResolver('connection').extensions = {
-  complexity: ({ args, childComplexity }) => childComplexity * (args.first || args.last || 20),
-};
-CategoryTC.getResolver('pagination').extensions = {
-  complexity: ({ args, childComplexity }) => childComplexity * (args.perPage || 20),
-};
-CategoryTC.getResolver('findMany').extensions = {
-  complexity: ({ args, childComplexity }) => childComplexity * (args.limit || 1000),
-};
-
 CategoryTC.addRelation('productConnection', {
-  resolver: () => ProductTC.getResolver('connection'),
+  resolver: () => productConnectionResolver,
   prepareArgs: {
     filter: (source) => ({ categoryID: source.categoryID }),
   },
@@ -44,9 +33,26 @@ CategoryTC.addRelation('productConnection', {
 });
 
 CategoryTC.addRelation('productList', {
-  resolver: () => ProductTC.getResolver('findMany'),
+  resolver: () => productFindManyResolver,
   prepareArgs: {
     filter: (source) => ({ categoryID: source.categoryID }),
   },
   projection: { categoryID: true },
 });
+
+export const categoryConnectionResolver = CategoryTC.mongooseResolvers.connection();
+categoryConnectionResolver.setExtensions({
+  complexity: ({ args, childComplexity }) => childComplexity * (args.first || args.last || 20),
+});
+
+export const categoryPaginationResolver = CategoryTC.mongooseResolvers.pagination();
+categoryPaginationResolver.setExtensions({
+  complexity: ({ args, childComplexity }) => childComplexity * (args.perPage || 20),
+});
+
+export const categoryFindManyResolver = CategoryTC.mongooseResolvers.findMany();
+categoryFindManyResolver.setExtensions({
+  complexity: ({ args, childComplexity }) => childComplexity * (args.limit || 1000),
+});
+
+export const categoryFindOneResolver = CategoryTC.mongooseResolvers.findOne();

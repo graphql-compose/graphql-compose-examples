@@ -1,10 +1,10 @@
 import { Schema, model } from 'mongoose';
 import { composeMongoose } from 'graphql-compose-mongoose';
 import { AddressSchema } from './addressSchema';
-import { CustomerTC } from './customer';
-import { EmployeeTC } from './employee';
-import { ShipperTC } from './shipper';
-import { ProductTC } from './product';
+import { customerFindOneResolver } from './customer';
+import { employeeFindOneResolver } from './employee';
+import { shipperFindOneResolver } from './shipper';
+import { productFindOneResolver } from './product';
 
 export const OrderDetailsSchema: Schema<any> = new Schema(
   {
@@ -36,7 +36,6 @@ export const OrderSchema: Schema<any> = new Schema(
     shipAddress: AddressSchema,
     details: {
       type: [OrderDetailsSchema],
-      index: true,
       description: 'List of ordered products',
     },
   },
@@ -49,18 +48,8 @@ export const Order = model<any>('Order', OrderSchema);
 
 export const OrderTC = composeMongoose(Order);
 
-OrderTC.getResolver('connection').extensions = {
-  complexity: ({ args, childComplexity }) => childComplexity * (args.first || args.last || 20),
-};
-OrderTC.getResolver('pagination').extensions = {
-  complexity: ({ args, childComplexity }) => childComplexity * (args.perPage || 20),
-};
-OrderTC.getResolver('findMany').extensions = {
-  complexity: ({ args, childComplexity }) => childComplexity * (args.limit || 1000),
-};
-
 OrderTC.addRelation('customer', {
-  resolver: () => CustomerTC.getResolver('findOne'),
+  resolver: () => customerFindOneResolver,
   prepareArgs: {
     filter: (source) => ({ customerID: source.customerID }),
     skip: null,
@@ -70,7 +59,7 @@ OrderTC.addRelation('customer', {
 });
 
 OrderTC.addRelation('employee', {
-  resolver: () => EmployeeTC.getResolver('findOne'),
+  resolver: () => employeeFindOneResolver,
   prepareArgs: {
     filter: (source) => ({ employeeID: source.employeeID }),
     skip: null,
@@ -80,7 +69,7 @@ OrderTC.addRelation('employee', {
 });
 
 OrderTC.addRelation('shipper', {
-  resolver: () => ShipperTC.getResolver('findOne'),
+  resolver: () => shipperFindOneResolver,
   prepareArgs: {
     filter: (source) => ({ shipperID: source.shipVia }),
     skip: null,
@@ -91,7 +80,7 @@ OrderTC.addRelation('shipper', {
 
 const OrderDetailsTC = OrderTC.getFieldOTC('details');
 OrderDetailsTC.addRelation('product', {
-  resolver: () => ProductTC.getResolver('findOne'),
+  resolver: () => productFindOneResolver,
   prepareArgs: {
     filter: (source) => ({ productID: source.productID }),
     skip: null,
@@ -99,3 +88,24 @@ OrderDetailsTC.addRelation('product', {
   },
   projection: { productID: true },
 });
+
+export const orderConnectionResolver = OrderTC.mongooseResolvers.connection();
+orderConnectionResolver.setExtensions({
+  complexity: ({ args, childComplexity }) => childComplexity * (args.first || args.last || 20),
+});
+
+export const orderPaginationResolver = OrderTC.mongooseResolvers.pagination();
+orderPaginationResolver.setExtensions({
+  complexity: ({ args, childComplexity }) => childComplexity * (args.perPage || 20),
+});
+
+export const orderFindManyResolver = OrderTC.mongooseResolvers.findMany();
+orderFindManyResolver.setExtensions({
+  complexity: ({ args, childComplexity }) => childComplexity * (args.limit || 1000),
+});
+
+export const orderFindOneResolver = OrderTC.mongooseResolvers.findOne();
+
+export const orderCreateOneResolver = OrderTC.mongooseResolvers.createOne();
+export const orderUpdateByIdResolver = OrderTC.mongooseResolvers.updateById();
+export const orderRemoveOneResolver = OrderTC.mongooseResolvers.removeOne();

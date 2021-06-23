@@ -7,14 +7,40 @@
 
 import { PubSub } from 'apollo-server-express';
 import { schemaComposer } from 'graphql-compose';
-import { CategoryTC } from './models/category';
-import { CustomerTC } from './models/customer';
-import { EmployeeTC } from './models/employee';
-import { OrderTC, Order } from './models/order';
-import { ProductTC } from './models/product';
-import { RegionTC } from './models/region';
-import { ShipperTC } from './models/shipper';
-import { SupplierTC } from './models/supplier';
+import { categoryFindManyResolver, categoryFindOneResolver } from './models/category';
+import {
+  customerConnectionResolver,
+  customerFindOneResolver,
+  customerPaginationResolver,
+} from './models/customer';
+import {
+  employeeFindOneResolver,
+  employeeFindManyResolver,
+  employeePaginationResolver,
+  employeeUpdateByIdResolver,
+} from './models/employee';
+import {
+  OrderTC,
+  Order,
+  orderFindOneResolver,
+  orderPaginationResolver,
+  orderConnectionResolver,
+  orderCreateOneResolver,
+  orderUpdateByIdResolver,
+  orderRemoveOneResolver,
+} from './models/order';
+import {
+  productConnectionResolver,
+  productCreateOneResolver,
+  productFindManyResolver,
+  productFindOneResolver,
+  productPaginationResolver,
+  productUpdateByIdResolver,
+  productRemoveOneResolver,
+} from './models/product';
+import { regionFindManyResolver, regionFindOneResolver } from './models/region';
+import { shipperFindManyResolver, shipperFindOneResolver } from './models/shipper';
+import { supplierConnectionResolver, supplierFindOneResolver } from './models/supplier';
 // import { allowOnlyForLocalhost } from './wrappers/allowOnlyForLocalhost';
 import { addQueryToPayload } from './wrappers/addQueryToPayload';
 import { autoResetDataIn30min } from './wrappers/autoResetDataIn30min';
@@ -27,41 +53,41 @@ const pubsub = new PubSub();
 const ViewerTC = schemaComposer.getOrCreateOTC('Viewer');
 schemaComposer.Query.addFields({
   viewer: {
-    type: ViewerTC.getType(),
+    type: ViewerTC,
     description: 'Data under client context',
     resolve: () => ({}),
   },
 });
 
 const fields = {
-  category: CategoryTC.getResolver('findOne'),
-  categoryList: CategoryTC.getResolver('findMany'),
+  category: categoryFindOneResolver,
+  categoryList: categoryFindManyResolver,
 
-  customer: CustomerTC.getResolver('findOne'),
-  customerPagination: CustomerTC.getResolver('pagination'),
-  customerConnection: CustomerTC.getResolver('connection'),
+  customer: customerFindOneResolver,
+  customerPagination: customerPaginationResolver,
+  customerConnection: customerConnectionResolver,
 
-  employee: EmployeeTC.getResolver('findOne'),
-  employeeList: EmployeeTC.getResolver('findMany'),
-  employeePagination: EmployeeTC.getResolver('pagination'),
+  employee: employeeFindOneResolver,
+  employeeList: employeeFindManyResolver,
+  employeePagination: employeePaginationResolver,
 
-  order: OrderTC.getResolver('findOne'),
-  orderPagination: OrderTC.getResolver('pagination'),
-  orderConnection: OrderTC.getResolver('connection'),
+  order: orderFindOneResolver,
+  orderPagination: orderPaginationResolver,
+  orderConnection: orderConnectionResolver,
 
-  product: ProductTC.getResolver('findOne'),
-  productList: ProductTC.getResolver('findMany'),
-  productPagination: ProductTC.getResolver('pagination'),
-  productConnection: ProductTC.getResolver('connection'),
+  product: productFindOneResolver,
+  productList: productFindManyResolver,
+  productPagination: productPaginationResolver,
+  productConnection: productConnectionResolver,
 
-  region: RegionTC.getResolver('findOne'),
-  regionList: RegionTC.getResolver('findMany'),
+  region: regionFindOneResolver,
+  regionList: regionFindManyResolver,
 
-  shipper: ShipperTC.getResolver('findOne'),
-  shipperList: ShipperTC.getResolver('findMany'),
+  shipper: shipperFindOneResolver,
+  shipperList: shipperFindManyResolver,
 
-  supplier: SupplierTC.getResolver('findOne'),
-  supplierConnection: SupplierTC.getResolver('connection'),
+  supplier: supplierFindOneResolver,
+  supplierConnection: supplierConnectionResolver,
 };
 
 ViewerTC.addFields(fields);
@@ -70,11 +96,11 @@ schemaComposer.Mutation.addFields({
   // ...allowOnlyForLocalhost({
   ...autoResetDataIn30min({
     ...addQueryToPayload({
-      createProduct: ProductTC.getResolver('createOne'),
-      updateProduct: ProductTC.getResolver('updateById'),
-      removeProduct: ProductTC.getResolver('removeOne'),
+      createProduct: productCreateOneResolver,
+      updateProduct: productUpdateByIdResolver,
+      removeProduct: productRemoveOneResolver,
 
-      createOrder: OrderTC.getResolver('createOne', [
+      createOrder: orderCreateOneResolver.withMiddlewares([
         async (next, s, a, c, i) => {
           const res = await next(s, a, c, i);
           const _id = res?.record?._id;
@@ -82,7 +108,7 @@ schemaComposer.Mutation.addFields({
           return res;
         },
       ]),
-      updateOrder: OrderTC.getResolver('updateById', [
+      updateOrder: orderUpdateByIdResolver.withMiddlewares([
         async (next, s, a, c, i) => {
           const res = await next(s, a, c, i);
           const _id = res?.record?._id;
@@ -90,7 +116,7 @@ schemaComposer.Mutation.addFields({
           return res;
         },
       ]),
-      removeOrder: OrderTC.getResolver('removeOne', [
+      removeOrder: orderRemoveOneResolver.withMiddlewares([
         async (next, s, a, c, i) => {
           const res = await next(s, a, c, i);
           if (res?.recordId) pubsub.publish('ORDER_REMOVED', res?.recordId);
@@ -98,7 +124,7 @@ schemaComposer.Mutation.addFields({
         },
       ]),
 
-      updateEmployee: EmployeeTC.getResolver('updateById'),
+      updateEmployee: employeeUpdateByIdResolver,
     }),
   }),
   resetData: {

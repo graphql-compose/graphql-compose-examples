@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose';
 import { composeMongoose } from 'graphql-compose-mongoose';
 import { AddressSchema } from './addressSchema';
-import { OrderTC } from './order';
+import { orderConnectionResolver, orderFindManyResolver } from './order';
 
 export const CustomerSchema: Schema<any> = new Schema(
   {
@@ -28,18 +28,8 @@ export const Customer = model<any>('Customer', CustomerSchema);
 
 export const CustomerTC = composeMongoose(Customer);
 
-CustomerTC.getResolver('connection').extensions = {
-  complexity: ({ args, childComplexity }) => childComplexity * (args.first || args.last || 20),
-};
-CustomerTC.getResolver('pagination').extensions = {
-  complexity: ({ args, childComplexity }) => childComplexity * (args.perPage || 20),
-};
-CustomerTC.getResolver('findMany').extensions = {
-  complexity: ({ args, childComplexity }) => childComplexity * (args.limit || 1000),
-};
-
 CustomerTC.addRelation('orderConnection', {
-  resolver: () => OrderTC.getResolver('connection'),
+  resolver: () => orderConnectionResolver,
   prepareArgs: {
     filter: (source) => ({ customerID: source.customerID }),
   },
@@ -47,9 +37,26 @@ CustomerTC.addRelation('orderConnection', {
 });
 
 CustomerTC.addRelation('orderList', {
-  resolver: () => OrderTC.getResolver('findMany'),
+  resolver: () => orderFindManyResolver,
   prepareArgs: {
     filter: (source) => ({ customerID: source.customerID }),
   },
   projection: { customerID: true },
 });
+
+export const customerConnectionResolver = CustomerTC.mongooseResolvers.connection();
+customerConnectionResolver.setExtensions({
+  complexity: ({ args, childComplexity }) => childComplexity * (args.first || args.last || 20),
+});
+
+export const customerPaginationResolver = CustomerTC.mongooseResolvers.pagination();
+customerPaginationResolver.setExtensions({
+  complexity: ({ args, childComplexity }) => childComplexity * (args.perPage || 20),
+});
+
+export const customerFindManyResolver = CustomerTC.mongooseResolvers.findMany();
+customerPaginationResolver.setExtensions({
+  complexity: ({ args, childComplexity }) => childComplexity * (args.limit || 1000),
+});
+
+export const customerFindOneResolver = CustomerTC.mongooseResolvers.findOne();

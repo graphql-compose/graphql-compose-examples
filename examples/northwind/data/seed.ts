@@ -1,8 +1,9 @@
 import fs from 'fs';
+import { Db } from 'mongodb';
 
 const collectionPrefix = 'northwind_';
 
-export default async function seed(db: any) {
+export default async function seed(db: Db) {
   const files = [
     'categories',
     'customers',
