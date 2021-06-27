@@ -9,40 +9,30 @@ export default {
   github: 'https://github.com/nodkz/graphql-compose-examples/tree/master/examples/elasticsearch',
   queries: [
     {
-      title: 'Elastic search API 6.0',
+      title: 'Elastic search API 7.7',
       query: `
 query {
-  elastic60(host: "http://user:pass@example.com:9200") {
+  elastic77(host: "http://user:pass@example.com:9200") {
     search(q: "JavaScript")
   }
 }
       `,
     },
     {
-      title: 'Elastic search API 5.0',
+      title: 'Elastic search API 6.8',
       query: `
 query {
-  elastic50(host: "http://user:pass@example.com:9200") {
+  elastic68(host: "http://user:pass@example.com:9200") {
     search(q: "JavaScript")
   }
 }
       `,
     },
     {
-      title: 'Elastic search API 2.4',
+      title: 'Elastic search API 5.6',
       query: `
 query {
-  elastic24(host: "http://user:pass@example.com:9200") {
-    search(q: "JavaScript")
-  }
-}
-      `,
-    },
-    {
-      title: 'Elastic search API 1.7',
-      query: `
-query {
-  elastic17(host: "http://user:pass@example.com:9200") {
+  elastic56(host: "http://user:pass@example.com:9200") {
     search(q: "JavaScript")
   }
 }
