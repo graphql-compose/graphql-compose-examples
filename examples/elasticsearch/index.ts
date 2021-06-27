@@ -19,16 +19,6 @@ query {
       `,
     },
     {
-      title: 'Elastic search API 6.8',
-      query: `
-query {
-  elastic68(host: "http://user:pass@example.com:9200") {
-    search(q: "JavaScript")
-  }
-}
-      `,
-    },
-    {
       title: 'Elastic search API 5.6',
       query: `
 query {

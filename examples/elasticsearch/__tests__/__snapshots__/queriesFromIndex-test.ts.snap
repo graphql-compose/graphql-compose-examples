@@ -14,20 +14,6 @@ Object {
 }
 `;
 
-exports[`elasticsearch > queries Elastic search API 6.8 1`] = `
-Object {
-  "data": Object {
-    "elastic68": null,
-  },
-  "errors": Array [
-    [GraphQLError: ✋ 🛑 I don't have public elasticsearch instance for demo purposes. 
-🚀 Demo will work if you provide public elasticsearch instance url 
-🚀 in query argument \`host: "http://user:pass@example.com:9200"\` 
-],
-  ],
-}
-`;
-
 exports[`elasticsearch > queries Elastic search API 7.7 1`] = `
 Object {
   "data": Object {
