@@ -11,6 +11,257 @@
       "types": [
         {
           "kind": "OBJECT",
+          "name": "ValidationError",
+          "description": null,
+          "fields": [
+            {
+              "name": "message",
+              "description": "Combined error message from all validators",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "errors",
+              "description": "List of validator errors",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "ValidatorError",
+                    "ofType": null
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "ErrorInterface",
+              "ofType": null
+            }
+          ],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INTERFACE",
+          "name": "ErrorInterface",
+          "description": null,
+          "fields": [
+            {
+              "name": "message",
+              "description": "Generic error message",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": [
+            {
+              "kind": "OBJECT",
+              "name": "ValidationError",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "MongoError",
+              "ofType": null
+            },
+            {
+              "kind": "OBJECT",
+              "name": "RuntimeError",
+              "ofType": null
+            }
+          ]
+        },
+        {
+          "kind": "SCALAR",
+          "name": "String",
+          "description": "The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "ValidatorError",
+          "description": null,
+          "fields": [
+            {
+              "name": "message",
+              "description": "Validation error message",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "path",
+              "description": "Source of the validation error from the model path",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "value",
+              "description": "Field value which occurs the validation error",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "JSON",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "idx",
+              "description": "Input record idx in array which occurs the validation error. This `idx` is useful for createMany operation. For singular operations it always be 0. For *Many operations `idx` represents record index in array received from user.",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Int",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "JSON",
+          "description": "The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Int",
+          "description": "The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "MongoError",
+          "description": null,
+          "fields": [
+            {
+              "name": "message",
+              "description": "MongoDB error message",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "code",
+              "description": "MongoDB error code",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "ErrorInterface",
+              "ofType": null
+            }
+          ],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "RuntimeError",
+          "description": null,
+          "fields": [
+            {
+              "name": "message",
+              "description": "Runtime error message",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "ErrorInterface",
+              "ofType": null
+            }
+          ],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
           "name": "Query",
           "description": null,
           "fields": [
@@ -55,9 +306,13 @@
                       "kind": "LIST",
                       "name": null,
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "MongoID",
-                        "ofType": null
+                        "kind": "NON_NULL",
+                        "name": null,
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "MongoID",
+                          "ofType": null
+                        }
                       }
                     }
                   },
@@ -71,7 +326,7 @@
                     "name": "Int",
                     "ofType": null
                   },
-                  "defaultValue": "1000"
+                  "defaultValue": "100"
                 },
                 {
                   "name": "sort",
@@ -85,12 +340,20 @@
                 }
               ],
               "type": {
-                "kind": "LIST",
+                "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "User",
-                  "ofType": null
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "User",
+                      "ofType": null
+                    }
+                  }
                 }
               },
               "isDeprecated": false,
@@ -171,7 +434,7 @@
                     "name": "Int",
                     "ofType": null
                   },
-                  "defaultValue": "1000"
+                  "defaultValue": "100"
                 },
                 {
                   "name": "sort",
@@ -185,12 +448,20 @@
                 }
               ],
               "type": {
-                "kind": "LIST",
+                "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "User",
-                  "ofType": null
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "User",
+                      "ofType": null
+                    }
+                  }
                 }
               },
               "isDeprecated": false,
@@ -205,7 +476,7 @@
                   "description": "Filter by fields",
                   "type": {
                     "kind": "INPUT_OBJECT",
-                    "name": "FilterUserInput",
+                    "name": "FilterCountUserInput",
                     "ofType": null
                   },
                   "defaultValue": null
@@ -503,16 +774,6 @@
         },
         {
           "kind": "SCALAR",
-          "name": "String",
-          "description": "The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "SCALAR",
           "name": "Float",
           "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point).",
           "fields": null,
@@ -716,28 +977,8 @@
         },
         {
           "kind": "SCALAR",
-          "name": "JSON",
-          "description": "The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "SCALAR",
           "name": "BSONDecimal",
           "description": "The `Decimal` scalar type uses the IEEE 754 decimal128 decimal-based floating-point numbering format. Supports 34 decimal digits of precision, a max value of approximately 10^6145, and min value of approximately -10^6145",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "SCALAR",
-          "name": "Int",
-          "description": "The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -861,7 +1102,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserLanguagesInput",
+                  "name": "FilterFindOneUserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -872,7 +1113,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsInput",
+                "name": "FilterFindOneUserContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -892,7 +1133,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserAddressInput",
+                "name": "FilterFindOneUserAddressInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -928,25 +1169,11 @@
               "defaultValue": null
             },
             {
-              "name": "_ids",
-              "description": null,
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "MongoID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
               "name": "_operators",
               "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OperatorsFilterFindOneUserInput",
+                "name": "FilterFindOneUserOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -994,8 +1221,8 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "UserLanguagesInput",
-          "description": null,
+          "name": "FilterFindOneUserLanguagesInput",
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -1025,8 +1252,8 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "UserContactsInput",
-          "description": null,
+          "name": "FilterFindOneUserContactsInput",
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -1060,8 +1287,8 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "UserAddressInput",
-          "description": null,
+          "name": "FilterFindOneUserAddressInput",
+          "description": "",
           "fields": null,
           "inputFields": [
             {
@@ -1105,7 +1332,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "OperatorsFilterFindOneUserInput",
+          "name": "FilterFindOneUserOperatorsInput",
           "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
@@ -1114,7 +1341,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "NameOperatorsFilterFindOneUserInput",
+                "name": "FilterFindOneUserNameOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1124,7 +1351,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "AgeOperatorsFilterFindOneUserInput",
+                "name": "FilterFindOneUserAgeOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1134,7 +1361,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "GenderOperatorsFilterFindOneUserInput",
+                "name": "FilterFindOneUserGenderOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1144,7 +1371,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "SalaryDecimalOperatorsFilterFindOneUserInput",
+                "name": "FilterFindOneUserSalaryDecimalOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1154,7 +1381,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "_idOperatorsFilterFindOneUserInput",
+                "name": "FilterFindOneUser_idOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1166,7 +1393,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "NameOperatorsFilterFindOneUserInput",
+          "name": "FilterFindOneUserNameOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -1247,6 +1474,26 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "regex",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "RegExpAsString",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -1254,8 +1501,28 @@
           "possibleTypes": null
         },
         {
+          "kind": "SCALAR",
+          "name": "RegExpAsString",
+          "description": "The string representation of JavaScript regexp. You may provide it with flags \"/^abc.*/i\" or without flags like \"^abc.*\". More info about RegExp characters and flags: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Boolean",
+          "description": "The `Boolean` scalar type represents `true` or `false`.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "INPUT_OBJECT",
-          "name": "AgeOperatorsFilterFindOneUserInput",
+          "name": "FilterFindOneUserAgeOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -1336,6 +1603,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -1344,7 +1621,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "GenderOperatorsFilterFindOneUserInput",
+          "name": "FilterFindOneUserGenderOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -1425,6 +1702,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -1433,7 +1720,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "SalaryDecimalOperatorsFilterFindOneUserInput",
+          "name": "FilterFindOneUserSalaryDecimalOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -1514,6 +1801,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -1522,7 +1819,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "_idOperatorsFilterFindOneUserInput",
+          "name": "FilterFindOneUser_idOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -1601,6 +1898,16 @@
                   "name": "MongoID",
                   "ofType": null
                 }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -1726,7 +2033,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserLanguagesInput",
+                  "name": "FilterFindManyUserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -1737,7 +2044,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsInput",
+                "name": "FilterFindManyUserContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1757,7 +2064,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserAddressInput",
+                "name": "FilterFindManyUserAddressInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1793,25 +2100,11 @@
               "defaultValue": null
             },
             {
-              "name": "_ids",
-              "description": null,
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "MongoID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
               "name": "_operators",
               "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OperatorsFilterFindManyUserInput",
+                "name": "FilterFindManyUserOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1851,13 +2144,34 @@
                 }
               },
               "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "FilterFindManyUserLanguagesInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "language",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
             },
             {
-              "name": "geoDistance",
-              "description": "Search by distance in meters",
+              "name": "skill",
+              "description": null,
               "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "GeoDistance",
+                "kind": "ENUM",
+                "name": "EnumUserLanguagesSkill",
                 "ofType": null
               },
               "defaultValue": null
@@ -1869,7 +2183,87 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "OperatorsFilterFindManyUserInput",
+          "name": "FilterFindManyUserContactsInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "email",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "phones",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "FilterFindManyUserAddressInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "street",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "geo",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "FilterFindManyUserOperatorsInput",
           "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
@@ -1878,7 +2272,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "NameOperatorsFilterFindManyUserInput",
+                "name": "FilterFindManyUserNameOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1888,7 +2282,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "AgeOperatorsFilterFindManyUserInput",
+                "name": "FilterFindManyUserAgeOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1898,7 +2292,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "GenderOperatorsFilterFindManyUserInput",
+                "name": "FilterFindManyUserGenderOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1908,7 +2302,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "SalaryDecimalOperatorsFilterFindManyUserInput",
+                "name": "FilterFindManyUserSalaryDecimalOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1918,7 +2312,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "_idOperatorsFilterFindManyUserInput",
+                "name": "FilterFindManyUser_idOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -1930,7 +2324,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "NameOperatorsFilterFindManyUserInput",
+          "name": "FilterFindManyUserNameOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -2011,6 +2405,26 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "regex",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "RegExpAsString",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -2019,7 +2433,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "AgeOperatorsFilterFindManyUserInput",
+          "name": "FilterFindManyUserAgeOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -2100,6 +2514,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -2108,7 +2532,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "GenderOperatorsFilterFindManyUserInput",
+          "name": "FilterFindManyUserGenderOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -2189,6 +2613,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -2197,7 +2631,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "SalaryDecimalOperatorsFilterFindManyUserInput",
+          "name": "FilterFindManyUserSalaryDecimalOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -2278,6 +2712,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -2286,7 +2730,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "_idOperatorsFilterFindManyUserInput",
+          "name": "FilterFindManyUser_idOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -2367,57 +2811,14 @@
                 }
               },
               "defaultValue": null
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "GeoDistance",
-          "description": null,
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "lng",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Float",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
             },
             {
-              "name": "lat",
+              "name": "exists",
               "description": null,
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Float",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "distance",
-              "description": null,
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Float",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -2511,7 +2912,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "FilterUserInput",
+          "name": "FilterCountUserInput",
           "description": "",
           "fields": null,
           "inputFields": [
@@ -2543,7 +2944,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserLanguagesInput",
+                  "name": "FilterCountUserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -2554,7 +2955,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsInput",
+                "name": "FilterCountUserContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2574,7 +2975,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserAddressInput",
+                "name": "FilterCountUserAddressInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2610,25 +3011,11 @@
               "defaultValue": null
             },
             {
-              "name": "_ids",
-              "description": null,
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "MongoID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
               "name": "_operators",
               "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OperatorsFilterUserInput",
+                "name": "FilterCountUserOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2644,7 +3031,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "FilterUserInput",
+                    "name": "FilterCountUserInput",
                     "ofType": null
                   }
                 }
@@ -2662,7 +3049,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "FilterUserInput",
+                    "name": "FilterCountUserInput",
                     "ofType": null
                   }
                 }
@@ -2676,7 +3063,118 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "OperatorsFilterUserInput",
+          "name": "FilterCountUserLanguagesInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "language",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "skill",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserLanguagesSkill",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "FilterCountUserContactsInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "email",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "phones",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "FilterCountUserAddressInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "street",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "geo",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "FilterCountUserOperatorsInput",
           "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
@@ -2685,7 +3183,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "NameOperatorsFilterUserInput",
+                "name": "FilterCountUserNameOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2695,7 +3193,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "AgeOperatorsFilterUserInput",
+                "name": "FilterCountUserAgeOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2705,7 +3203,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "GenderOperatorsFilterUserInput",
+                "name": "FilterCountUserGenderOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2715,7 +3213,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "SalaryDecimalOperatorsFilterUserInput",
+                "name": "FilterCountUserSalaryDecimalOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2725,7 +3223,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "_idOperatorsFilterUserInput",
+                "name": "FilterCountUser_idOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -2737,7 +3235,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "NameOperatorsFilterUserInput",
+          "name": "FilterCountUserNameOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -2818,6 +3316,26 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "regex",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "RegExpAsString",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -2826,7 +3344,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "AgeOperatorsFilterUserInput",
+          "name": "FilterCountUserAgeOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -2907,6 +3425,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -2915,7 +3443,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "GenderOperatorsFilterUserInput",
+          "name": "FilterCountUserGenderOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -2996,6 +3524,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -3004,7 +3542,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "SalaryDecimalOperatorsFilterUserInput",
+          "name": "FilterCountUserSalaryDecimalOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -3085,6 +3623,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -3093,7 +3641,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "_idOperatorsFilterUserInput",
+          "name": "FilterCountUser_idOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -3172,6 +3720,16 @@
                   "name": "MongoID",
                   "ofType": null
                 }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -3315,16 +3873,6 @@
           "possibleTypes": null
         },
         {
-          "kind": "SCALAR",
-          "name": "Boolean",
-          "description": "The `Boolean` scalar type represents `true` or `false`.",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
           "kind": "OBJECT",
           "name": "UserEdge",
           "description": "An edge in a connection.",
@@ -3415,9 +3963,13 @@
                 "kind": "LIST",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "User",
-                  "ofType": null
+                  "kind": "NON_NULL",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "User",
+                    "ofType": null
+                  }
                 }
               },
               "isDeprecated": false,
@@ -3608,6 +4160,20 @@
               "description": "Update one document: 1) Retrieve one document by findById. 2) Apply updates to mongoose document. 3) Mongoose applies defaults, setters, hooks and validation. 4) And save it.",
               "args": [
                 {
+                  "name": "_id",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "MongoID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
                   "name": "record",
                   "description": null,
                   "type": {
@@ -3743,7 +4309,7 @@
                     "name": "Int",
                     "ofType": null
                   },
-                  "defaultValue": "1000"
+                  "defaultValue": "100"
                 }
               ],
               "type": {
@@ -3831,6 +4397,16 @@
                     }
                   },
                   "defaultValue": null
+                },
+                {
+                  "name": "limit",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": "100"
                 }
               ],
               "type": {
@@ -3854,7 +4430,7 @@
           "fields": [
             {
               "name": "recordId",
-              "description": "Created document ID",
+              "description": "Document ID",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -3871,6 +4447,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.",
+              "args": [],
+              "type": {
+                "kind": "INTERFACE",
+                "name": "ErrorInterface",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -3978,13 +4566,124 @@
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "UserLanguagesInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "language",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "skill",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserLanguagesSkill",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UserContactsInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "email",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "phones",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UserAddressInput",
+          "description": null,
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "street",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "geo",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "CreateManyUserPayload",
           "description": null,
           "fields": [
             {
               "name": "recordIds",
-              "description": "Created document ID",
+              "description": "Documents IDs",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -3993,9 +4692,13 @@
                   "kind": "LIST",
                   "name": null,
                   "ofType": {
-                    "kind": "SCALAR",
-                    "name": "MongoID",
-                    "ofType": null
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "MongoID",
+                      "ofType": null
+                    }
                   }
                 }
               },
@@ -4007,10 +4710,10 @@
               "description": "Created documents",
               "args": [],
               "type": {
-                "kind": "NON_NULL",
+                "kind": "LIST",
                 "name": null,
                 "ofType": {
-                  "kind": "LIST",
+                  "kind": "NON_NULL",
                   "name": null,
                   "ofType": {
                     "kind": "OBJECT",
@@ -4023,8 +4726,8 @@
               "deprecationReason": null
             },
             {
-              "name": "createCount",
-              "description": "Count of all documents created",
+              "name": "createdCount",
+              "description": "Number of created documents",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -4034,6 +4737,18 @@
                   "name": "Int",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.",
+              "args": [],
+              "type": {
+                "kind": "INTERFACE",
+                "name": "ErrorInterface",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -4146,7 +4861,7 @@
           "fields": [
             {
               "name": "recordId",
-              "description": "Updated document ID",
+              "description": "Document ID",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -4163,6 +4878,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.",
+              "args": [],
+              "type": {
+                "kind": "INTERFACE",
+                "name": "ErrorInterface",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -4208,7 +4935,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserLanguagesInput",
+                  "name": "UpdateByIdUserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -4219,7 +4946,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsInput",
+                "name": "UpdateByIdUserContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -4239,7 +4966,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserAddressInput",
+                "name": "UpdateByIdUserAddressInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -4263,18 +4990,115 @@
                 "ofType": null
               },
               "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateByIdUserLanguagesInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "language",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "skill",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserLanguagesSkill",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateByIdUserContactsInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "email",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "phones",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateByIdUserAddressInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "street",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "geo",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
             },
             {
               "name": "_id",
               "description": null,
               "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "MongoID",
-                  "ofType": null
-                }
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -4290,7 +5114,7 @@
           "fields": [
             {
               "name": "recordId",
-              "description": "Updated document ID",
+              "description": "Document ID",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -4307,6 +5131,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.",
+              "args": [],
+              "type": {
+                "kind": "INTERFACE",
+                "name": "ErrorInterface",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -4352,7 +5188,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserLanguagesInput",
+                  "name": "UpdateOneUserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -4363,7 +5199,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsInput",
+                "name": "UpdateOneUserContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -4383,7 +5219,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserAddressInput",
+                "name": "UpdateOneUserAddressInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -4404,6 +5240,117 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateOneUserLanguagesInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "language",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "skill",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserLanguagesSkill",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateOneUserContactsInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "email",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "phones",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateOneUserAddressInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "street",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "geo",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
                 "ofType": null
               },
               "defaultValue": null
@@ -4447,7 +5394,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserLanguagesInput",
+                  "name": "FilterUpdateOneUserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -4458,7 +5405,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsInput",
+                "name": "FilterUpdateOneUserContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -4478,7 +5425,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserAddressInput",
+                "name": "FilterUpdateOneUserAddressInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -4514,25 +5461,11 @@
               "defaultValue": null
             },
             {
-              "name": "_ids",
-              "description": null,
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "MongoID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
               "name": "_operators",
               "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OperatorsFilterUpdateOneUserInput",
+                "name": "FilterUpdateOneUserOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -4580,7 +5513,118 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "OperatorsFilterUpdateOneUserInput",
+          "name": "FilterUpdateOneUserLanguagesInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "language",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "skill",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserLanguagesSkill",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "FilterUpdateOneUserContactsInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "email",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "phones",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "FilterUpdateOneUserAddressInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "street",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "geo",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "FilterUpdateOneUserOperatorsInput",
           "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
@@ -4589,7 +5633,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "NameOperatorsFilterUpdateOneUserInput",
+                "name": "FilterUpdateOneUserNameOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -4599,7 +5643,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "AgeOperatorsFilterUpdateOneUserInput",
+                "name": "FilterUpdateOneUserAgeOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -4609,7 +5653,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "GenderOperatorsFilterUpdateOneUserInput",
+                "name": "FilterUpdateOneUserGenderOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -4619,7 +5663,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "SalaryDecimalOperatorsFilterUpdateOneUserInput",
+                "name": "FilterUpdateOneUserSalaryDecimalOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -4629,7 +5673,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "_idOperatorsFilterUpdateOneUserInput",
+                "name": "FilterUpdateOneUser_idOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -4641,7 +5685,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "NameOperatorsFilterUpdateOneUserInput",
+          "name": "FilterUpdateOneUserNameOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -4722,6 +5766,26 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "regex",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "RegExpAsString",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -4730,7 +5794,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "AgeOperatorsFilterUpdateOneUserInput",
+          "name": "FilterUpdateOneUserAgeOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -4811,6 +5875,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -4819,7 +5893,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "GenderOperatorsFilterUpdateOneUserInput",
+          "name": "FilterUpdateOneUserGenderOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -4900,6 +5974,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -4908,7 +5992,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "SalaryDecimalOperatorsFilterUpdateOneUserInput",
+          "name": "FilterUpdateOneUserSalaryDecimalOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -4989,6 +6073,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -4997,7 +6091,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "_idOperatorsFilterUpdateOneUserInput",
+          "name": "FilterUpdateOneUser_idOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -5076,6 +6170,16 @@
                   "name": "MongoID",
                   "ofType": null
                 }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -5183,6 +6287,18 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.",
+              "args": [],
+              "type": {
+                "kind": "INTERFACE",
+                "name": "ErrorInterface",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -5224,7 +6340,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserLanguagesInput",
+                  "name": "UpdateManyUserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -5235,7 +6351,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsInput",
+                "name": "UpdateManyUserContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -5255,7 +6371,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserAddressInput",
+                "name": "UpdateManyUserAddressInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -5276,6 +6392,117 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "BSONDecimal",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateManyUserLanguagesInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "language",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "skill",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserLanguagesSkill",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateManyUserContactsInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "email",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "phones",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "UpdateManyUserAddressInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "street",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "geo",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
                 "ofType": null
               },
               "defaultValue": null
@@ -5319,7 +6546,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserLanguagesInput",
+                  "name": "FilterUpdateManyUserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -5330,7 +6557,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsInput",
+                "name": "FilterUpdateManyUserContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -5350,7 +6577,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserAddressInput",
+                "name": "FilterUpdateManyUserAddressInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -5386,25 +6613,11 @@
               "defaultValue": null
             },
             {
-              "name": "_ids",
-              "description": null,
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "MongoID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
               "name": "_operators",
               "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OperatorsFilterUpdateManyUserInput",
+                "name": "FilterUpdateManyUserOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -5452,7 +6665,118 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "OperatorsFilterUpdateManyUserInput",
+          "name": "FilterUpdateManyUserLanguagesInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "language",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "skill",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserLanguagesSkill",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "FilterUpdateManyUserContactsInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "email",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "phones",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "FilterUpdateManyUserAddressInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "street",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "geo",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "FilterUpdateManyUserOperatorsInput",
           "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
@@ -5461,7 +6785,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "NameOperatorsFilterUpdateManyUserInput",
+                "name": "FilterUpdateManyUserNameOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -5471,7 +6795,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "AgeOperatorsFilterUpdateManyUserInput",
+                "name": "FilterUpdateManyUserAgeOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -5481,7 +6805,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "GenderOperatorsFilterUpdateManyUserInput",
+                "name": "FilterUpdateManyUserGenderOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -5491,7 +6815,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "SalaryDecimalOperatorsFilterUpdateManyUserInput",
+                "name": "FilterUpdateManyUserSalaryDecimalOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -5501,7 +6825,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "_idOperatorsFilterUpdateManyUserInput",
+                "name": "FilterUpdateManyUser_idOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -5513,7 +6837,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "NameOperatorsFilterUpdateManyUserInput",
+          "name": "FilterUpdateManyUserNameOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -5594,6 +6918,26 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "regex",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "RegExpAsString",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -5602,7 +6946,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "AgeOperatorsFilterUpdateManyUserInput",
+          "name": "FilterUpdateManyUserAgeOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -5683,6 +7027,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -5691,7 +7045,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "GenderOperatorsFilterUpdateManyUserInput",
+          "name": "FilterUpdateManyUserGenderOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -5772,6 +7126,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -5780,7 +7144,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "SalaryDecimalOperatorsFilterUpdateManyUserInput",
+          "name": "FilterUpdateManyUserSalaryDecimalOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -5861,6 +7225,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -5869,7 +7243,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "_idOperatorsFilterUpdateManyUserInput",
+          "name": "FilterUpdateManyUser_idOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -5948,6 +7322,16 @@
                   "name": "MongoID",
                   "ofType": null
                 }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -6046,7 +7430,7 @@
           "fields": [
             {
               "name": "recordId",
-              "description": "Removed document ID",
+              "description": "Document ID",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -6063,6 +7447,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.",
+              "args": [],
+              "type": {
+                "kind": "INTERFACE",
+                "name": "ErrorInterface",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -6081,7 +7477,7 @@
           "fields": [
             {
               "name": "recordId",
-              "description": "Removed document ID",
+              "description": "Document ID",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -6098,6 +7494,18 @@
               "type": {
                 "kind": "OBJECT",
                 "name": "User",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.",
+              "args": [],
+              "type": {
+                "kind": "INTERFACE",
+                "name": "ErrorInterface",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -6143,7 +7551,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserLanguagesInput",
+                  "name": "FilterRemoveOneUserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -6154,7 +7562,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsInput",
+                "name": "FilterRemoveOneUserContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -6174,7 +7582,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserAddressInput",
+                "name": "FilterRemoveOneUserAddressInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -6210,25 +7618,11 @@
               "defaultValue": null
             },
             {
-              "name": "_ids",
-              "description": null,
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "MongoID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
               "name": "_operators",
               "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OperatorsFilterRemoveOneUserInput",
+                "name": "FilterRemoveOneUserOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -6276,7 +7670,118 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "OperatorsFilterRemoveOneUserInput",
+          "name": "FilterRemoveOneUserLanguagesInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "language",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "skill",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserLanguagesSkill",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "FilterRemoveOneUserContactsInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "email",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "phones",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "FilterRemoveOneUserAddressInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "street",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "geo",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "FilterRemoveOneUserOperatorsInput",
           "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
@@ -6285,7 +7790,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "NameOperatorsFilterRemoveOneUserInput",
+                "name": "FilterRemoveOneUserNameOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -6295,7 +7800,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "AgeOperatorsFilterRemoveOneUserInput",
+                "name": "FilterRemoveOneUserAgeOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -6305,7 +7810,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "GenderOperatorsFilterRemoveOneUserInput",
+                "name": "FilterRemoveOneUserGenderOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -6315,7 +7820,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "SalaryDecimalOperatorsFilterRemoveOneUserInput",
+                "name": "FilterRemoveOneUserSalaryDecimalOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -6325,7 +7830,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "_idOperatorsFilterRemoveOneUserInput",
+                "name": "FilterRemoveOneUser_idOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -6337,7 +7842,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "NameOperatorsFilterRemoveOneUserInput",
+          "name": "FilterRemoveOneUserNameOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -6418,6 +7923,26 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "regex",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "RegExpAsString",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -6426,7 +7951,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "AgeOperatorsFilterRemoveOneUserInput",
+          "name": "FilterRemoveOneUserAgeOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -6507,6 +8032,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -6515,7 +8050,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "GenderOperatorsFilterRemoveOneUserInput",
+          "name": "FilterRemoveOneUserGenderOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -6596,6 +8131,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -6604,7 +8149,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "SalaryDecimalOperatorsFilterRemoveOneUserInput",
+          "name": "FilterRemoveOneUserSalaryDecimalOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -6685,6 +8230,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -6693,7 +8248,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "_idOperatorsFilterRemoveOneUserInput",
+          "name": "FilterRemoveOneUser_idOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -6772,6 +8327,16 @@
                   "name": "MongoID",
                   "ofType": null
                 }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -6879,6 +8444,18 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "error",
+              "description": "Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.",
+              "args": [],
+              "type": {
+                "kind": "INTERFACE",
+                "name": "ErrorInterface",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -6920,7 +8497,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "INPUT_OBJECT",
-                  "name": "UserLanguagesInput",
+                  "name": "FilterRemoveManyUserLanguagesInput",
                   "ofType": null
                 }
               },
@@ -6931,7 +8508,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserContactsInput",
+                "name": "FilterRemoveManyUserContactsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -6951,7 +8528,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "UserAddressInput",
+                "name": "FilterRemoveManyUserAddressInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -6987,25 +8564,11 @@
               "defaultValue": null
             },
             {
-              "name": "_ids",
-              "description": null,
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "MongoID",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            },
-            {
               "name": "_operators",
               "description": "List of *indexed* fields that can be filtered via operators.",
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "OperatorsFilterRemoveManyUserInput",
+                "name": "FilterRemoveManyUserOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -7053,7 +8616,118 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "OperatorsFilterRemoveManyUserInput",
+          "name": "FilterRemoveManyUserLanguagesInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "language",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "skill",
+              "description": null,
+              "type": {
+                "kind": "ENUM",
+                "name": "EnumUserLanguagesSkill",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "FilterRemoveManyUserContactsInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "email",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "phones",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "FilterRemoveManyUserAddressInput",
+          "description": "",
+          "fields": null,
+          "inputFields": [
+            {
+              "name": "street",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "geo",
+              "description": null,
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Float",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "_id",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "MongoID",
+                "ofType": null
+              },
+              "defaultValue": null
+            }
+          ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "FilterRemoveManyUserOperatorsInput",
           "description": "For performance reason this type contains only *indexed* fields.",
           "fields": null,
           "inputFields": [
@@ -7062,7 +8736,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "NameOperatorsFilterRemoveManyUserInput",
+                "name": "FilterRemoveManyUserNameOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -7072,7 +8746,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "AgeOperatorsFilterRemoveManyUserInput",
+                "name": "FilterRemoveManyUserAgeOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -7082,7 +8756,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "GenderOperatorsFilterRemoveManyUserInput",
+                "name": "FilterRemoveManyUserGenderOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -7092,7 +8766,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "SalaryDecimalOperatorsFilterRemoveManyUserInput",
+                "name": "FilterRemoveManyUserSalaryDecimalOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -7102,7 +8776,7 @@
               "description": null,
               "type": {
                 "kind": "INPUT_OBJECT",
-                "name": "_idOperatorsFilterRemoveManyUserInput",
+                "name": "FilterRemoveManyUser_idOperatorsInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -7114,7 +8788,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "NameOperatorsFilterRemoveManyUserInput",
+          "name": "FilterRemoveManyUserNameOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -7195,6 +8869,26 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "regex",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "RegExpAsString",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -7203,7 +8897,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "AgeOperatorsFilterRemoveManyUserInput",
+          "name": "FilterRemoveManyUserAgeOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -7284,6 +8978,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -7292,7 +8996,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "GenderOperatorsFilterRemoveManyUserInput",
+          "name": "FilterRemoveManyUserGenderOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -7373,6 +9077,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -7381,7 +9095,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "SalaryDecimalOperatorsFilterRemoveManyUserInput",
+          "name": "FilterRemoveManyUserSalaryDecimalOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -7462,6 +9176,16 @@
                 }
               },
               "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -7470,7 +9194,7 @@
         },
         {
           "kind": "INPUT_OBJECT",
-          "name": "_idOperatorsFilterRemoveManyUserInput",
+          "name": "FilterRemoveManyUser_idOperatorsInput",
           "description": null,
           "fields": null,
           "inputFields": [
@@ -7549,6 +9273,16 @@
                   "name": "MongoID",
                   "ofType": null
                 }
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "exists",
+              "description": null,
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
               },
               "defaultValue": null
             }
@@ -7671,7 +9405,7 @@
         {
           "kind": "OBJECT",
           "name": "__Type",
-          "description": "The fundamental unit of any GraphQL Schema is the type. There are many kinds of types in GraphQL as represented by the `__TypeKind` enum.\n\nDepending on the kind of a type, certain fields describe information about that type. Scalar types provide no information beyond a name and description, while Enum types provide their values. Object and Interface types provide the fields they describe. Abstract types, Union and Interface, provide the Object types possible at runtime. List and NonNull types compose other types.",
+          "description": "The fundamental unit of any GraphQL Schema is the type. There are many kinds of types in GraphQL as represented by the `__TypeKind` enum.\n\nDepending on the kind of a type, certain fields describe information about that type. Scalar types provide no information beyond a name, description and optional `specifiedByUrl`, while Enum types provide their values. Object and Interface types provide the fields they describe. Abstract types, Union and Interface, provide the Object types possible at runtime. List and NonNull types compose other types.",
           "fields": [
             {
               "name": "kind",
@@ -7703,6 +9437,18 @@
             },
             {
               "name": "description",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "specifiedByUrl",
               "description": null,
               "args": [],
               "type": {
@@ -7818,7 +9564,18 @@
             {
               "name": "inputFields",
               "description": null,
-              "args": [],
+              "args": [
+                {
+                  "name": "includeDeprecated",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Boolean",
+                    "ofType": null
+                  },
+                  "defaultValue": "false"
+                }
+              ],
               "type": {
                 "kind": "LIST",
                 "name": null,
@@ -7948,7 +9705,18 @@
             {
               "name": "args",
               "description": null,
-              "args": [],
+              "args": [
+                {
+                  "name": "includeDeprecated",
+                  "description": null,
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Boolean",
+                    "ofType": null
+                  },
+                  "defaultValue": "false"
+                }
+              ],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -8071,6 +9839,34 @@
             {
               "name": "defaultValue",
               "description": "A GraphQL-formatted string representing the default value for this input value.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "isDeprecated",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "deprecationReason",
+              "description": null,
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -8438,6 +10234,8 @@
           "description": "Marks an element of a GraphQL schema as no longer supported.",
           "locations": [
             "FIELD_DEFINITION",
+            "ARGUMENT_DEFINITION",
+            "INPUT_FIELD_DEFINITION",
             "ENUM_VALUE"
           ],
           "args": [
