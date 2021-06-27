@@ -73,7 +73,8 @@
   "scripts": {
     "seed": "./node_modules/.bin/ts-node ./scripts/seed.ts",
     "buildSchema": "./node_modules/.bin/ts-node ./scripts/buildSchema.ts",
-    "start": "concurrently \"npm:seed\" \"ts-node index.ts\"",
+    "build": "tsc",
+    "start": "concurrently \"npm:seed\" \"cd dist/ && node index.js\"",
     "dev": "ts-node-dev index.ts",
     "watch": "jest --watch",
     "coverage": "jest --coverage --maxWorkers 2",

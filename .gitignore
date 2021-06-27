@@ -42,3 +42,4 @@ node_modules
 /es
 /lib
 /coverage
+/dist

@@ -20,6 +20,7 @@
     "types": ["node", "jest"],
     "baseUrl": ".",
     "rootDir": "./",
+    "outDir": "./dist",
   },
   "include": ["**/*"],
   "exclude": [
