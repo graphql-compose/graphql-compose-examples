@@ -14,11 +14,35 @@ function checkHost(host): void {
 
 const schemaComposer = new SchemaComposer();
 
-schemaComposer.Query.setField('elastic60', {
-  description: 'Elastic v6.0',
+schemaComposer.Query.setField('elastic77', {
+  description: 'Elastic v7.7',
+  type: schemaComposer.createObjectTC({
+    name: 'Elastic77',
+    fields: new ElasticApiParser({ apiVersion: '7.7', prefix: 'Elastic77' }).generateFieldMap(),
+  }),
+  args: {
+    host: {
+      type: 'String',
+      defaultValue: 'http://user:pass@example.com:9200',
+    },
+  },
+  resolve: (src, args, context) => {
+    checkHost(args.host);
+    context.elasticClient = new elasticsearch.Client({
+      // eslint-disable-line no-param-reassign
+      host: args.host,
+      apiVersion: '7.7',
+      requestTimeout: 5000,
+    });
+    return {};
+  },
+});
+
+schemaComposer.Query.setField('elastic68', {
+  description: 'Elastic v6.8',
   type: schemaComposer.createObjectTC({
     name: 'Elastic60',
-    fields: new ElasticApiParser({ version: '6_0', prefix: 'Elastic60' }).generateFieldMap(),
+    fields: new ElasticApiParser({ apiVersion: '6.8', prefix: 'Elastic68' }).generateFieldMap(),
   }),
   args: {
     host: {
@@ -31,18 +55,18 @@ schemaComposer.Query.setField('elastic60', {
     context.elasticClient = new elasticsearch.Client({
       // eslint-disable-line no-param-reassign
       host: args.host,
-      apiVersion: '6.0',
+      apiVersion: '6.8',
       requestTimeout: 5000,
     });
     return {};
   },
 });
 
-schemaComposer.Query.setField('elastic50', {
-  description: 'Elastic v5.0',
+schemaComposer.Query.setField('elastic56', {
+  description: 'Elastic v5.6',
   type: schemaComposer.createObjectTC({
-    name: 'Elastic50',
-    fields: new ElasticApiParser({ version: '5_0', prefix: 'Elastic50' }).generateFieldMap(),
+    name: 'Elastic56',
+    fields: new ElasticApiParser({ apiVersion: '5.6', prefix: 'Elastic56' }).generateFieldMap(),
   }),
   args: {
     host: {
@@ -55,55 +79,7 @@ schemaComposer.Query.setField('elastic50', {
     context.elasticClient = new elasticsearch.Client({
       // eslint-disable-line no-param-reassign
       host: args.host,
-      apiVersion: '5.0',
-      requestTimeout: 5000,
-    });
-    return {};
-  },
-});
-
-schemaComposer.Query.setField('elastic24', {
-  description: 'Elastic v2.4',
-  type: schemaComposer.createObjectTC({
-    name: 'Elastic24',
-    fields: new ElasticApiParser({ version: '2_4', prefix: 'Elastic24' }).generateFieldMap(),
-  }),
-  args: {
-    host: {
-      type: 'String',
-      defaultValue: 'http://user:pass@example.com:9200',
-    },
-  },
-  resolve: (src, args, context) => {
-    checkHost(args.host);
-    context.elasticClient = new elasticsearch.Client({
-      // eslint-disable-line no-param-reassign
-      host: args.host,
-      apiVersion: '2.4',
-      requestTimeout: 5000,
-    });
-    return {};
-  },
-});
-
-schemaComposer.Query.setField('elastic17', {
-  description: 'Elastic v1.7',
-  type: schemaComposer.createObjectTC({
-    name: 'Elastic17',
-    fields: new ElasticApiParser({ version: '5_0', prefix: 'Elastic17' }).generateFieldMap(),
-  }),
-  args: {
-    host: {
-      type: 'String',
-      defaultValue: 'http://user:pass@example.com:9200',
-    },
-  },
-  resolve: (src, args, context) => {
-    checkHost(args.host);
-    context.elasticClient = new elasticsearch.Client({
-      // eslint-disable-line no-param-reassign
-      host: args.host,
-      apiVersion: '1.7',
+      apiVersion: '5.6',
       requestTimeout: 5000,
     });
     return {};
