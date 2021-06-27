@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [14.x]
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
@@ -23,7 +23,4 @@ jobs:
         run: yarn test
         env:
           CI: true
-      - name: Send codecov.io stats
-        if: matrix.node-version == '12.x'
-        run: bash <(curl -s https://codecov.io/bash) || echo ''
 
