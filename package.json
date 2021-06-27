@@ -71,7 +71,6 @@
     "ts-node-dev": "^1.1.6"
   },
   "scripts": {
-    "build": "npm run buildSchema",
     "seed": "./node_modules/.bin/ts-node ./scripts/seed.ts",
     "buildSchema": "./node_modules/.bin/ts-node ./scripts/buildSchema.ts",
     "start": "concurrently \"npm:seed\" \"ts-node index.ts\"",
