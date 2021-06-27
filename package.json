@@ -31,6 +31,7 @@
     "altair-express-middleware": "4.0.6",
     "apollo-server-express": "2.25.2",
     "aws-sdk": "2.935.0",
+    "concurrently": "^6.2.0",
     "cors": "2.8.5",
     "dedent": "0.7.0",
     "elasticsearch": "16.7.2",
