@@ -19,10 +19,13 @@ const httpServer = http.createServer(app);
 // - links and example queries to index page
 const exampleNames = getExampleNames();
 for (const name of exampleNames) {
-  addExample(
-    require(resolveExamplePath(name)).default,
-    name
-  );
+  if (process.env.DISABLE_AWS_EXAMPLE && name === 'aws') {
+    // skip AWS demo, because it uses quite lot memory
+    // and heroku start up fails
+    continue;
+  }
+
+  addExample(require(resolveExamplePath(name)).default, name);
 }
 
 // $FlowFixMe
