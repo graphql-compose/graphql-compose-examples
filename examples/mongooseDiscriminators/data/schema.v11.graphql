@@ -1,3 +1,46 @@
+type ValidationError implements ErrorInterface {
+  # Combined error message from all validators
+  message: String
+
+  # List of validator errors
+  errors: [ValidatorError!]
+}
+
+interface ErrorInterface {
+  # Generic error message
+  message: String
+}
+
+type ValidatorError {
+  # Validation error message
+  message: String
+
+  # Source of the validation error from the model path
+  path: String
+
+  # Field value which occurs the validation error
+  value: JSON
+
+  # Input record idx in array which occurs the validation error. This `idx` is useful for createMany operation. For singular operations it always be 0. For *Many operations `idx` represents record index in array received from user.
+  idx: Int!
+}
+
+# The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+scalar JSON @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+
+type MongoError implements ErrorInterface {
+  # MongoDB error message
+  message: String
+
+  # MongoDB error code
+  code: Int
+}
+
+type RuntimeError implements ErrorInterface {
+  # Runtime error message
+  message: String
+}
+
 #
 type Character implements CharacterInterface {
   _id: MongoID!
@@ -57,7 +100,7 @@ type Query {
     # Filter by fields
     filter: FilterFindManyCharacterInput
     skip: Int
-    limit: Int = 1000
+    limit: Int = 100
     sort: SortFindManyCharacterInput
   ): [CharacterInterface]
   characterById(_id: MongoID!): CharacterInterface
@@ -65,17 +108,17 @@ type Query {
     # Filter by fields
     filter: FilterFindManyDroidInput
     skip: Int
-    limit: Int = 1000
+    limit: Int = 100
     sort: SortFindManyDroidInput
-  ): [Droid]
+  ): [Droid!]!
   droidById(_id: MongoID!): Droid
   personMany(
     # Filter by fields
     filter: FilterFindManyPersonInput
     skip: Int
-    limit: Int = 1000
+    limit: Int = 100
     sort: SortFindManyPersonInput
-  ): [Person]
+  ): [Person!]!
   personById(_id: MongoID!): Person
 }
 
@@ -88,20 +131,19 @@ input FilterFindManyCharacterInput {
   mass: Float
   films: [String]
   _id: MongoID
-  _ids: [MongoID]
 
   # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterFindManyCharacterInput
+  _operators: FilterFindManyCharacterOperatorsInput
   OR: [FilterFindManyCharacterInput!]
   AND: [FilterFindManyCharacterInput!]
 }
 
 # For performance reason this type contains only *indexed* fields.
-input OperatorsFilterFindManyCharacterInput {
-  _id: _idOperatorsFilterFindManyCharacterInput
+input FilterFindManyCharacterOperatorsInput {
+  _id: FilterFindManyCharacter_idOperatorsInput
 }
 
-input _idOperatorsFilterFindManyCharacterInput {
+input FilterFindManyCharacter_idOperatorsInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -109,6 +151,7 @@ input _idOperatorsFilterFindManyCharacterInput {
   ne: MongoID
   in: [MongoID]
   nin: [MongoID]
+  exists: Boolean
 }
 
 enum SortFindManyCharacterInput {
@@ -125,10 +168,9 @@ input FilterFindManyDroidInput {
   films: [String]
   makeDate: String
   primaryFunction: [String]
-  _ids: [MongoID]
 
   # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterFindManyCharacterInput
+  _operators: FilterFindManyCharacterOperatorsInput
   OR: [FilterFindManyCharacterInput!]
   AND: [FilterFindManyCharacterInput!]
 }
@@ -148,10 +190,9 @@ input FilterFindManyPersonInput {
   gender: String
   hairColor: String
   starships: [String]
-  _ids: [MongoID]
 
   # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterFindManyCharacterInput
+  _operators: FilterFindManyCharacterOperatorsInput
   OR: [FilterFindManyCharacterInput!]
   AND: [FilterFindManyCharacterInput!]
 }
@@ -173,11 +214,14 @@ type Mutation {
 }
 
 type CreateOneCharacterPayload {
-  # Created document ID
+  # Document ID
   recordId: MongoID
 
   # Created document
   record: CharacterInterface
+
+  # Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.
+  error: ErrorInterface
 }
 
 #
@@ -191,11 +235,14 @@ input CreateOneCharacterInput {
 }
 
 type CreateOneDroidPayload {
-  # Created document ID
+  # Document ID
   recordId: MongoID
 
   # Created document
   record: Droid
+
+  # Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.
+  error: ErrorInterface
 }
 
 #
@@ -209,11 +256,14 @@ input CreateOneDroidInput {
 }
 
 type CreateOnePersonPayload {
-  # Created document ID
+  # Document ID
   recordId: MongoID
 
   # Created document
   record: Person
+
+  # Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.
+  error: ErrorInterface
 }
 
 #

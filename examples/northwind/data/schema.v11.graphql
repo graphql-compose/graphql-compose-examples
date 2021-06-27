@@ -1,6 +1,570 @@
+type ValidationError implements ErrorInterface {
+  # Combined error message from all validators
+  message: String
+
+  # List of validator errors
+  errors: [ValidatorError!]
+}
+
+interface ErrorInterface {
+  # Generic error message
+  message: String
+}
+
+type ValidatorError {
+  # Validation error message
+  message: String
+
+  # Source of the validation error from the model path
+  path: String
+
+  # Field value which occurs the validation error
+  value: JSON
+
+  # Input record idx in array which occurs the validation error. This `idx` is useful for createMany operation. For singular operations it always be 0. For *Many operations `idx` represents record index in array received from user.
+  idx: Int!
+}
+
+# The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+scalar JSON @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+
+type MongoError implements ErrorInterface {
+  # MongoDB error message
+  message: String
+
+  # MongoDB error code
+  code: Int
+}
+
+type RuntimeError implements ErrorInterface {
+  # Runtime error message
+  message: String
+}
+
 type Query {
+  userById(_id: MongoID!): User
+  userByIds(_ids: [MongoID!]!, limit: Int = 100, sort: SortFindByIdsUserInput): [User!]!
+  userOne(
+    # Filter by fields
+    filter: FilterFindOneUserInput
+    skip: Int
+    sort: SortFindOneUserInput
+  ): User
+  userMany(
+    # Filter by fields
+    filter: FilterFindManyUserInput
+    skip: Int
+    limit: Int = 100
+    sort: SortFindManyUserInput
+  ): [User!]!
+  userTotal(
+    # Filter by fields
+    filter: FilterCountUserInput
+  ): Int
+  userConnection(
+    # Forward pagination argument for returning at most first edges
+    first: Int
+
+    # Forward pagination argument for returning at most first edges
+    after: String
+
+    # Backward pagination argument for returning at most last edges
+    last: Int
+
+    # Backward pagination argument for returning at most last edges
+    before: String
+
+    # Filter by fields
+    filter: FilterFindManyUserInput
+
+    # Sort argument for data ordering
+    sort: SortConnectionUserEnum = _ID_DESC
+  ): UserConnection
+  userPagination(
+    # Page number for displaying
+    page: Int
+
+    #
+    perPage: Int = 20
+
+    # Filter by fields
+    filter: FilterFindManyUserInput
+    sort: SortFindManyUserInput
+  ): UserPagination
+
   # Data under client context
   viewer: Viewer
+}
+
+type User {
+  name: String
+  age: Float
+  languages: [UserLanguages]
+  contacts: UserContacts
+  gender: EnumUserGender
+  address: UserAddress
+
+  # Some dynamic data
+  someMixed: JSON
+  salaryDecimal: BSONDecimal
+  _id: MongoID!
+  virtualField(lang: String): String
+}
+
+type UserLanguages {
+  language: String
+  skill: EnumUserLanguagesSkill
+}
+
+enum EnumUserLanguagesSkill {
+  basic
+  fluent
+  native
+}
+
+type UserContacts {
+  email: String
+  phones: [String]
+}
+
+enum EnumUserGender {
+  male
+  female
+  ladyboy
+}
+
+type UserAddress {
+  street: String
+  geo: [Float]
+  _id: MongoID
+}
+
+# The `ID` scalar type represents a unique MongoDB identifier in collection. MongoDB by default use 12-byte ObjectId value (https://docs.mongodb.com/manual/reference/bson-types/#objectid). But MongoDB also may accepts string or integer as correct values for _id field.
+scalar MongoID
+
+# The `Decimal` scalar type uses the IEEE 754 decimal128 decimal-based floating-point numbering format. Supports 34 decimal digits of precision, a max value of approximately 10^6145, and min value of approximately -10^6145
+scalar BSONDecimal
+
+enum SortFindByIdsUserInput {
+  _ID_ASC
+  _ID_DESC
+  NAME_ASC
+  NAME_DESC
+  AGE_ASC
+  AGE_DESC
+  SALARYDECIMAL_ASC
+  SALARYDECIMAL_DESC
+  GENDER_ASC
+  GENDER_DESC
+  GENDER__AGE_ASC
+  GENDER__AGE_DESC
+}
+
+#
+input FilterFindOneUserInput {
+  name: String
+  age: Float
+  languages: [FilterFindOneUserLanguagesInput]
+  contacts: FilterFindOneUserContactsInput
+  gender: EnumUserGender
+  address: FilterFindOneUserAddressInput
+
+  # Some dynamic data
+  someMixed: JSON
+  salaryDecimal: BSONDecimal
+  _id: MongoID
+
+  # List of *indexed* fields that can be filtered via operators.
+  _operators: FilterFindOneUserOperatorsInput
+  OR: [FilterFindOneUserInput!]
+  AND: [FilterFindOneUserInput!]
+}
+
+#
+input FilterFindOneUserLanguagesInput {
+  language: String
+  skill: EnumUserLanguagesSkill
+}
+
+#
+input FilterFindOneUserContactsInput {
+  email: String
+  phones: [String]
+}
+
+#
+input FilterFindOneUserAddressInput {
+  street: String
+  geo: [Float]
+  _id: MongoID
+}
+
+# For performance reason this type contains only *indexed* fields.
+input FilterFindOneUserOperatorsInput {
+  name: FilterFindOneUserNameOperatorsInput
+  age: FilterFindOneUserAgeOperatorsInput
+  gender: FilterFindOneUserGenderOperatorsInput
+  salaryDecimal: FilterFindOneUserSalaryDecimalOperatorsInput
+  _id: FilterFindOneUser_idOperatorsInput
+}
+
+input FilterFindOneUserNameOperatorsInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+  regex: RegExpAsString
+  exists: Boolean
+}
+
+# The string representation of JavaScript regexp. You may provide it with flags "/^abc.*/i" or without flags like "^abc.*". More info about RegExp characters and flags: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+scalar RegExpAsString @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-262.pdf")
+
+input FilterFindOneUserAgeOperatorsInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+  exists: Boolean
+}
+
+input FilterFindOneUserGenderOperatorsInput {
+  gt: EnumUserGender
+  gte: EnumUserGender
+  lt: EnumUserGender
+  lte: EnumUserGender
+  ne: EnumUserGender
+  in: [EnumUserGender]
+  nin: [EnumUserGender]
+  exists: Boolean
+}
+
+input FilterFindOneUserSalaryDecimalOperatorsInput {
+  gt: BSONDecimal
+  gte: BSONDecimal
+  lt: BSONDecimal
+  lte: BSONDecimal
+  ne: BSONDecimal
+  in: [BSONDecimal]
+  nin: [BSONDecimal]
+  exists: Boolean
+}
+
+input FilterFindOneUser_idOperatorsInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+  exists: Boolean
+}
+
+enum SortFindOneUserInput {
+  _ID_ASC
+  _ID_DESC
+  NAME_ASC
+  NAME_DESC
+  AGE_ASC
+  AGE_DESC
+  SALARYDECIMAL_ASC
+  SALARYDECIMAL_DESC
+  GENDER_ASC
+  GENDER_DESC
+  GENDER__AGE_ASC
+  GENDER__AGE_DESC
+}
+
+#
+input FilterFindManyUserInput {
+  name: String
+  age: Float
+  languages: [FilterFindManyUserLanguagesInput]
+  contacts: FilterFindManyUserContactsInput
+  gender: EnumUserGender
+  address: FilterFindManyUserAddressInput
+
+  # Some dynamic data
+  someMixed: JSON
+  salaryDecimal: BSONDecimal
+  _id: MongoID
+
+  # List of *indexed* fields that can be filtered via operators.
+  _operators: FilterFindManyUserOperatorsInput
+  OR: [FilterFindManyUserInput!]
+  AND: [FilterFindManyUserInput!]
+}
+
+#
+input FilterFindManyUserLanguagesInput {
+  language: String
+  skill: EnumUserLanguagesSkill
+}
+
+#
+input FilterFindManyUserContactsInput {
+  email: String
+  phones: [String]
+}
+
+#
+input FilterFindManyUserAddressInput {
+  street: String
+  geo: [Float]
+  _id: MongoID
+}
+
+# For performance reason this type contains only *indexed* fields.
+input FilterFindManyUserOperatorsInput {
+  name: FilterFindManyUserNameOperatorsInput
+  age: FilterFindManyUserAgeOperatorsInput
+  gender: FilterFindManyUserGenderOperatorsInput
+  salaryDecimal: FilterFindManyUserSalaryDecimalOperatorsInput
+  _id: FilterFindManyUser_idOperatorsInput
+}
+
+input FilterFindManyUserNameOperatorsInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+  regex: RegExpAsString
+  exists: Boolean
+}
+
+input FilterFindManyUserAgeOperatorsInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+  exists: Boolean
+}
+
+input FilterFindManyUserGenderOperatorsInput {
+  gt: EnumUserGender
+  gte: EnumUserGender
+  lt: EnumUserGender
+  lte: EnumUserGender
+  ne: EnumUserGender
+  in: [EnumUserGender]
+  nin: [EnumUserGender]
+  exists: Boolean
+}
+
+input FilterFindManyUserSalaryDecimalOperatorsInput {
+  gt: BSONDecimal
+  gte: BSONDecimal
+  lt: BSONDecimal
+  lte: BSONDecimal
+  ne: BSONDecimal
+  in: [BSONDecimal]
+  nin: [BSONDecimal]
+  exists: Boolean
+}
+
+input FilterFindManyUser_idOperatorsInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+  exists: Boolean
+}
+
+enum SortFindManyUserInput {
+  _ID_ASC
+  _ID_DESC
+  NAME_ASC
+  NAME_DESC
+  AGE_ASC
+  AGE_DESC
+  SALARYDECIMAL_ASC
+  SALARYDECIMAL_DESC
+  GENDER_ASC
+  GENDER_DESC
+  GENDER__AGE_ASC
+  GENDER__AGE_DESC
+}
+
+#
+input FilterCountUserInput {
+  name: String
+  age: Float
+  languages: [FilterCountUserLanguagesInput]
+  contacts: FilterCountUserContactsInput
+  gender: EnumUserGender
+  address: FilterCountUserAddressInput
+
+  # Some dynamic data
+  someMixed: JSON
+  salaryDecimal: BSONDecimal
+  _id: MongoID
+
+  # List of *indexed* fields that can be filtered via operators.
+  _operators: FilterCountUserOperatorsInput
+  OR: [FilterCountUserInput!]
+  AND: [FilterCountUserInput!]
+}
+
+#
+input FilterCountUserLanguagesInput {
+  language: String
+  skill: EnumUserLanguagesSkill
+}
+
+#
+input FilterCountUserContactsInput {
+  email: String
+  phones: [String]
+}
+
+#
+input FilterCountUserAddressInput {
+  street: String
+  geo: [Float]
+  _id: MongoID
+}
+
+# For performance reason this type contains only *indexed* fields.
+input FilterCountUserOperatorsInput {
+  name: FilterCountUserNameOperatorsInput
+  age: FilterCountUserAgeOperatorsInput
+  gender: FilterCountUserGenderOperatorsInput
+  salaryDecimal: FilterCountUserSalaryDecimalOperatorsInput
+  _id: FilterCountUser_idOperatorsInput
+}
+
+input FilterCountUserNameOperatorsInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+  regex: RegExpAsString
+  exists: Boolean
+}
+
+input FilterCountUserAgeOperatorsInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+  exists: Boolean
+}
+
+input FilterCountUserGenderOperatorsInput {
+  gt: EnumUserGender
+  gte: EnumUserGender
+  lt: EnumUserGender
+  lte: EnumUserGender
+  ne: EnumUserGender
+  in: [EnumUserGender]
+  nin: [EnumUserGender]
+  exists: Boolean
+}
+
+input FilterCountUserSalaryDecimalOperatorsInput {
+  gt: BSONDecimal
+  gte: BSONDecimal
+  lt: BSONDecimal
+  lte: BSONDecimal
+  ne: BSONDecimal
+  in: [BSONDecimal]
+  nin: [BSONDecimal]
+  exists: Boolean
+}
+
+input FilterCountUser_idOperatorsInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+  exists: Boolean
+}
+
+# A connection to a list of items.
+type UserConnection {
+  # Total object count.
+  count: Int!
+
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # Information to aid in pagination.
+  edges: [UserEdge!]!
+}
+
+# Information about pagination in a connection.
+type PageInfo {
+  # When paginating forwards, are there more items?
+  hasNextPage: Boolean!
+
+  # When paginating backwards, are there more items?
+  hasPreviousPage: Boolean!
+
+  # When paginating backwards, the cursor to continue.
+  startCursor: String
+
+  # When paginating forwards, the cursor to continue.
+  endCursor: String
+}
+
+# An edge in a connection.
+type UserEdge {
+  # The item at the end of the edge
+  node: User!
+
+  # A cursor for use in pagination
+  cursor: String!
+}
+
+enum SortConnectionUserEnum {
+  _ID_DESC
+  _ID_ASC
+}
+
+# List of items with pagination.
+type UserPagination {
+  # Total object count.
+  count: Int
+
+  # Array of objects.
+  items: [User!]
+
+  # Information to aid in pagination.
+  pageInfo: PaginationInfo!
+}
+
+type PaginationInfo {
+  currentPage: Int!
+  perPage: Int!
+  pageCount: Int
+  itemCount: Int
+  hasNextPage: Boolean
+  hasPreviousPage: Boolean
 }
 
 type Viewer {
@@ -14,9 +578,9 @@ type Viewer {
     # Filter by fields
     filter: FilterFindManyCategoryInput
     skip: Int
-    limit: Int = 1000
+    limit: Int = 100
     sort: SortFindManyCategoryInput
-  ): [Category]
+  ): [Category!]!
   customer(
     # Filter by fields
     filter: FilterFindOneCustomerInput
@@ -63,9 +627,9 @@ type Viewer {
     # Filter by fields
     filter: FilterFindManyEmployeeInput
     skip: Int
-    limit: Int = 1000
+    limit: Int = 100
     sort: SortFindManyEmployeeInput
-  ): [Employee]
+  ): [Employee!]!
   employeePagination(
     # Page number for displaying
     page: Int
@@ -123,9 +687,9 @@ type Viewer {
     # Filter by fields
     filter: FilterFindManyProductInput
     skip: Int
-    limit: Int = 1000
+    limit: Int = 100
     sort: SortFindManyProductInput
-  ): [Product]
+  ): [Product!]!
   productPagination(
     # Page number for displaying
     page: Int
@@ -166,9 +730,9 @@ type Viewer {
     # Filter by fields
     filter: FilterFindManyRegionInput
     skip: Int
-    limit: Int = 1000
+    limit: Int = 100
     sort: SortFindManyRegionInput
-  ): [Region]
+  ): [Region!]!
   shipper(
     # Filter by fields
     filter: FilterFindOneShipperInput
@@ -179,9 +743,9 @@ type Viewer {
     # Filter by fields
     filter: FilterFindManyShipperInput
     skip: Int
-    limit: Int = 1000
+    limit: Int = 100
     sort: SortFindManyShipperInput
-  ): [Shipper]
+  ): [Shipper!]!
   supplier(
     # Filter by fields
     filter: FilterFindOneSupplierInput
@@ -231,11 +795,8 @@ type Category {
     # Sort argument for data ordering
     sort: SortConnectionProductEnum = _ID_DESC
   ): ProductConnection
-  productList(skip: Int, limit: Int = 1000, sort: SortFindManyProductInput): [Product]
+  productList(skip: Int, limit: Int = 100, sort: SortFindManyProductInput): [Product!]!
 }
-
-# The `ID` scalar type represents a unique MongoDB identifier in collection. MongoDB by default use 12-byte ObjectId value (https://docs.mongodb.com/manual/reference/bson-types/#objectid). But MongoDB also may accepts string or integer as correct values for _id field.
-scalar MongoID
 
 # A connection to a list of items.
 type ProductConnection {
@@ -247,21 +808,6 @@ type ProductConnection {
 
   # Information to aid in pagination.
   edges: [ProductEdge!]!
-}
-
-# Information about pagination in a connection.
-type PageInfo {
-  # When paginating forwards, are there more items?
-  hasNextPage: Boolean!
-
-  # When paginating backwards, are there more items?
-  hasPreviousPage: Boolean!
-
-  # When paginating backwards, the cursor to continue.
-  startCursor: String
-
-  # When paginating forwards, the cursor to continue.
-  endCursor: String
 }
 
 # An edge in a connection.
@@ -302,7 +848,7 @@ type Product {
     # Sort argument for data ordering
     sort: SortConnectionOrderEnum = _ID_DESC
   ): OrderConnection
-  orderList(skip: Int, limit: Int = 1000, sort: SortFindManyOrderInput): [Order]
+  orderList(skip: Int, limit: Int = 100, sort: SortFindManyOrderInput): [Order!]!
   supplier: Supplier
   category: Category
 }
@@ -392,7 +938,7 @@ type Customer {
     # Sort argument for data ordering
     sort: SortConnectionOrderEnum = _ID_DESC
   ): OrderConnection
-  orderList(skip: Int, limit: Int = 1000, sort: SortFindManyOrderInput): [Order]
+  orderList(skip: Int, limit: Int = 100, sort: SortFindManyOrderInput): [Order!]!
 }
 
 enum SortConnectionOrderEnum {
@@ -407,8 +953,6 @@ enum SortFindManyOrderInput {
   _ID_DESC
   ORDERID_ASC
   ORDERID_DESC
-  DETAILS_ASC
-  DETAILS_DESC
 }
 
 type Employee {
@@ -430,7 +974,7 @@ type Employee {
   territoryIDs: [Float]
   _id: MongoID!
   chief: Employee
-  subordinates(skip: Int, limit: Int = 1000, sort: SortFindManyEmployeeInput): [Employee]
+  subordinates(skip: Int, limit: Int = 100, sort: SortFindManyEmployeeInput): [Employee!]!
   orderConnection(
     # Forward pagination argument for returning at most first edges
     first: Int
@@ -541,45 +1085,32 @@ input FilterFindOneCategoryInput {
   name: String
   description: String
   _id: MongoID
-  _ids: [MongoID]
 
   # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterFindOneCategoryInput
+  _operators: FilterFindOneCategoryOperatorsInput
   OR: [FilterFindOneCategoryInput!]
   AND: [FilterFindOneCategoryInput!]
 }
 
 # For performance reason this type contains only *indexed* fields.
-input OperatorsFilterFindOneCategoryInput {
-  categoryID: CategoryIDOperatorsFilterFindOneCategoryInput
-  name: NameOperatorsFilterFindOneCategoryInput
-  _id: _idOperatorsFilterFindOneCategoryInput
+input FilterFindOneCategoryOperatorsInput {
+  categoryID: FilterFindOneCategoryCategoryIDOperatorsInput
+  name: FilterFindOneCategoryNameOperatorsInput
+  _id: FilterFindOneCategory_idOperatorsInput
 }
 
-input CategoryIDOperatorsFilterFindOneCategoryInput {
-  # Category unique ID
+input FilterFindOneCategoryCategoryIDOperatorsInput {
   gt: Float
-
-  # Category unique ID
   gte: Float
-
-  # Category unique ID
   lt: Float
-
-  # Category unique ID
   lte: Float
-
-  # Category unique ID
   ne: Float
-
-  # Category unique ID
   in: [Float]
-
-  # Category unique ID
   nin: [Float]
+  exists: Boolean
 }
 
-input NameOperatorsFilterFindOneCategoryInput {
+input FilterFindOneCategoryNameOperatorsInput {
   gt: String
   gte: String
   lt: String
@@ -587,9 +1118,11 @@ input NameOperatorsFilterFindOneCategoryInput {
   ne: String
   in: [String]
   nin: [String]
+  regex: RegExpAsString
+  exists: Boolean
 }
 
-input _idOperatorsFilterFindOneCategoryInput {
+input FilterFindOneCategory_idOperatorsInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -597,6 +1130,7 @@ input _idOperatorsFilterFindOneCategoryInput {
   ne: MongoID
   in: [MongoID]
   nin: [MongoID]
+  exists: Boolean
 }
 
 enum SortFindOneCategoryInput {
@@ -615,45 +1149,32 @@ input FilterFindManyCategoryInput {
   name: String
   description: String
   _id: MongoID
-  _ids: [MongoID]
 
   # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterFindManyCategoryInput
+  _operators: FilterFindManyCategoryOperatorsInput
   OR: [FilterFindManyCategoryInput!]
   AND: [FilterFindManyCategoryInput!]
 }
 
 # For performance reason this type contains only *indexed* fields.
-input OperatorsFilterFindManyCategoryInput {
-  categoryID: CategoryIDOperatorsFilterFindManyCategoryInput
-  name: NameOperatorsFilterFindManyCategoryInput
-  _id: _idOperatorsFilterFindManyCategoryInput
+input FilterFindManyCategoryOperatorsInput {
+  categoryID: FilterFindManyCategoryCategoryIDOperatorsInput
+  name: FilterFindManyCategoryNameOperatorsInput
+  _id: FilterFindManyCategory_idOperatorsInput
 }
 
-input CategoryIDOperatorsFilterFindManyCategoryInput {
-  # Category unique ID
+input FilterFindManyCategoryCategoryIDOperatorsInput {
   gt: Float
-
-  # Category unique ID
   gte: Float
-
-  # Category unique ID
   lt: Float
-
-  # Category unique ID
   lte: Float
-
-  # Category unique ID
   ne: Float
-
-  # Category unique ID
   in: [Float]
-
-  # Category unique ID
   nin: [Float]
+  exists: Boolean
 }
 
-input NameOperatorsFilterFindManyCategoryInput {
+input FilterFindManyCategoryNameOperatorsInput {
   gt: String
   gte: String
   lt: String
@@ -661,9 +1182,11 @@ input NameOperatorsFilterFindManyCategoryInput {
   ne: String
   in: [String]
   nin: [String]
+  regex: RegExpAsString
+  exists: Boolean
 }
 
-input _idOperatorsFilterFindManyCategoryInput {
+input FilterFindManyCategory_idOperatorsInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -671,6 +1194,7 @@ input _idOperatorsFilterFindManyCategoryInput {
   ne: MongoID
   in: [MongoID]
   nin: [MongoID]
+  exists: Boolean
 }
 
 enum SortFindManyCategoryInput {
@@ -689,17 +1213,17 @@ input FilterFindOneCustomerInput {
   companyName: String
   contactName: String
   contactTitle: String
-  address: CustomerAddressInput
+  address: FilterFindOneCustomerAddressInput
   _id: MongoID
-  _ids: [MongoID]
 
   # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterFindOneCustomerInput
+  _operators: FilterFindOneCustomerOperatorsInput
   OR: [FilterFindOneCustomerInput!]
   AND: [FilterFindOneCustomerInput!]
 }
 
-input CustomerAddressInput {
+#
+input FilterFindOneCustomerAddressInput {
   street: String
   city: String
   region: String
@@ -709,36 +1233,13 @@ input CustomerAddressInput {
 }
 
 # For performance reason this type contains only *indexed* fields.
-input OperatorsFilterFindOneCustomerInput {
-  customerID: CustomerIDOperatorsFilterFindOneCustomerInput
-  companyName: CompanyNameOperatorsFilterFindOneCustomerInput
-  _id: _idOperatorsFilterFindOneCustomerInput
+input FilterFindOneCustomerOperatorsInput {
+  customerID: FilterFindOneCustomerCustomerIDOperatorsInput
+  companyName: FilterFindOneCustomerCompanyNameOperatorsInput
+  _id: FilterFindOneCustomer_idOperatorsInput
 }
 
-input CustomerIDOperatorsFilterFindOneCustomerInput {
-  # Customer unique ID
-  gt: String
-
-  # Customer unique ID
-  gte: String
-
-  # Customer unique ID
-  lt: String
-
-  # Customer unique ID
-  lte: String
-
-  # Customer unique ID
-  ne: String
-
-  # Customer unique ID
-  in: [String]
-
-  # Customer unique ID
-  nin: [String]
-}
-
-input CompanyNameOperatorsFilterFindOneCustomerInput {
+input FilterFindOneCustomerCustomerIDOperatorsInput {
   gt: String
   gte: String
   lt: String
@@ -746,9 +1247,23 @@ input CompanyNameOperatorsFilterFindOneCustomerInput {
   ne: String
   in: [String]
   nin: [String]
+  regex: RegExpAsString
+  exists: Boolean
 }
 
-input _idOperatorsFilterFindOneCustomerInput {
+input FilterFindOneCustomerCompanyNameOperatorsInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+  regex: RegExpAsString
+  exists: Boolean
+}
+
+input FilterFindOneCustomer_idOperatorsInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -756,6 +1271,7 @@ input _idOperatorsFilterFindOneCustomerInput {
   ne: MongoID
   in: [MongoID]
   nin: [MongoID]
+  exists: Boolean
 }
 
 enum SortFindOneCustomerInput {
@@ -773,19 +1289,10 @@ type CustomerPagination {
   count: Int
 
   # Array of objects.
-  items: [Customer]
+  items: [Customer!]
 
   # Information to aid in pagination.
   pageInfo: PaginationInfo!
-}
-
-type PaginationInfo {
-  currentPage: Int!
-  perPage: Int!
-  pageCount: Int
-  itemCount: Int
-  hasNextPage: Boolean
-  hasPreviousPage: Boolean
 }
 
 #
@@ -795,47 +1302,33 @@ input FilterFindManyCustomerInput {
   companyName: String
   contactName: String
   contactTitle: String
-  address: CustomerAddressInput
+  address: FilterFindManyCustomerAddressInput
   _id: MongoID
-  _ids: [MongoID]
 
   # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterFindManyCustomerInput
+  _operators: FilterFindManyCustomerOperatorsInput
   OR: [FilterFindManyCustomerInput!]
   AND: [FilterFindManyCustomerInput!]
 }
 
+#
+input FilterFindManyCustomerAddressInput {
+  street: String
+  city: String
+  region: String
+  postalCode: String
+  country: String
+  phone: String
+}
+
 # For performance reason this type contains only *indexed* fields.
-input OperatorsFilterFindManyCustomerInput {
-  customerID: CustomerIDOperatorsFilterFindManyCustomerInput
-  companyName: CompanyNameOperatorsFilterFindManyCustomerInput
-  _id: _idOperatorsFilterFindManyCustomerInput
+input FilterFindManyCustomerOperatorsInput {
+  customerID: FilterFindManyCustomerCustomerIDOperatorsInput
+  companyName: FilterFindManyCustomerCompanyNameOperatorsInput
+  _id: FilterFindManyCustomer_idOperatorsInput
 }
 
-input CustomerIDOperatorsFilterFindManyCustomerInput {
-  # Customer unique ID
-  gt: String
-
-  # Customer unique ID
-  gte: String
-
-  # Customer unique ID
-  lt: String
-
-  # Customer unique ID
-  lte: String
-
-  # Customer unique ID
-  ne: String
-
-  # Customer unique ID
-  in: [String]
-
-  # Customer unique ID
-  nin: [String]
-}
-
-input CompanyNameOperatorsFilterFindManyCustomerInput {
+input FilterFindManyCustomerCustomerIDOperatorsInput {
   gt: String
   gte: String
   lt: String
@@ -843,9 +1336,23 @@ input CompanyNameOperatorsFilterFindManyCustomerInput {
   ne: String
   in: [String]
   nin: [String]
+  regex: RegExpAsString
+  exists: Boolean
 }
 
-input _idOperatorsFilterFindManyCustomerInput {
+input FilterFindManyCustomerCompanyNameOperatorsInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+  regex: RegExpAsString
+  exists: Boolean
+}
+
+input FilterFindManyCustomer_idOperatorsInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -853,6 +1360,7 @@ input _idOperatorsFilterFindManyCustomerInput {
   ne: MongoID
   in: [MongoID]
   nin: [MongoID]
+  exists: Boolean
 }
 
 enum SortFindManyCustomerInput {
@@ -904,7 +1412,7 @@ input FilterFindOneEmployeeInput {
   titleOfCourtesy: String
   birthDate: Date
   hireDate: Date
-  address: CustomerAddressInput
+  address: FilterFindOneCustomerAddressInput
   notes: String
 
   # ID of chief
@@ -913,46 +1421,33 @@ input FilterFindOneEmployeeInput {
   # Attached territory ID from region collection
   territoryIDs: [Float]
   _id: MongoID
-  _ids: [MongoID]
 
   # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterFindOneEmployeeInput
+  _operators: FilterFindOneEmployeeOperatorsInput
   OR: [FilterFindOneEmployeeInput!]
   AND: [FilterFindOneEmployeeInput!]
 }
 
 # For performance reason this type contains only *indexed* fields.
-input OperatorsFilterFindOneEmployeeInput {
-  employeeID: EmployeeIDOperatorsFilterFindOneEmployeeInput
-  lastName: LastNameOperatorsFilterFindOneEmployeeInput
-  territoryIDs: TerritoryIDsOperatorsFilterFindOneEmployeeInput
-  _id: _idOperatorsFilterFindOneEmployeeInput
+input FilterFindOneEmployeeOperatorsInput {
+  employeeID: FilterFindOneEmployeeEmployeeIDOperatorsInput
+  lastName: FilterFindOneEmployeeLastNameOperatorsInput
+  territoryIDs: FilterFindOneEmployeeTerritoryIDsOperatorsInput
+  _id: FilterFindOneEmployee_idOperatorsInput
 }
 
-input EmployeeIDOperatorsFilterFindOneEmployeeInput {
-  # Category unique ID
+input FilterFindOneEmployeeEmployeeIDOperatorsInput {
   gt: Float
-
-  # Category unique ID
   gte: Float
-
-  # Category unique ID
   lt: Float
-
-  # Category unique ID
   lte: Float
-
-  # Category unique ID
   ne: Float
-
-  # Category unique ID
   in: [Float]
-
-  # Category unique ID
   nin: [Float]
+  exists: Boolean
 }
 
-input LastNameOperatorsFilterFindOneEmployeeInput {
+input FilterFindOneEmployeeLastNameOperatorsInput {
   gt: String
   gte: String
   lt: String
@@ -960,32 +1455,22 @@ input LastNameOperatorsFilterFindOneEmployeeInput {
   ne: String
   in: [String]
   nin: [String]
+  regex: RegExpAsString
+  exists: Boolean
 }
 
-input TerritoryIDsOperatorsFilterFindOneEmployeeInput {
-  # Attached territory ID from region collection
+input FilterFindOneEmployeeTerritoryIDsOperatorsInput {
   gt: Float
-
-  # Attached territory ID from region collection
   gte: Float
-
-  # Attached territory ID from region collection
   lt: Float
-
-  # Attached territory ID from region collection
   lte: Float
-
-  # Attached territory ID from region collection
   ne: Float
-
-  # Attached territory ID from region collection
   in: [Float]
-
-  # Attached territory ID from region collection
   nin: [Float]
+  exists: Boolean
 }
 
-input _idOperatorsFilterFindOneEmployeeInput {
+input FilterFindOneEmployee_idOperatorsInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -993,6 +1478,7 @@ input _idOperatorsFilterFindOneEmployeeInput {
   ne: MongoID
   in: [MongoID]
   nin: [MongoID]
+  exists: Boolean
 }
 
 enum SortFindOneEmployeeInput {
@@ -1018,7 +1504,7 @@ input FilterFindManyEmployeeInput {
   titleOfCourtesy: String
   birthDate: Date
   hireDate: Date
-  address: CustomerAddressInput
+  address: FilterFindManyCustomerAddressInput
   notes: String
 
   # ID of chief
@@ -1027,10 +1513,9 @@ input FilterFindManyEmployeeInput {
   # Attached territory ID from region collection
   territoryIDs: [Float]
   _id: MongoID
-  _ids: [MongoID]
 
   # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterFindManyEmployeeInput
+  _operators: FilterFindManyEmployeeOperatorsInput
   OR: [FilterFindManyEmployeeInput!]
   AND: [FilterFindManyEmployeeInput!]
 
@@ -1039,37 +1524,25 @@ input FilterFindManyEmployeeInput {
 }
 
 # For performance reason this type contains only *indexed* fields.
-input OperatorsFilterFindManyEmployeeInput {
-  employeeID: EmployeeIDOperatorsFilterFindManyEmployeeInput
-  lastName: LastNameOperatorsFilterFindManyEmployeeInput
-  territoryIDs: TerritoryIDsOperatorsFilterFindManyEmployeeInput
-  _id: _idOperatorsFilterFindManyEmployeeInput
+input FilterFindManyEmployeeOperatorsInput {
+  employeeID: FilterFindManyEmployeeEmployeeIDOperatorsInput
+  lastName: FilterFindManyEmployeeLastNameOperatorsInput
+  territoryIDs: FilterFindManyEmployeeTerritoryIDsOperatorsInput
+  _id: FilterFindManyEmployee_idOperatorsInput
 }
 
-input EmployeeIDOperatorsFilterFindManyEmployeeInput {
-  # Category unique ID
+input FilterFindManyEmployeeEmployeeIDOperatorsInput {
   gt: Float
-
-  # Category unique ID
   gte: Float
-
-  # Category unique ID
   lt: Float
-
-  # Category unique ID
   lte: Float
-
-  # Category unique ID
   ne: Float
-
-  # Category unique ID
   in: [Float]
-
-  # Category unique ID
   nin: [Float]
+  exists: Boolean
 }
 
-input LastNameOperatorsFilterFindManyEmployeeInput {
+input FilterFindManyEmployeeLastNameOperatorsInput {
   gt: String
   gte: String
   lt: String
@@ -1077,32 +1550,22 @@ input LastNameOperatorsFilterFindManyEmployeeInput {
   ne: String
   in: [String]
   nin: [String]
+  regex: RegExpAsString
+  exists: Boolean
 }
 
-input TerritoryIDsOperatorsFilterFindManyEmployeeInput {
-  # Attached territory ID from region collection
+input FilterFindManyEmployeeTerritoryIDsOperatorsInput {
   gt: Float
-
-  # Attached territory ID from region collection
   gte: Float
-
-  # Attached territory ID from region collection
   lt: Float
-
-  # Attached territory ID from region collection
   lte: Float
-
-  # Attached territory ID from region collection
   ne: Float
-
-  # Attached territory ID from region collection
   in: [Float]
-
-  # Attached territory ID from region collection
   nin: [Float]
+  exists: Boolean
 }
 
-input _idOperatorsFilterFindManyEmployeeInput {
+input FilterFindManyEmployee_idOperatorsInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -1110,6 +1573,7 @@ input _idOperatorsFilterFindManyEmployeeInput {
   ne: MongoID
   in: [MongoID]
   nin: [MongoID]
+  exists: Boolean
 }
 
 # List of items with pagination.
@@ -1118,7 +1582,7 @@ type EmployeePagination {
   count: Int
 
   # Array of objects.
-  items: [Employee]
+  items: [Employee!]
 
   # Information to aid in pagination.
   pageInfo: PaginationInfo!
@@ -1136,20 +1600,20 @@ input FilterFindOneOrderInput {
   shipVia: Float
   freight: Float
   shipName: String
-  shipAddress: CustomerAddressInput
+  shipAddress: FilterFindOneCustomerAddressInput
 
   # List of ordered products
-  details: [OrderDetailsInput]
+  details: [FilterFindOneOrderDetailsInput]
   _id: MongoID
-  _ids: [MongoID]
 
   # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterFindOneOrderInput
+  _operators: FilterFindOneOrderOperatorsInput
   OR: [FilterFindOneOrderInput!]
   AND: [FilterFindOneOrderInput!]
 }
 
-input OrderDetailsInput {
+#
+input FilterFindOneOrderDetailsInput {
   productID: Float
   unitPrice: Float
   quantity: Float
@@ -1157,59 +1621,23 @@ input OrderDetailsInput {
 }
 
 # For performance reason this type contains only *indexed* fields.
-input OperatorsFilterFindOneOrderInput {
-  orderID: OrderIDOperatorsFilterFindOneOrderInput
-  details: DetailsOperatorsFilterFindOneOrderInput
-  _id: _idOperatorsFilterFindOneOrderInput
+input FilterFindOneOrderOperatorsInput {
+  orderID: FilterFindOneOrderOrderIDOperatorsInput
+  _id: FilterFindOneOrder_idOperatorsInput
 }
 
-input OrderIDOperatorsFilterFindOneOrderInput {
-  # Order unique ID
+input FilterFindOneOrderOrderIDOperatorsInput {
   gt: Float
-
-  # Order unique ID
   gte: Float
-
-  # Order unique ID
   lt: Float
-
-  # Order unique ID
   lte: Float
-
-  # Order unique ID
   ne: Float
-
-  # Order unique ID
   in: [Float]
-
-  # Order unique ID
   nin: [Float]
+  exists: Boolean
 }
 
-input DetailsOperatorsFilterFindOneOrderInput {
-  # List of ordered products
-  gt: OrderDetailsInput
-
-  # List of ordered products
-  gte: OrderDetailsInput
-
-  # List of ordered products
-  lt: OrderDetailsInput
-
-  # List of ordered products
-  lte: OrderDetailsInput
-
-  # List of ordered products
-  ne: OrderDetailsInput
-
-  # List of ordered products
-  in: [OrderDetailsInput]
-
-  # List of ordered products
-  nin: [OrderDetailsInput]
-}
-
-input _idOperatorsFilterFindOneOrderInput {
+input FilterFindOneOrder_idOperatorsInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -1217,6 +1645,7 @@ input _idOperatorsFilterFindOneOrderInput {
   ne: MongoID
   in: [MongoID]
   nin: [MongoID]
+  exists: Boolean
 }
 
 enum SortFindOneOrderInput {
@@ -1224,8 +1653,6 @@ enum SortFindOneOrderInput {
   _ID_DESC
   ORDERID_ASC
   ORDERID_DESC
-  DETAILS_ASC
-  DETAILS_DESC
 }
 
 # List of items with pagination.
@@ -1234,7 +1661,7 @@ type OrderPagination {
   count: Int
 
   # Array of objects.
-  items: [Order]
+  items: [Order!]
 
   # Information to aid in pagination.
   pageInfo: PaginationInfo!
@@ -1252,73 +1679,44 @@ input FilterFindManyOrderInput {
   shipVia: Float
   freight: Float
   shipName: String
-  shipAddress: CustomerAddressInput
+  shipAddress: FilterFindManyCustomerAddressInput
 
   # List of ordered products
-  details: [OrderDetailsInput]
+  details: [FilterFindManyOrderDetailsInput]
   _id: MongoID
-  _ids: [MongoID]
 
   # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterFindManyOrderInput
+  _operators: FilterFindManyOrderOperatorsInput
   OR: [FilterFindManyOrderInput!]
   AND: [FilterFindManyOrderInput!]
 }
 
+#
+input FilterFindManyOrderDetailsInput {
+  productID: Float
+  unitPrice: Float
+  quantity: Float
+  discount: Float
+}
+
 # For performance reason this type contains only *indexed* fields.
-input OperatorsFilterFindManyOrderInput {
-  orderID: OrderIDOperatorsFilterFindManyOrderInput
-  details: DetailsOperatorsFilterFindManyOrderInput
-  _id: _idOperatorsFilterFindManyOrderInput
+input FilterFindManyOrderOperatorsInput {
+  orderID: FilterFindManyOrderOrderIDOperatorsInput
+  _id: FilterFindManyOrder_idOperatorsInput
 }
 
-input OrderIDOperatorsFilterFindManyOrderInput {
-  # Order unique ID
+input FilterFindManyOrderOrderIDOperatorsInput {
   gt: Float
-
-  # Order unique ID
   gte: Float
-
-  # Order unique ID
   lt: Float
-
-  # Order unique ID
   lte: Float
-
-  # Order unique ID
   ne: Float
-
-  # Order unique ID
   in: [Float]
-
-  # Order unique ID
   nin: [Float]
+  exists: Boolean
 }
 
-input DetailsOperatorsFilterFindManyOrderInput {
-  # List of ordered products
-  gt: OrderDetailsInput
-
-  # List of ordered products
-  gte: OrderDetailsInput
-
-  # List of ordered products
-  lt: OrderDetailsInput
-
-  # List of ordered products
-  lte: OrderDetailsInput
-
-  # List of ordered products
-  ne: OrderDetailsInput
-
-  # List of ordered products
-  in: [OrderDetailsInput]
-
-  # List of ordered products
-  nin: [OrderDetailsInput]
-}
-
-input _idOperatorsFilterFindManyOrderInput {
+input FilterFindManyOrder_idOperatorsInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -1326,6 +1724,7 @@ input _idOperatorsFilterFindManyOrderInput {
   ne: MongoID
   in: [MongoID]
   nin: [MongoID]
+  exists: Boolean
 }
 
 #
@@ -1342,46 +1741,33 @@ input FilterFindOneProductInput {
   reorderLevel: Float
   discontinued: Boolean
   _id: MongoID
-  _ids: [MongoID]
 
   # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterFindOneProductInput
+  _operators: FilterFindOneProductOperatorsInput
   OR: [FilterFindOneProductInput!]
   AND: [FilterFindOneProductInput!]
 }
 
 # For performance reason this type contains only *indexed* fields.
-input OperatorsFilterFindOneProductInput {
-  productID: ProductIDOperatorsFilterFindOneProductInput
-  name: NameOperatorsFilterFindOneProductInput
-  unitPrice: UnitPriceOperatorsFilterFindOneProductInput
-  _id: _idOperatorsFilterFindOneProductInput
+input FilterFindOneProductOperatorsInput {
+  productID: FilterFindOneProductProductIDOperatorsInput
+  name: FilterFindOneProductNameOperatorsInput
+  unitPrice: FilterFindOneProductUnitPriceOperatorsInput
+  _id: FilterFindOneProduct_idOperatorsInput
 }
 
-input ProductIDOperatorsFilterFindOneProductInput {
-  # Unique product id
+input FilterFindOneProductProductIDOperatorsInput {
   gt: Float
-
-  # Unique product id
   gte: Float
-
-  # Unique product id
   lt: Float
-
-  # Unique product id
   lte: Float
-
-  # Unique product id
   ne: Float
-
-  # Unique product id
   in: [Float]
-
-  # Unique product id
   nin: [Float]
+  exists: Boolean
 }
 
-input NameOperatorsFilterFindOneProductInput {
+input FilterFindOneProductNameOperatorsInput {
   gt: String
   gte: String
   lt: String
@@ -1389,9 +1775,11 @@ input NameOperatorsFilterFindOneProductInput {
   ne: String
   in: [String]
   nin: [String]
+  regex: RegExpAsString
+  exists: Boolean
 }
 
-input UnitPriceOperatorsFilterFindOneProductInput {
+input FilterFindOneProductUnitPriceOperatorsInput {
   gt: Float
   gte: Float
   lt: Float
@@ -1399,9 +1787,10 @@ input UnitPriceOperatorsFilterFindOneProductInput {
   ne: Float
   in: [Float]
   nin: [Float]
+  exists: Boolean
 }
 
-input _idOperatorsFilterFindOneProductInput {
+input FilterFindOneProduct_idOperatorsInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -1409,6 +1798,7 @@ input _idOperatorsFilterFindOneProductInput {
   ne: MongoID
   in: [MongoID]
   nin: [MongoID]
+  exists: Boolean
 }
 
 enum SortFindOneProductInput {
@@ -1438,10 +1828,9 @@ input FilterFindManyProductInput {
   reorderLevel: Float
   discontinued: Boolean
   _id: MongoID
-  _ids: [MongoID]
 
   # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterFindManyProductInput
+  _operators: FilterFindManyProductOperatorsInput
   OR: [FilterFindManyProductInput!]
   AND: [FilterFindManyProductInput!]
 
@@ -1450,37 +1839,25 @@ input FilterFindManyProductInput {
 }
 
 # For performance reason this type contains only *indexed* fields.
-input OperatorsFilterFindManyProductInput {
-  productID: ProductIDOperatorsFilterFindManyProductInput
-  name: NameOperatorsFilterFindManyProductInput
-  unitPrice: UnitPriceOperatorsFilterFindManyProductInput
-  _id: _idOperatorsFilterFindManyProductInput
+input FilterFindManyProductOperatorsInput {
+  productID: FilterFindManyProductProductIDOperatorsInput
+  name: FilterFindManyProductNameOperatorsInput
+  unitPrice: FilterFindManyProductUnitPriceOperatorsInput
+  _id: FilterFindManyProduct_idOperatorsInput
 }
 
-input ProductIDOperatorsFilterFindManyProductInput {
-  # Unique product id
+input FilterFindManyProductProductIDOperatorsInput {
   gt: Float
-
-  # Unique product id
   gte: Float
-
-  # Unique product id
   lt: Float
-
-  # Unique product id
   lte: Float
-
-  # Unique product id
   ne: Float
-
-  # Unique product id
   in: [Float]
-
-  # Unique product id
   nin: [Float]
+  exists: Boolean
 }
 
-input NameOperatorsFilterFindManyProductInput {
+input FilterFindManyProductNameOperatorsInput {
   gt: String
   gte: String
   lt: String
@@ -1488,9 +1865,11 @@ input NameOperatorsFilterFindManyProductInput {
   ne: String
   in: [String]
   nin: [String]
+  regex: RegExpAsString
+  exists: Boolean
 }
 
-input UnitPriceOperatorsFilterFindManyProductInput {
+input FilterFindManyProductUnitPriceOperatorsInput {
   gt: Float
   gte: Float
   lt: Float
@@ -1498,9 +1877,10 @@ input UnitPriceOperatorsFilterFindManyProductInput {
   ne: Float
   in: [Float]
   nin: [Float]
+  exists: Boolean
 }
 
-input _idOperatorsFilterFindManyProductInput {
+input FilterFindManyProduct_idOperatorsInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -1508,6 +1888,7 @@ input _idOperatorsFilterFindManyProductInput {
   ne: MongoID
   in: [MongoID]
   nin: [MongoID]
+  exists: Boolean
 }
 
 # List of items with pagination.
@@ -1516,7 +1897,7 @@ type ProductPagination {
   count: Int
 
   # Array of objects.
-  items: [Product]
+  items: [Product!]
 
   # Information to aid in pagination.
   pageInfo: PaginationInfo!
@@ -1528,7 +1909,7 @@ type Region {
   name: String
   territories: [RegionTerritories]
   _id: MongoID!
-  employees(skip: Int, limit: Int = 1000, sort: SortFindManyEmployeeInput): [Employee]
+  employees(skip: Int, limit: Int = 100, sort: SortFindManyEmployeeInput): [Employee!]!
 }
 
 type RegionTerritories {
@@ -1541,51 +1922,39 @@ input FilterFindOneRegionInput {
   # Region unique ID
   regionID: Float
   name: String
-  territories: [RegionTerritoriesInput]
+  territories: [FilterFindOneRegionTerritoriesInput]
   _id: MongoID
-  _ids: [MongoID]
 
   # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterFindOneRegionInput
+  _operators: FilterFindOneRegionOperatorsInput
   OR: [FilterFindOneRegionInput!]
   AND: [FilterFindOneRegionInput!]
 }
 
-input RegionTerritoriesInput {
+#
+input FilterFindOneRegionTerritoriesInput {
   territoryID: Float
   name: String
 }
 
 # For performance reason this type contains only *indexed* fields.
-input OperatorsFilterFindOneRegionInput {
-  regionID: RegionIDOperatorsFilterFindOneRegionInput
-  _id: _idOperatorsFilterFindOneRegionInput
+input FilterFindOneRegionOperatorsInput {
+  regionID: FilterFindOneRegionRegionIDOperatorsInput
+  _id: FilterFindOneRegion_idOperatorsInput
 }
 
-input RegionIDOperatorsFilterFindOneRegionInput {
-  # Region unique ID
+input FilterFindOneRegionRegionIDOperatorsInput {
   gt: Float
-
-  # Region unique ID
   gte: Float
-
-  # Region unique ID
   lt: Float
-
-  # Region unique ID
   lte: Float
-
-  # Region unique ID
   ne: Float
-
-  # Region unique ID
   in: [Float]
-
-  # Region unique ID
   nin: [Float]
+  exists: Boolean
 }
 
-input _idOperatorsFilterFindOneRegionInput {
+input FilterFindOneRegion_idOperatorsInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -1593,6 +1962,7 @@ input _idOperatorsFilterFindOneRegionInput {
   ne: MongoID
   in: [MongoID]
   nin: [MongoID]
+  exists: Boolean
 }
 
 enum SortFindOneRegionInput {
@@ -1607,46 +1977,39 @@ input FilterFindManyRegionInput {
   # Region unique ID
   regionID: Float
   name: String
-  territories: [RegionTerritoriesInput]
+  territories: [FilterFindManyRegionTerritoriesInput]
   _id: MongoID
-  _ids: [MongoID]
 
   # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterFindManyRegionInput
+  _operators: FilterFindManyRegionOperatorsInput
   OR: [FilterFindManyRegionInput!]
   AND: [FilterFindManyRegionInput!]
 }
 
+#
+input FilterFindManyRegionTerritoriesInput {
+  territoryID: Float
+  name: String
+}
+
 # For performance reason this type contains only *indexed* fields.
-input OperatorsFilterFindManyRegionInput {
-  regionID: RegionIDOperatorsFilterFindManyRegionInput
-  _id: _idOperatorsFilterFindManyRegionInput
+input FilterFindManyRegionOperatorsInput {
+  regionID: FilterFindManyRegionRegionIDOperatorsInput
+  _id: FilterFindManyRegion_idOperatorsInput
 }
 
-input RegionIDOperatorsFilterFindManyRegionInput {
-  # Region unique ID
+input FilterFindManyRegionRegionIDOperatorsInput {
   gt: Float
-
-  # Region unique ID
   gte: Float
-
-  # Region unique ID
   lt: Float
-
-  # Region unique ID
   lte: Float
-
-  # Region unique ID
   ne: Float
-
-  # Region unique ID
   in: [Float]
-
-  # Region unique ID
   nin: [Float]
+  exists: Boolean
 }
 
-input _idOperatorsFilterFindManyRegionInput {
+input FilterFindManyRegion_idOperatorsInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -1654,6 +2017,7 @@ input _idOperatorsFilterFindManyRegionInput {
   ne: MongoID
   in: [MongoID]
   nin: [MongoID]
+  exists: Boolean
 }
 
 enum SortFindManyRegionInput {
@@ -1670,44 +2034,31 @@ input FilterFindOneShipperInput {
   companyName: String
   phone: String
   _id: MongoID
-  _ids: [MongoID]
 
   # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterFindOneShipperInput
+  _operators: FilterFindOneShipperOperatorsInput
   OR: [FilterFindOneShipperInput!]
   AND: [FilterFindOneShipperInput!]
 }
 
 # For performance reason this type contains only *indexed* fields.
-input OperatorsFilterFindOneShipperInput {
-  shipperID: ShipperIDOperatorsFilterFindOneShipperInput
-  _id: _idOperatorsFilterFindOneShipperInput
+input FilterFindOneShipperOperatorsInput {
+  shipperID: FilterFindOneShipperShipperIDOperatorsInput
+  _id: FilterFindOneShipper_idOperatorsInput
 }
 
-input ShipperIDOperatorsFilterFindOneShipperInput {
-  # Shipper unique ID
+input FilterFindOneShipperShipperIDOperatorsInput {
   gt: Float
-
-  # Shipper unique ID
   gte: Float
-
-  # Shipper unique ID
   lt: Float
-
-  # Shipper unique ID
   lte: Float
-
-  # Shipper unique ID
   ne: Float
-
-  # Shipper unique ID
   in: [Float]
-
-  # Shipper unique ID
   nin: [Float]
+  exists: Boolean
 }
 
-input _idOperatorsFilterFindOneShipperInput {
+input FilterFindOneShipper_idOperatorsInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -1715,6 +2066,7 @@ input _idOperatorsFilterFindOneShipperInput {
   ne: MongoID
   in: [MongoID]
   nin: [MongoID]
+  exists: Boolean
 }
 
 enum SortFindOneShipperInput {
@@ -1731,44 +2083,31 @@ input FilterFindManyShipperInput {
   companyName: String
   phone: String
   _id: MongoID
-  _ids: [MongoID]
 
   # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterFindManyShipperInput
+  _operators: FilterFindManyShipperOperatorsInput
   OR: [FilterFindManyShipperInput!]
   AND: [FilterFindManyShipperInput!]
 }
 
 # For performance reason this type contains only *indexed* fields.
-input OperatorsFilterFindManyShipperInput {
-  shipperID: ShipperIDOperatorsFilterFindManyShipperInput
-  _id: _idOperatorsFilterFindManyShipperInput
+input FilterFindManyShipperOperatorsInput {
+  shipperID: FilterFindManyShipperShipperIDOperatorsInput
+  _id: FilterFindManyShipper_idOperatorsInput
 }
 
-input ShipperIDOperatorsFilterFindManyShipperInput {
-  # Shipper unique ID
+input FilterFindManyShipperShipperIDOperatorsInput {
   gt: Float
-
-  # Shipper unique ID
   gte: Float
-
-  # Shipper unique ID
   lt: Float
-
-  # Shipper unique ID
   lte: Float
-
-  # Shipper unique ID
   ne: Float
-
-  # Shipper unique ID
   in: [Float]
-
-  # Shipper unique ID
   nin: [Float]
+  exists: Boolean
 }
 
-input _idOperatorsFilterFindManyShipperInput {
+input FilterFindManyShipper_idOperatorsInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -1776,6 +2115,7 @@ input _idOperatorsFilterFindManyShipperInput {
   ne: MongoID
   in: [MongoID]
   nin: [MongoID]
+  exists: Boolean
 }
 
 enum SortFindManyShipperInput {
@@ -1792,47 +2132,34 @@ input FilterFindOneSupplierInput {
   companyName: String
   contactName: String
   contactTitle: String
-  address: CustomerAddressInput
+  address: FilterFindOneCustomerAddressInput
   _id: MongoID
-  _ids: [MongoID]
 
   # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterFindOneSupplierInput
+  _operators: FilterFindOneSupplierOperatorsInput
   OR: [FilterFindOneSupplierInput!]
   AND: [FilterFindOneSupplierInput!]
 }
 
 # For performance reason this type contains only *indexed* fields.
-input OperatorsFilterFindOneSupplierInput {
-  supplierID: SupplierIDOperatorsFilterFindOneSupplierInput
-  companyName: CompanyNameOperatorsFilterFindOneSupplierInput
-  _id: _idOperatorsFilterFindOneSupplierInput
+input FilterFindOneSupplierOperatorsInput {
+  supplierID: FilterFindOneSupplierSupplierIDOperatorsInput
+  companyName: FilterFindOneSupplierCompanyNameOperatorsInput
+  _id: FilterFindOneSupplier_idOperatorsInput
 }
 
-input SupplierIDOperatorsFilterFindOneSupplierInput {
-  # Supplier unique ID
+input FilterFindOneSupplierSupplierIDOperatorsInput {
   gt: Float
-
-  # Supplier unique ID
   gte: Float
-
-  # Supplier unique ID
   lt: Float
-
-  # Supplier unique ID
   lte: Float
-
-  # Supplier unique ID
   ne: Float
-
-  # Supplier unique ID
   in: [Float]
-
-  # Supplier unique ID
   nin: [Float]
+  exists: Boolean
 }
 
-input CompanyNameOperatorsFilterFindOneSupplierInput {
+input FilterFindOneSupplierCompanyNameOperatorsInput {
   gt: String
   gte: String
   lt: String
@@ -1840,9 +2167,11 @@ input CompanyNameOperatorsFilterFindOneSupplierInput {
   ne: String
   in: [String]
   nin: [String]
+  regex: RegExpAsString
+  exists: Boolean
 }
 
-input _idOperatorsFilterFindOneSupplierInput {
+input FilterFindOneSupplier_idOperatorsInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -1850,6 +2179,7 @@ input _idOperatorsFilterFindOneSupplierInput {
   ne: MongoID
   in: [MongoID]
   nin: [MongoID]
+  exists: Boolean
 }
 
 enum SortFindOneSupplierInput {
@@ -1889,47 +2219,34 @@ input FilterFindManySupplierInput {
   companyName: String
   contactName: String
   contactTitle: String
-  address: CustomerAddressInput
+  address: FilterFindManyCustomerAddressInput
   _id: MongoID
-  _ids: [MongoID]
 
   # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterFindManySupplierInput
+  _operators: FilterFindManySupplierOperatorsInput
   OR: [FilterFindManySupplierInput!]
   AND: [FilterFindManySupplierInput!]
 }
 
 # For performance reason this type contains only *indexed* fields.
-input OperatorsFilterFindManySupplierInput {
-  supplierID: SupplierIDOperatorsFilterFindManySupplierInput
-  companyName: CompanyNameOperatorsFilterFindManySupplierInput
-  _id: _idOperatorsFilterFindManySupplierInput
+input FilterFindManySupplierOperatorsInput {
+  supplierID: FilterFindManySupplierSupplierIDOperatorsInput
+  companyName: FilterFindManySupplierCompanyNameOperatorsInput
+  _id: FilterFindManySupplier_idOperatorsInput
 }
 
-input SupplierIDOperatorsFilterFindManySupplierInput {
-  # Supplier unique ID
+input FilterFindManySupplierSupplierIDOperatorsInput {
   gt: Float
-
-  # Supplier unique ID
   gte: Float
-
-  # Supplier unique ID
   lt: Float
-
-  # Supplier unique ID
   lte: Float
-
-  # Supplier unique ID
   ne: Float
-
-  # Supplier unique ID
   in: [Float]
-
-  # Supplier unique ID
   nin: [Float]
+  exists: Boolean
 }
 
-input CompanyNameOperatorsFilterFindManySupplierInput {
+input FilterFindManySupplierCompanyNameOperatorsInput {
   gt: String
   gte: String
   lt: String
@@ -1937,9 +2254,11 @@ input CompanyNameOperatorsFilterFindManySupplierInput {
   ne: String
   in: [String]
   nin: [String]
+  regex: RegExpAsString
+  exists: Boolean
 }
 
-input _idOperatorsFilterFindManySupplierInput {
+input FilterFindManySupplier_idOperatorsInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -1947,6 +2266,7 @@ input _idOperatorsFilterFindManySupplierInput {
   ne: MongoID
   in: [MongoID]
   nin: [MongoID]
+  exists: Boolean
 }
 
 enum SortConnectionSupplierEnum {
@@ -1960,10 +2280,57 @@ enum SortConnectionSupplierEnum {
 
 type Mutation {
   # Create one document with mongoose defaults, setters, hooks and validation
+  userCreate(record: CreateOneUserInput!): CreateOneUserPayload
+
+  # Creates Many documents with mongoose defaults, setters, hooks and validation
+  userCreateMany(records: [CreateManyUserInput!]!): CreateManyUserPayload
+
+  # Update one document: 1) Retrieve one document by findById. 2) Apply updates to mongoose document. 3) Mongoose applies defaults, setters, hooks and validation. 4) And save it.
+  userUpdateById(_id: MongoID!, record: UpdateByIdUserInput!): UpdateByIdUserPayload
+
+  # Update one document: 1) Retrieve one document via findOne. 2) Apply updates to mongoose document. 3) Mongoose applies defaults, setters, hooks and validation. 4) And save it.
+  userUpdateOne(
+    record: UpdateOneUserInput!
+
+    # Filter by fields
+    filter: FilterUpdateOneUserInput
+    sort: SortUpdateOneUserInput
+    skip: Int
+  ): UpdateOneUserPayload
+
+  # Update many documents without returning them: Use Query.update mongoose method. Do not apply mongoose defaults, setters, hooks and validation. 
+  userUpdateMany(
+    record: UpdateManyUserInput!
+
+    # Filter by fields
+    filter: FilterUpdateManyUserInput
+    sort: SortUpdateManyUserInput
+    skip: Int
+    limit: Int = 100
+  ): UpdateManyUserPayload
+
+  # Remove one document: 1) Retrieve one document and remove with hooks via findByIdAndRemove. 2) Return removed document.
+  userRemoveById(_id: MongoID!): RemoveByIdUserPayload
+
+  # Remove one document: 1) Remove with hooks via findOneAndRemove. 2) Return removed document.
+  userRemoveOne(
+    # Filter by fields
+    filter: FilterRemoveOneUserInput
+    sort: SortRemoveOneUserInput
+  ): RemoveOneUserPayload
+
+  # Remove many documents without returning them: Use Query.remove mongoose method. Do not apply mongoose defaults, setters, hooks and validation. 
+  userRemoveMany(
+    # Filter by fields
+    filter: FilterRemoveManyUserInput!
+    limit: Int = 100
+  ): RemoveManyUserPayload
+
+  # Create one document with mongoose defaults, setters, hooks and validation
   createProduct(record: CreateOneProductInput!): CreateOneProductPayload
 
   # Update one document: 1) Retrieve one document by findById. 2) Apply updates to mongoose document. 3) Mongoose applies defaults, setters, hooks and validation. 4) And save it.
-  updateProduct(record: UpdateByIdProductInput!): UpdateByIdProductPayload
+  updateProduct(_id: MongoID!, record: UpdateByIdProductInput!): UpdateByIdProductPayload
 
   # Remove one document: 1) Remove with hooks via findOneAndRemove. 2) Return removed document.
   removeProduct(
@@ -1976,7 +2343,7 @@ type Mutation {
   createOrder(record: CreateOneOrderInput!): CreateOneOrderPayload
 
   # Update one document: 1) Retrieve one document by findById. 2) Apply updates to mongoose document. 3) Mongoose applies defaults, setters, hooks and validation. 4) And save it.
-  updateOrder(record: UpdateByIdOrderInput!): UpdateByIdOrderPayload
+  updateOrder(_id: MongoID!, record: UpdateByIdOrderInput!): UpdateByIdOrderPayload
 
   # Remove one document: 1) Remove with hooks via findOneAndRemove. 2) Return removed document.
   removeOrder(
@@ -1986,18 +2353,710 @@ type Mutation {
   ): RemoveOneOrderPayload
 
   # Update one document: 1) Retrieve one document by findById. 2) Apply updates to mongoose document. 3) Mongoose applies defaults, setters, hooks and validation. 4) And save it.
-  updateEmployee(record: UpdateByIdEmployeeInput!): UpdateByIdEmployeePayload
+  updateEmployee(_id: MongoID!, record: UpdateByIdEmployeeInput!): UpdateByIdEmployeePayload
 
   # Remove all data and seed DB from scratch. Anyway data automatically reloaded every 30 minutes.
   resetData: String
 }
 
+type CreateOneUserPayload {
+  # Document ID
+  recordId: MongoID
+
+  # Created document
+  record: User
+
+  # Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.
+  error: ErrorInterface
+}
+
+#
+input CreateOneUserInput {
+  name: String
+  age: Float
+  languages: [UserLanguagesInput]
+  contacts: UserContactsInput
+  gender: EnumUserGender
+  address: UserAddressInput
+
+  # Some dynamic data
+  someMixed: JSON
+  salaryDecimal: BSONDecimal
+}
+
+input UserLanguagesInput {
+  language: String
+  skill: EnumUserLanguagesSkill
+}
+
+input UserContactsInput {
+  email: String
+  phones: [String]
+}
+
+input UserAddressInput {
+  street: String
+  geo: [Float]
+  _id: MongoID
+}
+
+type CreateManyUserPayload {
+  # Documents IDs
+  recordIds: [MongoID!]!
+
+  # Created documents
+  records: [User!]
+
+  # Number of created documents
+  createdCount: Int!
+
+  # Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.
+  error: ErrorInterface
+}
+
+#
+input CreateManyUserInput {
+  name: String
+  age: Float
+  languages: [UserLanguagesInput]
+  contacts: UserContactsInput
+  gender: EnumUserGender
+  address: UserAddressInput
+
+  # Some dynamic data
+  someMixed: JSON
+  salaryDecimal: BSONDecimal
+}
+
+type UpdateByIdUserPayload {
+  # Document ID
+  recordId: MongoID
+
+  # Updated document
+  record: User
+
+  # Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.
+  error: ErrorInterface
+}
+
+#
+input UpdateByIdUserInput {
+  name: String
+  age: Float
+  languages: [UpdateByIdUserLanguagesInput]
+  contacts: UpdateByIdUserContactsInput
+  gender: EnumUserGender
+  address: UpdateByIdUserAddressInput
+
+  # Some dynamic data
+  someMixed: JSON
+  salaryDecimal: BSONDecimal
+}
+
+#
+input UpdateByIdUserLanguagesInput {
+  language: String
+  skill: EnumUserLanguagesSkill
+}
+
+#
+input UpdateByIdUserContactsInput {
+  email: String
+  phones: [String]
+}
+
+#
+input UpdateByIdUserAddressInput {
+  street: String
+  geo: [Float]
+  _id: MongoID
+}
+
+type UpdateOneUserPayload {
+  # Document ID
+  recordId: MongoID
+
+  # Updated document
+  record: User
+
+  # Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.
+  error: ErrorInterface
+}
+
+#
+input UpdateOneUserInput {
+  name: String
+  age: Float
+  languages: [UpdateOneUserLanguagesInput]
+  contacts: UpdateOneUserContactsInput
+  gender: EnumUserGender
+  address: UpdateOneUserAddressInput
+
+  # Some dynamic data
+  someMixed: JSON
+  salaryDecimal: BSONDecimal
+}
+
+#
+input UpdateOneUserLanguagesInput {
+  language: String
+  skill: EnumUserLanguagesSkill
+}
+
+#
+input UpdateOneUserContactsInput {
+  email: String
+  phones: [String]
+}
+
+#
+input UpdateOneUserAddressInput {
+  street: String
+  geo: [Float]
+  _id: MongoID
+}
+
+#
+input FilterUpdateOneUserInput {
+  name: String
+  age: Float
+  languages: [FilterUpdateOneUserLanguagesInput]
+  contacts: FilterUpdateOneUserContactsInput
+  gender: EnumUserGender
+  address: FilterUpdateOneUserAddressInput
+
+  # Some dynamic data
+  someMixed: JSON
+  salaryDecimal: BSONDecimal
+  _id: MongoID
+
+  # List of *indexed* fields that can be filtered via operators.
+  _operators: FilterUpdateOneUserOperatorsInput
+  OR: [FilterUpdateOneUserInput!]
+  AND: [FilterUpdateOneUserInput!]
+}
+
+#
+input FilterUpdateOneUserLanguagesInput {
+  language: String
+  skill: EnumUserLanguagesSkill
+}
+
+#
+input FilterUpdateOneUserContactsInput {
+  email: String
+  phones: [String]
+}
+
+#
+input FilterUpdateOneUserAddressInput {
+  street: String
+  geo: [Float]
+  _id: MongoID
+}
+
+# For performance reason this type contains only *indexed* fields.
+input FilterUpdateOneUserOperatorsInput {
+  name: FilterUpdateOneUserNameOperatorsInput
+  age: FilterUpdateOneUserAgeOperatorsInput
+  gender: FilterUpdateOneUserGenderOperatorsInput
+  salaryDecimal: FilterUpdateOneUserSalaryDecimalOperatorsInput
+  _id: FilterUpdateOneUser_idOperatorsInput
+}
+
+input FilterUpdateOneUserNameOperatorsInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+  regex: RegExpAsString
+  exists: Boolean
+}
+
+input FilterUpdateOneUserAgeOperatorsInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+  exists: Boolean
+}
+
+input FilterUpdateOneUserGenderOperatorsInput {
+  gt: EnumUserGender
+  gte: EnumUserGender
+  lt: EnumUserGender
+  lte: EnumUserGender
+  ne: EnumUserGender
+  in: [EnumUserGender]
+  nin: [EnumUserGender]
+  exists: Boolean
+}
+
+input FilterUpdateOneUserSalaryDecimalOperatorsInput {
+  gt: BSONDecimal
+  gte: BSONDecimal
+  lt: BSONDecimal
+  lte: BSONDecimal
+  ne: BSONDecimal
+  in: [BSONDecimal]
+  nin: [BSONDecimal]
+  exists: Boolean
+}
+
+input FilterUpdateOneUser_idOperatorsInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+  exists: Boolean
+}
+
+enum SortUpdateOneUserInput {
+  _ID_ASC
+  _ID_DESC
+  NAME_ASC
+  NAME_DESC
+  AGE_ASC
+  AGE_DESC
+  SALARYDECIMAL_ASC
+  SALARYDECIMAL_DESC
+  GENDER_ASC
+  GENDER_DESC
+  GENDER__AGE_ASC
+  GENDER__AGE_DESC
+}
+
+type UpdateManyUserPayload {
+  # Affected documents number
+  numAffected: Int
+
+  # Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.
+  error: ErrorInterface
+}
+
+#
+input UpdateManyUserInput {
+  name: String
+  age: Float
+  languages: [UpdateManyUserLanguagesInput]
+  contacts: UpdateManyUserContactsInput
+  gender: EnumUserGender
+  address: UpdateManyUserAddressInput
+
+  # Some dynamic data
+  someMixed: JSON
+  salaryDecimal: BSONDecimal
+}
+
+#
+input UpdateManyUserLanguagesInput {
+  language: String
+  skill: EnumUserLanguagesSkill
+}
+
+#
+input UpdateManyUserContactsInput {
+  email: String
+  phones: [String]
+}
+
+#
+input UpdateManyUserAddressInput {
+  street: String
+  geo: [Float]
+  _id: MongoID
+}
+
+#
+input FilterUpdateManyUserInput {
+  name: String
+  age: Float
+  languages: [FilterUpdateManyUserLanguagesInput]
+  contacts: FilterUpdateManyUserContactsInput
+  gender: EnumUserGender
+  address: FilterUpdateManyUserAddressInput
+
+  # Some dynamic data
+  someMixed: JSON
+  salaryDecimal: BSONDecimal
+  _id: MongoID
+
+  # List of *indexed* fields that can be filtered via operators.
+  _operators: FilterUpdateManyUserOperatorsInput
+  OR: [FilterUpdateManyUserInput!]
+  AND: [FilterUpdateManyUserInput!]
+}
+
+#
+input FilterUpdateManyUserLanguagesInput {
+  language: String
+  skill: EnumUserLanguagesSkill
+}
+
+#
+input FilterUpdateManyUserContactsInput {
+  email: String
+  phones: [String]
+}
+
+#
+input FilterUpdateManyUserAddressInput {
+  street: String
+  geo: [Float]
+  _id: MongoID
+}
+
+# For performance reason this type contains only *indexed* fields.
+input FilterUpdateManyUserOperatorsInput {
+  name: FilterUpdateManyUserNameOperatorsInput
+  age: FilterUpdateManyUserAgeOperatorsInput
+  gender: FilterUpdateManyUserGenderOperatorsInput
+  salaryDecimal: FilterUpdateManyUserSalaryDecimalOperatorsInput
+  _id: FilterUpdateManyUser_idOperatorsInput
+}
+
+input FilterUpdateManyUserNameOperatorsInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+  regex: RegExpAsString
+  exists: Boolean
+}
+
+input FilterUpdateManyUserAgeOperatorsInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+  exists: Boolean
+}
+
+input FilterUpdateManyUserGenderOperatorsInput {
+  gt: EnumUserGender
+  gte: EnumUserGender
+  lt: EnumUserGender
+  lte: EnumUserGender
+  ne: EnumUserGender
+  in: [EnumUserGender]
+  nin: [EnumUserGender]
+  exists: Boolean
+}
+
+input FilterUpdateManyUserSalaryDecimalOperatorsInput {
+  gt: BSONDecimal
+  gte: BSONDecimal
+  lt: BSONDecimal
+  lte: BSONDecimal
+  ne: BSONDecimal
+  in: [BSONDecimal]
+  nin: [BSONDecimal]
+  exists: Boolean
+}
+
+input FilterUpdateManyUser_idOperatorsInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+  exists: Boolean
+}
+
+enum SortUpdateManyUserInput {
+  _ID_ASC
+  _ID_DESC
+  NAME_ASC
+  NAME_DESC
+  AGE_ASC
+  AGE_DESC
+  SALARYDECIMAL_ASC
+  SALARYDECIMAL_DESC
+  GENDER_ASC
+  GENDER_DESC
+  GENDER__AGE_ASC
+  GENDER__AGE_DESC
+}
+
+type RemoveByIdUserPayload {
+  # Document ID
+  recordId: MongoID
+
+  # Removed document
+  record: User
+
+  # Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.
+  error: ErrorInterface
+}
+
+type RemoveOneUserPayload {
+  # Document ID
+  recordId: MongoID
+
+  # Removed document
+  record: User
+
+  # Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.
+  error: ErrorInterface
+}
+
+#
+input FilterRemoveOneUserInput {
+  name: String
+  age: Float
+  languages: [FilterRemoveOneUserLanguagesInput]
+  contacts: FilterRemoveOneUserContactsInput
+  gender: EnumUserGender
+  address: FilterRemoveOneUserAddressInput
+
+  # Some dynamic data
+  someMixed: JSON
+  salaryDecimal: BSONDecimal
+  _id: MongoID
+
+  # List of *indexed* fields that can be filtered via operators.
+  _operators: FilterRemoveOneUserOperatorsInput
+  OR: [FilterRemoveOneUserInput!]
+  AND: [FilterRemoveOneUserInput!]
+}
+
+#
+input FilterRemoveOneUserLanguagesInput {
+  language: String
+  skill: EnumUserLanguagesSkill
+}
+
+#
+input FilterRemoveOneUserContactsInput {
+  email: String
+  phones: [String]
+}
+
+#
+input FilterRemoveOneUserAddressInput {
+  street: String
+  geo: [Float]
+  _id: MongoID
+}
+
+# For performance reason this type contains only *indexed* fields.
+input FilterRemoveOneUserOperatorsInput {
+  name: FilterRemoveOneUserNameOperatorsInput
+  age: FilterRemoveOneUserAgeOperatorsInput
+  gender: FilterRemoveOneUserGenderOperatorsInput
+  salaryDecimal: FilterRemoveOneUserSalaryDecimalOperatorsInput
+  _id: FilterRemoveOneUser_idOperatorsInput
+}
+
+input FilterRemoveOneUserNameOperatorsInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+  regex: RegExpAsString
+  exists: Boolean
+}
+
+input FilterRemoveOneUserAgeOperatorsInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+  exists: Boolean
+}
+
+input FilterRemoveOneUserGenderOperatorsInput {
+  gt: EnumUserGender
+  gte: EnumUserGender
+  lt: EnumUserGender
+  lte: EnumUserGender
+  ne: EnumUserGender
+  in: [EnumUserGender]
+  nin: [EnumUserGender]
+  exists: Boolean
+}
+
+input FilterRemoveOneUserSalaryDecimalOperatorsInput {
+  gt: BSONDecimal
+  gte: BSONDecimal
+  lt: BSONDecimal
+  lte: BSONDecimal
+  ne: BSONDecimal
+  in: [BSONDecimal]
+  nin: [BSONDecimal]
+  exists: Boolean
+}
+
+input FilterRemoveOneUser_idOperatorsInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+  exists: Boolean
+}
+
+enum SortRemoveOneUserInput {
+  _ID_ASC
+  _ID_DESC
+  NAME_ASC
+  NAME_DESC
+  AGE_ASC
+  AGE_DESC
+  SALARYDECIMAL_ASC
+  SALARYDECIMAL_DESC
+  GENDER_ASC
+  GENDER_DESC
+  GENDER__AGE_ASC
+  GENDER__AGE_DESC
+}
+
+type RemoveManyUserPayload {
+  # Affected documents number
+  numAffected: Int
+
+  # Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.
+  error: ErrorInterface
+}
+
+#
+input FilterRemoveManyUserInput {
+  name: String
+  age: Float
+  languages: [FilterRemoveManyUserLanguagesInput]
+  contacts: FilterRemoveManyUserContactsInput
+  gender: EnumUserGender
+  address: FilterRemoveManyUserAddressInput
+
+  # Some dynamic data
+  someMixed: JSON
+  salaryDecimal: BSONDecimal
+  _id: MongoID
+
+  # List of *indexed* fields that can be filtered via operators.
+  _operators: FilterRemoveManyUserOperatorsInput
+  OR: [FilterRemoveManyUserInput!]
+  AND: [FilterRemoveManyUserInput!]
+}
+
+#
+input FilterRemoveManyUserLanguagesInput {
+  language: String
+  skill: EnumUserLanguagesSkill
+}
+
+#
+input FilterRemoveManyUserContactsInput {
+  email: String
+  phones: [String]
+}
+
+#
+input FilterRemoveManyUserAddressInput {
+  street: String
+  geo: [Float]
+  _id: MongoID
+}
+
+# For performance reason this type contains only *indexed* fields.
+input FilterRemoveManyUserOperatorsInput {
+  name: FilterRemoveManyUserNameOperatorsInput
+  age: FilterRemoveManyUserAgeOperatorsInput
+  gender: FilterRemoveManyUserGenderOperatorsInput
+  salaryDecimal: FilterRemoveManyUserSalaryDecimalOperatorsInput
+  _id: FilterRemoveManyUser_idOperatorsInput
+}
+
+input FilterRemoveManyUserNameOperatorsInput {
+  gt: String
+  gte: String
+  lt: String
+  lte: String
+  ne: String
+  in: [String]
+  nin: [String]
+  regex: RegExpAsString
+  exists: Boolean
+}
+
+input FilterRemoveManyUserAgeOperatorsInput {
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  ne: Float
+  in: [Float]
+  nin: [Float]
+  exists: Boolean
+}
+
+input FilterRemoveManyUserGenderOperatorsInput {
+  gt: EnumUserGender
+  gte: EnumUserGender
+  lt: EnumUserGender
+  lte: EnumUserGender
+  ne: EnumUserGender
+  in: [EnumUserGender]
+  nin: [EnumUserGender]
+  exists: Boolean
+}
+
+input FilterRemoveManyUserSalaryDecimalOperatorsInput {
+  gt: BSONDecimal
+  gte: BSONDecimal
+  lt: BSONDecimal
+  lte: BSONDecimal
+  ne: BSONDecimal
+  in: [BSONDecimal]
+  nin: [BSONDecimal]
+  exists: Boolean
+}
+
+input FilterRemoveManyUser_idOperatorsInput {
+  gt: MongoID
+  gte: MongoID
+  lt: MongoID
+  lte: MongoID
+  ne: MongoID
+  in: [MongoID]
+  nin: [MongoID]
+  exists: Boolean
+}
+
 type CreateOneProductPayload {
-  # Created document ID
+  # Document ID
   recordId: MongoID
 
   # Created document
   record: Product
+
+  # Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.
+  error: ErrorInterface
   query: Query
 }
 
@@ -2017,11 +3076,14 @@ input CreateOneProductInput {
 }
 
 type UpdateByIdProductPayload {
-  # Updated document ID
+  # Document ID
   recordId: MongoID
 
   # Updated document
   record: Product
+
+  # Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.
+  error: ErrorInterface
   query: Query
 }
 
@@ -2038,15 +3100,17 @@ input UpdateByIdProductInput {
   unitsOnOrder: Float
   reorderLevel: Float
   discontinued: Boolean
-  _id: MongoID!
 }
 
 type RemoveOneProductPayload {
-  # Removed document ID
+  # Document ID
   recordId: MongoID
 
   # Removed document
   record: Product
+
+  # Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.
+  error: ErrorInterface
   query: Query
 }
 
@@ -2064,46 +3128,33 @@ input FilterRemoveOneProductInput {
   reorderLevel: Float
   discontinued: Boolean
   _id: MongoID
-  _ids: [MongoID]
 
   # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterRemoveOneProductInput
+  _operators: FilterRemoveOneProductOperatorsInput
   OR: [FilterRemoveOneProductInput!]
   AND: [FilterRemoveOneProductInput!]
 }
 
 # For performance reason this type contains only *indexed* fields.
-input OperatorsFilterRemoveOneProductInput {
-  productID: ProductIDOperatorsFilterRemoveOneProductInput
-  name: NameOperatorsFilterRemoveOneProductInput
-  unitPrice: UnitPriceOperatorsFilterRemoveOneProductInput
-  _id: _idOperatorsFilterRemoveOneProductInput
+input FilterRemoveOneProductOperatorsInput {
+  productID: FilterRemoveOneProductProductIDOperatorsInput
+  name: FilterRemoveOneProductNameOperatorsInput
+  unitPrice: FilterRemoveOneProductUnitPriceOperatorsInput
+  _id: FilterRemoveOneProduct_idOperatorsInput
 }
 
-input ProductIDOperatorsFilterRemoveOneProductInput {
-  # Unique product id
+input FilterRemoveOneProductProductIDOperatorsInput {
   gt: Float
-
-  # Unique product id
   gte: Float
-
-  # Unique product id
   lt: Float
-
-  # Unique product id
   lte: Float
-
-  # Unique product id
   ne: Float
-
-  # Unique product id
   in: [Float]
-
-  # Unique product id
   nin: [Float]
+  exists: Boolean
 }
 
-input NameOperatorsFilterRemoveOneProductInput {
+input FilterRemoveOneProductNameOperatorsInput {
   gt: String
   gte: String
   lt: String
@@ -2111,9 +3162,11 @@ input NameOperatorsFilterRemoveOneProductInput {
   ne: String
   in: [String]
   nin: [String]
+  regex: RegExpAsString
+  exists: Boolean
 }
 
-input UnitPriceOperatorsFilterRemoveOneProductInput {
+input FilterRemoveOneProductUnitPriceOperatorsInput {
   gt: Float
   gte: Float
   lt: Float
@@ -2121,9 +3174,10 @@ input UnitPriceOperatorsFilterRemoveOneProductInput {
   ne: Float
   in: [Float]
   nin: [Float]
+  exists: Boolean
 }
 
-input _idOperatorsFilterRemoveOneProductInput {
+input FilterRemoveOneProduct_idOperatorsInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -2131,6 +3185,7 @@ input _idOperatorsFilterRemoveOneProductInput {
   ne: MongoID
   in: [MongoID]
   nin: [MongoID]
+  exists: Boolean
 }
 
 enum SortRemoveOneProductInput {
@@ -2147,11 +3202,14 @@ enum SortRemoveOneProductInput {
 }
 
 type CreateOneOrderPayload {
-  # Created document ID
+  # Document ID
   recordId: MongoID
 
   # Created document
   record: Order
+
+  # Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.
+  error: ErrorInterface
   query: Query
 }
 
@@ -2173,12 +3231,31 @@ input CreateOneOrderInput {
   details: [OrderDetailsInput]
 }
 
+input CustomerAddressInput {
+  street: String
+  city: String
+  region: String
+  postalCode: String
+  country: String
+  phone: String
+}
+
+input OrderDetailsInput {
+  productID: Float
+  unitPrice: Float
+  quantity: Float
+  discount: Float
+}
+
 type UpdateByIdOrderPayload {
-  # Updated document ID
+  # Document ID
   recordId: MongoID
 
   # Updated document
   record: Order
+
+  # Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.
+  error: ErrorInterface
   query: Query
 }
 
@@ -2194,19 +3271,39 @@ input UpdateByIdOrderInput {
   shipVia: Float
   freight: Float
   shipName: String
-  shipAddress: CustomerAddressInput
+  shipAddress: UpdateByIdCustomerAddressInput
 
   # List of ordered products
-  details: [OrderDetailsInput]
-  _id: MongoID!
+  details: [UpdateByIdOrderDetailsInput]
+}
+
+#
+input UpdateByIdCustomerAddressInput {
+  street: String
+  city: String
+  region: String
+  postalCode: String
+  country: String
+  phone: String
+}
+
+#
+input UpdateByIdOrderDetailsInput {
+  productID: Float
+  unitPrice: Float
+  quantity: Float
+  discount: Float
 }
 
 type RemoveOneOrderPayload {
-  # Removed document ID
+  # Document ID
   recordId: MongoID
 
   # Removed document
   record: Order
+
+  # Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.
+  error: ErrorInterface
   query: Query
 }
 
@@ -2222,73 +3319,54 @@ input FilterRemoveOneOrderInput {
   shipVia: Float
   freight: Float
   shipName: String
-  shipAddress: CustomerAddressInput
+  shipAddress: FilterRemoveOneCustomerAddressInput
 
   # List of ordered products
-  details: [OrderDetailsInput]
+  details: [FilterRemoveOneOrderDetailsInput]
   _id: MongoID
-  _ids: [MongoID]
 
   # List of *indexed* fields that can be filtered via operators.
-  _operators: OperatorsFilterRemoveOneOrderInput
+  _operators: FilterRemoveOneOrderOperatorsInput
   OR: [FilterRemoveOneOrderInput!]
   AND: [FilterRemoveOneOrderInput!]
 }
 
+#
+input FilterRemoveOneCustomerAddressInput {
+  street: String
+  city: String
+  region: String
+  postalCode: String
+  country: String
+  phone: String
+}
+
+#
+input FilterRemoveOneOrderDetailsInput {
+  productID: Float
+  unitPrice: Float
+  quantity: Float
+  discount: Float
+}
+
 # For performance reason this type contains only *indexed* fields.
-input OperatorsFilterRemoveOneOrderInput {
-  orderID: OrderIDOperatorsFilterRemoveOneOrderInput
-  details: DetailsOperatorsFilterRemoveOneOrderInput
-  _id: _idOperatorsFilterRemoveOneOrderInput
+input FilterRemoveOneOrderOperatorsInput {
+  orderID: FilterRemoveOneOrderOrderIDOperatorsInput
+  _id: FilterRemoveOneOrder_idOperatorsInput
 }
 
-input OrderIDOperatorsFilterRemoveOneOrderInput {
-  # Order unique ID
+input FilterRemoveOneOrderOrderIDOperatorsInput {
   gt: Float
-
-  # Order unique ID
   gte: Float
-
-  # Order unique ID
   lt: Float
-
-  # Order unique ID
   lte: Float
-
-  # Order unique ID
   ne: Float
-
-  # Order unique ID
   in: [Float]
-
-  # Order unique ID
   nin: [Float]
+  exists: Boolean
 }
 
-input DetailsOperatorsFilterRemoveOneOrderInput {
-  # List of ordered products
-  gt: OrderDetailsInput
-
-  # List of ordered products
-  gte: OrderDetailsInput
-
-  # List of ordered products
-  lt: OrderDetailsInput
-
-  # List of ordered products
-  lte: OrderDetailsInput
-
-  # List of ordered products
-  ne: OrderDetailsInput
-
-  # List of ordered products
-  in: [OrderDetailsInput]
-
-  # List of ordered products
-  nin: [OrderDetailsInput]
-}
-
-input _idOperatorsFilterRemoveOneOrderInput {
+input FilterRemoveOneOrder_idOperatorsInput {
   gt: MongoID
   gte: MongoID
   lt: MongoID
@@ -2296,6 +3374,7 @@ input _idOperatorsFilterRemoveOneOrderInput {
   ne: MongoID
   in: [MongoID]
   nin: [MongoID]
+  exists: Boolean
 }
 
 enum SortRemoveOneOrderInput {
@@ -2303,16 +3382,17 @@ enum SortRemoveOneOrderInput {
   _ID_DESC
   ORDERID_ASC
   ORDERID_DESC
-  DETAILS_ASC
-  DETAILS_DESC
 }
 
 type UpdateByIdEmployeePayload {
-  # Updated document ID
+  # Document ID
   recordId: MongoID
 
   # Updated document
   record: Employee
+
+  # Error that may occur during operation. If you request this field in GraphQL query, you will receive typed error in payload; otherwise error will be provided in root `errors` field of GraphQL response.
+  error: ErrorInterface
   query: Query
 }
 
@@ -2326,7 +3406,7 @@ input UpdateByIdEmployeeInput {
   titleOfCourtesy: String
   birthDate: Date
   hireDate: Date
-  address: CustomerAddressInput
+  address: UpdateByIdCustomerAddressInput
   notes: String
 
   # ID of chief
@@ -2334,7 +3414,6 @@ input UpdateByIdEmployeeInput {
 
   # Attached territory ID from region collection
   territoryIDs: [Float]
-  _id: MongoID!
 }
 
 type Subscription {
