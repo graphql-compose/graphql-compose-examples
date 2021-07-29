@@ -1,5 +1,6 @@
 import { Schema, model, ObjectId } from 'mongoose';
 import { composeMongoose } from 'graphql-compose-mongoose';
+import { schemaComposer } from '../schemaComposer';
 
 const LanguagesSchema = new Schema(
   {
@@ -91,7 +92,7 @@ UserSchema.index({ gender: 1, age: -1 });
 // TODO: replace any by UserDoc
 export const User = model<any>('User', UserSchema);
 
-export const UserTC = composeMongoose(User);
+export const UserTC = composeMongoose(User, { schemaComposer });
 
 UserTC.addFields({
   virtualField: {

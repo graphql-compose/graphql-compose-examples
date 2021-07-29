@@ -6,7 +6,7 @@
 // const schemaComposer1 = new SchemaComposer();
 // const schemaComposer2 = new SchemaComposer();
 
-import { schemaComposer } from 'graphql-compose';
+import { schemaComposer } from './schemaComposer';
 import { UserTC } from './models/user';
 
 // create GraphQL Schema with all available resolvers for User Type
