@@ -28,7 +28,7 @@ function renderExamplesLinks() {
       }</a></b>`;
     });
     queries.push(
-      `<b><a href="${meta.uri}-playground" target="_blank">GraphQL Playground</a> (improved GraphiQL IDE)</b>`
+      `<b><a href="${meta.uri}" target="_blank">GraphQL Playground</a> (improved GraphiQL IDE)</b>`
     );
     queries.push(
       `<b><a href="${meta.uri}-altair" target="_blank">Altair</a> (improved GraphiQL IDE)</b>`

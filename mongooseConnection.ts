@@ -4,9 +4,6 @@ import { MONGODB_URI } from './config';
 mongoose.Promise = Promise;
 
 const opts = {
-  autoReconnect: true,
-  reconnectTries: Number.MAX_VALUE,
-  reconnectInterval: 1000,
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false,
