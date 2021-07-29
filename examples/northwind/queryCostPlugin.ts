@@ -9,12 +9,12 @@ import { separateOperations, GraphQLSchema } from 'graphql';
 
 export function initQueryComplexityPlugin(opts: {
   schema: GraphQLSchema;
-  maxComplexity: number;
+  maxComplexity?: number;
 }): ApolloServerPlugin {
   return {
     requestDidStart: () => {
       let complexity = 0;
-      const maxComplexity = opts.maxComplexity || 1000;
+      const maxComplexity = opts.maxComplexity || 10000;
       return {
         didResolveOperation({ request, document }) {
           /**

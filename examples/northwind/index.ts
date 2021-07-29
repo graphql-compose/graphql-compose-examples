@@ -1,9 +1,11 @@
 import dedent from 'dedent';
 import schema from './schema';
+import { initQueryComplexityPlugin } from './queryCostPlugin';
 
 export default {
   uri: '/northwind',
   schema: schema,
+  plugins: [initQueryComplexityPlugin({ schema })],
   title: 'Northwind: complex schema with 8 models',
   description:
     'This is a sample data of some trading company, which consists from 8 models. All models has cross-relations to each other. This schema used in <b><a href="https://nodkz.github.io/relay-northwind/" target="_blank">Relay example app <span class="glyphicon glyphicon-new-window"></span></a></b>',
