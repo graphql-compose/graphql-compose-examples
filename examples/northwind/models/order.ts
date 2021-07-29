@@ -1,5 +1,6 @@
 import { Schema, model } from 'mongoose';
 import { composeMongoose } from 'graphql-compose-mongoose';
+import { schemaComposer } from '../schemaComposer';
 import { AddressSchema } from './addressSchema';
 import { customerFindOneResolver } from './customer';
 import { employeeFindOneResolver } from './employee';
@@ -46,7 +47,7 @@ export const OrderSchema: Schema<any> = new Schema(
 
 export const Order = model<any>('Order', OrderSchema);
 
-export const OrderTC = composeMongoose(Order);
+export const OrderTC = composeMongoose(Order, { schemaComposer });
 
 OrderTC.addRelation('customer', {
   resolver: () => customerFindOneResolver,

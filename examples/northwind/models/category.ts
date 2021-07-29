@@ -1,5 +1,6 @@
 import { Schema, model } from 'mongoose';
 import { composeMongoose } from 'graphql-compose-mongoose';
+import { schemaComposer } from '../schemaComposer';
 import { productConnectionResolver, productFindManyResolver } from './product';
 
 export const CategorySchema: Schema<any> = new Schema(
@@ -22,7 +23,7 @@ export const CategorySchema: Schema<any> = new Schema(
 
 export const Category = model<any>('Category', CategorySchema);
 
-export const CategoryTC = composeMongoose(Category);
+export const CategoryTC = composeMongoose(Category, { schemaComposer });
 
 CategoryTC.addRelation('productConnection', {
   resolver: () => productConnectionResolver,

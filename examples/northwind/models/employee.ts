@@ -1,5 +1,6 @@
 import { Schema, model } from 'mongoose';
 import { composeMongoose } from 'graphql-compose-mongoose';
+import { schemaComposer } from '../schemaComposer';
 import { AddressSchema } from './addressSchema';
 import { orderConnectionResolver } from './order';
 
@@ -61,7 +62,7 @@ EmployeeSchema.index(
 
 export const Employee = model<any>('Employee', EmployeeSchema);
 
-export const EmployeeTC = composeMongoose(Employee);
+export const EmployeeTC = composeMongoose(Employee, { schemaComposer });
 
 EmployeeTC.addRelation('chief', {
   resolver: () =>

@@ -1,5 +1,6 @@
 import { Schema, model } from 'mongoose';
 import { composeMongoose } from 'graphql-compose-mongoose';
+import { schemaComposer } from '../schemaComposer';
 import { AddressSchema } from './addressSchema';
 import { productConnectionResolver } from './product';
 
@@ -25,7 +26,7 @@ export const SupplierSchema: Schema<any> = new Schema(
 
 export const Supplier = model<any>('Supplier', SupplierSchema);
 
-export const SupplierTC = composeMongoose(Supplier);
+export const SupplierTC = composeMongoose(Supplier, { schemaComposer });
 
 SupplierTC.addRelation('productConnection', {
   resolver: () => productConnectionResolver,

@@ -1,5 +1,6 @@
 import { Schema, model } from 'mongoose';
 import { composeMongoose } from 'graphql-compose-mongoose';
+import { schemaComposer } from '../schemaComposer';
 import { orderConnectionResolver } from './order';
 
 export const ShipperSchema: Schema<any> = new Schema(
@@ -19,7 +20,7 @@ export const ShipperSchema: Schema<any> = new Schema(
 
 export const Shipper = model<any>('Shipper', ShipperSchema);
 
-export const ShipperTC = composeMongoose(Shipper);
+export const ShipperTC = composeMongoose(Shipper, { schemaComposer });
 
 ShipperTC.addRelation('orderConnection', {
   resolver: () => orderConnectionResolver,

@@ -1,5 +1,6 @@
 import { Schema, model } from 'mongoose';
 import { composeMongoose } from 'graphql-compose-mongoose';
+import { schemaComposer } from '../schemaComposer';
 import { employeeFindManyResolver } from './employee';
 
 export const TerritorySchema: Schema<any> = new Schema(
@@ -31,7 +32,7 @@ export const RegionSchema: Schema<any> = new Schema(
 
 export const Region = model<any>('Region', RegionSchema);
 
-export const RegionTC = composeMongoose(Region);
+export const RegionTC = composeMongoose(Region, { schemaComposer });
 
 RegionTC.addRelation('employees', {
   resolver: () => employeeFindManyResolver,

@@ -6,7 +6,7 @@
 // const schemaComposer = new SchemaComposer();
 
 import { PubSub } from 'apollo-server-express';
-import { schemaComposer } from 'graphql-compose';
+import { schemaComposer } from './schemaComposer';
 import { categoryFindManyResolver, categoryFindOneResolver } from './models/category';
 import {
   customerConnectionResolver,
@@ -169,5 +169,3 @@ schemaComposer.Subscription.addFields({
 });
 
 export default schemaComposer.buildSchema();
-
-export { schemaComposer };

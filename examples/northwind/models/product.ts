@@ -1,5 +1,6 @@
 import { Schema, model } from 'mongoose';
 import { composeMongoose } from 'graphql-compose-mongoose';
+import { schemaComposer } from '../schemaComposer';
 import { orderConnectionResolver, orderFindManyResolver } from './order';
 import { supplierFindOneResolver } from './supplier';
 import { categoryFindOneResolver } from './category';
@@ -33,7 +34,7 @@ ProductSchema.index({ name: 1, supplierID: 1 }, { unique: true });
 
 export const Product = model<any>('Product', ProductSchema);
 
-export const ProductTC = composeMongoose(Product);
+export const ProductTC = composeMongoose(Product, { schemaComposer });
 
 ProductTC.addRelation('orderConnection', {
   resolver: () => orderConnectionResolver,
