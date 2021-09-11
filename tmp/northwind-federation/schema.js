@@ -75,7 +75,6 @@ ShipperTC.setDirectives([{ name: 'key', args: { fields: '_id' } }]);
 SupplierTC.setDirectives([{ name: 'key', args: { fields: '_id' } }]);
 
 // implement `__resolveReference(reference)` methods in Resolvers
-// $FlowFixMe
 export const resolvers = schemaComposer.getResolveMethods();
 console.log(sc.get('SortConnectionProductEnum').toSDL());
 console.log(resolvers.SortConnectionProductEnum);

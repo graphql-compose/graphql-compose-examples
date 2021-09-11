@@ -30,7 +30,6 @@ for (const name of exampleNames) {
   addExample(require(resolveExamplePath(name)).default, name);
 }
 
-// $FlowFixMe
 app.get('/', (req, res) => {
   res.send(mainPage());
 });

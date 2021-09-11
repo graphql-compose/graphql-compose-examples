@@ -5,7 +5,6 @@ import { getIntrospectionQuery, printSchema } from 'graphql/utilities';
 import { getExampleNames, resolveExamplePath } from '../config';
 
 async function buildSchema(schemaPath) {
-  // $FlowFixMe
   const Schema = require(`${schemaPath}/schema`).default; // eslint-disable-line
   const result = await graphql(Schema, getIntrospectionQuery());
   if (result.errors) {
