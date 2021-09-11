@@ -22,7 +22,7 @@
     "rootDir": "./",
     "outDir": "./dist",
   },
-  "include": ["examples/**/*", "scripts/**/*"],
+  "include": ["**/*"],
   "exclude": [
     "./node_modules",
     "./dist"
