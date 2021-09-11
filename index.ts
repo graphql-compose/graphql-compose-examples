@@ -2,6 +2,7 @@
 import express from 'express';
 import cors from 'cors';
 import { ApolloServer } from 'apollo-server-express';
+import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core';
 import { altairExpress } from 'altair-express-middleware';
 import { express as voyagerMiddleware } from 'graphql-voyager/middleware';
 import http from 'http';
@@ -57,17 +58,21 @@ httpServer.listen(PORT, () => {
   );
 });
 
-function addExample(example, uri) {
+async function addExample(example, uri) {
   example.uri = `/${uri}`;
 
   const server = new ApolloServer({
     schema: example.schema,
     introspection: true,
-    playground: {
-      subscriptionEndpoint: process.env.SUBSCRIPTION_ENDPOINT || `ws://localhost:${PORT}/northwind`,
-    },
-    plugins: example.plugins,
+    plugins: [
+      ApolloServerPluginLandingPageGraphQLPlayground({
+        subscriptionEndpoint:
+          process.env.SUBSCRIPTION_ENDPOINT || `ws://localhost:${PORT}/northwind`,
+      }),
+      ...(example.plugins || []),
+    ],
   });
+  await server.start();
   server.applyMiddleware({ app: app as any, path: example.uri });
 
   app.use(

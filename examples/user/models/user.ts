@@ -85,6 +85,10 @@ export class UserDoc /* :: extends Mongoose$Document */ {
   };
 
   gender: 'male' | 'female';
+
+  address?: any;
+  someMixed?: any;
+  salaryDecimal?: any;
 }
 
 UserSchema.index({ gender: 1, age: -1 });

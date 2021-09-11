@@ -14,10 +14,7 @@ function getDBName(uri: string) {
 export async function mongoConnect(): Promise<Db & { con?: MongoClient }> {
   let db: Db & { con?: MongoClient };
   if (!db) {
-    const con = await MongoClient.connect(MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    const con = await MongoClient.connect(MONGODB_URI);
     db = con.db(getDBName(MONGODB_URI));
     db.con = con;
   }

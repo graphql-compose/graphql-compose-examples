@@ -5,22 +5,25 @@ import { MongoMemoryServer } from 'mongodb-memory-server';
 import seed from '../data/seed';
 import meta from '../index';
 
-let mongoServer;
+let mongoServer: MongoMemoryServer;
 let con;
 let db;
 beforeAll(async () => {
-  mongoServer = new MongoMemoryServer({ instance: { dbName: 'northwind' } });
-  const mongoUri = await mongoServer.getConnectionString();
-  const opts = { useNewUrlParser: true, useUnifiedTopology: true };
-  mongoose.connect(mongoUri, opts);
+  mongoServer = await MongoMemoryServer.create({
+    instance: { dbName: 'user', storageEngine: 'wiredTiger' },
+  });
+  const mongoUri = mongoServer.getUri('northwind');
+  mongoose.connect(mongoUri, { autoIndex: false });
+  con = await MongoClient.connect(mongoUri);
   mongoose.connection.once('disconnected', () => {
     console.log('MongoDB disconnected!');
   });
-  con = await MongoClient.connect(mongoUri, opts);
+  con = await MongoClient.connect(mongoUri);
   db = con.db('northwind');
   await seed(db);
-  // take time to mongo create indexes if needed
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await Promise.all(
+    mongoose.modelNames().map((m) => mongoose.models[m].ensureIndexes({ background: false }))
+  );
 });
 
 afterAll(async () => {

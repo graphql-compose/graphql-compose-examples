@@ -5,16 +5,14 @@ import { MongoMemoryServer } from 'mongodb-memory-server';
 import seed from '../data/seed';
 import meta from '../index';
 
-let mongoServer;
+let mongoServer: MongoMemoryServer;
 let con;
 let db;
 beforeAll(async () => {
-  mongoServer = new MongoMemoryServer({ instance: { dbName: 'user' } });
-  const mongoUri = await mongoServer.getConnectionString();
-  mongoose.set('useCreateIndex', true);
-  const opts = { useNewUrlParser: true, useUnifiedTopology: true };
-  mongoose.connect(mongoUri, opts);
-  con = await MongoClient.connect(mongoUri, opts);
+  mongoServer = await MongoMemoryServer.create({ instance: { dbName: 'user' } });
+  const mongoUri = mongoServer.getUri('user');
+  mongoose.connect(mongoUri);
+  con = await MongoClient.connect(mongoUri);
   db = con.db('user');
   await seed(db);
   // take time to mongo create indexes if needed

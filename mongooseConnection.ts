@@ -1,22 +1,12 @@
 import mongoose from 'mongoose';
 import { MONGODB_URI } from './config';
 
-mongoose.Promise = Promise;
-
-const opts = {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-  useUnifiedTopology: true,
-};
-
-mongoose.connect(MONGODB_URI, opts);
-
+mongoose.connect(MONGODB_URI);
 export const { connection } = mongoose;
 connection.on('error', (e) => {
   if (e.message.code === 'ETIMEDOUT') {
     console.log(e);
-    mongoose.connect(MONGODB_URI, opts);
+    mongoose.connect(MONGODB_URI);
   }
   console.log(e);
 });

@@ -12,11 +12,11 @@ export function initQueryComplexityPlugin(opts: {
   maxComplexity?: number;
 }): ApolloServerPlugin {
   return {
-    requestDidStart: () => {
+    async requestDidStart() {
       let complexity = 0;
       const maxComplexity = opts.maxComplexity || 10000;
       return {
-        didResolveOperation({ request, document }) {
+        async didResolveOperation({ request, document }) {
           /**
            * This provides GraphQL query analysis to be able to react on complex queries to your GraphQL server.
            * This can be used to protect your GraphQL servers against resource exhaustion and DoS attacks.
@@ -58,7 +58,7 @@ export function initQueryComplexityPlugin(opts: {
             );
           }
         },
-        willSendResponse({ response }) {
+        async willSendResponse({ response }) {
           response.extensions = response.extensions || {};
           response.extensions.complexity = complexity;
           response.extensions.maxComplexity = maxComplexity;

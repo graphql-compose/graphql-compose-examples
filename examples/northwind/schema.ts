@@ -5,7 +5,7 @@
 // import { SchemaComposer } from 'graphql-compose';
 // const schemaComposer = new SchemaComposer();
 
-import { PubSub } from 'apollo-server-express';
+import { PubSub } from 'graphql-subscriptions';
 import { schemaComposer } from './schemaComposer';
 import { categoryFindManyResolver, categoryFindOneResolver } from './models/category';
 import {
