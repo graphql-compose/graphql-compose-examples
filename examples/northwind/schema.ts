@@ -14,6 +14,8 @@ import {
   customerPaginationResolver,
 } from './models/customer';
 import {
+  EmployeeTC,
+  Employee,
   employeeFindOneResolver,
   employeeFindManyResolver,
   employeePaginationResolver,
@@ -30,6 +32,8 @@ import {
   orderRemoveOneResolver,
 } from './models/order';
 import {
+  ProductTC,
+  Product,
   productConnectionResolver,
   productCreateOneResolver,
   productFindManyResolver,
@@ -92,39 +96,28 @@ const fields = {
 
 ViewerTC.addFields(fields);
 
+function emitEventMW(eventName: string) {
+  return async (next, s, a, c, i) => {
+    const res = await next(s, a, c, i);
+    const _id = res?.record?._id;
+    if (_id) pubsub.publish(eventName, _id);
+    return res;
+  };
+}
+
 schemaComposer.Mutation.addFields({
   // ...allowOnlyForLocalhost({
   ...autoResetDataIn30min({
     ...addQueryToPayload({
-      createProduct: productCreateOneResolver,
-      updateProduct: productUpdateByIdResolver,
-      removeProduct: productRemoveOneResolver,
+      createProduct: productCreateOneResolver.withMiddlewares([emitEventMW('PRODUCT_CREATED')]),
+      updateProduct: productUpdateByIdResolver.withMiddlewares([emitEventMW('PRODUCT_UPDATED')]),
+      removeProduct: productRemoveOneResolver.withMiddlewares([emitEventMW('PRODUCT_REMOVED')]),
 
-      createOrder: orderCreateOneResolver.withMiddlewares([
-        async (next, s, a, c, i) => {
-          const res = await next(s, a, c, i);
-          const _id = res?.record?._id;
-          if (_id) pubsub.publish('ORDER_CREATED', _id);
-          return res;
-        },
-      ]),
-      updateOrder: orderUpdateByIdResolver.withMiddlewares([
-        async (next, s, a, c, i) => {
-          const res = await next(s, a, c, i);
-          const _id = res?.record?._id;
-          if (_id) pubsub.publish('ORDER_UPDATED', _id);
-          return res;
-        },
-      ]),
-      removeOrder: orderRemoveOneResolver.withMiddlewares([
-        async (next, s, a, c, i) => {
-          const res = await next(s, a, c, i);
-          if (res?.record?._id) pubsub.publish('ORDER_REMOVED', res?.record?._id);
-          return res;
-        },
-      ]),
+      createOrder: orderCreateOneResolver.withMiddlewares([emitEventMW('ORDER_CREATED')]),
+      updateOrder: orderUpdateByIdResolver.withMiddlewares([emitEventMW('ORDER_UPDATED')]),
+      removeOrder: orderRemoveOneResolver.withMiddlewares([emitEventMW('ORDER_REMOVED')]),
 
-      updateEmployee: employeeUpdateByIdResolver,
+      updateEmployee: employeeUpdateByIdResolver.withMiddlewares([emitEventMW('EMPLOYEE_UPDATED')]),
     }),
   }),
   resetData: {
@@ -165,6 +158,35 @@ schemaComposer.Subscription.addFields({
     type: 'MongoID',
     resolve: (_id) => _id,
     subscribe: () => pubsub.asyncIterator(['ORDER_REMOVED']),
+  },
+  productCreated: {
+    type: ProductTC,
+    resolve: (product) => product,
+    subscribe: () =>
+      FunctifiedAsync.map(pubsub.asyncIterator(['PRODUCT_CREATED']), (_id) => {
+        return Product.findById(_id);
+      }),
+  },
+  productUpdated: {
+    type: ProductTC,
+    resolve: (product) => product,
+    subscribe: () =>
+      FunctifiedAsync.map(pubsub.asyncIterator(['PRODUCT_UPDATED']), (_id) => {
+        return Product.findById(_id);
+      }),
+  },
+  productRemoved: {
+    type: 'MongoID',
+    resolve: (_id) => _id,
+    subscribe: () => pubsub.asyncIterator(['PRODUCT_REMOVED']),
+  },
+  employeeUpdated: {
+    type: EmployeeTC,
+    resolve: (employee) => employee,
+    subscribe: () =>
+      FunctifiedAsync.map(pubsub.asyncIterator(['EMPLOYEE_UPDATED']), (_id) => {
+        return Employee.findById(_id);
+      }),
   },
 });
 
