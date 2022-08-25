@@ -46,7 +46,7 @@
     "graphql-query-complexity": "0.9.0",
     "graphql-subscriptions": "^1.2.1",
     "graphql-voyager": "1.0.0-rc.31",
-    "mongoose": "6.0.5",
+    "mongoose": "6.4.6",
     "subscriptions-transport-ws": "^0.9.19",
     "ts-node": "10.2.1",
     "typescript": "4.4.3"
